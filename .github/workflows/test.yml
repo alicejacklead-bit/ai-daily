@@ -27,7 +27,7 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
           API_BASE_URL: ${{ vars.API_BASE_URL || 'https://api.deepseek.com' }}
           API_MODEL: ${{ vars.API_MODEL || 'deepseek-chat' }}
-        run: cd scripts && python main.py 2>&1 | tee ../run.log
+        run: set -o pipefail; cd scripts && python main.py 2>&1 | tee ../run.log
 
       - name: Upload results
         if: always()
