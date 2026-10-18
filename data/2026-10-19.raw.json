@@ -1,10 +1,10 @@
 {
   "date": "2026-10-19",
-  "generated_at": "2026-10-19T00:50:09.592807+08:00",
+  "generated_at": "2026-10-19T05:12:11.225684+08:00",
   "counts": {
     "papers": 30,
     "projects": 9,
-    "news": 62
+    "news": 58
   },
   "items": {
     "papers": [
@@ -560,10 +560,70 @@
     "news": [
       {
         "category": "news",
+        "title": "Hybrid Reasoning Agents: 35–55% fewer tokens and up to 2.6× faster inference",
+        "url": "https://arxiv.org/abs/2610.18861",
+        "normalized_url": "https://arxiv.org/abs/2610.18861",
+        "summary": "HN points: 16, comments: 1",
+        "source": "Hacker News",
+        "published": "2026-10-18T20:48:14Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "British Airways: Filming Crew W Meta Glasses Could Get Your Tickets Cancelled",
+        "url": "https://liveandletsfly.com/british-airways-meta-smart-glasses-filming/",
+        "normalized_url": "https://liveandletsfly.com/british-airways-meta-smart-glasses-filming",
+        "summary": "HN points: 84, comments: 138",
+        "source": "Hacker News",
+        "published": "2026-10-18T17:27:30Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Namecheap just seized and disabled all my domains",
+        "url": "https://www.reddit.com/r/sysadmin/comments/1x8cycd/namecheap_just_seized_and_disabled_all_my_domains/",
+        "normalized_url": "https://www.reddit.com/r/sysadmin/comments/1x8cycd/namecheap_just_seized_and_disabled_all_my_domains",
+        "summary": "HN points: 247, comments: 130",
+        "source": "Hacker News",
+        "published": "2026-10-18T16:56:56Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "How the Fed Is Quietly Inflating the AI Bubble While Hiking Your Electric Bill",
+        "url": "https://www.thebignewsletter.com/p/how-the-federal-reserve-secretly",
+        "normalized_url": "https://www.thebignewsletter.com/p/how-the-federal-reserve-secretly",
+        "summary": "HN points: 22, comments: 10",
+        "source": "Hacker News",
+        "published": "2026-10-18T16:48:25Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Torvalds use Claude for bottleneck fix, but race discovered",
+        "url": "https://thenewstack.io/torvalds-claude-code-kernel/",
+        "normalized_url": "https://thenewstack.io/torvalds-claude-code-kernel",
+        "summary": "HN points: 15, comments: 1",
+        "source": "Hacker News",
+        "published": "2026-10-18T16:08:48Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
         "title": "Websites are closing their doors to AI agents",
         "url": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
         "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
-        "summary": "HN points: 89, comments: 64",
+        "summary": "HN points: 128, comments: 121",
         "source": "Hacker News",
         "published": "2026-10-18T14:58:10Z",
         "importance_hint": 4,
@@ -575,7 +635,7 @@
         "title": "World Bank says 'small AI' could transform developing countries",
         "url": "https://www.theguardian.com/technology/2026/oct/18/world-bank-artificial-intelligence-developing-economies",
         "normalized_url": "https://www.theguardian.com/technology/2026/oct/18/world-bank-artificial-intelligence-developing-economies",
-        "summary": "HN points: 12, comments: 0",
+        "summary": "HN points: 16, comments: 1",
         "source": "Hacker News",
         "published": "2026-10-18T14:37:55Z",
         "importance_hint": 3,
@@ -587,7 +647,7 @@
         "title": "Anthropic's proposed AI safety bill only kicks in if 50 deaths or $1B in damages",
         "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-proposed-ai-safety-bill-only-kicks-in-if-50-deaths-or-usd1-billion-in-damages-are-on-the-line-proposal-would-effectively-make-the-commerce-department-the-only-agency-capable-of-stopping-an-ai-model",
         "normalized_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-proposed-ai-safety-bill-only-kicks-in-if-50-deaths-or-usd1-billion-in-damages-are-on-the-line-proposal-would-effectively-make-the-commerce-department-the-only-agency-capable-of-stopping-an-ai-model",
-        "summary": "HN points: 94, comments: 103",
+        "summary": "HN points: 146, comments: 159",
         "source": "Hacker News",
         "published": "2026-10-18T14:30:27Z",
         "importance_hint": 5,
@@ -596,10 +656,22 @@
       },
       {
         "category": "news",
+        "title": "Hyper Optimizing Kimi K3 in vLLM",
+        "url": "https://vllm.ai/blog/2026-10-16-kimi-k3-megakernel",
+        "normalized_url": "https://vllm.ai/blog/2026-10-16-kimi-k3-megakernel",
+        "summary": "HN points: 16, comments: 0",
+        "source": "Hacker News",
+        "published": "2026-10-18T13:08:50Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
         "title": "How Far Will AI Assistants Go for a Refund They Can't Get?",
         "url": "https://www.vals.ai/blogs/impossible-refund",
         "normalized_url": "https://www.vals.ai/blogs/impossible-refund",
-        "summary": "HN points: 34, comments: 12",
+        "summary": "HN points: 73, comments: 83",
         "source": "Hacker News",
         "published": "2026-10-18T12:22:58Z",
         "importance_hint": 3,
@@ -611,7 +683,7 @@
         "title": "The Brain Sandwich",
         "url": "https://terriblesoftware.org/2026/10/02/the-brain-sandwich/",
         "normalized_url": "https://terriblesoftware.org/2026/10/02/the-brain-sandwich",
-        "summary": "HN points: 33, comments: 11",
+        "summary": "HN points: 60, comments: 37",
         "source": "Hacker News",
         "published": "2026-10-18T11:15:37Z",
         "importance_hint": 3,
@@ -635,82 +707,10 @@
         "title": "How employment is changing at Anthropic",
         "url": "https://www.anthropic.com/research/employment-at-anthropic",
         "normalized_url": "https://www.anthropic.com/research/employment-at-anthropic",
-        "summary": "HN points: 91, comments: 171",
+        "summary": "HN points: 104, comments: 186",
         "source": "Hacker News",
         "published": "2026-10-18T10:49:26Z",
         "importance_hint": 4,
-        "focus": false,
-        "metadata": {}
-      },
-      {
-        "category": "news",
-        "title": "America's $10T AI infrastructure boom is starting to fray",
-        "url": "https://www.ft.com/content/9ea5a37d-15c9-4d5b-94d6-719048c9cd3c",
-        "normalized_url": "https://www.ft.com/content/9ea5a37d-15c9-4d5b-94d6-719048c9cd3c",
-        "summary": "HN points: 16, comments: 0",
-        "source": "Hacker News",
-        "published": "2026-10-18T06:46:50Z",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {}
-      },
-      {
-        "category": "news",
-        "title": "Show HN: Sphinx – A hook that quizzes you on your AI's code before shipping",
-        "url": "https://sphinx-six-theta.vercel.app/",
-        "normalized_url": "https://sphinx-six-theta.vercel.app",
-        "summary": "HN points: 209, comments: 69",
-        "source": "Hacker News",
-        "published": "2026-10-18T04:33:49Z",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {}
-      },
-      {
-        "category": "news",
-        "title": "Show HN: 500 clocks in one 6.3 MB HTML file by Opus 5.5",
-        "url": "https://tkgally.github.io/500-clocks/",
-        "normalized_url": "https://tkgally.github.io/500-clocks",
-        "summary": "HN points: 58, comments: 21",
-        "source": "Hacker News",
-        "published": "2026-10-18T04:04:58Z",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {}
-      },
-      {
-        "category": "news",
-        "title": "Zelensky says Musk-owned satellite system still restricted in Ukraine",
-        "url": "https://www.axios.com/2026/10/17/zelensky-starlink-elon-musk-trump",
-        "normalized_url": "https://www.axios.com/2026/10/17/zelensky-starlink-elon-musk-trump",
-        "summary": "HN points: 24, comments: 7",
-        "source": "Hacker News",
-        "published": "2026-10-17T23:56:51Z",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {}
-      },
-      {
-        "category": "news",
-        "title": "Abolish AI Manifesto",
-        "url": "https://abolish-ai.net/abolish-ai-a-manifesto/",
-        "normalized_url": "https://abolish-ai.net/abolish-ai-a-manifesto",
-        "summary": "HN points: 19, comments: 12",
-        "source": "Hacker News",
-        "published": "2026-10-17T23:23:46Z",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {}
-      },
-      {
-        "category": "news",
-        "title": "How do you deal with AI Output of your boss?",
-        "url": "https://news.ycombinator.com/item?id=50135854",
-        "normalized_url": "https://news.ycombinator.com/item?id=50135854",
-        "summary": "HN points: 12, comments: 9",
-        "source": "Hacker News",
-        "published": "2026-10-17T22:42:47Z",
-        "importance_hint": 3,
         "focus": false,
         "metadata": {}
       },
@@ -725,21 +725,7 @@
         "importance_hint": 4,
         "focus": false,
         "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
-        }
-      },
-      {
-        "category": "news",
-        "title": "有多少大作暴死在2026？",
-        "url": "https://www.36kr.com/p/4031156676366983",
-        "normalized_url": "https://www.36kr.com/p/4031156676366983",
-        "summary": "如何破局？",
-        "source": "36Kr AI",
-        "published": "2026-10-18T09:19:32+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
         }
       },
       {
@@ -753,21 +739,7 @@
         "importance_hint": 3,
         "focus": false,
         "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
-        }
-      },
-      {
-        "category": "news",
-        "title": "600亿公司总裁，59岁，要接UP主儿子的“班”",
-        "url": "https://www.36kr.com/p/4031113146175875",
-        "normalized_url": "https://www.36kr.com/p/4031113146175875",
-        "summary": "一个把职业经理人做到极致的父亲，一个白手起家的儿子，在一张工商登记表上同框。",
-        "source": "36Kr AI",
-        "published": "2026-10-18T08:43:11+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
         }
       },
       {
@@ -781,63 +753,7 @@
         "importance_hint": 4,
         "focus": false,
         "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
-        }
-      },
-      {
-        "category": "news",
-        "title": "老板们不再把钱交给VC了",
-        "url": "https://www.36kr.com/p/4031081236042116",
-        "normalized_url": "https://www.36kr.com/p/4031081236042116",
-        "summary": "家办，正在成为中国一级市场上冉冉升起的一股新势力。",
-        "source": "36Kr AI",
-        "published": "2026-10-18T07:55:27+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
-        }
-      },
-      {
-        "category": "news",
-        "title": "“不务正业”的江浙沪70后男人，狂赚老外2个亿",
-        "url": "https://www.36kr.com/p/4030990480446085",
-        "normalized_url": "https://www.36kr.com/p/4030990480446085",
-        "summary": "小圈子做到极致，也能成为大生意。",
-        "source": "36Kr AI",
-        "published": "2026-10-18T06:59:02+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
-        }
-      },
-      {
-        "category": "news",
-        "title": "还没IPO，OpenAI 600名员工已套现66亿美元",
-        "url": "https://www.36kr.com/p/4030896887387784",
-        "normalized_url": "https://www.36kr.com/p/4030896887387784",
-        "summary": "纸面财富在等钟声，而现金早就离开了大楼。",
-        "source": "36Kr AI",
-        "published": "2026-10-18T06:03:55+00:00",
-        "importance_hint": 4,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
-        }
-      },
-      {
-        "category": "news",
-        "title": "龙虾凉了，Muse凭什么火？当初天价挖人合理吗？亚历山大王最新访谈回应一切",
-        "url": "https://www.36kr.com/p/4030863615431041",
-        "normalized_url": "https://www.36kr.com/p/4030863615431041",
-        "summary": "现象级产品Muse，究竟做对了什么？",
-        "source": "36Kr AI",
-        "published": "2026-10-18T05:34:37+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
         }
       },
       {
@@ -851,7 +767,77 @@
         "importance_hint": 4,
         "focus": false,
         "metadata": {
-          "feed_url": "https://rsshub.rssforever.com/36kr/search/articles/ai"
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "4.99美元的AI医生",
+        "url": "https://www.36kr.com/p/4030675884265865",
+        "normalized_url": "https://www.36kr.com/p/4030675884265865",
+        "summary": "AI 开处方了，出了事谁负责？",
+        "source": "36Kr AI",
+        "published": "2026-10-18T02:05:48+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "动辄千集的AI短剧，越长越赚钱？",
+        "url": "https://www.36kr.com/p/4030064430684039",
+        "normalized_url": "https://www.36kr.com/p/4030064430684039",
+        "summary": "单季爆款收入约百万。",
+        "source": "36Kr AI",
+        "published": "2026-10-18T00:47:11+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI 带来的效率，可能会毁掉下一代专业人才",
+        "url": "https://www.36kr.com/p/3987041583676160",
+        "normalized_url": "https://www.36kr.com/p/3987041583676160",
+        "summary": "我们需要刻意保留人工操作。",
+        "source": "36Kr AI",
+        "published": "2026-10-18T00:30:17+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "路由的威力：AI的长尾博弈里谁能通吃？",
+        "url": "https://www.36kr.com/p/3993327066151944",
+        "normalized_url": "https://www.36kr.com/p/3993327066151944",
+        "summary": "“专用智能”之死：中心化路由器平台怎么会比本地部署还要经济。",
+        "source": "36Kr AI",
+        "published": "2026-10-18T00:00:52+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+        "url": "https://www.qbitai.com/2026/10/504136.html",
+        "normalized_url": "https://www.qbitai.com/2026/10/504136.html",
+        "summary": "让人人都能自由创造并体验可交互世界",
+        "source": "量子位",
+        "published": "2026-10-18T11:49:49+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
         }
       },
       {
@@ -926,10 +912,24 @@
       },
       {
         "category": "news",
+        "title": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+        "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
+        "normalized_url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund",
+        "summary": "Anthropic said that it will commit 5% of its shares to the fund.",
+        "source": "TechCrunch AI",
+        "published": "2026-10-18T20:37:40+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
         "title": "Disney agrees to hire the majority of Character.AI’s workforce",
         "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
         "normalized_url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce",
-        "summary": "After chatbot startup Character.AI filed for bankruptcy earlier this week, many of its employees will have the opportunity to take jobs at Disney. Character.AI’s former CEO Karandeep Anand recently became the entertainment giant’s first CTO, and the startup previously said that Disney had agreed to acquire some of its assets for $20 million. A legal […]",
+        "summary": "The filing also says that the “vast majority” of Character.AI employees who were offered jobs at Disney accepted them. However, this is a stalking horse bid, so another company could come forward with a higher offer.",
         "source": "TechCrunch AI",
         "published": "2026-10-18T16:30:00+00:00",
         "importance_hint": 3,
@@ -954,30 +954,16 @@
       },
       {
         "category": "news",
-        "title": "Anthropic says its workforce has become less junior and is spending more time in meetings",
-        "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
-        "normalized_url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings",
-        "summary": "The composition of Anthropic’s workforce and the type of work getting done have changed significantly in the past year.",
-        "source": "TechCrunch AI",
-        "published": "2026-10-17T20:21:19+00:00",
-        "importance_hint": 4,
+        "title": "A woman was arrested in Philly for blocking a delivery robot",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1013541/a-woman-was-arrested-in-philly-for-blocking-a-delivery-robot",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1013541/a-woman-was-arrested-in-philly-for-blocking-a-delivery-robot",
+        "summary": "Carolyn Marvin was arrested and charged with disorderly conduct after blocking the path of an Uber delivery robot and refusing to get out of the way. Marvin told Philadelphia's ABC13 \"I know they're taking the jobs of human delivery workers and so, I have been protesting them whenever I saw them by standing in front […]",
+        "source": "The Verge AI",
+        "published": "2026-10-18T18:28:10+00:00",
+        "importance_hint": 3,
         "focus": false,
         "metadata": {
-          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
-        }
-      },
-      {
-        "category": "news",
-        "title": "Replit makes OpenAI its default over Anthropic, CEO says",
-        "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
-        "normalized_url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says",
-        "summary": "Over the weekend, Masad clarified that OpenAI would replace Anthropic as its default model provider. Claude will still be available to customers on the platform.",
-        "source": "TechCrunch AI",
-        "published": "2026-10-17T18:48:08+00:00",
-        "importance_hint": 5,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
         }
       },
       {
@@ -1094,6 +1080,20 @@
       },
       {
         "category": "news",
+        "title": "TinyFish Makes Search Free: What It Really Costs an AI Agent to Read the Web",
+        "url": "https://www.marktechpost.com/2026/10/18/tinyfish-free-search-ai-agent-token-cost/",
+        "normalized_url": "https://www.marktechpost.com/2026/10/18/tinyfish-free-search-ai-agent-token-cost",
+        "summary": "An AI agent that reads the web pays 2 kinds of cost. The first is the retrieval charge: what a search or fetch API bills per request. The second is model processing: content passed from retrieved pages into an AI model consumes tokens, while reasoning and generated responses add further costs. TinyFish, a web infrastructure […] The post TinyFish Makes Search Free: What It Really Costs an AI Agent to Read the Web appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-10-18T18:20:28+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
         "title": "Google Open-Sources Harness2, a Recursive Agent Harnessing Framework",
         "url": "https://www.marktechpost.com/2026/10/18/google-harness2-recursive-agent-harnessing-framework/",
         "normalized_url": "https://www.marktechpost.com/2026/10/18/google-harness2-recursive-agent-harnessing-framework",
@@ -1136,34 +1136,6 @@
       },
       {
         "category": "news",
-        "title": "Meet Kyutai REKI: The 2.4B VLA Model Bringing Efficient Memory to Robot Manipulation",
-        "url": "https://www.marktechpost.com/2026/10/17/meet-kyutai-reki-the-2-4b-vla-model-bringing-efficient-memory-to-robot-manipulation/",
-        "normalized_url": "https://www.marktechpost.com/2026/10/17/meet-kyutai-reki-the-2-4b-vla-model-bringing-efficient-memory-to-robot-manipulation",
-        "summary": "Kyutai, with Inria and École des Ponts, has released REKI, a 2.4B vision-language-action model (VLA) for robot manipulation. The REKI vision-language-action model is pretrained only on public data. It also carries a cheap memory of its recent past. On three out-of-distribution benchmarks, only models about twice its size beat it. All weights are live on […] The post Meet Kyutai REKI: The 2.4B VLA Model Bringing Efficient Memory to Robot Manipulation appeared first on MarkTechPost .",
-        "source": "MarkTechPost",
-        "published": "2026-10-17T20:22:11+00:00",
-        "importance_hint": 4,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://www.marktechpost.com/feed/"
-        }
-      },
-      {
-        "category": "news",
-        "title": "Inline rendering with document​.currentScript",
-        "url": "https://simonwillison.net/2026/Oct/17/document-currentscript/",
-        "normalized_url": "https://simonwillison.net/2026/Oct/17/document-currentscript",
-        "summary": "Inline rendering with document​.currentScript Lean Rada describes a neat trick that takes advantage of the document.currentScript property. You can use that to drop in a tiny inline element that replaces itself when the page loads: The year is document.currentScript.replaceWith( new Date().getFullYear()) If you define a shortcut function like this: $=(...n)=>document.currentScript.replaceWith(...n) You get a tiny template language: The year is $(new Date().getFullYear()) Tags: javascript",
-        "source": "Simon Willison",
-        "published": "2026-10-17T21:11:12+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://simonwillison.net/atom/everything/"
-        }
-      },
-      {
-        "category": "news",
         "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
         "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
         "normalized_url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
@@ -1185,20 +1157,6 @@
         "source": "Hugging Face Blog",
         "published": "2026-10-16T00:00:00+00:00",
         "importance_hint": 4,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://huggingface.co/blog/feed.xml"
-        }
-      },
-      {
-        "category": "news",
-        "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
-        "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
-        "normalized_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
-        "summary": "",
-        "source": "Hugging Face Blog",
-        "published": "2026-10-15T20:34:01+00:00",
-        "importance_hint": 3,
         "focus": false,
         "metadata": {
           "feed_url": "https://huggingface.co/blog/feed.xml"
@@ -1248,34 +1206,6 @@
       },
       {
         "category": "news",
-        "title": "Bringing GPT-Rosalind to academic research labs",
-        "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-        "normalized_url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-        "summary": "Introducing the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools to advance life sciences research.",
-        "source": "OpenAI",
-        "published": "2026-10-15T19:00:00+00:00",
-        "importance_hint": 4,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://openai.com/news/rss.xml"
-        }
-      },
-      {
-        "category": "news",
-        "title": "Opencode breached, rotate keys to be safe.",
-        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8gtvs/opencode_breached_rotate_keys_to_be_safe/",
-        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8gtvs/opencode_breached_rotate_keys_to_be_safe",
-        "summary": "Details are developing… submitted by /u/chemist_slime [link] [comments]",
-        "source": "r/LocalLLaMA",
-        "published": "2026-10-17T18:02:37+00:00",
-        "importance_hint": 3,
-        "focus": false,
-        "metadata": {
-          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
-        }
-      },
-      {
-        "category": "news",
         "title": "You don’t need that expensive of a build for local llms.",
         "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8s73i/you_dont_need_that_expensive_of_a_build_for_local/",
         "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8s73i/you_dont_need_that_expensive_of_a_build_for_local",
@@ -1304,6 +1234,20 @@
       },
       {
         "category": "news",
+        "title": "DeepSeek v4.1 Flash 1017 for Dwarfstar (ds4)",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8tr2c/deepseek_v41_flash_1017_for_dwarfstar_ds4/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8tr2c/deepseek_v41_flash_1017_for_dwarfstar_ds4",
+        "summary": "Hey y'all, just following up on my PR to get the new vision tower for 1017 working in ds4 with the quant I promised (the language model loads already, but vision needed my PR). I built to the exact same recipe antirez used for his original DS4.1 Q2: 2-bit routed experts with 8-bit or higher for everything else, combined with the original FP8 engram table. This worked well for the original DS4.1, and initial testing looks good here too. The imatrix is built from 1017, not the original checkpoint.",
+        "source": "r/LocalLLaMA",
+        "published": "2026-10-18T04:12:24+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
         "title": "2 gaming PCs + an M4 Pro MacBook over Ethernet + 2 iPhone 17 Pro Maxes over USB-C: Qwen3.8 Flash Next at 37-39 tok/s at 60k context (262k layout in the works)",
         "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8ley0/2_gaming_pcs_an_m4_pro_macbook_over_ethernet_2/",
         "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8ley0/2_gaming_pcs_an_m4_pro_macbook_over_ethernet_2",
@@ -1318,12 +1262,12 @@
       },
       {
         "category": "news",
-        "title": "DeepSeek v4.1 Flash 1017 for Dwarfstar (ds4)",
-        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8tr2c/deepseek_v41_flash_1017_for_dwarfstar_ds4/",
-        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8tr2c/deepseek_v41_flash_1017_for_dwarfstar_ds4",
-        "summary": "Hey y'all, just following up on my PR to get the new vision tower for 1017 working in ds4 with the quant I promised (the language model loads already, but vision needed my PR). I built to the exact same recipe antirez used for his original DS4.1 Q2: 2-bit routed experts with 8-bit or higher for everything else, combined with the original FP8 engram table. This worked well for the original DS4.1, and initial testing looks good here too. The imatrix is built from 1017, not the original checkpoint.",
+        "title": "told Qwen3.8 27b to hack my router",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8wmbp/told_qwen38_27b_to_hack_my_router/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8wmbp/told_qwen38_27b_to_hack_my_router",
+        "summary": "i wanted to change my router firmware to openwrt and so i told claude to do it but of course the guard blocked me even opus 4.8 didn't want to do it , so i launched my Qwen3.8 27b and told it the same thing i gave it the link to the giude page and it did change the firmware perfectly the thing is this is the normal model it's not ablitreated, do you think that cyber will be guarded in future qwen models ? PS: even tho this is not the point it didn't do a simple flash it changed the firmware from",
         "source": "r/LocalLLaMA",
-        "published": "2026-10-18T04:12:24+00:00",
+        "published": "2026-10-18T07:02:09+00:00",
         "importance_hint": 4,
         "focus": false,
         "metadata": {
@@ -1346,26 +1290,26 @@
       },
       {
         "category": "news",
-        "title": "Fish Audio Drama 3 says it needs a 48 GB NVIDIA card. My 16 GB Radeon disagrees.",
-        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8kces/fish_audio_drama_3_says_it_needs_a_48_gb_nvidia/",
-        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8kces/fish_audio_drama_3_says_it_needs_a_48_gb_nvidia",
-        "summary": "Drama 3 officially needs an NVIDIA GPU with 48 GB. I wanted it on my RX 9070, so I built Red Curtain together with Claude. How it works: it's a 35B MoE with ~3B active per token. The FP8 experts (~32 GB) stay in system RAM and only the ones that actually get used are cached on the GPU. Everything else runs in BF16 on the card. Numbers on my machine: - load ~17 s - 3.3 s of speech in ~13 s, 11.6 s in ~37 s - ~11–12 GB VRAM, ~35 GB RAM So it's slower than realtime, but fine for short takes. Comes ",
+        "title": "What are the odds Qwen 4 models are going to think less?",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8uqig/what_are_the_odds_qwen_4_models_are_going_to/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8uqig/what_are_the_odds_qwen_4_models_are_going_to",
+        "summary": "Qwen4s are hopefully coming pre-Xmas… there was all the announcements recently but no exact release date. I’m running qwen flash next 3.8 at about 28tokens per second and gotta be real, most of those go into thinking. Thinking less with the same or higher intelligence would be the biggest upgrade I could think of regardless of hardware or inference smarts. submitted by /u/turtleninja99 [link] [comments]",
         "source": "r/LocalLLaMA",
-        "published": "2026-10-17T20:27:46+00:00",
-        "importance_hint": 5,
-        "focus": true,
+        "published": "2026-10-18T05:09:25+00:00",
+        "importance_hint": 4,
+        "focus": false,
         "metadata": {
           "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
         }
       },
       {
         "category": "news",
-        "title": "told Qwen3.8 27b to hack my router",
-        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8wmbp/told_qwen38_27b_to_hack_my_router/",
-        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8wmbp/told_qwen38_27b_to_hack_my_router",
-        "summary": "i wanted to change my router firmware to openwrt and so i told claude to do it but of course the guard blocked me even opus 4.8 didn't want to do it , so i launched my Qwen3.8 27b and told it the same thing i gave it the link to the giude page and it did change the firmware perfectly the thing is this is the normal model it's not ablitreated, do you think that cyber will be guarded in future qwen models ? PS: even tho this is not the point it didn't do a simple flash it changed the firmware from",
+        "title": "if you're on Strata before 0.1.45 and your client doesn't set sampling, you're running greedy",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8lwa1/if_youre_on_strata_before_0145_and_your_client/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x8lwa1/if_youre_on_strata_before_0145_and_your_client",
+        "summary": "Two things I ran into while moving my Strata setup from IQ2_XS to Unsloth's UD-IQ4_XS (RTX 4090, i9-14900K, 64GB DDR5-5800, Arch). 1. Greedy sampling on older builds Before Strata 0.1.45, a run config without a `sampling` block decoded greedy whenever the request didn't set its own temperature. Greedy is what makes these models loop. 0.1.45 fixed this upstream (#2685). A request with no sampling now gets the model card's values: - Thinking: temp 1.0, top_p 0.95, top_k 20 - Non-thinking: temp 0.7",
         "source": "r/LocalLLaMA",
-        "published": "2026-10-18T07:02:09+00:00",
+        "published": "2026-10-17T21:34:49+00:00",
         "importance_hint": 4,
         "focus": false,
         "metadata": {
