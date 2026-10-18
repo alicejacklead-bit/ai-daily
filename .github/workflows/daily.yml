@@ -1,7 +1,7 @@
 name: AI Daily Digest
 
 on:
-  # 测试阶段：只允许手动触发。测试通过后再加外部定时（cron-job.org，北京时间 06:40 触发，07:00 前出刊）。
+  schedule: [{cron: '0 19 * * *'}]  # UTC 19:00 = 北京 03:00，GitHub 延迟后约 06-07 点出刊
   workflow_dispatch:
 
 jobs:
