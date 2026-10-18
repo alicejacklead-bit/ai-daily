@@ -18,14 +18,28 @@ from generate_site import parse_digest, WEEKDAYS
 # News-anchor style zh voice; override with AUDIO_VOICE if desired.
 DEFAULT_VOICE = "zh-CN-YunyangNeural"
 
-NARRATION_SYSTEM = """你是一档 AI 行业每日播客的主播，要把书面简报改写成自然、口语化的播报稿，供听众在通勤路上收听。
+PODCAST_NAME = "Andy 的 AI 早报"
+
+# 中文男声新闻播音腔约每分钟 270 字：3000-4000 字 ≈ 11-15 分钟。
+MIN_SCRIPT_CHARS = 2800
+
+NARRATION_SYSTEM = f"""你是播客《{PODCAST_NAME}》的男主播，要把书面简报改写成口播稿，供听众在通勤路上收听。
+听众是 AI 行业从业者，关心 AI 视频生成、图像生成、模型 API 与定价、AI Agent、AI 创作工具。
+
+结构：
+1. 开场：问候，报出日期，用三四句话预告今天最重要的三件事。
+2. 重点深讲：挑 4-6 条最重要的（优先关注赛道），每条讲清楚三层：发生了什么、为什么重要、对从业者意味着什么（结合简报里的"应用价值"）。
+3. 快讯：其余条目按主题合并，快速带过，每条一两句。
+4. 今日观察：展开讲趋势判断。
+5. 商业机会和研究建议：用聊天的语气讲出来，说清楚依据是哪条新闻。
+6. 收尾：一句话总结，然后道别，"我们明天见"。
 
 要求：
-1. 纯口语，像电台主播在讲话，不要任何 Markdown、星号、链接、"来源"、"重要性 五星" 这类书面元素。
-2. 开头一句问候并报出日期，再用一两句话概括今天的看点；中间按主题自然串讲重点条目（不要逐条机械念，可合并同类、加入过渡词）；结尾用"今日观察"作为总结性的收尾，并道别（如"我们明天见"）。
-3. 专有名词（公司名、模型名等）保留英文原文，其余用中文；数字、英文缩写要写成适合朗读的形式。
-4. 控制在 600-1000 字，节奏明快，信息密度适中，适合 4-6 分钟收听。
-5. 只输出播报稿正文，不要加任何标题、小节名或解释。"""
+- 纯口语，不要 Markdown、星号、链接、"来源"、"重要性五星"这类书面元素。
+- 用过渡词串联，不要逐条机械念。
+- 专有名词保留英文；数字、英文缩写写成适合朗读的形式。
+- 总长度 3000-4000 字（约 11-15 分钟）。宁可在重点条目上多讲背景和影响，也不要不够长。
+- 只输出播报稿正文，不要标题、小节名或解释。"""
 
 
 def _deepseek_script(zh_markdown: str, date_str: str) -> str | None:
@@ -52,12 +66,39 @@ def _deepseek_script(zh_markdown: str, date_str: str) -> str | None:
                         f"今天是 {date_str}。请把下面的简报改写成播报稿：\n\n{zh_markdown}"},
                 ],
                 "temperature": 0.6,
-                "max_tokens": 3000,
+                "max_tokens": 8000,
             },
             timeout=180,
         )
         resp.raise_for_status()
         text = resp.json()["choices"][0]["message"]["content"].strip()
+        if text and len(text) < MIN_SCRIPT_CHARS:
+            print(f"[audio] Script only {len(text)} chars; asking for a longer version...")
+            resp2 = requests.post(
+                f"{base_url}/chat/completions",
+                headers={"Authorization": f"Bearer {api_key}",
+                         "Content-Type": "application/json"},
+                json={
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": NARRATION_SYSTEM},
+                        {"role": "user", "content":
+                            f"今天是 {date_str}。请把下面的简报改写成播报稿：\n\n{zh_markdown}"},
+                        {"role": "assistant", "content": text},
+                        {"role": "user", "content":
+                            f"这版只有 {len(text)} 字，太短了。请重写完整的一版，扩到 3000-4000 字："
+                            "重点条目多讲背景、影响和对从业者的意义，商业机会和研究建议讲具体。只输出新稿。"},
+                    ],
+                    "temperature": 0.6,
+                    "max_tokens": 8000,
+                },
+                timeout=240,
+            )
+            resp2.raise_for_status()
+            longer = resp2.json()["choices"][0]["message"]["content"].strip()
+            if len(longer) > len(text):
+                text = longer
+        print(f"[audio] Narration script: {len(text)} chars")
         return text or None
     except Exception as e:  # network / API hiccup → fall back, never block audio
         print(f"[audio] DeepSeek narration failed ({e}); using deterministic script.")
@@ -75,7 +116,7 @@ def _weekday(date_str: str) -> str:
 def _fallback_script(zh_markdown: str, date_str: str) -> str:
     """Deterministic spoken script built from the parsed digest (no LLM)."""
     digest = parse_digest(zh_markdown)
-    parts = [f"AI 每日简报，{_weekday(date_str)}，{date_str}。以下是今天的重点。"]
+    parts = [f"{PODCAST_NAME}，{_weekday(date_str)}，{date_str}。以下是今天的重点。"]
     for cat in digest["categories"]:
         items = cat["items"]
         if not items:
@@ -88,7 +129,9 @@ def _fallback_script(zh_markdown: str, date_str: str) -> str:
             parts.append(line.rstrip("。") + "。")
     if digest["observation"]:
         parts.append("今日观察。" + digest["observation"])
-    parts.append("以上就是今天的 AI 简报，我们明天见。")
+    for name, lines in digest.get("insights", []):
+        parts.append(name + "。" + "。".join(l.rstrip("。") for l in lines) + "。")
+    parts.append(f"以上就是今天的{PODCAST_NAME}，我们明天见。")
     return "\n".join(parts)
 
 

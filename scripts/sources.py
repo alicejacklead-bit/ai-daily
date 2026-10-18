@@ -27,6 +27,25 @@ HIGH_SIGNAL_KEYWORDS = [
     "多模态", "安全", "芯片",
 ]
 
+# 关注赛道：命中的条目会提高重要性提示，并在送给模型时标注 [关注赛道]。
+# 只写赛道、不写具体公司名（仓库是公开的）。
+FOCUS_KEYWORDS = [
+    # AI 视频生成
+    "video generation", "text-to-video", "image-to-video", "video model", "ai video",
+    "视频生成", "文生视频", "图生视频", "视频模型", "ai视频", "ai 视频",
+    # 图像生成
+    "image generation", "text-to-image", "image model", "图像生成", "文生图", "生图",
+    # 模型 API 与定价
+    "api pricing", "price cut", "pricing", "per token", "rate limit", "inference cost",
+    "api", "定价", "降价", "价格", "调用", "推理成本",
+    # AI Agent
+    "agent", "agentic", "智能体",
+    # AI 创作工具
+    "creative tool", "creator", "editing", "storyboard", "创作", "剪辑", "分镜",
+    # 多模态模型
+    "multimodal", "omni", "多模态",
+]
+
 TRACKING_PARAMS = {"utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"}
 
 
@@ -61,6 +80,20 @@ def normalize_title(title):
     return re.sub(r"\W+", "", (title or "").lower())
 
 
+_FOCUS_RE = re.compile(
+    "|".join(
+        (r"\b" + re.escape(k) + r"\b") if k.isascii() else re.escape(k)
+        for k in FOCUS_KEYWORDS
+    ),
+    re.IGNORECASE,
+)
+
+
+def is_focus(title, summary=""):
+    """命中关注赛道。英文按词边界匹配，避免 api 命中 capital 这类误判。"""
+    return bool(_FOCUS_RE.search(f"{title} {summary}"))
+
+
 def estimate_importance(category, title, summary, source):
     """Give the model a transparent first-pass signal without replacing editorial judgment."""
     text = f"{title} {summary} {source}".lower()
@@ -71,6 +104,8 @@ def estimate_importance(category, title, summary, source):
     if any(keyword in text for keyword in HIGH_SIGNAL_KEYWORDS):
         score += 1
     if any(name in text for name in ["openai", "anthropic", "google", "deepmind", "meta", "microsoft", "nvidia"]):
+        score += 1
+    if is_focus(title, summary):
         score += 1
 
     return max(1, min(5, score))
@@ -87,6 +122,7 @@ def make_item(category, title, url, summary, source, published=None, metadata=No
         "source": source,
         "published": published,
         "importance_hint": estimate_importance(category, title, cleaned_summary, source),
+        "focus": is_focus(title, cleaned_summary),
         "metadata": metadata or {},
     }
 
@@ -235,14 +271,14 @@ def fetch_github_trending_page(period="daily"):
     return items
 
 
-def fetch_rss_feed(feed_url, source_name, max_items=10, cutoff_days=2):
+def fetch_rss_feed(feed_url, source_name, max_items=10, cutoff_hours=24):
     """Generic RSS feed fetcher."""
     items = []
     try:
         resp = requests.get(feed_url, headers=BROWSER_HEADERS, timeout=20)
         resp.raise_for_status()
         feed = feedparser.parse(resp.content)
-        cutoff = datetime.now(timezone.utc) - timedelta(days=cutoff_days)
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=cutoff_hours)
         # Scan a generous window so high-volume feeds (HF/OpenAI blogs with
         # hundreds of entries) still get correctly date-filtered.
         for entry in feed.entries[:max(max_items * 3, 40)]:
@@ -253,7 +289,8 @@ def fetch_rss_feed(feed_url, source_name, max_items=10, cutoff_days=2):
                     continue
                 published_at = entry_date.isoformat()
             else:
-                published_at = None
+                # 没有发布时间就无法核实是否在时间窗内，宁缺毋滥
+                continue
             items.append(make_item(
                 category="news",
                 title=entry.get("title", ""),
@@ -284,7 +321,7 @@ def fetch_arxiv(max_items=12, cutoff_days=2):
         resp = requests.get(query, headers=BROWSER_HEADERS, timeout=30)
         resp.raise_for_status()
         feed = feedparser.parse(resp.content)
-        cutoff = datetime.now(timezone.utc) - timedelta(days=cutoff_days)
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=cutoff_hours)
         for entry in feed.entries:
             published = entry.get("published_parsed") or entry.get("updated_parsed")
             published_at = None
@@ -361,45 +398,49 @@ def rsshub(path):
     return [instance + path for instance in RSSHUB_INSTANCES]
 
 
-# RSS sources format: (url_or_url_list, name, max_items, cutoff_days)
+# RSS sources format: (url_or_url_list, name, max_items, cutoff_hours)
 # url may be a list of fallback URLs; the first that yields items is used.
-# cutoff_days=3 for daily news, 7-14 for less frequent newsletters/blogs.
+# 新闻类严格 24 小时；官方博客 / 周更 Newsletter 放宽到 72 小时，
+# 重复由 main.py 的跨天去重兜底。
+NEWS_H = 24
+SLOW_H = 72
 RSS_SOURCES = [
     # ── 中文 AI 媒体 ─────────────────────────────────────────────────────────
-    (rsshub("/36kr/search/articles/ai"),                             "36Kr AI",    10, 3),
-    ("https://www.qbitai.com/rss",                                   "量子位",     10, 3),
-    ("https://www.infoq.cn/feed.xml",                                "InfoQ 中文",  8,  3),
-    (rsshub("/sspai/tag/AI"),                                        "SSPAI AI",   8,  3),
+    (rsshub("/36kr/search/articles/ai"),                             "36Kr AI",    10, NEWS_H),
+    ("https://www.qbitai.com/rss",                                   "量子位",     10, NEWS_H),
+    ("https://www.infoq.cn/feed.xml",                                "InfoQ 中文",  8, NEWS_H),
+    (rsshub("/sspai/tag/AI"),                                        "SSPAI AI",   8, NEWS_H),
 
     # ── 英文科技媒体 ─────────────────────────────────────────────────────────
-    ("https://venturebeat.com/feed/",                                "VentureBeat",       8, 3),
-    ("https://techcrunch.com/category/artificial-intelligence/feed/","TechCrunch AI",    10, 3),
-    ("https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "The Verge AI",10, 3),
-    ("https://www.wired.com/feed/tag/ai/latest/rss",                 "Wired AI",          8, 3),
-    ("https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss", "IEEE Spectrum AI", 8, 3),
-    ("https://feeds.arstechnica.com/arstechnica/technology-lab",     "Ars Technica AI",   8, 3),
+    ("https://venturebeat.com/feed/",                                "VentureBeat",      8, NEWS_H),
+    ("https://techcrunch.com/category/artificial-intelligence/feed/","TechCrunch AI",   10, NEWS_H),
+    ("https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "The Verge AI",10, NEWS_H),
+    ("https://www.wired.com/feed/tag/ai/latest/rss",                 "Wired AI",         8, NEWS_H),
+    ("https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss", "IEEE Spectrum AI", 8, NEWS_H),
+    ("https://feeds.arstechnica.com/arstechnica/technology-lab",     "Ars Technica AI",  8, NEWS_H),
 
-    # ── AI 垂直媒体 / 个人博客（模型与研究发布的第一落点）────────────────────
-    ("https://the-decoder.com/feed/",                                "The Decoder",   12, 3),
-    ("https://www.marktechpost.com/feed/",                           "MarkTechPost",  12, 3),
-    ("https://simonwillison.net/atom/everything/",                   "Simon Willison", 8, 4),
+    # ── AI 垂直媒体 / 个人博客 ───────────────────────────────────────────────
+    ("https://the-decoder.com/feed/",                                "The Decoder",     12, NEWS_H),
+    ("https://www.marktechpost.com/feed/",                           "MarkTechPost",    12, NEWS_H),
+    ("https://simonwillison.net/atom/everything/",                   "Simon Willison",   8, NEWS_H),
 
-    # ── 官方实验室博客（低频，回溯更久以免错过发布）──────────────────────────
-    ("https://huggingface.co/blog/feed.xml",                         "Hugging Face Blog", 6, 7),
-    ("https://deepmind.google/blog/rss.xml",                         "Google DeepMind",   6, 10),
-    ("https://blog.google/technology/ai/rss/",                       "Google AI Blog",    6, 10),
-    ("https://openai.com/news/rss.xml",                              "OpenAI",            6, 10),
+    # ── 官方实验室博客（低频，放宽到 72 小时）────────────────────────────────
+    ("https://huggingface.co/blog/feed.xml",                         "Hugging Face Blog", 6, SLOW_H),
+    ("https://deepmind.google/blog/rss.xml",                         "Google DeepMind",   6, SLOW_H),
+    ("https://blog.google/technology/ai/rss/",                       "Google AI Blog",    6, SLOW_H),
+    ("https://openai.com/news/rss.xml",                              "OpenAI",            6, SLOW_H),
 
-    # ── AI 圈讨论聚合（含 Twitter/X 大佬发言，由聚合源每天消化）──────────────
-    ("https://news.smol.ai/rss.xml",                                 "smol.ai AINews",    5, 3),
-    ("https://tldr.tech/api/rss/ai",                                 "TLDR AI",           6, 3),
+    # ── AI 圈讨论聚合 ────────────────────────────────────────────────────────
+    ("https://news.smol.ai/rss.xml",                                 "smol.ai AINews",    5, NEWS_H),
+    ("https://tldr.tech/api/rss/ai",                                 "TLDR AI",           6, NEWS_H),
 
     # ── 社区（best-effort，云端 IP 可能被限流，失败自动跳过）─────────────────
-    ("https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",           "r/LocalLLaMA",      8, 2),
+    ("https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",           "r/LocalLLaMA",      8, NEWS_H),
+    ("https://www.reddit.com/r/aivideo/top/.rss?t=day",              "r/aivideo",         6, NEWS_H),
 
-    # ── AI 研究者 Newsletter（更新较疏，回溯 14 天）──────────────────────────
-    ("https://www.oneusefulthing.org/feed",   "One Useful Thing (Mollick)", 5, 14),
-    ("https://www.lennysnewsletter.com/feed", "Lenny's Newsletter",         5, 14),
+    # ── 周更 Newsletter（放宽到 72 小时）─────────────────────────────────────
+    ("https://www.oneusefulthing.org/feed",   "One Useful Thing (Mollick)", 5, SLOW_H),
+    ("https://www.lennysnewsletter.com/feed", "Lenny's Newsletter",         5, SLOW_H),
 ]
 
 
@@ -431,11 +472,11 @@ def fetch_all():
 
     print("Fetching RSS feeds...")
     news = list(hn_items)
-    for url, name, max_items, cutoff_days in RSS_SOURCES:
+    for url, name, max_items, cutoff_hours in RSS_SOURCES:
         candidates = url if isinstance(url, (list, tuple)) else [url]
         feed_items = []
         for candidate in candidates:
-            feed_items = fetch_rss_feed(candidate, name, max_items=max_items, cutoff_days=cutoff_days)
+            feed_items = fetch_rss_feed(candidate, name, max_items=max_items, cutoff_hours=cutoff_hours)
             if feed_items:  # first instance that works wins
                 break
         print(f"  [{name}] Got {len(feed_items)} items")

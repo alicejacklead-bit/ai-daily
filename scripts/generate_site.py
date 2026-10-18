@@ -21,9 +21,12 @@ from xml.sax.saxutils import escape as _xml_escape
 
 WEEKDAYS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
 WEEKDAYS_EN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-REPO_URL = "https://github.com/Jimmuji/ai-daily-digest"
-SITE_URL = "https://jimmuji.github.io/ai-daily-digest/"
-XIAOYUZHOU_URL = "https://www.xiaoyuzhoufm.com/podcast/6a325e149357568efe4741ef"
+REPO_URL = "https://github.com/alicejacklead-bit/ai-daily"
+SITE_URL = "https://alicejacklead-bit.github.io/ai-daily/"
+# 在小宇宙开通播客后填入节目地址；留空则只显示 RSS 订阅入口。
+XIAOYUZHOU_URL = ""
+SITE_NAME_ZH = "Andy 的 AI 早报"
+SITE_NAME_EN = "Andy's AI Daily"
 
 
 # ── CSS ────────────────────────────────────────────────────────────────────────
@@ -465,6 +468,19 @@ html[data-lang="zh"] [data-lang-content="en"] { display: none; }
 .observation h2 { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
 .observation p { font-size: 14px; color: var(--text-soft); line-height: 1.8; }
 
+.item-app {
+  font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  border-left: 3px solid #d29922; padding: 4px 10px; margin-bottom: 12px;
+  background: rgba(210,153,34,.08); border-radius: 0 6px 6px 0;
+}
+.insight {
+  border: 1px solid var(--border-strong); border-radius: 12px;
+  padding: 20px 24px; margin-top: 16px; background: var(--card);
+}
+.insight h2 { font-size: 16px; font-weight: 700; color: #d29922; margin-bottom: 10px; }
+.insight ul { padding-left: 20px; }
+.insight li { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 6px; }
+
 .empty-filter { display: none; color: var(--text-muted); font-size: 14px; text-align: center; padding: 32px; }
 
 /* ── Day nav ── */
@@ -749,9 +765,9 @@ JS = """
       var date = audio.getAttribute('data-date') || '';
       try {
         navigator.mediaSession.metadata = new MediaMetadata({
-          title: 'AI 每日简报 · ' + date,
-          artist: 'AI Daily Digest',
-          album: 'AI 每日简报',
+          title: 'Andy 的 AI 早报 · ' + date,
+          artist: 'Andy 的 AI 早报',
+          album: 'Andy 的 AI 早报',
           artwork: [{ src: BASE + 'podcast-cover.png', sizes: '1400x1400', type: 'image/png' }]
         });
       } catch (e) {}
@@ -799,8 +815,8 @@ HEADER_HTML = """
 FOOTER_HTML = """
 <button id="backToTop" aria-label="回到顶部">↑</button>
 <footer class="site-footer">
-  <span data-lang-content="zh">© AI Daily Digest · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
-  <span data-lang-content="en">© AI Daily Digest · Auto-collected · Curated by DeepSeek · Updated daily</span>
+  <span data-lang-content="zh">© Andy 的 AI 早报 · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
+  <span data-lang-content="en">© Andy's AI Daily · Auto-collected · Curated by DeepSeek · Updated daily</span>
 </footer>
 """
 
@@ -865,11 +881,17 @@ def bi(zh: str, en: str) -> str:
 
 # ── Markdown parser ─────────────────────────────────────────────────────────────
 
+INSIGHT_HEADINGS = ("商业机会", "研究建议")
+INSIGHT_HEADINGS_EN = ("opportunit", "worth exploring")
+
+
 def parse_digest(text: str) -> dict:
     lines = text.splitlines()
     categories = []
     observation_lines = []
     in_observation = False
+    insights = []          # [(heading, [lines])] for 商业机会 / 研究建议
+    current_insight = None
     current_cat = None
     current_item = None
 
@@ -887,6 +909,13 @@ def parse_digest(text: str) -> dict:
 
         if name is not None:
             low = name.lower()
+            current_insight = None
+            if any(k in name for k in INSIGHT_HEADINGS) or any(k in low for k in INSIGHT_HEADINGS_EN):
+                in_observation = False
+                current_cat = None
+                current_insight = (name, [])
+                insights.append(current_insight)
+                continue
             if ("观察" in name or "洞察" in name
                     or "take" in low or "observation" in low or "outlook" in low):
                 in_observation = True
@@ -897,6 +926,13 @@ def parse_digest(text: str) -> dict:
                                "type": cat_type(name, emoji), "items": []}
                 categories.append(current_cat)
                 current_item = None
+            continue
+
+        if current_insight is not None:
+            stripped = line.strip()
+            if stripped and not stripped.startswith('---') and not stripped.startswith('*Generated'):
+                stripped = re.sub(r'^[-*]\s+', '', stripped).replace('**', '')
+                current_insight[1].append(stripped)
             continue
 
         if in_observation:
@@ -916,6 +952,7 @@ def parse_digest(text: str) -> dict:
                 "stars": "",
                 "star_count": 0,
                 "value": "",
+                "app": "",
                 "sources": [],
             }
             current_cat["items"].append(current_item)
@@ -935,6 +972,11 @@ def parse_digest(text: str) -> dict:
             current_item["star_count"] = filled
             continue
 
+        app_match = re.match(r'^-\s+(?:应用价值|How to use it)[：:]\s*(.+)', stripped)
+        if app_match:
+            current_item["app"] = app_match.group(1).strip()
+            continue
+
         val_match = re.match(r'^-\s+(?:核心价值|Why it matters)[：:]\s*(.+)', stripped)
         if val_match:
             current_item["value"] = val_match.group(1).strip()
@@ -946,7 +988,8 @@ def parse_digest(text: str) -> dict:
             current_item["sources"] = [{"name": n, "url": u} for n, u in links]
             continue
 
-    return {"categories": categories, "observation": " ".join(observation_lines)}
+    return {"categories": categories, "observation": " ".join(observation_lines),
+            "insights": insights}
 
 
 # ── HTML builders ───────────────────────────────────────────────────────────────
@@ -972,12 +1015,14 @@ def build_item_html(item: dict) -> str:
         sources_html = f'<div class="item-sources">{links}</div>'
 
     value_html = f'<span class="item-value">{item["value"]}</span>' if item["value"] else ""
+    app_html = (f'<div class="item-app">💼 {item["app"]}</div>' if item.get("app") else "")
     stars_html = f'<span class="stars">{item["stars"]}</span>' if item["stars"] else ""
 
     return f"""
     <div class="item-card" data-stars="{item['star_count']}">
       <div class="item-title">{item["title"]}</div>
       {"<div class='item-desc'>" + item["desc"] + "</div>" if item["desc"] else ""}
+      {app_html}
       <div class="item-meta">
         {stars_html}
         {value_html}
@@ -1039,12 +1084,25 @@ def build_digest_body(digest: dict, lang: str = "zh") -> str:
           <button class="speak-btn" data-label="{btn_play}" data-stop="{btn_stop}" data-speak-lang="{speak_lang}" data-text="{speak_text}">{btn_play}</button>
         </div>"""
 
+    ins_html = ""
+    for heading, lines in digest.get("insights", []):
+        if not lines:
+            continue
+        icon = "🧭" if ("研究" in heading or "explor" in heading.lower()) else "💰"
+        lis = "".join(f"<li>{l}</li>" for l in lines)
+        ins_html += f"""
+        <div class="insight">
+          <h2>{icon} {heading}</h2>
+          <ul>{lis}</ul>
+        </div>"""
+
     return f"""
     <div class="digest-scope">
       {filter_bar}
       {cats_html}
       <div class="empty-filter">{empty_msg}</div>
       {obs_html}
+      {ins_html}
     </div>"""
 
 
@@ -1063,13 +1121,14 @@ def build_audio_player(date_str: str, base: str) -> str:
 def build_podcast_cta(base: str) -> str:
     """Subscribe call-to-action: 小宇宙 (primary) + RSS feed for other apps."""
     feed_url = SITE_URL + "podcast.xml"
+    xyz = (f'''<a class="podcast-cta primary" href="{XIAOYUZHOU_URL}" target="_blank" rel="noopener">
+          🎧 {bi("在小宇宙收听", "Listen on Xiaoyuzhou")}
+        </a>''' if XIAOYUZHOU_URL else "")
     return f"""
     <div style="text-align:center; margin-top:20px;">
       <div class="podcast-cta-row">
-        <a class="podcast-cta primary" href="{XIAOYUZHOU_URL}" target="_blank" rel="noopener">
-          🎧 {bi("在小宇宙收听", "Listen on Xiaoyuzhou")}
-        </a>
-        <a class="podcast-cta" href="{base}podcast.xml" target="_blank" rel="noopener">
+        {xyz}
+        <a class="podcast-cta{'' if XIAOYUZHOU_URL else ' primary'}" href="{base}podcast.xml" target="_blank" rel="noopener">
           {bi("更多播放器 / RSS", "More apps / RSS")}
         </a>
       </div>
@@ -1127,7 +1186,7 @@ def build_day_html(date_str: str, digest: dict, dates: list[str],
                    en_digest: dict | None = None, has_audio: bool = False) -> str:
     weekday = bi(f"{weekday_of(date_str)} · {date_str}",
                  f"{weekday_of(date_str, 'en')} · {date_str}")
-    title = bi("AI 每日简报", "AI Daily Digest")
+    title = bi(SITE_NAME_ZH, SITE_NAME_EN)
     audio_html = build_audio_player(date_str, "../") if has_audio else ""
     body = f"""
     <div class="container">
@@ -1144,7 +1203,7 @@ def build_day_html(date_str: str, digest: dict, dates: list[str],
     </div>"""
 
     return PAGE_TEMPLATE.format(
-        title=f"AI Daily Digest · {date_str}",
+        title=f"{SITE_NAME_ZH} · {date_str}",
         description=f"AI领域{date_str}每日简报，涵盖行业新闻、重要论文与开源项目。",
         css=CSS,
         header=HEADER_HTML.format(base="../", repo=REPO_URL),
@@ -1306,8 +1365,8 @@ def build_index_html(dates: list[str], latest_digest: dict,
     body = f"""
     <div class="container">
       <div class="hero">
-        <h1>AI Daily Digest</h1>
-        <p>{bi("每天 5 分钟 · 掌握 AI 领域最新动态 · 全自动采集 · 智能筛选", "5 minutes a day · stay on top of AI · auto-collected · smartly curated")}</p>
+        <h1>{SITE_NAME_ZH}</h1>
+        <p>{bi("视频生成 · 模型 API · Agent · 创作工具 · 每天看清发生了什么、有什么机会", "Video gen · Model APIs · Agents · Creative tools · what happened and what it means")}</p>
         <div class="stats">
           <div class="stat"><div class="num">{len(dates)}</div><div class="lbl">{bi("期日报", "issues")}</div></div>
           <div class="stat"><div class="num">12+</div><div class="lbl">{bi("数据源", "sources")}</div></div>
@@ -1322,8 +1381,8 @@ def build_index_html(dates: list[str], latest_digest: dict,
     </div>"""
 
     return PAGE_TEMPLATE.format(
-        title="AI Daily Digest · AI 领域每日简报",
-        description="AI Daily Digest 每日自动采集 AI 领域最新资讯，涵盖行业新闻、重要论文与开源项目。",
+        title=f"{SITE_NAME_ZH} · AI 领域每日简报",
+        description=f"{SITE_NAME_ZH}：每日自动采集 AI 领域最新资讯，聚焦视频生成、模型 API、Agent 与创作工具。",
         css=CSS,
         header=HEADER_HTML.format(base="", repo=REPO_URL),
         body=body,
@@ -1397,7 +1456,7 @@ def _mp3_meta(path: Path):
     return size, duration
 
 
-PODCAST_DESC = "每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · 智能筛选 · 语音播报。"
+PODCAST_DESC = "每天 10-15 分钟，聚焦 AI 视频生成、模型 API、Agent 与创作工具：发生了什么、意味着什么、有什么机会。"
 
 
 def build_podcast_xml(audio_dates_desc: list[str], parsed_by_date: dict,
@@ -1418,7 +1477,7 @@ def build_podcast_xml(audio_dates_desc: list[str], parsed_by_date: dict,
         else:
             notes = parsed_by_date.get(d, {}).get("observation", "")
         notes = notes.strip()[:1800]
-        title = f"AI 每日简报 · {d} {weekday_of(d)}"
+        title = f"{SITE_NAME_ZH} · {d} {weekday_of(d)}"
         dur_tag = f"\n      <itunes:duration>{duration}</itunes:duration>" if duration else ""
         items.append(f"""    <item>
       <title>{xml_escape(title)}</title>
@@ -1435,18 +1494,18 @@ def build_podcast_xml(audio_dates_desc: list[str], parsed_by_date: dict,
 <?xml-stylesheet type="text/xsl" href="podcast.xsl"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AI 每日简报 · AI Daily Digest</title>
+    <title>{SITE_NAME_ZH}</title>
     <link>{SITE_URL}</link>
     <language>zh-cn</language>
     <description>{xml_escape(PODCAST_DESC)}</description>
-    <itunes:author>AI Daily Digest</itunes:author>
+    <itunes:author>Andy</itunes:author>
     <itunes:summary>{xml_escape(PODCAST_DESC)}</itunes:summary>
     <itunes:type>episodic</itunes:type>
     <itunes:explicit>no</itunes:explicit>
     <itunes:category text="Technology"/>
     <itunes:image href="{cover}"/>
-    <image><url>{cover}</url><title>AI 每日简报</title><link>{SITE_URL}</link></image>
-    <itunes:owner><itunes:name>AI Daily Digest</itunes:name></itunes:owner>
+    <image><url>{cover}</url><title>{SITE_NAME_ZH}</title><link>{SITE_URL}</link></image>
+    <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
 {chr(10).join(items)}
   </channel>
 </rss>
@@ -1458,7 +1517,7 @@ def build_podcast_xml(audio_dates_desc: list[str], parsed_by_date: dict,
 def build_shownotes(digest: dict, date_str: str) -> str:
     """Plain-text episode description, ready to paste into 小宇宙 Show Notes."""
     lines = [
-        f"AI 每日简报 · {date_str} {weekday_of(date_str)}",
+        f"{SITE_NAME_ZH} · {date_str} {weekday_of(date_str)}",
         "",
         "🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。",
         "",
@@ -1482,7 +1541,7 @@ def build_shownotes(digest: dict, date_str: str) -> str:
 CREATOR_HEAD = """<!DOCTYPE html>
 <html lang="zh-Hans"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小宇宙上传助手 · AI Daily Digest</title>
+<title>小宇宙上传助手 · Andy 的 AI 早报</title>
 <style>
   :root { color-scheme: dark; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1544,7 +1603,7 @@ def build_creator_page(audio_dates_desc: list[str], parsed_by_date: dict) -> str
     rows = ""
     for d in audio_dates_desc:
         digest = parsed_by_date.get(d, {"categories": [], "observation": ""})
-        title = f"AI 每日简报 · {d} {weekday_of(d)}"
+        title = f"{SITE_NAME_ZH} · {d} {weekday_of(d)}"
         notes = build_shownotes(digest, d)
         mp3 = f"audio/{d}.mp3"
         rows += f"""
@@ -1635,7 +1694,7 @@ def generate_site(root: Path | None = None) -> None:
     # 404 → back to index
     (docs_dir / "404.html").write_text(
         '<!DOCTYPE html><meta charset="UTF-8">'
-        '<meta http-equiv="refresh" content="0;url=/ai-daily-digest/index.html">',
+        '<meta http-equiv="refresh" content="0;url=/ai-daily/index.html">',
         encoding="utf-8")
 
     print(f"Site generated → {docs_dir}")

@@ -1,11 +1,8 @@
 name: AI Daily Digest
 
 on:
-  schedule:
-    # GitHub cron as last-resort fallback (unreliable for new repos).
-    # Primary trigger: cron-job.org calls the GitHub API at 08:05 Beijing time.
-    - cron: '0 22 * * *'  # UTC 22:00 (prev day) = Beijing 06:00, +3-4h GitHub delay → ~09:00-10:00 Beijing
-  workflow_dispatch: # Allow manual trigger (also used by cron-job.org)
+  # 测试阶段：只允许手动触发。测试通过后再加外部定时（cron-job.org，北京时间 06:40 触发，07:00 前出刊）。
+  workflow_dispatch:
 
 jobs:
   generate:

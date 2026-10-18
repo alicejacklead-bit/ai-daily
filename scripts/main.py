@@ -11,7 +11,9 @@ from pathlib import Path
 
 import requests
 
-from sources import fetch_all
+import re
+
+from sources import fetch_all, normalize_url
 from summarize import summarize
 from generate_site import generate_site
 from audio import generate_audio, prune_old_audio
@@ -44,13 +46,40 @@ def send_to_buttondown(subject: str, markdown: str) -> None:
         print(f"[Buttondown] Failed {resp.status_code}: {resp.text[:200]}")
 
 
+def load_recent_reported(daily_dir: Path, today: str, days: int = 5):
+    """Source URLs and titles from the last `days` published digests (zh only)."""
+    urls, titles = set(), []
+    files = sorted(p for p in daily_dir.glob("*.md")
+                   if not p.name.endswith(".en.md") and p.stem < today)[-days:]
+    for f in files:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            if line.startswith("### "):   # 今日观察 / 商业机会 / 研究建议: no news items below
+                break
+            m = re.match(r"^-\s+\*\*\[?(.+?)\]?\*\*", line)
+            if m:
+                titles.append(m.group(1).strip())
+            if re.match(r"^\s*-\s+来源[：:]", line):
+                for u in re.findall(r"\]\(([^)\s]+)\)", line):
+                    urls.add(normalize_url(u))
+    return urls, titles
+
+
+def drop_already_reported(data: dict, urls: set) -> int:
+    removed = 0
+    for key, items in data.items():
+        kept = [it for it in items if it.get("normalized_url") not in urls]
+        removed += len(items) - len(kept)
+        data[key] = kept
+    return removed
+
+
 def main():
     # Use Beijing time for date
     beijing_tz = timezone(timedelta(hours=8))
     today = datetime.now(beijing_tz)
     date_str = today.strftime("%Y-%m-%d")
 
-    print(f"=== AI Daily Digest for {date_str} ===\n")
+    print(f"=== Andy 的 AI 早报 for {date_str} ===\n")
 
     # Step 1: Fetch data from all sources
     print("[Step 1] Fetching data from sources...")
@@ -62,6 +91,14 @@ def main():
     if total == 0:
         print("No items fetched. Exiting.")
         sys.exit(0)
+
+    # Cross-day dedupe: drop links already used in the last few digests,
+    # and hand the model recent titles so it skips re-reports of the same story.
+    daily_dir = Path(__file__).parent.parent / "daily"
+    recent_urls, recent_titles = load_recent_reported(daily_dir, date_str)
+    removed = drop_already_reported(data, recent_urls)
+    print(f"Cross-day dedupe: removed {removed} items already reported "
+          f"(checked {len(recent_titles)} recent titles)")
 
     # Step 2: Save raw fetched data for traceability
     data_dir = Path(__file__).parent.parent / "data"
@@ -81,7 +118,7 @@ def main():
 
     # Step 3: AI summarization (bilingual)
     print("\n[Step 3] Generating AI summary...")
-    markdown, markdown_en = summarize(data, date_str)
+    markdown, markdown_en = summarize(data, date_str, recent_titles=recent_titles)
 
     # Step 4: Save daily markdown (zh + en)
     output_dir = Path(__file__).parent.parent / "daily"
@@ -114,7 +151,7 @@ def main():
 
     # Step 7: Send to Buttondown subscribers
     print("\n[Step 7] Sending to Buttondown subscribers...")
-    subject = f"AI Daily Digest · {date_str}"
+    subject = f"Andy 的 AI 早报 · {date_str}"
     send_to_buttondown(subject, markdown)
 
     print("Done!")

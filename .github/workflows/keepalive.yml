@@ -5,8 +5,7 @@ name: Keepalive
 # It also serves as a fallback: if the daily digest somehow missed, re-trigger it.
 
 on:
-  schedule:
-    - cron: '30 20 * * *'  # UTC 20:30 (prev day) = Beijing 04:30, +3-4h GitHub delay → ~08:00 Beijing
+  # 测试阶段关闭定时，正式上线时再恢复 schedule。
   workflow_dispatch:
 
 jobs:
