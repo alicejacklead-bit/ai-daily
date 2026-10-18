@@ -321,7 +321,7 @@ def fetch_arxiv(max_items=12, cutoff_days=2):
         resp = requests.get(query, headers=BROWSER_HEADERS, timeout=30)
         resp.raise_for_status()
         feed = feedparser.parse(resp.content)
-        cutoff = datetime.now(timezone.utc) - timedelta(hours=cutoff_hours)
+        cutoff = datetime.now(timezone.utc) - timedelta(hdays=cutoff_days
         for entry in feed.entries:
             published = entry.get("published_parsed") or entry.get("updated_parsed")
             published_at = None
