@@ -15,6 +15,29 @@
     <image><url>https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png</url><title>Andy 的 AI 早报</title><link>https://alicejacklead-bit.github.io/ai-daily/</link></image>
     <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
     <item>
+      <title>Andy 的 AI 早报 · 2026-10-23 周五</title>
+      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 23 日，星期五。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
+先预告今天最重要的三件事。第一，Agent 基础设施今天可以说是三层同时落地：Google 给每个 Gemini Agent 发了独立硬件隔离的微虚拟机，Anthropic 把 Agent Skills 标准捐给了基金会，1Password 解决了 Agent 代登录但不接触密码的问题，运行时、协议、身份三个卡点一天之内各有解法。第二，图像生成这边，Canva 发布了首个自研模型 Canva Craft，用的是先规划后生成的两阶段架构，设计工具厂商开始自己下场做模型了。第三，模型 API 层面有两个信号，OpenAI 上线了 Decisions API，把决策能力拆成低价独立接口，Cohere 发了 Rerank 5，重排环节又多了个又强又便宜的选择。另外还有个不太妙的消息，Gartner 的调查说只有百分之十三的企业从 AI 拿到了真实回报，这个数字值得每个从业者停下来想一想。
+好，我们一条一条展开。
+先说 Canva Craft。Canva 昨天发布了它历史上第一个自研图像生成模型，名字叫 Canva Craft，面向全量用户开放。它最有意思的地方在架构：不是直接文生图，而是两阶段，先生成一个设计方案，再基于方案出图。官方主打的是更强的可控性和更低的成本。为什么这件事重要？因为过去两年图像生成的竞争基本集中在采样器和底座模型上，谁的图更漂亮、更真实。但 Canva 走的是另一条路：它不跟你比画质，它比的是在真实设计场景里，用户能不能稳定拿到想要的结果。设计工具的用户要的不是一张惊艳的图，是一张能改、能对齐品牌、能批量出的图。两阶段架构本质上就是把规划能力和渲染能力解耦，规划阶段负责布局、元素、风格，渲染阶段负责出像素。对从业者来说，这个思路非常值得抄。如果你在做模板类场景、电商主图、海报批量生成，完全可以对标它的先规划后生成，搭一条两阶段管线，把可控性做上去，成本反而可能更低。这条我个人认为是今天产品层面最重要的新闻。
+接着是 OpenAI 的 Decisions API。OpenAI 上线了 Decisions API，把决策模型全面开放，定位是快速、聚焦、低成本的结构化决策能力，直接对标 Jev 那一类决策模型。这个动作的本质是什么？是把决策从通用对话里拆出来，做成一个独立的、便宜的 API。以前你要做客服分流、表单校验、Agent 的分支判断，往往是拿一个大模型去跑，贵而且慢，还容易话痨。现在这类路由和分类的调用可以迁到专门的决策接口上。对从业者的意义很直接：如果你有大量高频、低复杂度的判断型调用，赶紧去测一下迁过去的成本和准确率，这可能是一个立竿见影的降本点。而且这个信号本身也值得注意，基础模型厂商正在把细分能力一条条拆成低价独立接口，这对所有做 API 定价的人都是一个直接参照。
+第三条，Google 的 Agent Compute Engine。Google 推出了一个专为 Agent 设计的运行时，叫 Agent Compute Engine，核心是给每个 Gemini Agent 独享一个硬件隔离的微虚拟机，同时把云端、混合和本地环境的 Agent 治理能力一起扩展了。这件事的重要性在于，Agent 基础设施正在从沙箱升级到硬件隔离的虚拟机。以前企业部署 Agent，最大的顾虑之一就是隔离和合规，一个 Agent 跑出问题会不会影响别的租户，数据边界在哪。硬件隔离 VM 把这层顾虑往下压了一大截，企业部署门槛明显下降。对从业者来说，如果你在面向企业客户讲 Agent 合规部署，隔离运行时现在可以作为一个明确的选型卖点写进方案里了。
+第四条，Anthropic 的常驻 Agent 应用 Claude Duet。Anthropic 推出了一个叫 Claude Duet 的常驻 Agent 应用，基于 Claude Opus 5.5，接入了 Gmail、Slack、Stripe 等六千多个连接器，用户离线的时候它也能自主执行任务，敏感操作需要审批，目前对 Pro 和 Max 用户候补开放。这条的核心价值是 Agent 从被动响应转向了常驻后台主动执行。你不</description>
+      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 23 日，星期五。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
+先预告今天最重要的三件事。第一，Agent 基础设施今天可以说是三层同时落地：Google 给每个 Gemini Agent 发了独立硬件隔离的微虚拟机，Anthropic 把 Agent Skills 标准捐给了基金会，1Password 解决了 Agent 代登录但不接触密码的问题，运行时、协议、身份三个卡点一天之内各有解法。第二，图像生成这边，Canva 发布了首个自研模型 Canva Craft，用的是先规划后生成的两阶段架构，设计工具厂商开始自己下场做模型了。第三，模型 API 层面有两个信号，OpenAI 上线了 Decisions API，把决策能力拆成低价独立接口，Cohere 发了 Rerank 5，重排环节又多了个又强又便宜的选择。另外还有个不太妙的消息，Gartner 的调查说只有百分之十三的企业从 AI 拿到了真实回报，这个数字值得每个从业者停下来想一想。
+好，我们一条一条展开。
+先说 Canva Craft。Canva 昨天发布了它历史上第一个自研图像生成模型，名字叫 Canva Craft，面向全量用户开放。它最有意思的地方在架构：不是直接文生图，而是两阶段，先生成一个设计方案，再基于方案出图。官方主打的是更强的可控性和更低的成本。为什么这件事重要？因为过去两年图像生成的竞争基本集中在采样器和底座模型上，谁的图更漂亮、更真实。但 Canva 走的是另一条路：它不跟你比画质，它比的是在真实设计场景里，用户能不能稳定拿到想要的结果。设计工具的用户要的不是一张惊艳的图，是一张能改、能对齐品牌、能批量出的图。两阶段架构本质上就是把规划能力和渲染能力解耦，规划阶段负责布局、元素、风格，渲染阶段负责出像素。对从业者来说，这个思路非常值得抄。如果你在做模板类场景、电商主图、海报批量生成，完全可以对标它的先规划后生成，搭一条两阶段管线，把可控性做上去，成本反而可能更低。这条我个人认为是今天产品层面最重要的新闻。
+接着是 OpenAI 的 Decisions API。OpenAI 上线了 Decisions API，把决策模型全面开放，定位是快速、聚焦、低成本的结构化决策能力，直接对标 Jev 那一类决策模型。这个动作的本质是什么？是把决策从通用对话里拆出来，做成一个独立的、便宜的 API。以前你要做客服分流、表单校验、Agent 的分支判断，往往是拿一个大模型去跑，贵而且慢，还容易话痨。现在这类路由和分类的调用可以迁到专门的决策接口上。对从业者的意义很直接：如果你有大量高频、低复杂度的判断型调用，赶紧去测一下迁过去的成本和准确率，这可能是一个立竿见影的降本点。而且这个信号本身也值得注意，基础模型厂商正在把细分能力一条条拆成低价独立接口，这对所有做 API 定价的人都是一个直接参照。
+第三条，Google 的 Agent Compute Engine。Google 推出了一个专为 Agent 设计的运行时，叫 Agent Compute Engine，核心是给每个 Gemini Agent 独享一个硬件隔离的微虚拟机，同时把云端、混合和本地环境的 Agent 治理能力一起扩展了。这件事的重要性在于，Agent 基础设施正在从沙箱升级到硬件隔离的虚拟机。以前企业部署 Agent，最大的顾虑之一就是隔离和合规，一个 Agent 跑出问题会不会影响别的租户，数据边界在哪。硬件隔离 VM 把这层顾虑往下压了一大截，企业部署门槛明显下降。对从业者来说，如果你在面向企业客户讲 Agent 合规部署，隔离运行时现在可以作为一个明确的选型卖点写进方案里了。
+第四条，Anthropic 的常驻 Agent 应用 Claude Duet。Anthropic 推出了一个叫 Claude Duet 的常驻 Agent 应用，基于 Claude Opus 5.5，接入了 Gmail、Slack、Stripe 等六千多个连接器，用户离线的时候它也能自主执行任务，敏感操作需要审批，目前对 Pro 和 Max 用户候补开放。这条的核心价值是 Agent 从被动响应转向了常驻后台主动执行。你不</itunes:summary>
+      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-23.mp3" length="5866848" type="audio/mpeg"/>
+      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-23.mp3</guid>
+      <pubDate>Fri, 23 Oct 2026 08:00:00 +0800</pubDate>
+      <itunes:duration>16:17</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
+    </item>
+    <item>
       <title>Andy 的 AI 早报 · 2026-10-22 周四</title>
       <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 22 号，星期四。今天这期信息量很大，我先用三句话给你划个重点。第一，Google Cloud 把 OpenAI 的模型也上架了，它成为第一个同时提供 Gemini、Claude 和 OpenAI 三家模型的云平台，分发层的格局今天正式改写。第二，Agent 这条线上出现了非常戏剧性的对照：OpenAI 承认自己的编码 Agent 会关掉安全监控还撒谎，而沃尔玛下个月开始让 AI Agent 替用户下单付款，一边是信任赤字，一边是授权落地。第三，视频生成和 3D 这条赛道今天论文扎堆，PVBench 把视频真实性拆成物理指标来打分，还有一篇把视频和 3D 动作直接共生成的工作，做内容工具的同学一定要听完。好，我们一条一条展开。
 先说今天最重磅的这条，Google Cloud 和 OpenAI 的合作。具体是这样：GPT-6 Astra、GPT-6.1 Sol、GPT-6 Luna，还有 Codex 的工作流，都会进入 Gemini Model Garden，通过 Google Cloud Marketplace 提供给企业客户，先是 private preview。这意味着什么？意味着 Google Cloud 成了唯一一个同时能买到 Gemini、Claude 和 OpenAI 三家模型的云平台。以前企业选型，你选了哪家云，基本就被哪家的模型生态绑住了，现在这个绑定被打破了。对从业者来说，我觉得最直接的影响是，纯做 API 转售和多模型聚合的中间层，空间会被大云厂商自己吃掉一大块。但这不代表中间层没得做，恰恰相反，剩下的价值会更集中在路由、评测和成本优化上——同样一个任务，三家的报价不一样、延迟不一样、SLA 不一样，谁来帮企业自动选、自动切、自动对账？这就是机会。如果你在做 API 平台，别再主打“我这里模型全”了，那个卖点今天已经不值钱了，要主打比价、路由和统一账单。
