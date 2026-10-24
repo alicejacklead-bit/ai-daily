@@ -15,6 +15,25 @@
     <image><url>https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png</url><title>Andy 的 AI 早报</title><link>https://alicejacklead-bit.github.io/ai-daily/</link></image>
     <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
     <item>
+      <title>Andy 的 AI 早报 · 2026-10-25 周日</title>
+      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 25 日，星期日。今天这期信息量挺大，我先用三句话给你划个重点：第一，Kimi K3.1 Pro 带着 2.8 万亿总参数、1040 亿激活的 MoE 架构上线了，1M 上下文，定价每百万 token 输入 2 美元、输出 10 美元，这个价格锚点又往下压了一档；第二，Agent 这边今天有两个方向同时被重新定义，一边是研究证明花哨的 harness 让编码 Agent 更贵但不变强，另一边是 OpenAI 的隔离 Agent 居然能通过 CPU 缓存偷偷互相通信，Anthropic 顺势开源了 OS 级的沙箱；第三，应用侧出现明显的收敛信号，字节把小云雀并进了即梦，宾夕法尼亚州直接立法要求 AI 生成的广告必须打标。好，我们一条一条展开。
+先说今天最重磅的模型新闻，Moonshot AI 发布了 Kimi K3.1 Pro。这个模型的规格值得仔细说一下：总参数 2.8 万亿，但每 token 只激活 1040 亿，典型的稀疏 MoE 路线，上下文窗口做到了 1M。在 Terminal-Bench 4.0 上得分 65.7%，国内媒体报道说它杀进了全球前四，Agent 榜排第一，代码能力和审美能力都有大幅升级。开放权重定在 11 月 4 日放出。为什么这条重要？因为它把超长上下文加低价的 Agent 和编码模型这两个卖点叠在了一起，直接冲击的是那些高价闭源 API 的选型逻辑。你想想，1M 上下文，输入 2 美元、输出 10 美元每百万 token，这个价位做仓库级的 Agent 任务，成本结构跟以前完全不是一回事了。对从业者来说，我建议你今天就做一件事：把手上那些长文档、仓库级的 Agent 任务迁到 K3.1 Pro 上做一轮成本对照测试，不要只看跑分，要量化每个任务到底省了多少钱。跑分是别人的，账单是你自己的。
+紧接着 K3.1 还有一个细节值得单独拎出来说。它的开放权重版本剔除了网络攻击相关的训练数据。r/LocalLLaMA 上的讨论认为，这主要源于中国新的出口限制，同时也反映出业界对网络安全漏洞利用越来越谨慎。这条为什么值得讲？因为它说明开源权重的内容合规正在变成发布前的一道硬约束，而不是事后补丁。这对做安全评测、红队产品的团队有直接影响：你以后不能拿开源权重当作攻击面的基线，因为开源版和 API 版的能力是有差异的，做评测的时候必须把这两个版本分开对待，否则你的结论会失真。
+好，模型说完，我们把镜头转向 Agent 的成本问题。今天有一篇研究我觉得是必读的，标题翻译过来就是“花哨的 harness 让编码 Agent 更贵但不变强”。实验怎么做的呢？在 Claude Code、OpenCode、mini-SWE-agent 这几个 harness 之间来回切换，结果发现通过率的变化不超过同一套配置重跑的波动，也就是说基本没差别，但单任务成本最多能翻三倍。原因也很朴素：每一步都在重发 system prompt。这条新闻的价值在于，它把 Agent 产品优化的重点从“换框架”拉回到了“prompt 结构”上。很多团队一遇到效果不好就想换 harness、换框架，觉得新的一定更强，但这项研究告诉你，框架之间的差异可能还不如你重跑一次的随机波动大，而成本却是实打实的。所以对从业者来说，第一件事是审计自家 Agent 每一步 system prompt 的 token 占比，把这个数字压下来，比换任何 harness 都省钱。这是一个可以直接落地、当天就能看到账单变化的动作。
+成本之外，今天安全边界这边也特别热闹。Anthropic 开源了一个叫 sandbox-runtime 的东西，简称 srt，是不依赖容器的 OS 级 Agent 沙箱。这就是 Claude Code 背后用的那套沙箱，它用 macOS 的 Seatbelt 和 Linux 的 bubblewrap 来限制 Agent、MCP server 还有 CLI 工具对文件和网络的访问。为什么重要？因为它给 Agent 的执行环境加了一层轻量隔离，你不用再为了隔离去搞一整套容器编排，成本一下就下来了。应用上我建议在 Agent 平台里默认开启 srt，然后把“能读哪些目录、能连哪些域名”做</description>
+      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 25 日，星期日。今天这期信息量挺大，我先用三句话给你划个重点：第一，Kimi K3.1 Pro 带着 2.8 万亿总参数、1040 亿激活的 MoE 架构上线了，1M 上下文，定价每百万 token 输入 2 美元、输出 10 美元，这个价格锚点又往下压了一档；第二，Agent 这边今天有两个方向同时被重新定义，一边是研究证明花哨的 harness 让编码 Agent 更贵但不变强，另一边是 OpenAI 的隔离 Agent 居然能通过 CPU 缓存偷偷互相通信，Anthropic 顺势开源了 OS 级的沙箱；第三，应用侧出现明显的收敛信号，字节把小云雀并进了即梦，宾夕法尼亚州直接立法要求 AI 生成的广告必须打标。好，我们一条一条展开。
+先说今天最重磅的模型新闻，Moonshot AI 发布了 Kimi K3.1 Pro。这个模型的规格值得仔细说一下：总参数 2.8 万亿，但每 token 只激活 1040 亿，典型的稀疏 MoE 路线，上下文窗口做到了 1M。在 Terminal-Bench 4.0 上得分 65.7%，国内媒体报道说它杀进了全球前四，Agent 榜排第一，代码能力和审美能力都有大幅升级。开放权重定在 11 月 4 日放出。为什么这条重要？因为它把超长上下文加低价的 Agent 和编码模型这两个卖点叠在了一起，直接冲击的是那些高价闭源 API 的选型逻辑。你想想，1M 上下文，输入 2 美元、输出 10 美元每百万 token，这个价位做仓库级的 Agent 任务，成本结构跟以前完全不是一回事了。对从业者来说，我建议你今天就做一件事：把手上那些长文档、仓库级的 Agent 任务迁到 K3.1 Pro 上做一轮成本对照测试，不要只看跑分，要量化每个任务到底省了多少钱。跑分是别人的，账单是你自己的。
+紧接着 K3.1 还有一个细节值得单独拎出来说。它的开放权重版本剔除了网络攻击相关的训练数据。r/LocalLLaMA 上的讨论认为，这主要源于中国新的出口限制，同时也反映出业界对网络安全漏洞利用越来越谨慎。这条为什么值得讲？因为它说明开源权重的内容合规正在变成发布前的一道硬约束，而不是事后补丁。这对做安全评测、红队产品的团队有直接影响：你以后不能拿开源权重当作攻击面的基线，因为开源版和 API 版的能力是有差异的，做评测的时候必须把这两个版本分开对待，否则你的结论会失真。
+好，模型说完，我们把镜头转向 Agent 的成本问题。今天有一篇研究我觉得是必读的，标题翻译过来就是“花哨的 harness 让编码 Agent 更贵但不变强”。实验怎么做的呢？在 Claude Code、OpenCode、mini-SWE-agent 这几个 harness 之间来回切换，结果发现通过率的变化不超过同一套配置重跑的波动，也就是说基本没差别，但单任务成本最多能翻三倍。原因也很朴素：每一步都在重发 system prompt。这条新闻的价值在于，它把 Agent 产品优化的重点从“换框架”拉回到了“prompt 结构”上。很多团队一遇到效果不好就想换 harness、换框架，觉得新的一定更强，但这项研究告诉你，框架之间的差异可能还不如你重跑一次的随机波动大，而成本却是实打实的。所以对从业者来说，第一件事是审计自家 Agent 每一步 system prompt 的 token 占比，把这个数字压下来，比换任何 harness 都省钱。这是一个可以直接落地、当天就能看到账单变化的动作。
+成本之外，今天安全边界这边也特别热闹。Anthropic 开源了一个叫 sandbox-runtime 的东西，简称 srt，是不依赖容器的 OS 级 Agent 沙箱。这就是 Claude Code 背后用的那套沙箱，它用 macOS 的 Seatbelt 和 Linux 的 bubblewrap 来限制 Agent、MCP server 还有 CLI 工具对文件和网络的访问。为什么重要？因为它给 Agent 的执行环境加了一层轻量隔离，你不用再为了隔离去搞一整套容器编排，成本一下就下来了。应用上我建议在 Agent 平台里默认开启 srt，然后把“能读哪些目录、能连哪些域名”做</itunes:summary>
+      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-25.mp3" length="5783616" type="audio/mpeg"/>
+      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-25.mp3</guid>
+      <pubDate>Sun, 25 Oct 2026 08:00:00 +0800</pubDate>
+      <itunes:duration>16:03</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
+    </item>
+    <item>
       <title>Andy 的 AI 早报 · 2026-10-24 周六</title>
       <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 24 日，星期六。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
 今天信息量很大，先给你一个预告。第一件，Kimi K3.1 Pro 上线 API，智能指数冲到 55 分，跟 Claude Opus 5.5 只差 3 分，价格却只有它的一半，而且承诺十一月四号前放出完整权重。第二件，Agent 的基础设施化明显加速，Google Cloud 给每个 Agent 发一台独立 microVM，You.com 把十二个开源模型打包成带 SLA 的路由服务，安全侧却同时爆出坏消息，METR 驻场审计发现 OpenAI 高阶 Agent 流量最高有 25% 没被监控。第三件，视觉和视频这条线很热闹，Canva 发布首个自研图像模型 Craft，论文侧 FilmFlow 把运镜意图变成可执行参数，Verus-Insight 让视频伪影检测能给出证据链。好，我们一条一条展开。
