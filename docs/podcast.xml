@@ -15,6 +15,29 @@
     <image><url>https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png</url><title>Andy 的 AI 早报</title><link>https://alicejacklead-bit.github.io/ai-daily/</link></image>
     <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
     <item>
+      <title>Andy 的 AI 早报 · 2026-10-29 周四</title>
+      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 29 号，星期四。今天这期信息量特别大，我挑了最重要的三件事先给你垫个底：第一，Google 在 Gemini 4 Argon 之后仅仅两周，又甩出了 Gemini 4 Carbon，主打编码、Agent 和网络安全，直接登顶了 Artificial Analysis 的智能指数；第二，入口之争全面开打，Google 把 Android Studio 和 Search 向第三方 Agent 开放，Cursor 也把自己的 Agent 能力做成了 SDK 对外输出；第三，大模型价格战继续升级，大客户直接打一折，四个月降价八成，单纯卖 token 的生意越来越薄了。好，我们一条一条展开。
+先说 Google 的 Gemini 4 Carbon。这事儿最震撼的地方不是它多强，而是它的节奏。距离 Gemini 4 Argon 发布才两周，Carbon 就来了，在 Artificial Analysis Intelligence Index v5 上拿了 59 分登顶，SEC-bench Pro 拿到 88.2%，定价是每百万 token 输入 2 美元、输出 10 美元。为什么重要？因为前沿模型的迭代周期已经被压缩到两周这个量级了，这意味着你上个月做的模型选型评估，这个月可能就过时了。而且这次 Google 把网络安全能力当成核心卖点，但相关访问初期只向经过审核的安全专家开放。对从业者来说，如果你在做安全类或者编码类的产品，我建议你尽早去申请这个受审核访问，抢做一个 Carbon 的能力展示页，这个时间窗口不会太长。
+紧接着是 Google 向第三方 AI Agent 开放 Android 开发。Android Studio 上线了一个叫 Bring Your Own Agent 的功能，支持 Claude Agent、Codex 等四十多个编码 Agent 接入。同时他们还推出了新的终端工具，让 Agent 完成 UI 任务快 77%，token 用量最多降到三分之一。这件事的意义在于，移动开发的工作流正在被 Agent 化，而且 Google 把 Agent 生态的入口向第三方敞开了。如果你手里有一个垂直场景的 Agent，现在可以认真考虑把它接进 Android Studio 生态，去移动端开发这个场景里获客，这是一个正在快速膨胀的新工作流。
+同一时间，Google 还向更多应用开放了 Gemini 和 Search，推出了新的开发者平台，企业可以把自家服务接入 Google 的 AI 体验。这条的重要性我给满分，因为它可能改变消费级应用的发现和使用方式。AI 搜索正在变成新的应用分发渠道，Agent 在重塑 Web 入口。我的建议很直接：尽早提交你的服务接入，去抢 AI 搜索时代的应用曝光位，这种分发红利期通常只有几个月。
+再说 Cursor 发布 Agent SDK。Cursor 把自己的 Agent 能力以 SDK 的形式对外提供了，在 Hacker News 上讨论热度很高。这条的核心价值是，编码 Agent 的能力现在可以被嵌入你自己的产品，你不需要自己从零搭一套 harness。如果你想快速给内部工具或者垂直 SaaS 加上编码和自动化 Agent，这是目前最省事的一条路。
+然后我们说说钱的事儿。Anthropic 推出了一个 AI 支出可视化工具，在企业客户面前揭开了模型花费的黑箱，而且这个时点选在计划 IPO 之前，意味深长。为什么重要？因为 AI 成本终于可以归因了，企业采购决策有了可审计的依据。对从业者的启示是，你对外报价的时候可以附上一个成本归因看板，这会明显降低企业客户的采购阻力。与此同时，InfoQ 报道大模型价格战已经没有退路，大客户直接打一折，模型四个月降价 80%。API 的毛利在被持续压缩，你必须重新审视自己的模型选型和转售加价空间，能锁长约折扣的尽早锁。
+接下来这条是语音赛道的重磅。Nvidia 开源了 Nemotron 3.5 Transcribe，转写、翻译、说话人识别三合一，用文本 prompt 就能控制任务，多项 benchmark 领先，而且激活参数只有最强开源对手的六分之一，同时还放出了八十万小时以上的语音数据集和</description>
+      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 29 号，星期四。今天这期信息量特别大，我挑了最重要的三件事先给你垫个底：第一，Google 在 Gemini 4 Argon 之后仅仅两周，又甩出了 Gemini 4 Carbon，主打编码、Agent 和网络安全，直接登顶了 Artificial Analysis 的智能指数；第二，入口之争全面开打，Google 把 Android Studio 和 Search 向第三方 Agent 开放，Cursor 也把自己的 Agent 能力做成了 SDK 对外输出；第三，大模型价格战继续升级，大客户直接打一折，四个月降价八成，单纯卖 token 的生意越来越薄了。好，我们一条一条展开。
+先说 Google 的 Gemini 4 Carbon。这事儿最震撼的地方不是它多强，而是它的节奏。距离 Gemini 4 Argon 发布才两周，Carbon 就来了，在 Artificial Analysis Intelligence Index v5 上拿了 59 分登顶，SEC-bench Pro 拿到 88.2%，定价是每百万 token 输入 2 美元、输出 10 美元。为什么重要？因为前沿模型的迭代周期已经被压缩到两周这个量级了，这意味着你上个月做的模型选型评估，这个月可能就过时了。而且这次 Google 把网络安全能力当成核心卖点，但相关访问初期只向经过审核的安全专家开放。对从业者来说，如果你在做安全类或者编码类的产品，我建议你尽早去申请这个受审核访问，抢做一个 Carbon 的能力展示页，这个时间窗口不会太长。
+紧接着是 Google 向第三方 AI Agent 开放 Android 开发。Android Studio 上线了一个叫 Bring Your Own Agent 的功能，支持 Claude Agent、Codex 等四十多个编码 Agent 接入。同时他们还推出了新的终端工具，让 Agent 完成 UI 任务快 77%，token 用量最多降到三分之一。这件事的意义在于，移动开发的工作流正在被 Agent 化，而且 Google 把 Agent 生态的入口向第三方敞开了。如果你手里有一个垂直场景的 Agent，现在可以认真考虑把它接进 Android Studio 生态，去移动端开发这个场景里获客，这是一个正在快速膨胀的新工作流。
+同一时间，Google 还向更多应用开放了 Gemini 和 Search，推出了新的开发者平台，企业可以把自家服务接入 Google 的 AI 体验。这条的重要性我给满分，因为它可能改变消费级应用的发现和使用方式。AI 搜索正在变成新的应用分发渠道，Agent 在重塑 Web 入口。我的建议很直接：尽早提交你的服务接入，去抢 AI 搜索时代的应用曝光位，这种分发红利期通常只有几个月。
+再说 Cursor 发布 Agent SDK。Cursor 把自己的 Agent 能力以 SDK 的形式对外提供了，在 Hacker News 上讨论热度很高。这条的核心价值是，编码 Agent 的能力现在可以被嵌入你自己的产品，你不需要自己从零搭一套 harness。如果你想快速给内部工具或者垂直 SaaS 加上编码和自动化 Agent，这是目前最省事的一条路。
+然后我们说说钱的事儿。Anthropic 推出了一个 AI 支出可视化工具，在企业客户面前揭开了模型花费的黑箱，而且这个时点选在计划 IPO 之前，意味深长。为什么重要？因为 AI 成本终于可以归因了，企业采购决策有了可审计的依据。对从业者的启示是，你对外报价的时候可以附上一个成本归因看板，这会明显降低企业客户的采购阻力。与此同时，InfoQ 报道大模型价格战已经没有退路，大客户直接打一折，模型四个月降价 80%。API 的毛利在被持续压缩，你必须重新审视自己的模型选型和转售加价空间，能锁长约折扣的尽早锁。
+接下来这条是语音赛道的重磅。Nvidia 开源了 Nemotron 3.5 Transcribe，转写、翻译、说话人识别三合一，用文本 prompt 就能控制任务，多项 benchmark 领先，而且激活参数只有最强开源对手的六分之一，同时还放出了八十万小时以上的语音数据集和</itunes:summary>
+      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-29.mp3" length="5213520" type="audio/mpeg"/>
+      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-29.mp3</guid>
+      <pubDate>Thu, 29 Oct 2026 08:00:00 +0800</pubDate>
+      <itunes:duration>14:28</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
+    </item>
+    <item>
       <title>Andy 的 AI 早报 · 2026-10-28 周三</title>
       <description>早上好，这里是 Andy 的 AI 早报，今天是 2026 年 10 月 28 号，星期三。通勤路上这段时间，我陪你把这二十四小时里 AI 圈最值得知道的事过一遍。
 先说今天最重要的三件事。第一，Google DeepMind 发布了 Genie 4 世界模型，加了音频、物理更真实、还能用一句话实时改场景，这是内容形态层面的事。第二，OpenAI 发了 GPT-6.1 Terra，API 价格压到每百万 token 一美元输入、五美元输出，Agent 单任务成本从四块八毛二直接干到两毛九，这个数字会重写很多团队的选型表。第三，国内 AI 漫剧价格跌了百分之九十六，有从业者直接说这个赛道已经死透了——一边是能力在涨，一边是通用内容在贬值，这两件事得放在一起看。
