@@ -15,6 +15,31 @@
     <image><url>https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png</url><title>Andy 的 AI 早报</title><link>https://alicejacklead-bit.github.io/ai-daily/</link></image>
     <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
     <item>
+      <title>Andy 的 AI 早报 · 2026-10-30 周五</title>
+      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 30 日，星期五。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
+今天信息量很大，先给你三个最重要的预告。第一，OpenAI 把付费套餐的用量上限全面翻倍，还给一百、两百、五百美元档的订阅用户发等额 API credits，这意味着你的 Agent 成本模型今天就得重算。第二，平台正在向上吞并应用层，Gemini 现在能直接在聊天里生成和编辑 Docs、Sheets、PDF、幻灯片和代码，纯文档生成类工具压力陡增。第三，Agent 的竞争焦点明显从模型本身转到了外挂层，跨会话记忆、技能训练、行为审计这三件事今天同时有新东西出来。好，我们一条一条展开。
+先说 OpenAI 这两条，我放在一起讲，因为它们其实是一件事的两面。OpenAI 宣布把各个付费档位的用量上限翻倍，原本计划削减的 Pro 200 配额在用户反对之后撤回了，官方说法是 Terra、Sol 这些更高效的模型会进一步推高可用容量。与此同时，他们给一百、两百、五百美元订阅用户发放等额 API credits，可以绑定到某个 API 组织，但会过期。这个动作和 Anthropic 之前 Max、Team 的福利几乎一模一样，说白了就是两家在订阅层面贴身肉搏。
+为什么重要？因为它直接改变了你的成本模型。同样的订阅预算，现在能跑更多 Agent 长任务，而且这些 credits 让你零成本试跑 API 集成。对从业者意味着什么？我建议你今天就把自家 Agent 产品的 token 预算重算一遍，把省下来的额度转投到更长的自动化流程上。如果你有开发者 onboarding 页面，把免费 credits 写进去，当作&quot;先试 API 再升级&quot;的钩子，这个转化路径现在特别顺。
+接下来这条是 Google 的，Gemini 聊天内可以直接生成并编辑 Docs、Sheets、PDF、幻灯片和代码，所有 Gemini 用户即日起可用，PDF 的预览和编辑支持 Web 和移动端，其他格式暂时只在 Web 上。这条对做文档类工具的团队是个警钟。文档类 Agent 的&quot;最后一公里&quot;被平台原生吃掉了，纯文档生成工具会持续承压。那怎么办？把产品定位从&quot;生成文档&quot;上移到&quot;跨格式批量处理加企业模板治理&quot;，这个位置平台一时半会儿吃不下，因为它是脏活累活，需要跟企业流程深度绑定。
+再看 Mistral。他们开源了 1 万亿参数的 Le Chonk，也就是 Mistral Large 4，原生多模态 MoE，每个 token 激活 49B，算上 embedding 和输出层是 52B，完全在欧洲训练。独立测试显示它速度快、价格低，但综合得分 26 分，还是落后 DeepSeek V4.1 Flash 和 GLM-5.3 的 32 分。这条的重点不在跑分，而在于它是欧洲第一个可自托管的 1T 级开源权重模型。对数据驻留有硬要求的欧洲客户来说，这是私有化部署投标时一个实打实的筹码。做欧洲市场的团队，可以把它列进方案里。
+然后是 Meta，低调上线了一个 AI 时尚应用叫 Style Sketch，可以连接 Instagram，用你已经发布的照片自动构建虚拟衣橱，也支持拍照、短视频或者相册上传手动添加单品。这条我给了很高的权重，因为它是一个消费级多模态的样板。图像生成落到了&quot;个人衣橱加试穿&quot;这种高频场景，而且它的冷启动路径很聪明，直接从社交图库导入，用户录入成本几乎为零。做电商选型的团队可以重点参考这个路径。
+成本侧今天还有两条要一起说。AssemblyAI 推出 TTS-1，每百万字符十五美元，无限并发，不需要签合同，首款面向 voice agent 的 TTS 模型，上线支持六种语言。另一边，Baseten 发布 joey-1，一个 2B 的决策模型，每百万 token 只要一美分，P50 延迟二十毫秒，它返回的是校准后的概率而不是文本。这两条加起来意味着什么？语音 Agent 的边际成本和并发限制同时被压低，而&quot;分类、打分、路由&quot;这类判断可以从大模型里剥离出来，延迟和成本降一个数量级。我建议你把现有 voice agent 的 TTS 层做一次 A/B 替换，按字符单价重算毛利；同时在 Agent 里用 joey</description>
+      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 30 日，星期五。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
+今天信息量很大，先给你三个最重要的预告。第一，OpenAI 把付费套餐的用量上限全面翻倍，还给一百、两百、五百美元档的订阅用户发等额 API credits，这意味着你的 Agent 成本模型今天就得重算。第二，平台正在向上吞并应用层，Gemini 现在能直接在聊天里生成和编辑 Docs、Sheets、PDF、幻灯片和代码，纯文档生成类工具压力陡增。第三，Agent 的竞争焦点明显从模型本身转到了外挂层，跨会话记忆、技能训练、行为审计这三件事今天同时有新东西出来。好，我们一条一条展开。
+先说 OpenAI 这两条，我放在一起讲，因为它们其实是一件事的两面。OpenAI 宣布把各个付费档位的用量上限翻倍，原本计划削减的 Pro 200 配额在用户反对之后撤回了，官方说法是 Terra、Sol 这些更高效的模型会进一步推高可用容量。与此同时，他们给一百、两百、五百美元订阅用户发放等额 API credits，可以绑定到某个 API 组织，但会过期。这个动作和 Anthropic 之前 Max、Team 的福利几乎一模一样，说白了就是两家在订阅层面贴身肉搏。
+为什么重要？因为它直接改变了你的成本模型。同样的订阅预算，现在能跑更多 Agent 长任务，而且这些 credits 让你零成本试跑 API 集成。对从业者意味着什么？我建议你今天就把自家 Agent 产品的 token 预算重算一遍，把省下来的额度转投到更长的自动化流程上。如果你有开发者 onboarding 页面，把免费 credits 写进去，当作&quot;先试 API 再升级&quot;的钩子，这个转化路径现在特别顺。
+接下来这条是 Google 的，Gemini 聊天内可以直接生成并编辑 Docs、Sheets、PDF、幻灯片和代码，所有 Gemini 用户即日起可用，PDF 的预览和编辑支持 Web 和移动端，其他格式暂时只在 Web 上。这条对做文档类工具的团队是个警钟。文档类 Agent 的&quot;最后一公里&quot;被平台原生吃掉了，纯文档生成工具会持续承压。那怎么办？把产品定位从&quot;生成文档&quot;上移到&quot;跨格式批量处理加企业模板治理&quot;，这个位置平台一时半会儿吃不下，因为它是脏活累活，需要跟企业流程深度绑定。
+再看 Mistral。他们开源了 1 万亿参数的 Le Chonk，也就是 Mistral Large 4，原生多模态 MoE，每个 token 激活 49B，算上 embedding 和输出层是 52B，完全在欧洲训练。独立测试显示它速度快、价格低，但综合得分 26 分，还是落后 DeepSeek V4.1 Flash 和 GLM-5.3 的 32 分。这条的重点不在跑分，而在于它是欧洲第一个可自托管的 1T 级开源权重模型。对数据驻留有硬要求的欧洲客户来说，这是私有化部署投标时一个实打实的筹码。做欧洲市场的团队，可以把它列进方案里。
+然后是 Meta，低调上线了一个 AI 时尚应用叫 Style Sketch，可以连接 Instagram，用你已经发布的照片自动构建虚拟衣橱，也支持拍照、短视频或者相册上传手动添加单品。这条我给了很高的权重，因为它是一个消费级多模态的样板。图像生成落到了&quot;个人衣橱加试穿&quot;这种高频场景，而且它的冷启动路径很聪明，直接从社交图库导入，用户录入成本几乎为零。做电商选型的团队可以重点参考这个路径。
+成本侧今天还有两条要一起说。AssemblyAI 推出 TTS-1，每百万字符十五美元，无限并发，不需要签合同，首款面向 voice agent 的 TTS 模型，上线支持六种语言。另一边，Baseten 发布 joey-1，一个 2B 的决策模型，每百万 token 只要一美分，P50 延迟二十毫秒，它返回的是校准后的概率而不是文本。这两条加起来意味着什么？语音 Agent 的边际成本和并发限制同时被压低，而&quot;分类、打分、路由&quot;这类判断可以从大模型里剥离出来，延迟和成本降一个数量级。我建议你把现有 voice agent 的 TTS 层做一次 A/B 替换，按字符单价重算毛利；同时在 Agent 里用 joey</itunes:summary>
+      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-30.mp3" length="5501952" type="audio/mpeg"/>
+      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-30.mp3</guid>
+      <pubDate>Fri, 30 Oct 2026 08:00:00 +0800</pubDate>
+      <itunes:duration>15:16</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
+    </item>
+    <item>
       <title>Andy 的 AI 早报 · 2026-10-29 周四</title>
       <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 29 号，星期四。今天这期信息量特别大，我挑了最重要的三件事先给你垫个底：第一，Google 在 Gemini 4 Argon 之后仅仅两周，又甩出了 Gemini 4 Carbon，主打编码、Agent 和网络安全，直接登顶了 Artificial Analysis 的智能指数；第二，入口之争全面开打，Google 把 Android Studio 和 Search 向第三方 Agent 开放，Cursor 也把自己的 Agent 能力做成了 SDK 对外输出；第三，大模型价格战继续升级，大客户直接打一折，四个月降价八成，单纯卖 token 的生意越来越薄了。好，我们一条一条展开。
 先说 Google 的 Gemini 4 Carbon。这事儿最震撼的地方不是它多强，而是它的节奏。距离 Gemini 4 Argon 发布才两周，Carbon 就来了，在 Artificial Analysis Intelligence Index v5 上拿了 59 分登顶，SEC-bench Pro 拿到 88.2%，定价是每百万 token 输入 2 美元、输出 10 美元。为什么重要？因为前沿模型的迭代周期已经被压缩到两周这个量级了，这意味着你上个月做的模型选型评估，这个月可能就过时了。而且这次 Google 把网络安全能力当成核心卖点，但相关访问初期只向经过审核的安全专家开放。对从业者来说，如果你在做安全类或者编码类的产品，我建议你尽早去申请这个受审核访问，抢做一个 Carbon 的能力展示页，这个时间窗口不会太长。
