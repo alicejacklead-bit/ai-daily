@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy 的 AI 早报 · 2026-11-01</title>
+  <meta name="description" content="AI领域2026-11-01每日简报，涵盖行业新闻、重要论文与开源项目。">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+      try {
+        var lng = localStorage.getItem('lang');
+        if (!lng) lng = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', lng);
+        if (lng === 'en') document.documentElement.setAttribute('lang', 'en');
+      } catch (e) { document.documentElement.setAttribute('data-lang', 'zh'); }
+    })();
+  </script>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-soft: #c9d1d9;
+  --card: #161b22;
+  --border: #21262d;
+  --border-strong: #30363d;
+  --header-bg: rgba(13,17,23,0.95);
+  --hover: #1c2230;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --text-soft: #3d444d;
+  --card: #f6f8fa;
+  --border: #d8dee4;
+  --border-strong: #d0d7de;
+  --header-bg: rgba(255,255,255,0.92);
+  --hover: #eaeef2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  transition: background .2s, color .2s;
+}
+
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Reading progress bar ── */
+#progressBar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #58a6ff, #bc8cff);
+  z-index: 200;
+  transition: width .1s linear;
+}
+
+/* ── Header ── */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.site-header .logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.site-header .logo a { color: inherit; }
+.site-header .logo a:hover { text-decoration: none; }
+.site-header .logo span { color: #58a6ff; }
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ── */
+.search-box { position: relative; }
+.search-box input {
+  width: 220px;
+  max-width: 50vw;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color .15s, width .15s;
+}
+.search-box input:focus { border-color: #58a6ff; width: 280px; }
+.search-results {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 360px;
+  max-width: 80vw;
+  max-height: 420px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  z-index: 150;
+}
+.search-results.active { display: block; }
+.sr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: var(--hover); text-decoration: none; }
+.sr-date { font-size: 11px; color: var(--text-muted); }
+.sr-title { font-size: 13px; color: var(--text); line-height: 1.4; }
+.sr-cat { font-size: 11px; color: #58a6ff; }
+.sr-empty, .sr-hint { padding: 14px; font-size: 13px; color: var(--text-muted); text-align: center; }
+
+/* ── Date picker ── */
+.date-picker {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.date-picker:focus { border-color: #58a6ff; }
+
+.site-header nav { display: flex; gap: 8px; }
+.site-header nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.site-header nav a:hover { background: var(--border); color: var(--text); text-decoration: none; }
+
+/* ── Theme / language toggle ── */
+.theme-toggle, .lang-toggle {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 15px;
+  height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.theme-toggle { width: 34px; }
+.lang-toggle { padding: 0 12px; font-size: 13px; font-weight: 600; min-width: 42px; }
+.theme-toggle:hover, .lang-toggle:hover { border-color: #58a6ff; }
+
+/* ── Language content toggle ── */
+html[data-lang="en"] [data-lang-content="zh"] { display: none; }
+html[data-lang="zh"] [data-lang-content="en"] { display: none; }
+
+/* ── Hot words / trends ── */
+.trends {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 8px 0 8px;
+}
+.trends .trends-head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 16px;
+}
+.trends .trends-head h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+.trends .trends-head .sub { font-size: 12px; color: var(--text-muted); }
+.trend-tags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.trend-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .15s, transform .15s, color .15s;
+  user-select: none;
+}
+.trend-tag:hover { border-color: #58a6ff; color: #58a6ff; transform: translateY(-1px); }
+.trend-tag .cnt {
+  font-size: 11px; color: #fff;
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-radius: 999px; padding: 1px 7px;
+}
+.trend-tag.s1 { font-size: 13px; }
+.trend-tag.s2 { font-size: 14px; }
+.trend-tag.s3 { font-size: 16px; font-weight: 600; }
+
+/* ── Audio player (voice broadcast) ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+}
+.audio-player .ap-label {
+  font-size: 14px; font-weight: 600; color: #58a6ff;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.audio-player .ap-sub { font-size: 12px; color: var(--text-muted); }
+.audio-player audio { flex: 1; min-width: 220px; height: 38px; }
+.audio-player .ap-text { display: flex; flex-direction: column; gap: 2px; }
+
+/* Subscribe-to-podcast button */
+.podcast-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.podcast-cta:hover { border-color: #58a6ff; transform: translateY(-1px); text-decoration: none; }
+.podcast-cta.primary {
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-color: transparent; color: #fff; font-weight: 600;
+  font-size: 14px; padding: 11px 24px;
+}
+.podcast-cta.primary:hover { border-color: transparent; filter: brightness(1.08); }
+.podcast-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.podcast-hint {
+  margin-top: 14px; font-size: 12px; color: var(--text-muted);
+  word-break: break-all;
+}
+.podcast-hint code {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 2px 6px; color: var(--text-soft);
+}
+.audio-badge { font-size: 13px; margin-left: 6px; }
+
+/* ── Speak (TTS) button ── */
+.speak-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: var(--bg);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 999px;
+  color: #58a6ff;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.speak-btn:hover { background: rgba(88,166,255,.1); }
+.speak-btn.playing { border-color: #f85149; color: #f85149; }
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 56px 0 32px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero p { color: var(--text-muted); font-size: 16px; }
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
+}
+.hero .stat .num { font-size: 24px; font-weight: 700; color: var(--text); }
+.hero .stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+/* ── Section heading ── */
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 48px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Date grid (archive) ── */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.date-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color .2s, transform .2s;
+  display: block;
+  color: inherit;
+}
+.date-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.date-card .date-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.date-card .weekday { font-size: 12px; color: var(--text-muted); }
+.date-card .latest-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: #1f6feb;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+/* ── Day hero ── */
+.day-hero { margin-bottom: 24px; }
+.day-hero .date-str {
+  font-size: 13px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px;
+}
+.day-hero h1 { font-size: 28px; font-weight: 700; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar .tab {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .tab:hover { color: var(--text); border-color: #58a6ff; }
+.filter-bar .tab.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+.filter-bar .star-toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: #e3b341;
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .star-toggle:hover { border-color: #e3b341; }
+.filter-bar .star-toggle.active { background: rgba(227,179,65,.15); border-color: #e3b341; }
+
+/* ── Category section ── */
+.category { margin-bottom: 40px; }
+.category-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.category-header h2 { font-size: 18px; font-weight: 700; }
+.cat-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── Item card ── */
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color .2s;
+}
+.item-card:hover { border-color: var(--border-strong); }
+.item-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+.item-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+.item-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.stars { font-size: 13px; color: #e3b341; letter-spacing: 1px; }
+.item-value {
+  font-size: 13px; color: #7ee787;
+  background: rgba(46,160,67,.1); padding: 2px 10px; border-radius: 999px;
+}
+.item-sources { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.item-sources a { color: #58a6ff; margin-left: 6px; }
+.item-sources a:first-child { margin-left: 0; }
+
+/* ── Observation box ── */
+.observation {
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.observation h2 { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
+.observation p { font-size: 14px; color: var(--text-soft); line-height: 1.8; }
+
+.item-app {
+  font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  border-left: 3px solid #d29922; padding: 4px 10px; margin-bottom: 12px;
+  background: rgba(210,153,34,.08); border-radius: 0 6px 6px 0;
+}
+.insight {
+  border: 1px solid var(--border-strong); border-radius: 12px;
+  padding: 20px 24px; margin-top: 16px; background: var(--card);
+}
+.insight h2 { font-size: 16px; font-weight: 700; color: #d29922; margin-bottom: 10px; }
+.insight ul { padding-left: 20px; }
+.insight li { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 6px; }
+
+.empty-filter { display: none; color: var(--text-muted); font-size: 14px; text-align: center; padding: 32px; }
+
+/* ── Day nav ── */
+.day-nav {
+  display: flex; justify-content: space-between;
+  margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.nav-btn {
+  font-size: 14px; color: #58a6ff;
+  padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.nav-btn:hover { background: var(--card); text-decoration: none; }
+
+/* ── Back to top ── */
+#backToTop {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  z-index: 120;
+}
+#backToTop.visible { opacity: 1; pointer-events: auto; }
+#backToTop:hover { transform: translateY(-2px); }
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center; padding: 24px;
+  color: #484f58; font-size: 13px; border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 28px; }
+  .item-meta { flex-direction: column; align-items: flex-start; }
+  .item-sources { margin-left: 0; }
+  .site-header .logo { font-size: 15px; }
+  .search-box input { width: 150px; }
+  .search-box input:focus { width: 180px; }
+  .filter-bar .star-toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+  
+<div id="progressBar"></div>
+<header class="site-header">
+  <div class="logo"><a href="../index.html">⚡ AI <span>Daily</span> Digest</a></div>
+  <div class="header-tools">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="搜索全部日报…" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <input id="datePicker" type="date" class="date-picker" aria-label="选择日期">
+    <button id="langToggle" class="lang-toggle" aria-label="切换语言 / Switch language">EN</button>
+    <button id="themeToggle" class="theme-toggle" aria-label="切换主题" title="切换浅色/深色">🌙</button>
+    <nav>
+      <a href="../index.html"><span data-lang-content="zh">归档</span><span data-lang-content="en">Archive</span></a>
+      <a href="https://github.com/alicejacklead-bit/ai-daily" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+  
+    <div class="container">
+      <div class="day-hero">
+        <div class="date-str"><span data-lang-content="zh">周日 · 2026-11-01</span><span data-lang-content="en">Sunday · 2026-11-01</span></div>
+        <h1><span data-lang-content="zh">Andy 的 AI 早报</span><span data-lang-content="en">Andy's AI Daily</span></h1>
+      </div>
+      
+    <div class="audio-player">
+      <div class="ap-text">
+        <span class="ap-label">🎧 <span data-lang-content="zh">语音播报</span><span data-lang-content="en">Listen</span></span>
+        <span class="ap-sub"><span data-lang-content="zh">通勤路上用耳朵看简报</span><span data-lang-content="en">Catch the digest on your commute</span></span>
+      </div>
+      <audio controls preload="none" src="../audio/2026-11-01.mp3" data-date="2026-11-01"></audio>
+    </div>
+      <div data-lang-content="zh">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">全部</span><span class="tab" data-cat="news">新闻</span><span class="tab" data-cat="paper">论文</span><span class="tab" data-cat="project">项目</span><span class="tab" data-cat="buzz">热议</span>
+      <span class="star-toggle">★ 只看重点 (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>📰 行业新闻</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">OpenAI 新一轮融资仅募得 110 亿美元，目标 300 亿</div>
+      <div class='item-desc'>估值 1.25 万亿美元低于预期，大型投资人在科技股抛售中收缩，与此同时 Anthropic 寻求最早 11 月上市。</div>
+      <div class="item-app">💼 重新评估对单一供应商的长期依赖，趁优惠期锁定多年 API 合约</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">头部模型公司融资降温，API 价格战与补贴可持续性存疑</span>
+        <div class="item-sources"><a href="https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/" target="_blank">The Decoder</a> · <a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/" target="_blank">TechCrunch AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic 把文本水印扩展到 4 个 Claude 模型，但两个旧模型留了后门</div>
+      <div class='item-desc'>为赶 EU AI Act 12 月截止期，Opus 4.6 与 Sonnet 4.6 上改一个采样参数即可绕过水印，Anthropic 仅以合规警告处理。</div>
+      <div class="item-app">💼 做内容平台的，把水印检测当作辅助信号，自建 C2PA 式来源记录</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">水印合规存在工程漏洞，输出溯源不能只依赖模型侧</span>
+        <div class="item-sources"><a href="https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">OpenAI 将从 11 月 29 日起用 Daybreak Blue 网络安全会话数据训练模型</div>
+      <div class='item-desc'>即使用户关闭训练开关也适用，遭反弹后补发邮件承诺单独 opt-out。</div>
+      <div class="item-app">💼 面向企业客户的产品要在合同里明确"关闭训练"的书面保证</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">企业数据边界再次收窄，安全类会话数据不再默认隔离</span>
+        <div class="item-sources"><a href="https://the-decoder.com/openai-plans-to-train-models-on-daybreak-blue-cybersecurity-session-data-that-was-previously-off-limits/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Anthropic 限制 Claude 用于游戏逆向与克隆</div>
+      <div class='item-desc'>用户报告连非恶意的通用逆向工程任务也被拦截。</div>
+      <div class="item-app">💼 游戏/工具类产品需准备多模型降级方案，避免单点封禁</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">模型侧用途限制开始落到具体场景，Agent 能力边界被政策化</span>
+        <div class="item-sources"><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-ai-model-is-now-blocking-attempts-at-video-game-recreation-and-cloning-users-also-claim-non-malicious-generic-reverse-engineering-tasks-are-blocked" target="_blank">Tom's Hardware</a> · <a href="https://mashable.com/tech/anthropic-takes-steps-to-block-video-game-cloning-and-reverse-engineering" target="_blank">Mashable</a> · <a href="https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games" target="_blank">Game Developer</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic 封禁"任何触及训练更大模型"的账号</div>
+      <div class='item-desc'>HN 热议，开发者称正常使用被误伤。</div>
+      <div class="item-app">💼 多账号/多供应商冗余，把核心链路与实验链路账号隔离</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">ToS 执行趋严，API 账号的"用途合规"风险上升</span>
+        <div class="item-sources"><a href="https://twitter.com/jiahaoshao1/status/2116475922190922088" target="_blank">Twitter @jiahaoshao1</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Claude 取消 5 小时用量限制，200 美元 Ultra 用户首批解封</div>
+      <div class='item-desc'>重度用户的使用天花板被抬高。</div>
+      <div class="item-app">💼 把此前因限流砍掉的长任务工作流（批量重构、长文档）重新上线</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">长时程 Agent 任务的成本模型可重新测算</span>
+        <div class="item-sources"><a href="https://www.qbitai.com/2026/10/506855.html" target="_blank">量子位</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Factory 发布 Droid 1.0：模型无关的编码 Agent Harness</div>
+      <div class='item-desc'>默认走程序化工具调用，Terminal-Bench 4 上配 Claude Opus 5.5 得 65.2%，每个通过任务成本 4.73 美元。</div>
+      <div class="item-app">💼 用"每通过任务成本"而非 token 单价来选型编码 Agent</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Harness 层与模型解耦，"每通过任务成本"成为可比较指标</span>
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/10/31/factory-droid-1-0-frontier-harness/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Vercel Labs 开源 agent-desktop</div>
+      <div class='item-desc'>Apache-2.0 的 Rust CLI，通过读取 OS 无障碍树而非像素，让任意 Agent 在 macOS/Windows/Linux 上做 computer use。</div>
+      <div class="item-app">💼 把内部重复的后台操作封装成 Agent 技能，先做无障碍树适配</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">无障碍树路线比截图方案更稳更省，跨平台统一</span>
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/10/31/vercel-labs-agent-desktop-computer-use/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">AI Agent 在活体小鼠脑内完成基因疗法选择与注射</div>
+      <div class='item-desc'>生物科技初创让 Agent 自主选疗法并成功注入，实验室自动化的一个信号。</div>
+      <div class="item-app">💼 生命科学/实验室自动化产品可参考其"选择—执行—验证"分层设计</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Agent 从数字任务跨入高风险物理操作，验证闭环开始成形</span>
+        <div class="item-sources"><a href="https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/" target="_blank">Wired AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Agent Sandbox 成为新算力形态：每天上千万次创建</div>
+      <div class='item-desc'>InfoQ 讨论沙箱化执行环境为何成为 Agent 基础设施的核心。</div>
+      <div class="item-app">💼 做 Agent 平台的，把沙箱冷启动时延当作核心 SLA 指标来优化</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Agent 规模化后，隔离执行环境的调度成为新瓶颈与新生意</span>
+        <div class="item-sources"><a href="https://www.infoq.cn/video/4qjamMQLVIoZvytUQwpI?utm_source=rss&utm_medium=article" target="_blank">InfoQ 中文</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Apple Intelligence 将于 iOS 27.3 进入中国</div>
+      <div class='item-desc'>11 月 4 日随 beta 上线，12 月正式发布。</div>
+      <div class="item-app">💼 提前准备 App Intents / 端侧模型适配，抢首发曝光位</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">端侧 AI 入口在中国市场打开，本地化能力成为竞争点</span>
+        <div class="item-sources"><a href="https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3" target="_blank">The Verge AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Google DeepMind 与 WRI 发布 ForTy 全球森林地图</div>
+      <div class='item-desc'>用卫星数据与 AI 把地表分为六类，但只识别出约一半人工林与树作区、60% 种植园。</div>
+      <div class="item-app">💼 做供应链合规产品的，可基于公开地图做覆盖度校验而非直接采信</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">AI 遥感进入合规场景（EU 毁林法规），但精度仍有明确缺口</span>
+        <div class="item-sources"><a href="https://the-decoder.com/google-deepmind-creates-a-global-map-of-forests-with-satellite-data-and-ai/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">世界模型首次指导芯片设计：超大核 NPU 700 TOPS，99% 算力可用</div>
+      <div class='item-desc'>算力利用率被推到接近满格。</div>
+      <div class="item-app">💼 端侧多模态产品的算力预算可按"99% 可用"重新规划</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">世界模型从内容生成延伸到硬件设计，端侧推理算力预期上调</span>
+        <div class="item-sources"><a href="https://www.qbitai.com/2026/10/506866.html" target="_blank">量子位</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">恶意软件用 LLM 给受害者"估值"排序</div>
+      <div class='item-desc'>Volta 信息窃取器用 AI 评估受害者价值，Talos 与 Wired 均有分析。</div>
+      <div class="item-app">💼 安全产品可把"受害者价值评分"作为新的检测特征</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">攻击侧已把 LLM 用于优先级决策，防御侧需对等自动化</span>
+        <div class="item-sources"><a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/" target="_blank">Cisco Talos</a> · <a href="https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/" target="_blank">Wired AI</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="paper">
+          <div class="category-header">
+            <h2>📄 重要论文</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Training Foundation Models with a Single Algorithm</div>
+      <div class='item-desc'>把预训练、midtraining、SFT、RL 统一为同一个基于似然的训练算法，声称各阶段在算法上并非必须分离。</div>
+      <div class="item-app">💼 小团队可先在小模型上验证统一训练，省掉阶段切换的工程债</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">训练流程有望从四段式收敛为单一目标，减少调参面</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.40564" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Unlocking Any-Order Generation in Pretrained Autoregressive Image Models</div>
+      <div class='item-desc'>让已训练好的自回归图像模型支持任意顺序生成，从而具备 inpainting/outpainting/编辑能力，无需 3 倍算力重训。</div>
+      <div class="item-app">💼 图像编辑产品可评估在既有 AR 模型上做后训练而非换底座</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">现有 AR 图像模型可低成本获得编辑能力，不必转投扩散</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39293" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">L3G-World：用隐式 3D 高斯记忆做实时无限世界生成</div>
+      <div class='item-desc'>避开显式 3D 记忆随流长膨胀、需重编码 RGB 导致无法实时的问题。</div>
+      <div class="item-app">💼 做实时世界模型/游戏生成的，优先复现其记忆压缩路径</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">长时程交互式世界模型的实时性瓶颈出现新解法</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.40614" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Holo4D：把 4D 重建当作视频扩散的几何控制</div>
+      <div class='item-desc'>用重建出的 3D 轨迹作为整体 4D 脚手架，实现单目视频新机位重拍。</div>
+      <div class="item-app">💼 短视频/广告重拍工具可把"新机位"做成标准功能</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">视频重拍的一致性由几何约束保证，而非纯生成先验</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.25276" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Proving and Improving the Platonic Representation Hypothesis with JEPAs</div>
+      <div class='item-desc'>把柏拉图表示假说变成定理——分别在不同模态上训练的 JEPA 学到同一表示（相差一个旋转）。</div>
+      <div class="item-app">💼 多模态对齐项目可优先考虑 JEPA 系架构而非对比学习</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">多模态统一表示从经验观察升级为可证明结论</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39302" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">EasyProver：把 Lean 定理证明扩展到真实代码验证</div>
+      <div class='item-desc'>用递归 Agent + 异步搜索，无额外训练即解 669/672 PutnamBench、全部 6 道 IMO 2026 形式化、597/600 NTP4VC。</div>
+      <div class="item-app">💼 形式化验证团队可直接复现 harness，成本远低于微调</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Agent 编排（而非模型训练）就能逼近基准饱和</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.38174" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Investor's Last Exam：AI Agent 能不能不看未来做股权投资</div>
+      <div class='item-desc'>由买方投资人主导、严格冻结信息集的权益研究基准。</div>
+      <div class="item-app">💼 金融 Agent 产品可用 ILE 做对外可信度背书与内部回归</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">金融 Agent 评测从"知识问答"转向"决策时点证据约束"</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.38342" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Online Dense RL + Planning-Grounding Agent：在真实 iOS App 上训练 UI 导航</div>
+      <div class='item-desc'>直接在线训练小模型，绕开 SFT/离线 RL 的记忆化与脆弱性。</div>
+      <div class="item-app">💼 App 自动化/测试产品可评估"小模型+在线 RL"替代 API 调用</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">小模型在真机在线 RL 下可替代高成本前沿 VLM 做 UI 导航</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39264" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Glance：生成器自己就是 reranker</div>
+      <div class='item-desc'>给生成器加轻量决策适配器与指针头，在共享 prefill 上给候选段落打分，单个 9B 主干同时做生成与重排。</div>
+      <div class="item-app">💼 RAG 服务可先合并 reranker，直接降一条推理链路成本</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">RAG 少驻留一个模型，省显存也省重复 prefill</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.40454" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">A-RSI：零数据多模态自我改进中的自适应任务刷新</div>
+      <div class='item-desc'>解决"何时引入新经验"而非只解决"生成什么经验"。</div>
+      <div class="item-app">💼 自训练流水线可加一个"经验是否已失效"的判据模块</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">递归自我改进的关键变量从数据构造转向刷新时机</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.38568" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Intrinsic Distribution Matching：一步/少步文生图的分布匹配新约束</div>
+      <div class='item-desc'>在内部速度分支上引入显式矩约束，改进 DMD 的分数监督。</div>
+      <div class="item-app">💼 图像生成 API 若走少步蒸馏，可试该约束压低质量损失</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">少步生成的细节保真度有新的可叠加改进点</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39633" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="project">
+          <div class="category-header">
+            <h2>🔧 开源项目</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Orkas-AI/Orkas（今日 +1,118 star）</div>
+      <div class='item-desc'>MIT 许可的本地优先桌面 AI 团队，Commander 把目标拆成待办，协调 16 个内置专家 Agent 及 Claude Code、Codex、OpenCode、OpenClaw、Hermes。</div>
+      <div class="item-app">💼 可直接改造为垂直行业"AI 团队"产品，省掉编排层开发</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">多 Agent 编排的桌面形态开源样板，支持自带 key</span>
+        <div class="item-sources"><a href="https://github.com/Orkas-AI/Orkas" target="_blank">GitHub Trending</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">THU-MAIC/OpenMAIC（今日 +115 star）</div>
+      <div class='item-desc'>清华开源多 Agent 互动课堂，一键获得沉浸式多 Agent 学习体验。</div>
+      <div class="item-app">💼 教育/培训产品可直接 fork 做课程 Demo 拉种子用户</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">教育场景的多 Agent 落地参考实现</span>
+        <div class="item-sources"><a href="https://github.com/THU-MAIC/OpenMAIC" target="_blank">GitHub Trending</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Show HN: bootgpt——住在引导扇区里的语言模型</div>
+      <div class='item-desc'>把语言模型塞进 boot sector 运行。</div>
+      <div class="item-app">💼 嵌入式/端侧 AI 团队可拆解其体积压缩技巧</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">极小体积推理的极端工程样本，适合学习量化与内存布局</span>
+        <div class="item-sources"><a href="https://github.com/kerlenton/bootgpt" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Betelgeuse：RTX 3060 12GB + 16GB DDR4 上跑 Qwen 3.8 Flash Next，IQ4_XS 达 24 tok/s 且 100% 字节精确</div>
+      <div class='item-desc'>修正了此前靠 gate pruning 作弊的问题，改用 oracle + victim-cache DMA 路径。</div>
+      <div class="item-app">💼 本地部署产品可据此给出"最低可用配置"清单</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">低配硬件跑 MoE 大模型的可复现方案，且保证输出无损</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1xkh2ns/betelgeuse_running_qwen_38_flash_next_iq4_xs_at/" target="_blank">r/LocalLLaMA</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="buzz">
+          <div class="category-header">
+            <h2>🐦 AI 圈热议</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="3">
+      <div class="item-title">GPT-5.6 Sol 能在和平模式下通关 Factorio</div>
+      <div class='item-desc'>HN 132 分、134 条评论，讨论集中在长时程规划与"这算不算真智能"。</div>
+      <div class="item-app">💼 把复杂流程自动化产品做成"游戏通关"式 Demo，传播性强</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">长时程游戏成为 Agent 规划能力的非正式试炼场</span>
+        <div class="item-sources"><a href="https://ryanmadden.net/gpt-56-beats-factorio/" target="_blank">ryanmadden.net</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">有人在 Qwen 3.5-4B 权重里编译了一个 NPU，并在其中跑起另一个 LLM</div>
+      <div class='item-desc'>同一作者此前把 RISC-V CPU 塞进 Qwen，这次让 Karpathy 的 stories260k 在模型内部运行。</div>
+      <div class="item-app">💼 内容侧可做"模型里跑模型"的技术叙事，吸引开发者关注</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">模型权重作为"可编程基质"的极端实验，激发架构想象</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1xkiuut/an_llm_inside_an_llm_same_guy_who_put_a_riskv_cpu/" target="_blank">r/LocalLLaMA</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">该筛选条件下没有内容。</div>
+      
+        <div class="observation">
+          <h2>💡 今日观察</h2>
+          <p>今天最清晰的信号是"Harness 层正在独立成层"：Factory Droid 1.0 主打模型无关，Vercel 的 agent-desktop 用无障碍树替代像素，EasyProver 靠 Agent 编排而非训练就逼近基准饱和——能力增量越来越多来自外壳而非底座。与之呼应的是供给侧收紧：Anthropic 一边扩水印一边留漏洞，一边封禁"触及训练更大模型"的账号，模型 API 的"用途合规风险"首次成为选型变量。融资端，OpenAI 只募到目标的三分之一，意味着补贴与价格战的持续性要打折，而 Agent Sandbox 每天千万次创建说明需求侧仍在加速。一句话：需求在涨、供给在收紧、资本在退潮，中间层的工程能力是最确定的套利空间。</p>
+          <button class="speak-btn" data-label="🔊 朗读今日观察" data-stop="⏹ 停止" data-speak-lang="zh-CN" data-text="今天最清晰的信号是&quot;Harness 层正在独立成层&quot;：Factory Droid 1.0 主打模型无关，Vercel 的 agent-desktop 用无障碍树替代像素，EasyProver 靠 Agent 编排而非训练就逼近基准饱和——能力增量越来越多来自外壳而非底座。与之呼应的是供给侧收紧：Anthropic 一边扩水印一边留漏洞，一边封禁&quot;触及训练更大模型&quot;的账号，模型 API 的&quot;用途合规风险&quot;首次成为选型变量。融资端，OpenAI 只募到目标的三分之一，意味着补贴与价格战的持续性要打折，而 Agent Sandbox 每天千万次创建说明需求侧仍在加速。一句话：需求在涨、供给在收紧、资本在退潮，中间层的工程能力是最确定的套利空间。">🔊 朗读今日观察</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 商业机会</h2>
+          <ul><li>多模型路由与合规隔离层：Anthropic 封禁"触及训练更大模型"账号、Claude 拦截游戏逆向、水印可绕过，说明企业需要一个统一网关来做用途分流、账号隔离与输出溯源。依据：Anthropic 封号与游戏逆向拦截两条新闻。</li><li>Agent 沙箱的托管服务：Agent Sandbox 每天上千万次创建、冷启动成为新瓶颈，中小团队自建隔离环境成本高。可做"按次计费的安全执行环境"，主打低时延与快照恢复。依据：InfoQ Agent Sandbox 报道与 Vercel agent-desktop 开源。</li><li>"每通过任务成本"基准服务：Factory 用 4.73 美元/通过任务来定义编码 Agent 性价比，但市面上缺横向可比数据。可做第三方评测，按任务类型给出成本-成功率曲线，卖给做 Agent 选型的企业。依据：Factory Droid 1.0 与 Terminal-Bench 4 数据。</li></ul>
+        </div>
+        <div class="insight">
+          <h2>🧭 研究建议</h2>
+          <ul><li>亲手跑一遍 Glance 的共享 prefill 重排：在现有 RAG 链路上把 reranker 合并进 9B 生成器，测端到端延迟与显存占用，重点验证长上下文下指针头的打分稳定性。</li><li>复现 EasyProver 的 Agent 编排而非训练：用现成前沿模型搭递归 Agent + 异步搜索 + 并行 tactic 探测，先在小型 Lean 项目上验证，观察"编排增益"与"模型增益"的边际对比。</li><li>在自回归图像模型上试 any-order 后训练：拿一个已训好的 AR 图像模型做任意顺序微调，验证 inpainting/outpainting 质量是否接近从头训练，同时记录算力节省比例，判断是否值得替换现有扩散管线。</li></ul>
+        </div>
+    </div></div><div data-lang-content="en">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">All</span><span class="tab" data-cat="news">News</span><span class="tab" data-cat="paper">Papers</span><span class="tab" data-cat="project">Projects</span><span class="tab" data-cat="buzz">Buzz</span>
+      <span class="star-toggle">★ Top picks (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>📰 Industry News</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">OpenAI's new round raises only $11 billion of its $30 billion target</div>
+      <div class='item-desc'>Valuation of $1.25 trillion falls short of expectations as large investors pull back amid a tech stock selloff, while Anthropic seeks to go public as early as November.</div>
+      <div class="item-app">💼 Reassess long-term reliance on a single vendor and lock in multi-year API contracts during the discount window</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Funding for top model companies is cooling, casting doubt on API price wars and subsidy sustainability</span>
+        <div class="item-sources"><a href="https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/" target="_blank">The Decoder</a> · <a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/" target="_blank">TechCrunch AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic extends text watermarking to 4 Claude models, but leaves a backdoor on two older models</div>
+      <div class='item-desc'>To meet the EU AI Act's December deadline, changing a single sampling parameter on Opus 4.6 and Sonnet 4.6 bypasses the watermark; Anthropic treats this only as a compliance warning.</div>
+      <div class="item-app">💼 For content platforms, treat watermark detection as an auxiliary signal and build your own C2PA-style provenance records</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Watermark compliance has engineering gaps; output provenance can't rely on the model side alone</span>
+        <div class="item-sources"><a href="https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">OpenAI will train models on Daybreak Blue cybersecurity session data starting November 29</div>
+      <div class='item-desc'>This applies even if users turn off the training toggle; after backlash, OpenAI sent a follow-up email promising a separate opt-out.</div>
+      <div class="item-app">💼 Products serving enterprise customers should secure written guarantees in contracts that "training off" is honored</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Enterprise data boundaries narrow again; security-related session data is no longer isolated by default</span>
+        <div class="item-sources"><a href="https://the-decoder.com/openai-plans-to-train-models-on-daybreak-blue-cybersecurity-session-data-that-was-previously-off-limits/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Anthropic restricts Claude's use for game reverse engineering and cloning</div>
+      <div class='item-desc'>Users report that even non-malicious generic reverse engineering tasks are being blocked.</div>
+      <div class="item-app">💼 Game/tool products need multi-model fallback plans to avoid single-point bans</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Model-side usage restrictions are landing on specific scenarios, turning Agent capability boundaries into policy</span>
+        <div class="item-sources"><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-ai-model-is-now-blocking-attempts-at-video-game-recreation-and-cloning-users-also-claim-non-malicious-generic-reverse-engineering-tasks-are-blocked" target="_blank">Tom's Hardware</a> · <a href="https://mashable.com/tech/anthropic-takes-steps-to-block-video-game-cloning-and-reverse-engineering" target="_blank">Mashable</a> · <a href="https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games" target="_blank">Game Developer</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic bans accounts that "touch anything involving training larger models"</div>
+      <div class='item-desc'>Heated discussion on HN; developers say normal usage is being caught in the crossfire.</div>
+      <div class="item-app">💼 Use multi-account/multi-vendor redundancy and isolate core pipeline accounts from experimental ones</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">ToS enforcement is tightening, raising "usage compliance" risk for API accounts</span>
+        <div class="item-sources"><a href="https://twitter.com/jiahaoshao1/status/2116475922190922088" target="_blank">Twitter @jiahaoshao1</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Claude removes the 5-hour usage limit, with $200 Ultra users unblocked first</div>
+      <div class='item-desc'>The usage ceiling for heavy users is raised.</div>
+      <div class="item-app">💼 Bring back long-task workflows previously cut due to rate limits (batch refactoring, long documents)</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">Cost models for long-horizon Agent tasks can be recalculated</span>
+        <div class="item-sources"><a href="https://www.qbitai.com/2026/10/506855.html" target="_blank">QbitAI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Factory releases Droid 1.0: a model-agnostic coding Agent harness</div>
+      <div class='item-desc'>It defaults to programmatic tool calling, scoring 65.2% on Terminal-Bench 4 with Claude Opus 5.5 at $4.73 cost per passed task.</div>
+      <div class="item-app">💼 Choose coding Agents by "cost per passed task" rather than token unit price</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">The harness layer is decoupled from models, and "cost per passed task" becomes a comparable metric</span>
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/10/31/factory-droid-1-0-frontier-harness/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Vercel Labs open-sources agent-desktop</div>
+      <div class='item-desc'>An Apache-2.0 Rust CLI that reads the OS accessibility tree instead of pixels, letting any Agent do computer use on macOS/Windows/Linux.</div>
+      <div class="item-app">💼 Package repetitive internal back-office operations into Agent skills, starting with accessibility-tree adaptation</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">The accessibility-tree approach is more stable and cheaper than screenshot methods, and unified across platforms</span>
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/10/31/vercel-labs-agent-desktop-computer-use/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">An AI Agent selects and injects gene therapy inside a live mouse brain</div>
+      <div class='item-desc'>The biotech startup had the Agent autonomously choose a therapy and successfully inject it—a signal for lab automation.</div>
+      <div class="item-app">💼 Life science/lab automation products can borrow its "select—execute—verify" layered design</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Agents cross from digital tasks into high-risk physical operations, and validation loops are taking shape</span>
+        <div class="item-sources"><a href="https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/" target="_blank">Wired AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Agent Sandbox becomes a new compute paradigm: tens of millions of creations per day</div>
+      <div class='item-desc'>InfoQ discusses why sandboxed execution environments are becoming core Agent infrastructure.</div>
+      <div class="item-app">💼 For Agent platform builders, treat sandbox cold-start latency as a core SLA metric to optimize</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">As Agents scale, scheduling isolated execution environments becomes both a new bottleneck and a new business</span>
+        <div class="item-sources"><a href="https://www.infoq.cn/video/4qjamMQLVIoZvytUQwpI?utm_source=rss&utm_medium=article" target="_blank">InfoQ Chinese</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Apple Intelligence to enter China with iOS 27.3</div>
+      <div class='item-desc'>Launching with the beta on November 4, with an official release in December.</div>
+      <div class="item-app">💼 Prepare App Intents / on-device model adaptation in advance to grab launch-day exposure</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">The on-device AI entry point opens in the Chinese market, making localization a competitive edge</span>
+        <div class="item-sources"><a href="https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3" target="_blank">The Verge AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Google DeepMind and WRI release the ForTy global forest map</div>
+      <div class='item-desc'>Using satellite data and AI to classify land into six categories, but it identifies only about half of planted forests and tree-crop areas, and 60% of plantations.</div>
+      <div class="item-app">💼 For supply chain compliance products, use the public map for coverage checks rather than trusting it directly</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">AI remote sensing enters compliance scenarios (EU deforestation rules), but clear accuracy gaps remain</span>
+        <div class="item-sources"><a href="https://the-decoder.com/google-deepmind-creates-a-global-map-of-forests-with-satellite-data-and-ai/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">World model guides chip design for the first time: super-core NPU at 700 TOPS with 99% compute usable</div>
+      <div class='item-desc'>Compute utilization is pushed to near full capacity.</div>
+      <div class="item-app">💼 Replan compute budgets for on-device multimodal products based on "99% usable"</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">World models extend from content generation to hardware design, raising on-device inference compute expectations</span>
+        <div class="item-sources"><a href="https://www.qbitai.com/2026/10/506866.html" target="_blank">QbitAI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Malware uses LLMs to "appraise" and rank victims</div>
+      <div class='item-desc'>The Volta infostealer uses AI to assess victim value, with analyses from both Talos and Wired.</div>
+      <div class="item-app">💼 Security products can use "victim value scoring" as a new detection feature</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">Attackers already use LLMs for prioritization decisions; defenders need equivalent automation</span>
+        <div class="item-sources"><a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/" target="_blank">Cisco Talos</a> · <a href="https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/" target="_blank">Wired AI</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="paper">
+          <div class="category-header">
+            <h2>📄 Key Papers</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Training Foundation Models with a Single Algorithm</div>
+      <div class='item-desc'>Unifies pretraining, midtraining, SFT, and RL into a single likelihood-based training algorithm, arguing that these stages need not be algorithmically separated.</div>
+      <div class="item-app">💼 Small teams can validate unified training on small models first, avoiding stage-switch engineering debt</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Training pipelines could collapse from four stages into one objective, cutting tuning surface</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.40564" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Unlocking Any-Order Generation in Pretrained Autoregressive Image Models</div>
+      <div class='item-desc'>Enables already-trained autoregressive image models to support any-order generation, giving them inpainting/outpainting/editing capabilities without 3x compute retraining.</div>
+      <div class="item-app">💼 Image editing products can evaluate post-training on existing AR models instead of swapping backbones</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Existing AR image models gain editing cheaply, no need to switch to diffusion</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39293" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">L3G-World: Real-Time Infinite World Generation with Implicit 3D Gaussian Memory</div>
+      <div class='item-desc'>Avoids the problems of explicit 3D memory ballooning with stream length and requiring RGB re-encoding that prevents real-time operation.</div>
+      <div class="item-app">💼 Those building real-time world models/game generation should reproduce its memory compression path first</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">A new solution emerges for the real-time bottleneck in long-horizon interactive world models</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.40614" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Holo4D: Treating 4D Reconstruction as Geometric Control for Video Diffusion</div>
+      <div class='item-desc'>Uses reconstructed 3D trajectories as an overall 4D scaffold to achieve novel-view reshooting of monocular video.</div>
+      <div class="item-app">💼 Short-video/ad reshoot tools can make "novel view" a standard feature</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Video reshoot consistency is guaranteed by geometric constraints, not pure generative priors</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.25276" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Proving and Improving the Platonic Representation Hypothesis with JEPAs</div>
+      <div class='item-desc'>Turns the Platonic representation hypothesis into a theorem—JEPAs trained separately on different modalities learn the same representation (up to a rotation).</div>
+      <div class="item-app">💼 Multimodal alignment projects can prioritize JEPA-family architectures over contrastive learning</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Multimodal unified representation upgrades from empirical observation to provable conclusion</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39302" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">EasyProver: Extending Lean Theorem Proving to Real Code Verification</div>
+      <div class='item-desc'>Uses recursive agents + asynchronous search to solve 669/672 PutnamBench, all 6 IMO 2026 formalizations, and 597/600 NTP4VC without additional training.</div>
+      <div class="item-app">💼 Formal verification teams can directly reproduce the harness at far lower cost than fine-tuning</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Agent orchestration (not model training) alone can approach benchmark saturation</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.38174" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Investor's Last Exam: Can AI Agents Do Equity Investing Without Seeing the Future</div>
+      <div class='item-desc'>An equity research benchmark led by buy-side investors with a strictly frozen information set.</div>
+      <div class="item-app">💼 Financial agent products can use ILE for external credibility endorsement and internal regression</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Financial agent evaluation shifts from "knowledge Q&A" to "decision-time evidence constraints"</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.38342" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Online Dense RL + Planning-Grounding Agent: Training UI Navigation on Real iOS Apps</div>
+      <div class='item-desc'>Trains small models directly online, bypassing the memorization and fragility of SFT/offline RL.</div>
+      <div class="item-app">💼 App automation/testing products can evaluate "small model + online RL" to replace API calls</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Small models with real-device online RL can replace costly frontier VLMs for UI navigation</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39264" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Glance: The Generator Is Its Own Reranker</div>
+      <div class='item-desc'>Adds a lightweight decision adapter and pointer head to the generator, scoring candidate passages on shared prefill, with a single 9B backbone doing both generation and reranking.</div>
+      <div class="item-app">💼 RAG services can merge the reranker first, directly cutting one inference pipeline's cost</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">RAG hosts one fewer model, saving VRAM and redundant prefill</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.40454" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">A-RSI: Adaptive Task Refresh in Zero-Data Multimodal Self-Improvement</div>
+      <div class='item-desc'>Addresses "when to introduce new experience" rather than only "what experience to generate."</div>
+      <div class="item-app">💼 Self-training pipelines can add a "has this experience expired" criterion module</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">The key variable in recursive self-improvement shifts from data construction to refresh timing</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.38568" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Intrinsic Distribution Matching: A New Distribution-Matching Constraint for One-Step/Few-Step Text-to-Image Generation</div>
+      <div class='item-desc'>Introduces explicit moment constraints on the internal velocity branch, improving DMD's score supervision.</div>
+      <div class="item-app">💼 Image generation APIs using few-step distillation can try this constraint to reduce quality loss</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Few-step generation gains a new composable improvement point for detail fidelity</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2610.39633" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="project">
+          <div class="category-header">
+            <h2>🔧 Open Source</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Orkas-AI/Orkas (Today +1,118 stars)</div>
+      <div class='item-desc'>An MIT-licensed local-first desktop AI team where Commander breaks goals into to-dos and coordinates 16 built-in expert Agents plus Claude Code, Codex, OpenCode, OpenClaw, and Hermes.</div>
+      <div class="item-app">💼 Adapt it directly into a vertical-industry "AI team" product, skipping orchestration-layer development</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">An open-source desktop template for multi-Agent orchestration, supports bring-your-own key</span>
+        <div class="item-sources"><a href="https://github.com/Orkas-AI/Orkas" target="_blank">GitHub Trending</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">THU-MAIC/OpenMAIC (Today +115 stars)</div>
+      <div class='item-desc'>Tsinghua's open-source multi-Agent interactive classroom, giving an immersive multi-Agent learning experience in one click.</div>
+      <div class="item-app">💼 Education/training products can fork it for course demos to attract early users</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">A reference implementation of multi-Agent deployment in education</span>
+        <div class="item-sources"><a href="https://github.com/THU-MAIC/OpenMAIC" target="_blank">GitHub Trending</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Show HN: bootgpt — a language model living in the boot sector</div>
+      <div class='item-desc'>Packs a language model into the boot sector to run.</div>
+      <div class="item-app">💼 Embedded/on-device AI teams can dissect its size-compression tricks</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">An extreme engineering sample of tiny-footprint inference, good for learning quantization and memory layout</span>
+        <div class="item-sources"><a href="https://github.com/kerlenton/bootgpt" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Betelgeuse: Running Qwen 3.8 Flash Next on RTX 3060 12GB + 16GB DDR4, IQ4_XS hits 24 tok/s with 100% byte-exact output</div>
+      <div class='item-desc'>Fixed the earlier gate-pruning cheating issue, switching to an oracle + victim-cache DMA path.</div>
+      <div class="item-app">💼 Local deployment products can use it to publish a "minimum viable configuration" list</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">A reproducible way to run large MoE models on low-end hardware with lossless output</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1xkh2ns/betelgeuse_running_qwen_38_flash_next_iq4_xs_at/" target="_blank">r/LocalLLaMA</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="buzz">
+          <div class="category-header">
+            <h2>🐦 AI Discourse</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="3">
+      <div class="item-title">GPT-5.6 Sol can beat Factorio in peaceful mode</div>
+      <div class='item-desc'>HN 132 points, 134 comments, discussion focused on long-horizon planning and "does this count as real intelligence."</div>
+      <div class="item-app">💼 Turn complex workflow automation products into "game completion"-style demos with strong shareability</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">Long-horizon games become an informal proving ground for Agent planning ability</span>
+        <div class="item-sources"><a href="https://ryanmadden.net/gpt-56-beats-factorio/" target="_blank">ryanmadden.net</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Someone compiled an NPU into Qwen 3.5-4B weights and ran another LLM inside it</div>
+      <div class='item-desc'>The same author previously put a RISC-V CPU into Qwen; this time Karpathy's stories260k runs inside the model.</div>
+      <div class="item-app">💼 Build a "model running inside a model" technical narrative on the content side to attract developer attention</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">An extreme experiment treating model weights as a "programmable substrate," sparking architectural imagination</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1xkiuut/an_llm_inside_an_llm_same_guy_who_put_a_riskv_cpu/" target="_blank">r/LocalLLaMA</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">No items match this filter.</div>
+      
+        <div class="observation">
+          <h2>💡 Today's Take</h2>
+          <p>The clearest signal today is that "the Harness layer is becoming its own layer": Factory Droid 1.0 emphasizes model-agnosticism, Vercel's agent-desktop replaces pixels with accessibility trees, and EasyProver approaches benchmark saturation through Agent orchestration rather than training—capability gains increasingly come from the shell rather than the base. Echoing this is tightening on the supply side: Anthropic expands watermarking while leaving loopholes, bans accounts that "touch training larger models," and the "usage compliance risk" of model APIs becomes a selection variable for the first time. On the funding side, OpenAI raised only one-third of its target, meaning the sustainability of subsidies and price wars will be discounted, while Agent Sandbox's tens of millions of daily creations show demand is still accelerating. In one sentence: demand is rising, supply is tightening, capital is receding, and engineering capability in the middle layer is the most certain arbitrage space.</p>
+          <button class="speak-btn" data-label="🔊 Read aloud" data-stop="⏹ Stop" data-speak-lang="en-US" data-text="The clearest signal today is that &quot;the Harness layer is becoming its own layer&quot;: Factory Droid 1.0 emphasizes model-agnosticism, Vercel's agent-desktop replaces pixels with accessibility trees, and EasyProver approaches benchmark saturation through Agent orchestration rather than training—capability gains increasingly come from the shell rather than the base. Echoing this is tightening on the supply side: Anthropic expands watermarking while leaving loopholes, bans accounts that &quot;touch training larger models,&quot; and the &quot;usage compliance risk&quot; of model APIs becomes a selection variable for the first time. On the funding side, OpenAI raised only one-third of its target, meaning the sustainability of subsidies and price wars will be discounted, while Agent Sandbox's tens of millions of daily creations show demand is still accelerating. In one sentence: demand is rising, supply is tightening, capital is receding, and engineering capability in the middle layer is the most certain arbitrage space.">🔊 Read aloud</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 Opportunities</h2>
+          <ul><li>Multi-model routing and compliance isolation layer: Anthropic banning accounts that "touch training larger models," Claude blocking game reverse engineering, and bypassable watermarks show enterprises need a unified gateway for usage routing, account isolation, and output provenance. Basis: the two news items on Anthropic account bans and game reverse-engineering blocking.</li><li>Managed Agent sandbox service: Agent Sandbox sees tens of millions of creations per day, cold start has become a new bottleneck, and small teams face high costs building their own isolation environments. Offer "per-use billed secure execution environments" focused on low latency and snapshot recovery. Basis: InfoQ's Agent Sandbox report and the Vercel agent-desktop open source release.</li><li>"Cost per passed task" benchmark service: Factory uses $4.73 per passed task to define coding Agent cost-effectiveness, but cross-comparable data is lacking on the market. Build third-party evaluations that provide cost-success-rate curves by task type and sell them to enterprises selecting Agents. Basis: Factory Droid 1.0 and Terminal-Bench 4 data.</li></ul>
+        </div>
+        <div class="insight">
+          <h2>🧭 Worth Exploring</h2>
+          <ul><li>Run Glance's shared prefill reranking yourself: Merge the reranker into the 9B generator on an existing RAG pipeline, measure end-to-end latency and memory usage, and focus on verifying the scoring stability of the pointer head under long contexts.</li><li>Reproduce EasyProver's Agent orchestration rather than training: Use existing frontier models to build recursive Agents + asynchronous search + parallel tactic probing, validate first on small Lean projects, and observe the marginal comparison between "orchestration gains" and "model gains."</li><li>Try any-order post-training on autoregressive image models: Take a trained AR image model and fine-tune it with arbitrary order, verify whether inpainting/outpainting quality approaches training from scratch, and record the compute savings ratio to judge whether it is worth replacing the existing diffusion pipeline.</li></ul>
+        </div>
+    </div></div>
+      <div class="day-nav">
+        <a class="nav-btn" href="2026-10-31.html">← 2026-10-31</a>
+        <span></span>
+      </div>
+    </div>
+  
+<button id="backToTop" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  <span data-lang-content="zh">© Andy 的 AI 早报 · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
+  <span data-lang-content="en">© Andy's AI Daily · Auto-collected · Curated by DeepSeek · Updated daily</span>
+</footer>
+
+  <script>window.SITE_BASE="../";window.AVAILABLE_DATES=["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31", "2026-11-01"];window.CURRENT_DATE="2026-11-01";window.PREV_DATE="2026-10-31";</script>
+  <script>
+(function () {
+  var BASE = window.SITE_BASE || "";
+  var DATES = window.AVAILABLE_DATES || [];
+
+  function esc(s) {
+    return (s || "").replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  // ── Date picker ──
+  var dp = document.getElementById('datePicker');
+  if (dp && DATES.length) {
+    dp.min = DATES[0];
+    dp.max = DATES[DATES.length - 1];
+    dp.value = window.CURRENT_DATE || DATES[DATES.length - 1];
+    dp.addEventListener('change', function () {
+      var v = dp.value;
+      if (DATES.indexOf(v) === -1) {
+        var earlier = DATES.filter(function (d) { return d <= v; });
+        v = earlier.length ? earlier[earlier.length - 1] : DATES[0];
+      }
+      window.location.href = BASE + 'daily/' + v + '.html';
+    });
+  }
+
+  // ── Search ──
+  var si = document.getElementById('searchInput');
+  var sr = document.getElementById('searchResults');
+  var INDEX = null;
+  function loadIndex() {
+    if (INDEX) return Promise.resolve(INDEX);
+    return fetch(BASE + 'search-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { INDEX = data; return data; });
+  }
+  if (si && sr) {
+    si.addEventListener('input', function () {
+      var q = si.value.trim().toLowerCase();
+      if (q.length < 2) { sr.classList.remove('active'); sr.innerHTML = ''; return; }
+      loadIndex().then(function (idx) {
+        var en = window.CUR_LANG === 'en';
+        function fTitle(h) { return (en && h.title_en) ? h.title_en : h.title; }
+        function fDesc(h) { return (en && h.desc_en) ? h.desc_en : h.desc; }
+        function fCat(h) { return (en && h.cat_en) ? h.cat_en : h.cat; }
+        var hits = idx.filter(function (it) {
+          return (fTitle(it) + ' ' + fDesc(it) + ' ' + it.title + ' ' + it.desc)
+            .toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 25);
+        if (!hits.length) {
+          sr.innerHTML = '<div class="sr-empty">' +
+            (en ? 'No matches' : '没有匹配结果') + '</div>';
+        } else {
+          sr.innerHTML = hits.map(function (h) {
+            return '<a class="sr-item" href="' + BASE + 'daily/' + h.date + '.html">' +
+                   '<span class="sr-date">' + h.date + ' · ' + esc(fCat(h)) + '</span>' +
+                   '<span class="sr-title">' + esc(fTitle(h)) + '</span></a>';
+          }).join('');
+        }
+        sr.classList.add('active');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-box')) sr.classList.remove('active');
+    });
+  }
+
+  // ── Filters (category tabs + star toggle), scoped per digest ──
+  document.querySelectorAll('.filter-bar').forEach(function (bar) {
+    var scope = bar.closest('.digest-scope') || document;
+    var tabs = bar.querySelectorAll('.tab');
+    var starToggle = bar.querySelector('.star-toggle');
+    var curCat = 'all', starsOnly = false;
+
+    function apply() {
+      scope.querySelectorAll('.category').forEach(function (catEl) {
+        var ct = catEl.getAttribute('data-cat');
+        var catMatch = (curCat === 'all') || (ct === curCat);
+        var visible = 0;
+        catEl.querySelectorAll('.item-card').forEach(function (it) {
+          var stars = parseInt(it.getAttribute('data-stars') || '0', 10);
+          var show = catMatch && (!starsOnly || stars >= 4);
+          it.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        catEl.style.display = (catMatch && visible > 0) ? '' : 'none';
+      });
+      var anyVisible = Array.prototype.some.call(
+        scope.querySelectorAll('.category'),
+        function (c) { return c.style.display !== 'none'; }
+      );
+      var emptyMsg = scope.querySelector('.empty-filter');
+      if (emptyMsg) emptyMsg.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        curCat = t.getAttribute('data-cat');
+        apply();
+      });
+    });
+    if (starToggle) {
+      starToggle.addEventListener('click', function () {
+        starsOnly = !starsOnly;
+        starToggle.classList.toggle('active', starsOnly);
+        apply();
+      });
+    }
+  });
+
+  // ── Keyboard navigation (day pages) ──
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' && window.PREV_DATE) {
+      window.location.href = window.PREV_DATE + '.html';
+    } else if (e.key === 'ArrowRight' && window.NEXT_DATE) {
+      window.location.href = window.NEXT_DATE + '.html';
+    }
+  });
+
+  // ── Back to top ──
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Reading progress ──
+  var pb = document.getElementById('progressBar');
+  if (pb) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      pb.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+  }
+
+  // ── Theme toggle ──
+  var tt = document.getElementById('themeToggle');
+  function curTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+  function paintToggle() { if (tt) tt.textContent = curTheme() === 'light' ? '☀️' : '🌙'; }
+  paintToggle();
+  if (tt) {
+    tt.addEventListener('click', function () {
+      var next = curTheme() === 'light' ? 'dark' : 'light';
+      if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paintToggle();
+    });
+  }
+
+  // ── Language toggle ──
+  var PH = { zh: '搜索全部日报…', en: 'Search all digests…' };
+  function curLang() {
+    return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+  }
+  window.CUR_LANG = curLang();
+  var lt = document.getElementById('langToggle');
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+    window.CUR_LANG = lang;
+    if (lt) lt.textContent = lang === 'en' ? '中' : 'EN';
+    if (si) si.setAttribute('placeholder', PH[lang]);
+  }
+  applyLang(curLang());
+  if (lt) {
+    lt.addEventListener('click', function () {
+      var next = curLang() === 'en' ? 'zh' : 'en';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      applyLang(next);
+    });
+  }
+
+  // ── Hot-word tags → search ──
+  document.querySelectorAll('.trend-tag').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      var term = tag.getAttribute('data-term');
+      if (si) {
+        si.value = term;
+        si.focus();
+        si.dispatchEvent(new Event('input', { bubbles: true }));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Voice readout (Web Speech API) ──
+  var synth = window.speechSynthesis;
+  document.querySelectorAll('.speak-btn').forEach(function (btn) {
+    if (!synth) { btn.style.display = 'none'; return; }
+    var label = btn.getAttribute('data-label') || '🔊 朗读';
+    var stop = btn.getAttribute('data-stop') || '⏹ 停止';
+    btn.addEventListener('click', function () {
+      if (btn.classList.contains('playing')) {
+        synth.cancel();
+        return;
+      }
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-text') || '');
+      u.lang = btn.getAttribute('data-speak-lang') || 'zh-CN';
+      u.rate = 1.0;
+      u.onend = u.onerror = function () {
+        btn.classList.remove('playing');
+        btn.textContent = label;
+      };
+      btn.classList.add('playing');
+      btn.textContent = stop;
+      synth.speak(u);
+    });
+  });
+  window.addEventListener('beforeunload', function () { if (synth) synth.cancel(); });
+
+  // ── Audio player: lock-screen / car metadata via MediaSession ──
+  document.querySelectorAll('.audio-player audio').forEach(function (audio) {
+    audio.addEventListener('play', function () {
+      if (!('mediaSession' in navigator)) return;
+      var date = audio.getAttribute('data-date') || '';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Andy 的 AI 早报 · ' + date,
+          artist: 'Andy 的 AI 早报',
+          album: 'Andy 的 AI 早报',
+          artwork: [{ src: BASE + 'podcast-cover.png', sizes: '1400x1400', type: 'image/png' }]
+        });
+      } catch (e) {}
+    });
+  });
+
+  // ── Copy podcast feed URL ──
+  document.querySelectorAll('[data-copy-feed]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = el.getAttribute('data-copy-feed');
+      var done = function () {
+        var old = el.textContent;
+        el.textContent = (window.CUR_LANG === 'en' ? '✓ Copied!' : '✓ 已复制订阅链接');
+        setTimeout(function () { el.textContent = old; }, 1800);
+      };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, done); }
+      else { done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
