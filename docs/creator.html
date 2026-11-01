@@ -36,6 +36,62 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-02">Andy 的 AI 早报 · 2026-11-02 周一</span>
+    <button class="cbtn" data-copy="t-2026-11-02">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-02.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-02.mp3" download="2026-11-02.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-02">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-02">Andy 的 AI 早报 · 2026-11-02 周一
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· OpenAI 融资目标从 300 亿砍到 110 亿，AI 交易经历剧烈重定价：据报道 OpenAI 新一轮融资仅募得 110 亿美元，远低于 300 亿目标。同期 Google 承认 AI Mode 伤害搜索收入，财报后股价一度跌 10%，被形容为 2004 年 IPO 以来最差单日表现。市场对&quot;烧钱换增长&quot;叙事的耐心正在快速耗尽。
+  来源：https://www.36kr.com/p/4050660776317825 / https://latent.space/p/ainews-google-admits-ai-mode-hurts-search-revenue-15-500b-drop-worst-since-2004-ipo-ai-bear-market-c
+· Meta 拟筹近千亿美元，Oracle 报出&quot;最后一笔&quot;：Meta 计划筹集近千亿美元规模的资金，Oracle 在这轮融资中报出了被称为&quot;最后一笔&quot;的份额。报道的核心疑问是华尔街的耐心还剩多少——即债券市场是否还愿意继续为 AI 基建的巨额资本开支买单。
+  来源：https://www.36kr.com/p/4050674386048132
+· Anthropic 的 Mythos 级模型据称泄露到 Hugging Face：一个疑似 Anthropic Mythos 级 checkpoint 出现在 Hugging Face 上（仓库名 numbat），HN 上同时出现两个讨论帖。目前只有&quot;alleged&quot;层面的信息，Anthropic 未确认。
+  来源：https://news.ycombinator.com/item?id=50326727 / https://huggingface.co/burner22/numbat
+
+🎬 赛道深挖
+· OpenAI 合并 Chat 与 Work 模式，12 月起改用 token 配额，无限 prompt 定价终结：OpenAI 把 ChatGPT 的 Chat 和 Work 两个模式合并为单一界面。从 12 月开始，Plus、Pro、Business 三档订阅共享一套基于 token 的配额，ChatGPT 和 Codex 共用；更复杂的模型消耗配额更多，简单的即时对话不计入。实际结果是低价档重度用户能拿到的模型质量会下降。
+  来源：https://the-decoder.com/openais-upcoming-chat-and-work-merger-in-chatgpt-signals-the-end-of-all-you-can-prompt-pricing/
+· OpenAI 限制单设备/单支付卡的付费账号数量，把用户往高价档赶：OpenAI 开始对每台设备和每张支付卡可绑定的付费 ChatGPT 账号数量设上限。达到上限的用户无法新开订阅，受影响账号在该设备上不可用；登出也不会自动释放名额。这一政策针对的是同时持有多个低价订阅以最大化用量的用户，目的是把他们推向购买额外 credits 等更贵的选项。
+  来源：https://the-decoder.com/openai-is-steering-chatgpt-users-toward-more-paid-usage/
+· Adobe 联合 UCSD 做 EditAgent，让 Agent 像 Photoshop 专业人士一样选工具修图：Adobe Research 与 UC San Diego 构建了 EditAgent，思路不是让通用编辑器反复重试，而是让 Agent 针对每个任务挑选合适的专用工具，再由标准语言模型基于可测量的图像数据选出最佳结果。方法有效，但需要约 10 倍算力。
+  来源：https://the-decoder.com/adobe-is-testing-how-well-ai-agents-can-use-editing-tools-like-a-photoshop-professional-would/
+· Google 研究 StreamVibe：视频助手要学会&quot;该出手时才出手&quot;：Google 牵头的研究团队构建了 StreamVibe，一个设计用于观看用户做饭或组装家具、只在需要帮助时开口的视频 Agent。配套 benchmark 显示，现有被测模型没有一个能在长视频里可靠地判断正确的介入时机，误差会累积，响应质量急剧下降。
+  来源：https://the-decoder.com/google-wants-video-ai-to-understand-what-people-need-as-they-workgoogle-researchers-are-teaching-a-video-assistant-when-to-offer-help/
+
+🤖 Agent 前沿
+· DeepSeek 开源 dsh-superagent：Router-Worker 架构的编码 Agent，p95 完成时间从 29.5 分钟降到 15.7 分钟：DeepSeek 发布 MIT 许可的研究原型 dsh-superagent，把 GitHub 和飞书上的请求转成并行的 worker 会话。在 DeepSeek 自己的模拟中，p95 任务完成时间从 29.5 分钟降至 15.7 分钟。官方明确说明这只是验证技术路线的原型，不是正式产品；配套的设计文章《Exploring Super-agent Design: Towards a More Autonomous Agent System》阐述了思路。
+  来源：https://www.marktechpost.com/2026/11/01/deepseek-dsh-superagent-router-worker-coding-agent/ / https://www.reddit.com/r/LocalLLaMA/comments/1xl1zn3/deepseek_exploring_superagent_design_towards_a/
+· LangChain Managed Deep Agents v0.10：加入浏览器操作和异步子 Agent：v0.10 版本新增 browser use 能力，Agent 可以操作没有 API 的网站，并在需要登录时把浏览器窗口交给用户手动完成；同时加入异步子 Agent，用于后台任务。
+  来源：https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents
+
+⚡ 快讯
+· Nace AI 开源 Drex Max v1：27B 多模态决策模型，得分 67.52，可在 Apple Silicon 上本地运行。
+  来源：https://www.marktechpost.com/2026/11/01/nace-ai-open-sources-drex-max-v1-local-inference/
+· Heretic 2.0 发布：去审查工具进入 2.0，37k GitHub stars、Hugging Face 上 8,500+ 模型、累计 8,800 万次下载，本次从&quot;去审查&quot;扩展到更通用的模型修改。
+  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xl2tcm/heretic_20_released_model_modification_for/ / https://news.ycombinator.com/item?id=50328567
+· 50 支 Agent 团队在 Minecraft 里建文明失败：多 Agent 协作陷入&quot;瘫痪性官僚主义&quot;，未能建成可持续运转的文明。
+  来源：https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy
+· 西湖大学成立世界模型研究中心：三年前开始布局，今年正式成立。
+  来源：https://www.qbitai.com/2026/11/507076.html
+· Parameter Labs 披露 ChatGPT 账号接管攻击链：针对 artifacts（HTML previews）沙箱 iframe 的复杂利用链，可触及 OpenAI API 与私有数据，OpenAI 已修复。
+  来源：https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/
+
+💡 今日观察
+🎯 OpenAI 把 ChatGPT 订阅改成 token 配额制，是&quot;无限 prompt&quot;时代终结的第一张多米诺骨牌——按量计费会从 API 一路传导到所有 C 端创作工具。 今天最值得记住的不是某个模型，而是定价逻辑的集体转向：OpenAI 一边把订阅改成 token 配额，一边封堵多账号套利，本质上是在承认&quot;无限量&quot;在推理成本面前不可持续。与此同时，融资端从 300 亿缩到 110 亿、Meta 转向千亿级债务融资，说明支撑低价 API 的上游补贴正在退潮。这两件事叠加，意味着未来 6-12 个月 API 和 C 端订阅的价格大概率只会上不会下。技术侧则在往&quot;架构提效&quot;走——DeepSeek 的 Router-Worker 把 p95 砍半、LangChain 补上浏览器操作，都是在不换模型的前提下榨出产能。对视频生成这类单次成本高的品类，谁先把&quot;基础额度 + 超额按量&quot;的套餐设计跑通，谁就先拿到毛利。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-01">Andy 的 AI 早报 · 2026-11-01 周日</span>
     <button class="cbtn" data-copy="t-2026-11-01">📋 复制标题</button>
   </div>

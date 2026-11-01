@@ -1,0 +1,333 @@
+Pricing Overview - MiniMax API Docs
+Documentation Index
+Fetch the complete documentation index at: /docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Pricing Overview
+Model Pricing LLM Video Audio Image Music
+Tool Pricing MCP Server Tools
+Packages Audio Video
+Billing Guides Payment Methods Pay-as-you-go Billing Package Usage Rules FAQ
+Pricing navigation
+Explore MiniMax model and tool pricing, choose an Audio or Video Package, or learn about billing.
+LLM
+Recharge Now Model
+Input
+$ / M tokens
+Output
+Prompt caching Read
+MiniMax-M3.1-Flash
+$0.15
+$0.60
+$0.015
+Standard
+Priority*
+Model
+MiniMax-M3
+≤ 512k input tokens
+Permanent 50% off
+$0.60 $0.30
+$2.40 $1.20
+$0.12 $0.06
+> 512k input tokens*
+$1.20 $0.60
+$4.80 $2.40
+$0.24 $0.12
+$0.90 $0.45
+$3.60 $1.80
+$0.18 $0.09
+> 512k input tokens
+$1.80 $0.90
+$7.20 $3.60
+$0.36 $0.18
+* Priority provides priority admission for faster response times and improved request reliability. Set service_tier to priority to enable it. Pricing is 1.5x standard.
+Note:
+The billing item is token count; the token-to-character ratio varies slightly depending on the usage scenario, subject to actual consumption
+Token to English word ratio (estimate): approximately 750 English words consume 1000 tokens
+Video
+Recharge Now ​
+H3 Series Flagship Models
+Output Resolution
+Output Video
+per second
+Input Video
+Input Image
+per image
+beyond free quota
+MiniMax-H3
+Quality first, for high-quality video creation.
+2K
+$0.13
+$0.04
+768P
+$0.08
+MiniMax-H3-Highspeed
+Balances quality and speed, for everyday content creation.
+$0.06
+$0.03
+480P
+MiniMax-H3-Lite
+Lower cost, for creative exploration and batch generation.
+$0.02
+$0.025
+Image input : The first 5 images per task are free; additional images are billed per image. The unit price does not vary with image or output video resolution.
+Video input : Billed by input duration at the output resolution of the selected model.
+Task types : For the same model and resolution, all task types share the same unit price. Audio input is free.
+View flagship model task types
+Text-to-video t2v
+Image-to-video i2v
+First & last frame fl2v
+Reference ref
+Supported
+Image, video, audio
+H3 Series Extended Models
+MiniMax-H3-Max
+Supports image, video, and audio references, for multi-asset video creation.
+$0.143
+$0.074
+$0.05
+$0.0553
+MiniMax-H3-Max : The first 2 images per task are free; additional images are billed per image. Input video is billed by duration at the output resolution. Audio input is free.
+View extended model task types
+Video Regeneration
+Regenerate a 768P video produced by MiniMax-H3 into 2K. Model / API
+Spec
+MiniMax-H3-Regeneration
+768P → 2K
+Input materials from the original task are billed again: the first 5 images are free and additional images are billed per image; video is billed by the original input duration; audio is free.
+The regeneration fee is charged separately from the original task fee and includes the regenerated video output fee and input material fees.
+Context-IR
+Model / API
+Input Price
+per M tokens
+Output Price
+MiniMax-H3-Context-IR
+$0.90
+$3.60
+Legacy Models
+Price
+MiniMax-Hailuo-2.3-Fast
+$0.19 per 768P, 6s video
+$0.32 per 768P, 10s video
+$0.33 per 1080P, 6s video
+MiniMax-Hailuo-2.3
+$0.28 per 768P, 6s video
+$0.56 per 768P, 10s video
+$0.49 per 1080P, 6s video
+MiniMax-Hailuo-02
+$0.10 per 512P, 6s video
+$0.15 per 512P, 10s video
+Audio
+Recharge Now Automatic Speech Recognition (ASR) API
+Endpoint
+Description
+Speech Recognition
+Speech-to-Text
+Audio-to-text transcription with streaming, speaker diarization, and subtitle (srt/vtt) export.
+$0.38 / hour
+Text-to-Speech (TTS) API
+T2A (Sync)
+speech-2.8-hd
+Real-time synthesis with volume/pitch/speed/mixing controls and bitrate/sample-rate options. Best for short-form conversational audio.
+$100 / M characters
+speech-2.8-turbo
+Same capabilities as hd, optimized for speed and cost.
+$60 / M characters
+T2A Async
+Asynchronous long-form synthesis, up to 1M characters per request, retrieved asynchronously.
+Voice Management API
+Notes
+Voice Design
+Generate a voice (voice_id) from a natural-language description; usable in both sync and async T2A endpoints.
+$3 per voice
+Charged when the designed voice is first used for synthesis, not at generation time. In-API preview synthesis is billed at $60 / M characters.
+Rapid Voice Cloning
+LLM-powered voice cloning that produces a high-fidelity replica in seconds, without long high-quality reference audio.
+$1.5 per voice
+Charged when the cloned voice is first used for synthesis, not at cloning time. Preview characters are billed at the selected preview model’s rate.
+API
+T2A
+speech-2.6-turbo / speech-02-turbo
+$60/M characters
+speech-2.6-hd / speech-02-hd
+$100/M characters
+Image
+image-01
+$0.0035 per image
+Music
+Starting August 20, 2026, the paid APIs (Music Generation and Lyrics Generation) will no longer be available to new users; existing paying users can continue to use the current API services. The free music generation APIs (Music-3.0-free, Music-2.6-free, music-cover-free) will be discontinued. To experience or use music generation capabilities, please visit MiniMax Audio , or use the open-source MiniMax Music 3 model on Hugging Face .
+Music-3.0 (Discontinued)
+RPM = 120, contact sales to increase
+$0.15/up-to-5 minutes music
+Music-2.6 (Discontinued)
+Lyrics Generation (Discontinued)
+Lyrics generation/editing
+$0.01/per song
+Music-2.5+ (Discontinued)
+Instrumental unlocked, break through style boundaries
+Music-2.5 (Discontinued)
+Direct the detail, define the real
+Music-2.0 (Discontinued)
+Enhanced musical expression
+$0.03/up-to-5 minutes music
+MCP
+API-vlm
+$0.01 / request
+When API-vlm is called through M Plan, usage deducts from the included M Plan quota according to its pay-as-you-go price. If the included quota is exhausted and purchased Credits are available, additional usage can be automatically covered by purchased Credits. 🔔 Pricing Update Notice — Effective July 22, 2026, the API-vlm price will be adjusted to $0.01 per call. Accordingly, the token quota deducted per API-vlm call under M Plan subscriptions will decrease, allowing the same plan to support more calls. API endpoints and model capabilities remain unchanged — no code changes required.
+Server Tools
+Recharge Now Server Tool
+web_search
+Web search; the model runs the search on the server and answers based on the results. See Server Tools .
+Purchase Now Category
+Starter
+Pro
+Scale
+Business
+Customer Pricing
+Monthly Subscription
+$5
+$30
+$99
+$249
+$999
+3-month Subscription (10% off)
+$13.5
+$81
+$267
+$672
+$2,697
+Yearly Subscription (20% off)
+$48
+$288
+$950
+$2,390
+$9,590
+Audio points per month
+100,000
+300,000
+1,100,000
+3,300,000
+20,000,000
+As many audio points as you need
+Functions
+• Voice slots: 10
+• RPM: 10
+• Faster speed of generating speech
+• Supports T2A v2, T2A large v2 API
+• Supports all speech models
+• Voice slots: 100
+• RPM: 50
+• Voice slots: 250
+• RPM: 200
+• Voice slots: 500
+• RPM: 500
+• Voice slots: 800
+• RPM: 800
+• Unlimited RPM/TPM
+• Priority access to model updates
+• More voices and more cloning options
+• Exclusive security and stability guarantees
+Purchase Now
+Video packages support Hailuo video models. MiniMax H3 is not supported yet
+Need H3? Use the
+pay-as-you-go API , or contact sales for a custom plan.
+Package Category
+(SAVE 5%)
+(SAVE 10%)
+(SAVE 15%)
+(SAVE 20%)
+Custom Pricing
+Discounted Price
+$1,000
+$2,500
+$4,500
+$6,000
+Valid
+1 month
+Total video points
+3,760 video points
+9,920 video points
+18,900 video points
+26,780 video points
+As many video points as you need
+• Supports Video Generation API
+• RPM: 20
+• RPM: 30
+• RPM: 40
+Tips
+The deduction times for generating videos differ depending on the model:
+For model [MiniMax-Hailuo-2.3-Fast], generating a single 768p,6s video will deduct 0.7 video points
+For model [MiniMax-Hailuo-2.3-Fast], generating a single 768p,10s video will deduct 1.1 video points
+For model [MiniMax-Hailuo-2.3-Fast], generating a single 1080p,6s video will deduct 1.3 video points
+For model [MiniMax-Hailuo-2.3] [MiniMax-Hailuo-02], generating a single 768p,6s video will deduct 1 video point
+For model [MiniMax-Hailuo-2.3] [MiniMax-Hailuo-02], generating a single 768p,10s video will deduct 2 video points
+For model [MiniMax-Hailuo-2.3] [MiniMax-Hailuo-02], generating a single 1080p,6s video will deduct 2 video points
+For model [MiniMax-Hailuo-02], generating a single 512p,6s video will deduct 0.3 video points
+For model [MiniMax-Hailuo-02], generating a single 512p,10s video will deduct 0.5 video points
+Video generation failures or videos that trigger security review will not result in a deduction.
+Resource pack remaining quantity is not inherited; it will automatically reset to zero when expired.
+Payment Methods
+MiniMax offers pay-as-you-go billing, Audio and Video Packages. Choose a billing option based on the models you use, how much you expect to use them, and for how long. ​
+Compare Billing Options
+Feature
+Pay-as-you-go
+Packages
+Use cases
+Use any MiniMax model or tool and pay for what you use, with the flexibility to support a wide range of business needs and API workloads.
+For speech or video workloads where you expect to make good use of the included points.
+How you pay
+Add funds to your account and pay for what you use
+Purchase an Audio or Video Package
+Coverage
+All MiniMax models and tools
+All speech models; Hailuo video models
+Billing units
+Varies by model, configuration, and type of usage
+Audio points per month; video points
+Get started
+Recharge Now
+View Audio · View Video
+Before You Buy
+Check the supported models, included points, and how long the package lasts. Audio packages support all speech models. Video Packages support Hailuo Video models; MiniMax H3 is not yet supported. View Audio · View Video · View Usage Rules
+Pay-as-you-go Billing
+With pay-as-you-go billing, you use standard Open Platform API keys and pay from your account balance based on usage. All prices are in USD. ​
+How Billing Works
+Payment: API usage charges are deducted from your account balance.
+Billing units: Depending on the service, charges are based on tokens, characters, duration, images, voices, or requests. See the relevant pricing table for the exact unit.
+Rates: Rates vary by model, API, and configuration. For example, LLM input length and service tier, or video output resolution, can affect pricing.
+How Charges Are Calculated
+For each billing item, multiply actual usage by the applicable unit price. First, convert usage to the unit listed in the pricing table. For example, if a price is listed per million tokens, divide the token count by 1,000,000 before multiplying by the price. If a request includes multiple billing items, add their costs together.
+See Model Pricing and Tool Pricing for individual rates. Audio and Video Packages are also available for supported models. To compare these options, see Payment Methods .
+Package Usage Rules
+Audio and Video Packages include points for use with supported models and APIs. Before purchasing, check which models are supported, how many points are included, and how long the package lasts. ​
+Supported models
+All speech models
+Hailuo video models; MiniMax H3 is not supported yet
+Supported APIs
+T2A v2 and T2A large v2
+Video Generation API
+Included points
+Video points
+Package duration
+1 month, 3 months (10% off), or 1 year (20% off)
+1 month for all four standard packages
+Plan details
+How Points Are Used
+Audio points: Starter, Standard, Pro, Scale, and Business each include a monthly allowance of audio points. The allowance varies by plan. See the Audio package pricing table for included points, voice slots, and rate limits.
+Video points: Points used depend on the model, resolution, and video duration. One point does not equal one video. See the video point deduction rules .
+Failed video tasks: No points are deducted when video generation fails or a video triggers a security review.
+Expiration and Usage Limits
+Unused video points expire with the package and do not roll over. Your video point balance resets to zero when the package expires. For Audio packages, see the pricing table for available terms, monthly audio points, and plan features. Rate limits and other included features are listed in the relevant pricing tables.
+FAQ
+Find answers to common questions about pay-as-you-go billing, Audio and Video Packages. See the relevant pricing tables for exact prices and included features. ​
+Billing and Usage
+What’s the difference between the Standard and Priority service tiers for MiniMax-M3?
+Priority gives your requests priority access for faster responses and improved reliability. It costs 1.5 times the Standard rate. To enable it, set service_tier to priority . See the LLM pricing tables for the rates that apply to each input length.
+Does video output pricing include charges for input media?
+H3 video output and input media are billed separately. Images beyond the free allowance incur an additional charge. Input video is billed based on its duration and the output resolution. If you regenerate a video, the input media from the original task is billed again. See the video pricing tables for the applicable rates.
+How do I add funds to my account?
+Visit the Recharge page to add funds to your account for pay-as-you-go API usage.
+Which models can I use with packages?
+You can use Audio Packages with all speech models via the T2A v2 and T2A large v2 APIs. Video Packages support Hailuo video models, but do not currently support MiniMax H3. Before you buy, check the supported models, included points, and plan duration. For details, see Package Usage Rules .
+What happens to unused video points when my package expires?
+Any unused video points expire when your package ends, and your video point balance resets to zero. Each of the four standard video packages is valid for one month.

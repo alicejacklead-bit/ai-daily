@@ -1,0 +1,603 @@
+Gemini Developer API pricing | Gemini API | Google AI for Developers
+Skip to main content
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Polski
+Português – Brasil
+Shqip
+Tiếng Việt
+Türkçe
+Русский
+עברית
+العربيّة
+فارسی
+हिंदी
+বাংলা
+ภาษาไทย
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Get API key
+Cookbook
+Community
+Sign in
+Gemini 4 Argon is now available. Try it out .
+Home
+Gemini API
+Docs
+Gemini Developer API pricing
+Start building free of charge with generous limits, then scale up with
+prepaid and pay-as-you-go pricing for your production-ready applications.
+Free
+For developers and small projects getting started with the Gemini API.
+check_circle Limited access to certain models
+check_circle Free input & output tokens
+check_circle Google AI Studio access
+check_circle Content used to improve our products *
+Get started for Free
+Paid
+For production applications that require higher volumes and advanced features.
+check_circle Higher rate limits for production deployments
+check_circle Access to Context caching
+check_circle Batch API (50% cost reduction)
+check_circle Access to Google's most advanced models
+check_circle Content not used to improve our products *
+Upgrade to Paid
+Enterprise
+For enterprise deployments, powered by Gemini Enterprise Agent Platform .
+check_circle All features in Paid, plus optional access to:
+check_circle Dedicated support channels
+check_circle Advanced security & compliance
+check_circle Provisioned throughput
+check_circle Volume-based discounts (based on usage)
+check_circle ML ops, model garden and more
+Contact Sales
+Gemini 4 Argon
+gemini-4-argon
+Try it in Google AI Studio
+Our flagship reasoning model, built for complex software engineering, deep mathematical and scientific problem solving, autonomous multi-step agents, and long-decode generation up to 1M tokens.
+Note: Gemini 4 Argon is not available on the Free tier. Every token the model processes is counted and billed, including thinking tokens and internal tool system instructions and function declarations when using grounding.
+Standard
+Free Tier
+Paid Tier, per 1M tokens in USD
+Input price
+Not available
+$2.00 through November 30, 2026.
+$4.00 starting December 1, 2026.
+Output price (including thinking tokens)
+$10.00 through November 30, 2026.
+$20.00 starting December 1, 2026.
+Context caching price
+$0.10 through November 30, 2026.
+$0.20 starting December 1, 2026.
+Implicit caching only (explicit caching is not supported).
+Grounding with Google Search *
+5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a daily cap of 1,500 requests per day).
+Grounding with Google Maps
+5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.
+Used to improve our products
+No
+* A customer-submitted request to Gemini may result in one or more
+queries to Google Search. You will be charged for each individual search query
+performed.
+Batch
+$1.00 through November 30, 2026.
+$2.00 starting December 1, 2026.
+$5.00 through November 30, 2026.
+$10.00 starting December 1, 2026.
+$0.05 through November 30, 2026.
+$0.10 starting December 1, 2026.
+Flex
+Priority
+$3.60 through November 30, 2026.
+$7.20 starting December 1, 2026.
+$18.00 through November 30, 2026.
+$36.00 starting December 1, 2026.
+$0.18 through November 30, 2026.
+$0.36 starting December 1, 2026.
+Contributor
+Note: The Gemini API Contributor Tier is offered as a private preview on an
+invite-only basis. Speed and reliability are equivalent to
+Standard Tier inference . Eligible users will
+be invited by email and see a callout in AI Studio.
+Paid Tier, per 1M tokens in USD *
+$1.00
+$5.00
+$0.05
+Yes
+* Discounts and model availability are subject to change.
+Gemini 3.8 Flash
+gemini-3.8-flash
+Our most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows.
+Free of charge
+$0.75 through December 31, 2026.
+$1.50 starting January 1, 2027.
+$3.75 through December 31, 2026.
+$7.50 starting January 1, 2027.
+$0.075 through December 31, 2026.
+$0.15 starting January 1, 2027.
+$0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026.
+$1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.
+$0.375 through December 31, 2026.
+$0.75 starting January 1, 2027.
+$1.875 through December 31, 2026.
+$3.75 starting January 1, 2027.
+$0.0375 through December 31, 2026.
+$0.075 starting January 1, 2027.
+$1.35 through December 31, 2026.
+$2.70 starting January 1, 2027.
+$6.75 through December 31, 2026.
+$13.50 starting January 1, 2027.
+$0.135 through December 31, 2026.
+$0.27 starting January 1, 2027.
+Not available **
+$0.375
+$1.875
+$0.0375
+$0.50 / 1,000,000 tokens per hour (storage price)
+Gemini 3.6 Flash
+gemini-3.6-flash
+Our previous generation Flash model, balancing speed and multimodal capabilities across general agentic and everyday tasks.
+** Can be tested in Google AI Studio.
+Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking, and Gemini 3.1 Flash Live Preview
+gemini-3.8-live , gemini-3.8-live-extended-thinking , and gemini-3.1-flash-live-preview
+Our low-latency, audio-to-audio models optimized for real-time voice agents and
+live dialogue, including background reasoning support with Extended Thinking.
+$0.75 (text)
+$3.00 or $0.005/min (audio)
+$1.00 or $0.002/min (image/video)
+$4.50 (text)
+$12.00 or $0.018/min (audio)
+Supported
+Gemini 3.5 Live Translate
+gemini-3.5-live-translate-preview
+Our low-latency, real-time speech to speech translation model that supports 70+ languages.
+$3.50 or $0.0053/min * (audio)
+$21.00 or $0.0315/min * (audio)
+* Billing is based on total input and output audio token consumption, calculated at a rate of 25 tokens per second of audio, equating to an effective price of approximately $0.0368 per minute.
+Gemini 3.5 Transcribe Live
+gemini-3.5-transcribe-live
+Our low-latency, real-time speech-to-text model for bidirectional streaming audio transcription over WebSockets.
+$3.50 or $0.005/min * (audio)
+$21.00 or $0.004/min * (text)
+Grounding with Google Search
+Not Supported
+* Estimated pricing is based on 25 audio tokens per second for input
+and 175 text tokens per minute for output, for an effective blended rate of
+~$0.009 per min for Live Transcribe.
+Gemini 3.5 Transcribe
+gemini-3.5-transcribe
+Our speech-to-text model with automatic language detection, speaker diarization, word-level timestamps, and custom vocabulary biasing.
+$2.00 or $0.003/min * (audio)
+$12.00 or $0.002/min * (text)
+~$0.005 per min for Transcribe.
+Gemini 3.5 Flash-Lite
+gemini-3.5-flash-lite
+A cost-efficient model, optimized for high-volume agentic tasks,
+translation, and simple data processing.
+$0.30 (text / image / video / audio)
+$2.50
+$0.03
+$1.00 / 1,000,000 tokens per hour (storage price)
+$0.15 (text / image / video / audio)
+$1.25
+$0.02
+$0.54 (text / image / video / audio)
+$4.50
+$0.015
+Gemini 3.1 Flash-Lite
+gemini-3.1-flash-lite
+$0.25 (text / image / video)
+$0.50 (audio)
+$1.50
+$0.025 (text / image / video)
+$0.05 (audio)
+$0.125 (text / image / video)
+$0.25 (audio)
+$0.75
+$0.0125 (text / image / video)
+$0.025 (audio)
+$0.45 (text / image / video)
+$0.90 (audio)
+$2.70
+$0.045 (text / image / video)
+$0.09 (audio)
+$1.80 / 1,000,000 tokens per hour (storage price)
+Gemini Omni Flash
+gemini-omni-1.1-flash
+Our next-generation video generation and editing model, now generally available
+to developers on the paid tier of the Gemini API.
+$1.50 (text / image / video / audio)
+$9.00 (text)
+$17.50 (video) *
+* Billing is based on total output token consumption, calculated at
+a rate of 5,792 tokens per second of 720p video. Under Standard pricing, this
+equates to an effective price of approximately $0.10 per second.
+Gemini 3.1 Pro Preview
+gemini-3.1-pro-preview and gemini-3.1-pro-preview-customtools
+Our 3rd generation Pro model, built for multimodal understanding,
+agentic capabilities, and vibe-coding.
+$2.00, prompts 200k tokens
+$12.00, prompts 200k
+$0.20, prompts 200k
+$4.50 / 1,000,000 tokens per hour (storage price)
+N/A
+$1.00, prompts 200k tokens
+$6.00, prompts 200k
+Same as Standard
+$3.60, prompts 200k tokens
+$21.60, prompts 200k
+$0.36, prompts 200k
+$8.10 / 1,000,000 tokens per hour (storage price)
+$6.00, prompts 200k tokens
+$0.10, prompts 200k tokens
+Gemini Nano Banana 2.1 🍌
+gemini-nano-banana-2.1
+An update to Nano Banana 2 (Gemini 3.1 Flash Image), built for high-efficiency
+image generation and conversational editing with improved visual quality,
+multi-turn character consistency, accurate text rendering, and search-grounded
+generation across 1K, 2K, and 4K resolutions.
+$1.50 (text/image/video)
+Output price
+$7.50 (text and thinking)
+$30.00 (images)
+Equivalent to $0.0336 per 1K image * ,
+$0.0504 per 2K image * ,
+and $0.113 per 4K image * .
+Grounding with Google Web and Image Search **
+5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding (subject to a daily cap of 1,500 requests per day).
+$0.75 (text/image/video)
+$3.75 (text and thinking)
+$15.00 (images)
+Equivalent to $0.0168 per 1K image * ,
+$0.0252 per 2K image * ,
+and $0.0567 per 4K image * .
+* Image output is priced at $30 per 1,000,000 tokens (Standard) and
+$15 per 1,000,000 tokens (Batch). Output images at 1K (1024x1024px) consume 1120
+tokens and are equivalent to $0.0336 per image. Output images at 2K
+(2048x2048px) consume 1680 tokens and are equivalent to $0.0504 per image.
+Output images at 4K (4096x4096px) consume 3780 tokens and are equivalent to
+$0.113 per image.
+** A customer-submitted request to Gemini may result in one or more
+performed. Retrieved context (text or images) provided by Grounding with Google
+Search is not charged as input tokens.
+Gemini 3.1 Flash Image (Nano Banana 2) 🍌
+gemini-3.1-flash-image
+Designed for speed and efficiency, the Gemini 3.1 Flash Image generation model is
+effective for quick, interactive responses and high throughput.
+$0.50 (text/image)
+$3 (text and thinking)
+$60.00 (images)
+Equivalent to $0.045 per 0.5K image *
+$0.067 per 1K image * ,
+$0.101 per 2K image * ,
+and $0.151 per 4K image * .
+Not available ***
+$0.25 (text, image)
+$1.50 (text and thinking)
+Equivalent to $0.022 per 0.5K image *
+$0.034 per 1K image * ,
+$0.050 per 2K image * ,
+and $0.076 per 4K image * .
+* Image output is priced at $60 per 1,000,000 tokens.
+Output images at 0.5K (512px) consume 747 tokens and are equivalent to $0.045 per
+image. Output images at 1K (1024x1024px) consume 1120 tokens and are equivalent
+to $0.067 per image. Output images at 2K (2048x2048px) consume 1680 tokens and
+are equivalent to $0.101 per image. Output images at 4K (4096x4096px) consume
+2520 tokens and are equivalent to $0.151 per image.
+*** Can be tested in Google AI Studio.
+Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
+gemini-3.1-flash-lite-image
+Designed as the efficiency specialist of the image generation family, the Gemini 3.1
+Flash Lite Image model is designed for ultra-low latency and cost-effective image
+generation and editing.
+$0.25 (text/image/video)
+Equivalent to $0.0336 per 1K resolution image *
+$0.125 (text/image/video)
+$0.75 (text and thinking)
+Equivalent to $0.0168 per 1K resolution image *
+* Image output is priced at $30 per 1,000,000 tokens. Output images at 1K (1024x1024px) consume 1120 tokens and are equivalent to $0.0336 per image.
+Gemini 3.8 Flash TTS
+gemini-3.8-flash-tts
+Our 3.8 Flash Text-to-Speech audio model engineered for studio-grade voice fidelity, expressive acting, and long-form stability.
+$0.50 (text) through December 31, 2026.
+$1.00 (text) starting January 1, 2027.
+$9.00 (audio) through December 31, 2026.
+$18.00 (audio) starting January 1, 2027.
+Equivalent to $0.00225 per 10s audio * through December 31, 2026.
+Equivalent to $0.0045 per 10s audio * starting January 1, 2027.
+$0.25 (text) through December 31, 2026.
+$0.50 (text) starting January 1, 2027.
+$4.50 (audio) through December 31, 2026.
+$9.00 (audio) starting January 1, 2027.
+Equivalent to $0.001125 per 10s audio * through December 31, 2026.
+Equivalent to $0.00225 per 10s audio * starting January 1, 2027.
+$0.90 (text) through December 31, 2026.
+$1.80 (text) starting January 1, 2027.
+$16.20 (audio) through December 31, 2026.
+$32.40 (audio) starting January 1, 2027.
+Equivalent to $0.00405 per 10s audio * through December 31, 2026.
+Equivalent to $0.0081 per 10s audio * starting January 1, 2027.
+* Audio tokens correspond to 25 tokens per second of audio.
+Gemini 3.8 Flash-Lite TTS
+gemini-3.8-flash-lite-tts
+Our 3.8 Flash-Lite Text-to-Speech audio model optimized for high-throughput, low-latency, and cost-efficient conversational speech.
+$6.00 (audio) through December 31, 2026.
+$12.00 (audio) starting January 1, 2027.
+Equivalent to $0.0015 per 10s audio * through December 31, 2026.
+Equivalent to $0.003 per 10s audio * starting January 1, 2027.
+$3.00 (audio) through December 31, 2026.
+$6.00 (audio) starting January 1, 2027.
+Equivalent to $0.00075 per 10s audio * through December 31, 2026.
+Equivalent to $0.0015 per 10s audio * starting January 1, 2027.
+$10.80 (audio) through December 31, 2026.
+$21.60 (audio) starting January 1, 2027.
+Equivalent to $0.0027 per 10s audio * through December 31, 2026.
+Equivalent to $0.0054 per 10s audio * starting January 1, 2027.
+Gemini 3.1 Flash TTS Preview
+gemini-3.1-flash-tts-preview
+Our 3.1 Flash Text-to-Speech audio model optimized for price-performant,
+low-latency, controllable speech generation.
+$1.00 (text)
+$20.00 (audio)
+$0.50 (text)
+$10.00 (audio)
+Gemini 3 Flash Preview
+gemini-3-flash-preview
+Our legacy Flash model, providing baseline speed and intelligence.
+$0.50 (text / image / video)
+$1.00 (audio)
+$3.00
+$0.05 (text / image / video)
+$0.10 (audio)
+$0.90 (text / image / video)
+$1.80 (audio)
+$5.40
+$0.09 (text / image / video)
+$0.18 (audio)
+Gemini 3 Pro Image (Nano Banana Pro) 🍌
+gemini-3-pro-image
+Our native image generation model, optimized for speed, flexibility, and
+contextual understanding. Text input and output is priced the same as
+Gemini 3.1 Pro .
+$2.00 (text/image),
+equivalent to $0.0011 per image *
+$12.00 (text and thinking)
+$120.00 (images)
+Equivalent to $0.134 per 1K/2K image **
+and $0.24 per 4K image **
+Grounding with Google Search ***
+Not available ****
+$1.00 (text),
+$0.0006 (image) *
+$6.00 (text and thinking)
+$0.067 per 1K/2K image **
+$0.12 per 4K image **
+$3.60 (text/image)
+$21.60 (text and thinking)
+$216.00 (images)
+* Image input is set at 560 tokens or $0.0011 per image.
+** Image output is priced at $120 per 1,000,000 tokens. Output
+images from 1024x1024px (1K) and up to 2048x2048px (2K) consume 1120 tokens and
+are equivalent to $0.134 per image. Output images up to 4096x4096px (4K) consume
+2000 tokens and are equivalent to $0.24 per image.
+*** A customer-submitted request to Gemini may result in one or more
+**** Can be tested in Google AI Studio.
+Gemini 2.5 Pro
+gemini-2.5-pro
+A Pro model which excels at coding and complex reasoning tasks.
+$1.25, prompts 200k tokens
+$10.00, prompts 200k
+$0.125, prompts 200k
+1,500 RPD (free), then $35 / 1,000 grounded prompts
+10,000 RPD (free), then $25 / 1,000 grounded prompts
+$0.625, prompts 200k tokens
+$5.00, prompts 200k
+$2.25, prompts 200k tokens
+$18.00, prompts 200k
+$0.225, prompts 200k
+Gemini 2.5 Flash
+gemini-2.5-flash
+Our first hybrid reasoning model which supports a 1M token context window and
+has thinking budgets.
+$0.30 (text / image / video)
+$0.03 (text / image / video)
+$0.1 (audio)
+Free of charge, up to 500 RPD (limit shared with Flash-Lite RPD)
+1,500 RPD (free, limit shared with Flash-Lite RPD), then $35 / 1,000 grounded prompts
+500 RPD
+1,500 RPD (free), then $25 / 1,000 grounded prompts
+$0.15 (text / image / video)
+$0.54 (text / image / video)
+$0.054 (text / image / video)
+Gemini 2.5 Flash-Lite
+gemini-2.5-flash-lite
+A small and cost effective model, built for at scale usage.
+Input price (text, image, video)
+$0.10 (text / image / video)
+$0.30 (audio)
+$0.40
+$0.01 (text / image / video)
+$0.03 (audio)
+Free of charge, up to 500 RPD (limit shared with Flash RPD)
+1,500 RPD (free, limit shared with Flash RPD), then $35 / 1,000 grounded prompts
+$0.15 (audio)
+$0.20
+$0.18 (text / image / video)
+$0.54 (audio)
+$0.72
+$0.018 (text / image / video)
+$0.054 (audio)
+Gemini 2.5 Flash Native Audio (Live API)
+gemini-2.5-flash-native-audio-preview-12-2025
+Our Live API native audio models optimized for higher
+quality audio outputs with better pacing, voice naturalness, verbosity, and
+mood.
+$3.00 (audio / video)
+$2.00 (text)
+$12.00 (audio)
+Gemini 2.5 Flash Image (Nano Banana) 🍌
+gemini-2.5-flash-image
+Warning: Gemini 2.5 Flash Image ( gemini-2.5-flash-image ) is deprecated and will be shut down on March 15, 2027; migrate to Gemini 3.1 Flash Lite Image to avoid service disruption.
+A native image generation model, optimized for speed, flexibility, and
+2.5 Flash .
+$0.30 (text / image)
+$0.039 per image*
+$0.15 (text / image)
+$0.0195 per image*
+$0.54 (text / image)
+$0.0702 per image*
+[*] Image output is priced at $30 per 1,000,000 tokens. Output images up to
+1024x1024px consume 1290 tokens and are equivalent to $0.039 per image.
+Gemini 2.5 Flash Preview TTS
+gemini-2.5-flash-preview-tts
+Our 2.5 Flash text-to-speech audio model optimized for price-performant,
+$0.25 (text)
+$5.00 (audio)
+Gemini 2.5 Pro Preview TTS
+gemini-2.5-pro-preview-tts
+Our 2.5 Pro text-to-speech audio model optimized for powerful, low-latency
+speech generation for more natural outputs and easier to steer prompts.
+Lyria 3.5
+lyria-3.5
+Google's music generation model.
+Paid Tier, per request in USD
+Lyria 3.5 (Full Song)
+$0.08 per song
+Lyria 3
+lyria-3-clip-preview and lyria-3-pro-preview
+Google's family of legacy music generation models.
+Lyria 3 Clip Preview (30s)
+$0.04 per song
+Lyria 3 Pro Preview (Full Song)
+Gemini Embedding 2
+gemini-embedding-2
+Try the API
+Our first multimodal embedding model, mapping text, images, video, audio, and
+PDFs into a unified embedding space.
+Text input price
+Image input price
+$0.45 ($0.00012 per image)
+Audio input price
+$6.50 ($0.00016 per second)
+Video input price
+$12.00 ($0.00079 per frame)
+$0.10
+$0.225 ($0.00006 per image)
+$3.25 ($0.00008 per second)
+$6.00 ($0.000395 per frame)
+Gemini Embedding
+gemini-embedding-001
+Our first Gemini Embeddings model for text-only use cases.
+$0.15
+$0.075
+Gemini Robotics ER 2 Preview
+gemini-robotics-er-2-preview
+Gemini Robotics ER 2, short for Gemini Robotics Embodied Reasoning 2, is a
+vision-language model endpoint that enables robots to understand their environments
+precisely, supporting agentic orchestration of robots, video progress
+understanding, multi-robot collaboration, and advanced spatial reasoning.
+$1.00 (text / image / video / audio) through December 31, 2026.
+$2.00 (text / image / video / audio) starting January 1, 2027.
+$5.00 through December 31, 2026.
+$10.00 starting January 1, 2027.
+$0.10 through December 31, 2026.
+$0.20 starting January 1, 2027.
+$0.50 (text / image / video / audio) through December 31, 2026.
+$1.00 (text / image / video / audio) starting January 1, 2027.
+$2.50 through December 31, 2026.
+$5.00 starting January 1, 2027.
+$0.05 through December 31, 2026.
+$0.10 starting January 1, 2027.
+Gemini Robotics ER 2 Streaming Preview
+gemini-robotics-er-2-streaming-preview
+Gemini Robotics ER 2 Streaming is a vision-language model endpoint for robotics
+optimized for real-time text streaming using the Live API. It accepts text,
+image, video, and audio input and supports bidirectional streaming with
+function calling.
+Gemma 4
+Our lightweight, state-of the art, open model built from the same technology
+that powers our Gemini models.
+Context caching (storage)
+Tuning price
+Pricing for tools
+Tools are priced at their own rates, applied to the model using them.
+Check the Models page for which tools are available
+to each model.
+Google Search
+500 RPD free (limit shared for Flash and Flash-Lite).
+Not available for Pro.
+Gemini 2.5 models:
+1,500 RPD free (limit shared for Flash and Flash-Lite).
+Then $35 / 1,000 grounded prompts
+Gemini 3 and newer models:
+5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.
+Google Maps
+1,500 RPD free (limit shared for Flash and Flash-Lite)
+10,000 RPD free for Pro.
+Then $25 / 1,000 grounded prompts
+Code execution
+Code execution is billed at the standard token rates for the selected model.
+Costs are determined solely by the tool's usage, no charges are accrued
+for the session runtime. The generated code and execution results are billed as
+Output tokens when created, and as
+Input tokens when the model uses them as part of its
+iterative reasoning process.
+URL context
+Charged as input tokens per model pricing.
+Computer use
+Charged as regular tokens per model pricing (e.g., standard Gemini 3.8 Flash pricing).
+File search
+Charged for embeddings at Gemini Embedding ($0.15 / 1M tokens) or Gemini Embedding 2 rates.
+Retrieved document tokens charged as regular tokens per model pricing.
+Custom Tools endpoint (Gemini 3.1 Pro Preview)
+Same as Gemini 3.1 Pro Preview pricing
+Pricing for agents
+Agent usage costs are calculated based on the underlying token
+consumption and usage of the tools.
+Model
+Tools
+Gemini Deep Research agent
+All model inference is charged at standard Gemini list rates,
+including input, output, and intermediate input / reasoning tokens generated
+during agentic loops.
+Tool usage fees apply per existing pricing
+structure, maintaining standard distinctions for Search Grounding (retrieved
+tokens excluded) versus Url_context / File Search (retrieved tokens included in
+all other tools).
+Managed agents in Gemini API
+during agentic loops. (See pricing details ).
+Environment compute (CPU, memory, sandbox execution) is not billed during the preview period.
+Antigravity Agent
+Notes
+Agentic video understanding: When using agentic video understanding,
+token usage is variable based on the content loaded by the model rather than
+full video length. This typically results in up to 88% fewer input tokens for
+long-form video, though token counts depend on query complexity and dynamic
+sampling depth (which may exceed 1 FPS for detailed visual segments). See
+Agentic video understanding .
+Document token billing: Tokens for the DOCUMENT modality (for example, PDFs) are billed at the image token rate. In API responses, these tokens appear under the DOCUMENT modality within promptTokensDetails .
+Google AI Studio usage is free of charge in all available
+regions . See Billing
+FAQs for details.
+Prices may differ from the prices listed here and the prices offered on
+Gemini Enterprise Agent Platform. For Gemini Enterprise Agent Platform
+prices, see the Gemini Enterprise Agent Platform pricing
+page .
+If you are using dynamic retrieval to
+optimize costs, only requests that contain at least one grounding support
+URL from the web in their response are charged for Grounding with Google
+Search. Costs for Gemini always apply. Rate limits are subject to change.
+Search Grounding rate limits: On the Gemini Developer API,
+Grounding with Google Search on Gemini 3 and newer models is subject to a default
+daily rate limit of 1,500 requests per day (RPD) per project across all paid
+tiers, resetting daily at midnight Pacific Time. For high-volume production
+workloads requiring higher daily limits, consider using
+Vertex AI ,
+which provides a default quota of 1,000,000 search queries per day.
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License , and code samples are licensed under the Apache 2.0 License . For details, see the Google Developers Site Policies . Java is a registered trademark of Oracle and/or its affiliates.

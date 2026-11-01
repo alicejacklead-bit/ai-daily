@@ -1,0 +1,116 @@
+Pricing - WaveSpeedAI Simple and transparent pricing
+Pay only for what you use. No hidden fees, no surprises. Scale from prototype to production with predictable costs.
+Start building for free Contact Sales
+No credit card required • Eligible new accounts get $1 in free credits
+Image & Video Models
+State-of-the-art generation with models from WaveSpeed, OpenAI, Google, and more.
+Model
+Starting price
+Output per $1
+Image
+Seedream 5.0 Pro
+$0.045 / image
+22 images
+Seedream 5.0 Flash
+$0.027 / image
+37 images
+Nano Banana Pro
+$0.14 / image
+7 images
+Nano Banana 2
+GPT Image 2.5
+$0.01 / image
+100 images
+GPT Image 2
+Qwen Image 3.0
+$0.03 / image
+33 images
+Z-Image Turbo
+$0.005 / image
+200 images
+Video
+Seedance 2.5
+$0.18 / second
+5.5 seconds
+Seedance 2.0
+$0.12 / second
+8.3 seconds
+Wan 3.0
+$0.05 / second
+20 seconds
+MiniMax H3
+$0.04 / second
+25 seconds
+Kling 4.0
+$0.157 / second
+6.3 seconds
+Kling 3.0 Std
+$0.084 / second
+11.9 seconds
+Veo 3.1 Fast
+$0.10 / second
+10 seconds
+InfiniteTalk
+$0.03 / second
+33.3 seconds
+Starting prices are list prices at the lowest resolution or quality. Actual cost depends on resolution, duration and other parameters, and discounts may apply. Browse all models and open one to see its exact price →
+Language Models
+Prices are shown per 1M tokens.
+Context Window
+Input Price
+Output Price
+Claude Opus 5.5
+1M
+$4 /M
+$20 /M
+Claude Fable 5.1
+$10 /M
+$50 /M
+Claude Sonnet 5
+$2 /M
+GPT-6 Astra
+1.05M
+GPT-6 Sol
+GPT-6 Luna
+$0.1 /M
+$0.5 /M
+Gemini 3.8 Flash
+$1.5 /M
+$7.5 /M
+Grok 4.7
+500K
+$1.6 /M
+$4.8 /M
+Kimi K3
+$2.648 /M
+$13.283 /M
+DeepSeek V4.1 Flash
+$0.15 /M
+$0.6 /M
+Some models include tiered pricing, cache pricing, or other billing rules. View full LLM pricing
+Need more? Talk to us.
+For teams that need higher limits, dedicated support, and custom deployment options.
+Contact Sales
+Dedicated account manager
+Get personalized support from a dedicated team member who understands your needs.
+Priority support
+Fast-track your requests with priority access to our engineering team.
+Higher GPU limits
+Scale without constraints with increased GPU allocation and concurrent processing.
+Performance SLAs
+Guaranteed uptime and performance with enterprise-grade service level agreements.
+Custom model deployment
+Expert guidance to help you deploy custom models and optimize performance.
+Volume discounts available
+We've got volume discounts for large amounts of spend. Contact us to learn more.
+Frequently asked
+questions
+Can't find what you're looking for? Contact support
+How does pricing work? WaveSpeed uses a pay-per-use model. You only pay for what you generate. There are no monthly fees or commitments. Simply add credits to your account and start creating.
+What payment methods do you accept? We accept major credit and debit cards, PayPal, Google Pay, Apple Pay, WeChat Pay and Alipay (available methods vary by region). Enterprise customers can also pay by wire transfer.
+Is there a free trial? Yes. Eligible new accounts receive $1 in free credits to try the platform, and no credit card is required to sign up. Some premium models may not be available with trial credits.
+What are account levels? WaveSpeed offers four account levels: Bronze (default), Silver (any successful top-up below $1,000), Gold (a single successful top-up of $1,000–$4,999), and Ultra (a single successful top-up of $5,000 or more). A top-up upgrades only to the tier selected by that single top-up amount; existing higher or restricted levels are preserved.
+Do you offer enterprise pricing? Yes! For high-volume usage, we offer custom enterprise plans with volume discounts, dedicated support, and SLAs. Contact our sales team to learn more.
+Unlock Your AI Potential Today
+Start Building
+Kling 4.0 20% OFF | Create in Video Generator →

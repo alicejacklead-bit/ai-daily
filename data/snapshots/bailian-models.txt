@@ -1,0 +1,80 @@
+模型大全功能规格与计费-大模型服务平台百炼-阿里云_大模型服务平台百炼(Model Studio)-大模型服务平台百炼(Model Studio)-阿里云帮助中心
+官方文档
+阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。
+文本生成
+qwen3.8-max 复杂推理与编程
+qwen3.7-plus 性能、速度与成本均衡
+qwen3.8-flash 快速且低成本
+deepseek-v4-pro-0813 文本生成
+deepseek-v4.1-flash 文本生成
+kimi/kimi-k3 文本生成
+kimi-k3 文本生成
+glm-5.3 文本生成
+ZHIPU/GLM-5.3 文本生成
+MiniMax-M3.1-Flash 文本生成
+mimo-v2.6-pro-ultraspeed 文本生成
+查看更多
+图像与视频
+理解
+分析图片和视频内容，返回文本描述或结构化结果
+qwen3.8-max 视觉理解
+qwen3.7-plus 视觉理解
+qwen3.8-omni-flash 视觉理解
+kimi/kimi-k3 视觉理解
+生成
+通过文本或图片生成图像与视频，支持编辑、参考与高分辨率输出
+qwen-image-3.0-pro 图像生成
+wan2.7-image-pro 图像生成
+happyhorse-1.1-t2v 视频生成
+happyhorse-1.1-i2v 视频生成
+happyhorse-1.1-r2v 视频生成
+happyhorse-1.0-video-edit 视频编辑
+wan3.0-video 视频生成
+世界模型
+实时交互的开放式世界模型，覆盖世界探索、实时导演、角色演绎三种模式
+happyoyster-1.0-adventure 世界探索
+happyoyster-1.0-directing 实时导演
+happyoyster-1.0-acting 角色演绎 邀测
+3D 模型生成
+文生 3D 模型或图生 3D 模型，构建三维资产
+Tripo/Tripo-H3.1 3D 生成
+Tripo/Tripo-P1.0 3D 生成
+音频与语音
+音频生成
+生成人声、音效和环境音等音频内容
+qwen-audio-3.1-tts-next 完整场景声音生成
+语音合成
+适用于有声阅读、语音播报、虚拟人等场景
+qwen-audio-3.1-tts-plus 实时、非实时
+qwen-audio-3.1-tts-flash 实时、非实时
+语音识别
+将语音转换为文本，覆盖实时语音输入、持续转写和录音文件识别等场景
+qwen-audio-3.1-asr-flash-message 实时语音识别
+qwen-audio-3.1-asr-flash-streaming 实时语音识别
+qwen-audio-3.1-asr-flash 非实时语音识别
+qwen-audio-3.1-asr-flash-filetrans 非实时语音识别
+语音转语音
+端到端语音对话，无需分别调用 ASR 和 TTS
+qwen-audio-3.1-realtime-plus 语音转语音
+qwen3.5-omni-plus 语音转语音
+qwen3.8-omni-flash-realtime 语音转语音
+qwen-audio-3.1-realtime-flash 语音转语音
+全模态
+融合文本、图像、音频、视频等多种模态的理解与生成能力。音视频分析与文本生成选择 qwen3.8-omni-flash ，通过 Chat Completions 或 Responses 调用；实时音视频对话选择 qwen3.8-omni-flash-realtime 。
+说明 如需离线语音输出，请使用 qwen3.5-omni-plus 。
+qwen3.8-omni-flash-realtime 全模态
+qwen3.8-omni-flash 全模态
+向量与重排序
+文本或图文向量化，配合重排序提升检索精度
+qwen3.7-text-embedding-flash 文本向量
+qwen3.7-text-embedding 文本向量
+qwen3-vl-embedding 图文向量
+qwen3.7-text-rerank 重排
+决策模型
+面向高频业务判断的结构化决策模型，一次前向完成分类、是非判断与评分，并返回概率分布与置信度。
+decision-model-preview 结构化决策
+查看所有模型
+前往 模型广场 查看所有千问、三方、领域及历史版本模型。
+上一篇：首次调用千问API 下一篇：动态限流
+该文章对您有帮助吗？
+反馈
