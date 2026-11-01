@@ -13,6 +13,7 @@ import requests
 
 import re
 
+import sources
 from sources import fetch_all, normalize_url
 from summarize import summarize
 from generate_site import generate_site
@@ -67,7 +68,10 @@ def load_recent_reported(daily_dir: Path, today: str, days: int = 5):
 def drop_already_reported(data: dict, urls: set) -> int:
     removed = 0
     for key, items in data.items():
-        kept = [it for it in items if it.get("normalized_url") not in urls]
+        # Page-watch items reuse the same URL every time the page changes, so they
+        # are never dropped as "already reported".
+        kept = [it for it in items
+                if it.get("metadata", {}).get("watch") or it.get("normalized_url") not in urls]
         removed += len(items) - len(kept)
         data[key] = kept
     return removed
@@ -87,6 +91,12 @@ def main():
 
     total = sum(len(v) for v in data.values())
     print(f"\nTotal items fetched: {total}")
+
+    # Source health: logged here and saved in raw.json, never put in the digest.
+    print("\n[Source health]")
+    for row in sources.LAST_HEALTH:
+        mark = "OK  " if row["status"] == "ok" else "FAIL"
+        print(f"  {mark} [{row['type']}] {row['source']}: {row['note']}")
 
     if total == 0:
         print("No items fetched. Exiting.")
@@ -108,6 +118,7 @@ def main():
         "date": date_str,
         "generated_at": today.isoformat(),
         "counts": {key: len(value) for key, value in data.items()},
+        "health": sources.LAST_HEALTH,
         "items": data,
     }
     raw_file.write_text(

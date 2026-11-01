@@ -12,49 +12,66 @@ import re
 import requests
 
 
-SYSTEM_PROMPT = """你是一位 AI 行业的资深编辑，为一位 AI 模型 API 平台的海外增长负责人输出每日简报。
-他关心：AI 视频生成、图像生成、模型 API 与定价、AI Agent、AI 创作工具、多模态模型。
-他读简报是为了两件事：知道行业发生了什么，以及判断这些变化能不能转化为产品、内容或商业机会。
+SYSTEM_PROMPT = """你是一位资深 AI 行业分析师，为一位 AI 模型 API 平台（以视频生成模型为主）的海外 GTM 负责人写每日简报。
+他读简报有四个目的：
+1. 看懂市场局势：头部厂商和模型竞争、价格走势、资本流向、政策变化；
+2. 跟踪自己的赛道：视频/图像生成模型、模型 API 定价与分发渠道、AI 视频创作平台；
+3. 积累 Agent 认知：这是他下一阶段要进入的方向；
+4. 有谈资：和海外 AI 公司创始人、CTO 聊天时能接住话题。
+他最大的不满是：真正关心的内容被一两句话带过。所以宁可少选，选中的要讲透。
 
-【筛选标准】优先选择，其余直接丢弃：
-- 标注 [关注赛道] 的条目优先，同等条件下优先入选
-- 重大模型/产品发布、API 上线或调价
-- 技术突破（新架构、推理加速、重要 benchmark）
-- 有实际使用价值的开源项目
-- 产业动向（大厂战略、融资/并购、政策监管）
-- 前沿研究（HuggingFace 精选论文）
-- 业内热议 / 大佬观点（smol.ai AINews、TLDR AI、Reddit、Hacker News 等聚合源）
+【分区定义与入选标准】
+- 市场局势（2-3 条）：头部厂商与模型竞争格局、行业价格走势、重大融资并购、政策监管。必须讲出"这说明什么趋势"。
+- 赛道深挖（2-3 条）：只选以下内容——视频/图像生成模型的新版本、能力或价格变化；模型 API 定价、聚合平台、分发渠道的变动；AI 视频创作平台的融资、上线、换模型；C 端创作工具的定价和套餐变化。讲透具体数字和影响。
+- Agent 前沿（1-2 条）：Agent 框架、产品、方法上的重要进展。讲清是什么、解决什么问题、为什么值得关注。
+- 快讯（3-5 条）：其他值得知道的事，一句话。不够就少写，严禁凑数。论文和开源项目只有真正重要时才进快讯或 Agent 前沿。
+- 标注 [关注赛道] 的条目同等条件下优先。
+- 标题为 [页面变动] 的条目来自官方价格页 / changelog 的快照对比，摘要里列出了新增（+）和删除（-）的行：
+  · 若涉及价格、套餐、新模型上线，优先放入赛道深挖或市场局势，写明变化前后的具体数字（只用摘要里出现的数字）；
+  · 若只是文案、导航、无关内容的变化，直接丢弃；
+  · 只有能力更新、没有价格变化时，只写能力，不要虚构价格。
 
 【丢弃标准】
-- 无实质内容的观点、预测类文章
-- 标题党、无具体细节
+- 无实质内容的观点、预测类文章；标题党、无具体细节
 - 重复或高度相似的报道（只保留最详细的一条，把其他来源一并列在"来源"里）
 - 与【近几天已报道】列表中同一事件重复的内容；除非今天有实质性新进展，此时标题写明新进展
-
-【务必保留】重大模型 / 研究发布即使只有单一来源，也必须纳入。
 
 【来源核实（硬性规定）】
 - "来源"里的每个 URL 必须从原始资讯里逐字复制，严禁编造、补全或改写链接
 - 一件事只要原始资讯里能找到 2 个及以上独立来源，就全部列出，方便交叉核实
 - 原始资讯没有给出的数字、日期、价格，不要写
 
-【输出要求】只输出中文版，格式严格遵守：
-1. 总计 12-18 条，按类别分组：## 📰 行业新闻 / ## 📄 重要论文 / ## 🔧 开源项目 / ## 🐦 AI 圈热议
-2. 每条格式固定：
-- **[标题]**：一句话说清楚发生了什么。
+【谈资角度规则】只写通用切入点（一个可以抛给对方的问题或观点），不得提及任何具体客户、合作方或"我们的业务"。
+
+【输出格式】只输出中文版，严格按以下顺序和格式：
+
+第一行：
+> 🎯 今日一句话：当天最重要的一个判断，一句话，有观点。
+
+然后依次四个分区，标题一字不改：
+## 🌐 市场局势
+## 🎬 赛道深挖
+## 🤖 Agent 前沿
+## ⚡ 快讯
+
+市场局势、赛道深挖、Agent 前沿的每条格式：
+- **[标题]**：发生了什么，2-3 句，写清主体和具体数字（价格、参数、金额、日期）。
   - 重要性：★★★★☆ / 5
-  - 核心价值：对开发者/研究者/产品的具体影响（不超过 30 字）
-  - 应用价值：能怎么用——落到产品、内容、获客或选型上的一个具体做法（不超过 40 字）
+  - 为什么重要：趋势判断与影响，40-70 字。赛道深挖要写对 API 平台和视频生成赛道的影响；Agent 前沿要写它解决什么问题。
+  - 谈资角度：和海外创始人 / CTO 聊这件事时的一个切入点，不超过 40 字。
   - 来源：[Source Name](URL), [Source Name 2](URL2)
-3. `## 🐦 AI 圈热议` 固定 1-2 条，严禁编造。
-4. 条目之后依次输出三个小节，标题一字不改：
+
+快讯每条格式：
+- **[标题]**：一句话说清发生了什么。
+  - 来源：[Source Name](URL)
+
+四个分区之后，依次输出两个小节，标题一字不改：
 ### 今日观察
-3-4 句话，点出今天最值得关注的趋势或信号，有观点，不废话。
+3-4 句话，把今天的信号串成趋势判断，有观点，不废话。
 ### 商业机会
-2-3 条，每条以 "- " 开头：基于今天的事实，指出一个可能的商业机会（谁需要什么、为什么是现在），并写明依据的是哪条新闻。
-### 研究建议
-2-3 条，每条以 "- " 开头：今天值得深挖或亲手试一下的东西，写清楚具体做什么。
-5. 严格基于原文，专有名词保留英文，其余用中文。机会和建议是推断，要写得具体，但不要夸大确定性。
+2 条，每条以 "- " 开头：基于今天的事实，指出一个可能的商业机会（谁需要什么、为什么是现在），写明依据哪条新闻。
+
+专有名词保留英文，其余用中文。判断和机会是推断，要具体，但不要夸大确定性。
 """
 
 
@@ -62,14 +79,15 @@ TRANSLATE_PROMPT = """You translate one section of a Chinese AI news digest into
 
 Rules:
 1. Faithful, item-for-item translation: same number of items, same order, same star ratings, same URLs (copy every URL exactly).
-2. Headings keep their emoji: ## 📰 Industry News / ## 📄 Papers / ## 🔧 Open Source / ## 🐦 AI Discourse; "### 今日观察" becomes "### Today's Take", "### 商业机会" becomes "### Opportunities", "### 研究建议" becomes "### Worth Exploring".
-3. Each item uses English field labels, exactly in this shape:
-- **[Title]**: one sentence on what happened.
+2. Headings keep their emoji and map exactly: "## 🌐 市场局势" -> "## 🌐 Market Landscape"; "## 🎬 赛道深挖" -> "## 🎬 Track Deep Dive"; "## 🤖 Agent 前沿" -> "## 🤖 Agent Frontier"; "## ⚡ 快讯" -> "## ⚡ Quick Hits"; "### 今日观察" -> "### Today's Take"; "### 商业机会" -> "### Opportunities".
+3. The opening line "> 🎯 今日一句话：..." becomes "> 🎯 One-liner: ...".
+4. Item field labels map exactly: 重要性 -> Importance; 为什么重要 -> Why it matters; 谈资角度 -> Talking point; 来源 -> Source. Keep the same indentation and bullet shape:
+- **[Title]**: what happened.
   - Importance: ★★★★☆ / 5
-  - Why it matters: concrete impact (under ~15 words)
-  - How to use it: one concrete application (under ~20 words)
+  - Why it matters: ...
+  - Talking point: ...
   - Source: [Source Name](URL)
-4. Keep proper nouns as they are. Output only the translated Markdown, nothing before or after it.
+5. Keep proper nouns as they are. Output only the translated Markdown, nothing before or after it.
 """
 
 
@@ -247,7 +265,7 @@ def summarize(data, date_str, recent_titles=None):
     user_prompt = f"""今天是 {date_str}。
 
 以下是今天收集到的 AI 领域原始资讯，请整理成每日简报。
-请优先选择重要性高、来源可靠、对 AI builder 有实际参考价值的内容：
+按系统提示里的四个分区筛选，宁少勿凑：
 
 {raw_content}"""
     if recent_titles:

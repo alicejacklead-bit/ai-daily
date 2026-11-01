@@ -174,7 +174,7 @@ def fetch_huggingface_papers():
         resp = requests.get("https://huggingface.co/api/daily_papers", timeout=30)
         resp.raise_for_status()
         papers = resp.json()
-        for p in papers[:30]:  # top 30
+        for p in papers[:10]:  # top 10 — papers are only a candidate pool now
             paper = p.get("paper", {})
             paper_id = paper.get("id", "")
             items.append(make_item(
@@ -415,13 +415,10 @@ RSS_SOURCES = [
     ("https://venturebeat.com/feed/",                                "VentureBeat",      8, NEWS_H),
     ("https://techcrunch.com/category/artificial-intelligence/feed/","TechCrunch AI",   10, NEWS_H),
     ("https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "The Verge AI",10, NEWS_H),
-    ("https://www.wired.com/feed/tag/ai/latest/rss",                 "Wired AI",         8, NEWS_H),
-    ("https://spectrum.ieee.org/feeds/topic/artificial-intelligence.rss", "IEEE Spectrum AI", 8, NEWS_H),
-    ("https://feeds.arstechnica.com/arstechnica/technology-lab",     "Ars Technica AI",  8, NEWS_H),
 
     # ── AI 垂直媒体 / 个人博客 ───────────────────────────────────────────────
     ("https://the-decoder.com/feed/",                                "The Decoder",     12, NEWS_H),
-    ("https://www.marktechpost.com/feed/",                           "MarkTechPost",    12, NEWS_H),
+    ("https://www.marktechpost.com/feed/",                           "MarkTechPost",     8, NEWS_H),
     ("https://simonwillison.net/atom/everything/",                   "Simon Willison",   8, NEWS_H),
 
     # ── 官方实验室博客（低频，放宽到 72 小时）────────────────────────────────
@@ -430,45 +427,51 @@ RSS_SOURCES = [
     ("https://blog.google/technology/ai/rss/",                       "Google AI Blog",    6, SLOW_H),
     ("https://openai.com/news/rss.xml",                              "OpenAI",            6, SLOW_H),
 
+    # ── 分发平台 / 竞对博客（72 小时）────────────────────────────────────────
+    (["https://blog.fal.ai/rss/", "https://fal.ai/blog/rss.xml"],    "fal blog",          5, SLOW_H),
+
     # ── AI 圈讨论聚合 ────────────────────────────────────────────────────────
     ("https://news.smol.ai/rss.xml",                                 "smol.ai AINews",    5, NEWS_H),
     ("https://tldr.tech/api/rss/ai",                                 "TLDR AI",           6, NEWS_H),
 
     # ── 社区（best-effort，云端 IP 可能被限流，失败自动跳过）─────────────────
-    ("https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",           "r/LocalLLaMA",      8, NEWS_H),
+    ("https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",           "r/LocalLLaMA",      6, NEWS_H),
     ("https://www.reddit.com/r/aivideo/top/.rss?t=day",              "r/aivideo",         6, NEWS_H),
 
-    # ── 周更 Newsletter（放宽到 72 小时）─────────────────────────────────────
-    ("https://www.oneusefulthing.org/feed",   "One Useful Thing (Mollick)", 5, SLOW_H),
-    ("https://www.lennysnewsletter.com/feed", "Lenny's Newsletter",         5, SLOW_H),
+    # ── Agent 前沿（周更为主，72 小时）───────────────────────────────────────
+    ("https://www.latent.space/feed",                                "Latent Space",      4, SLOW_H),
+    (["https://www.langchain.com/blog/rss.xml", "https://blog.langchain.com/rss/"], "LangChain Blog", 4, SLOW_H),
+    ("https://www.oneusefulthing.org/feed",   "One Useful Thing (Mollick)", 4, SLOW_H),
 ]
 
 
+# Per-run source health (filled by fetch_all); main.py logs it and saves it in raw.json.
+LAST_HEALTH = []
+
+
 def fetch_all():
-    """Fetch from all sources, return categorized data."""
+    """Fetch from all sources, return categorized data. Health goes to LAST_HEALTH."""
+    LAST_HEALTH.clear()
+
+    def note(name, kind, n):
+        LAST_HEALTH.append({"source": name, "type": kind,
+                            "status": "ok" if n else "empty_or_fail",
+                            "note": f"{n} 条"})
+
     print("Fetching HuggingFace Papers...")
     papers = fetch_huggingface_papers()
     print(f"  Got {len(papers)} papers")
-
-    print("Fetching arXiv (cs.AI/CL/CV/LG)...")
-    arxiv_items = fetch_arxiv()
-    print(f"  Got {len(arxiv_items)} arXiv papers")
-    papers.extend(arxiv_items)
+    note("HuggingFace Papers", "api", len(papers))
 
     print("Fetching GitHub Trending (official page)...")
-    trending_page = fetch_github_trending_page()
-    print(f"  Got {len(trending_page)} trending repos")
-
-    print("Fetching GitHub Trending (OSSInsight)...")
-    oss_projects = fetch_github_trending()
-    print(f"  Got {len(oss_projects)} projects")
-
-    # Official trending first (higher quality), OSSInsight as backup/supplement
-    projects = trending_page + oss_projects
+    projects = fetch_github_trending_page()[:8]
+    print(f"  Got {len(projects)} trending repos")
+    note("GitHub Trending", "page", len(projects))
 
     print("Fetching Hacker News...")
     hn_items = fetch_hacker_news()
     print(f"  Got {len(hn_items)} items")
+    note("Hacker News", "api", len(hn_items))
 
     print("Fetching RSS feeds...")
     news = list(hn_items)
@@ -480,15 +483,22 @@ def fetch_all():
             if feed_items:  # first instance that works wins
                 break
         print(f"  [{name}] Got {len(feed_items)} items")
+        note(name, "rss", len(feed_items))
         news.extend(feed_items)
+
+    print("Watching pricing / changelog pages...")
+    from watch import watch_pages
+    watch_items, watch_health = watch_pages()
+    print(f"  {len(watch_items)} pages changed since last snapshot")
+    LAST_HEALTH.extend(watch_health)
 
     data = {
         "papers": dedupe_items(papers),
         "projects": dedupe_items(projects),
-        "news": dedupe_items(news),
+        "news": watch_items + dedupe_items(news),   # page changes are never merged away
     }
 
     deduped_total = sum(len(v) for v in data.values())
-    raw_total = len(papers) + len(projects) + len(news)
+    raw_total = len(papers) + len(projects) + len(news) + len(watch_items)
     print(f"Deduped {raw_total} raw items to {deduped_total} unique items")
     return data

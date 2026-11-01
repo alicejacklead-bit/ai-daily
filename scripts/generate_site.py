@@ -864,7 +864,8 @@ def cat_type(name: str, emoji: str) -> str:
         return "project"
     if any(k in s for k in ["热议", "讨论", "discourse", "buzz", "社区", "🐦", "🔥"]):
         return "buzz"
-    if any(k in s for k in ["新闻", "动态", "行业", "资讯", "📰"]):
+    if any(k in s for k in ["新闻", "动态", "行业", "资讯", "📰", "局势", "赛道", "深挖", "快讯",
+                            "Agent", "Market", "Landscape", "Track", "Quick", "🌐", "🎬", "🤖", "⚡"]):
         return "news"
     return "other"
 
@@ -894,8 +895,14 @@ def parse_digest(text: str) -> dict:
     current_insight = None
     current_cat = None
     current_item = None
+    headline = ""          # "> 🎯 今日一句话：..." line at the top of the digest
 
     for line in lines:
+        head_match = re.match(r'^>\s*(?:🎯\s*)?(?:今日一句话|One-liner)\s*[：:]\s*(.+)', line.strip())
+        if head_match:
+            headline = head_match.group(1).strip()
+            continue
+
         cat_match = re.match(r'^#{2,3}\s+([\U00010000-\U0010ffff☀-⛿✀-➿])\s*(.+)', line)
         plain_match = re.match(r'^#{2,3}\s+([^#\U00010000-\U0010ffff].+)', line) if not cat_match else None
         if cat_match:
@@ -972,12 +979,12 @@ def parse_digest(text: str) -> dict:
             current_item["star_count"] = filled
             continue
 
-        app_match = re.match(r'^-\s+(?:应用价值|How to use it)[：:]\s*(.+)', stripped)
+        app_match = re.match(r'^-\s+(?:应用价值|谈资角度|How to use it|Talking point)[：:]\s*(.+)', stripped)
         if app_match:
             current_item["app"] = app_match.group(1).strip()
             continue
 
-        val_match = re.match(r'^-\s+(?:核心价值|Why it matters)[：:]\s*(.+)', stripped)
+        val_match = re.match(r'^-\s+(?:核心价值|为什么重要|Why it matters)[：:]\s*(.+)', stripped)
         if val_match:
             current_item["value"] = val_match.group(1).strip()
             continue
@@ -988,7 +995,10 @@ def parse_digest(text: str) -> dict:
             current_item["sources"] = [{"name": n, "url": u} for n, u in links]
             continue
 
-    return {"categories": categories, "observation": " ".join(observation_lines),
+    observation = " ".join(observation_lines)
+    if headline:
+        observation = f"🎯 {headline} {observation}".strip()
+    return {"categories": categories, "observation": observation,
             "insights": insights}
 
 
