@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy 的 AI 早报 · 2026-11-03</title>
+  <meta name="description" content="AI领域2026-11-03每日简报，涵盖行业新闻、重要论文与开源项目。">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+      try {
+        var lng = localStorage.getItem('lang');
+        if (!lng) lng = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', lng);
+        if (lng === 'en') document.documentElement.setAttribute('lang', 'en');
+      } catch (e) { document.documentElement.setAttribute('data-lang', 'zh'); }
+    })();
+  </script>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-soft: #c9d1d9;
+  --card: #161b22;
+  --border: #21262d;
+  --border-strong: #30363d;
+  --header-bg: rgba(13,17,23,0.95);
+  --hover: #1c2230;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --text-soft: #3d444d;
+  --card: #f6f8fa;
+  --border: #d8dee4;
+  --border-strong: #d0d7de;
+  --header-bg: rgba(255,255,255,0.92);
+  --hover: #eaeef2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  transition: background .2s, color .2s;
+}
+
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Reading progress bar ── */
+#progressBar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #58a6ff, #bc8cff);
+  z-index: 200;
+  transition: width .1s linear;
+}
+
+/* ── Header ── */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.site-header .logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.site-header .logo a { color: inherit; }
+.site-header .logo a:hover { text-decoration: none; }
+.site-header .logo span { color: #58a6ff; }
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ── */
+.search-box { position: relative; }
+.search-box input {
+  width: 220px;
+  max-width: 50vw;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color .15s, width .15s;
+}
+.search-box input:focus { border-color: #58a6ff; width: 280px; }
+.search-results {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 360px;
+  max-width: 80vw;
+  max-height: 420px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  z-index: 150;
+}
+.search-results.active { display: block; }
+.sr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: var(--hover); text-decoration: none; }
+.sr-date { font-size: 11px; color: var(--text-muted); }
+.sr-title { font-size: 13px; color: var(--text); line-height: 1.4; }
+.sr-cat { font-size: 11px; color: #58a6ff; }
+.sr-empty, .sr-hint { padding: 14px; font-size: 13px; color: var(--text-muted); text-align: center; }
+
+/* ── Date picker ── */
+.date-picker {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.date-picker:focus { border-color: #58a6ff; }
+
+.site-header nav { display: flex; gap: 8px; }
+.site-header nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.site-header nav a:hover { background: var(--border); color: var(--text); text-decoration: none; }
+
+/* ── Theme / language toggle ── */
+.theme-toggle, .lang-toggle {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 15px;
+  height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.theme-toggle { width: 34px; }
+.lang-toggle { padding: 0 12px; font-size: 13px; font-weight: 600; min-width: 42px; }
+.theme-toggle:hover, .lang-toggle:hover { border-color: #58a6ff; }
+
+/* ── Language content toggle ── */
+html[data-lang="en"] [data-lang-content="zh"] { display: none; }
+html[data-lang="zh"] [data-lang-content="en"] { display: none; }
+
+/* ── Hot words / trends ── */
+.trends {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 8px 0 8px;
+}
+.trends .trends-head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 16px;
+}
+.trends .trends-head h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+.trends .trends-head .sub { font-size: 12px; color: var(--text-muted); }
+.trend-tags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.trend-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .15s, transform .15s, color .15s;
+  user-select: none;
+}
+.trend-tag:hover { border-color: #58a6ff; color: #58a6ff; transform: translateY(-1px); }
+.trend-tag .cnt {
+  font-size: 11px; color: #fff;
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-radius: 999px; padding: 1px 7px;
+}
+.trend-tag.s1 { font-size: 13px; }
+.trend-tag.s2 { font-size: 14px; }
+.trend-tag.s3 { font-size: 16px; font-weight: 600; }
+
+/* ── Audio player (voice broadcast) ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+}
+.audio-player .ap-label {
+  font-size: 14px; font-weight: 600; color: #58a6ff;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.audio-player .ap-sub { font-size: 12px; color: var(--text-muted); }
+.audio-player audio { flex: 1; min-width: 220px; height: 38px; }
+.audio-player .ap-text { display: flex; flex-direction: column; gap: 2px; }
+
+/* Subscribe-to-podcast button */
+.podcast-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.podcast-cta:hover { border-color: #58a6ff; transform: translateY(-1px); text-decoration: none; }
+.podcast-cta.primary {
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-color: transparent; color: #fff; font-weight: 600;
+  font-size: 14px; padding: 11px 24px;
+}
+.podcast-cta.primary:hover { border-color: transparent; filter: brightness(1.08); }
+.podcast-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.podcast-hint {
+  margin-top: 14px; font-size: 12px; color: var(--text-muted);
+  word-break: break-all;
+}
+.podcast-hint code {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 2px 6px; color: var(--text-soft);
+}
+.audio-badge { font-size: 13px; margin-left: 6px; }
+
+/* ── Speak (TTS) button ── */
+.speak-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: var(--bg);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 999px;
+  color: #58a6ff;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.speak-btn:hover { background: rgba(88,166,255,.1); }
+.speak-btn.playing { border-color: #f85149; color: #f85149; }
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 56px 0 32px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero p { color: var(--text-muted); font-size: 16px; }
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
+}
+.hero .stat .num { font-size: 24px; font-weight: 700; color: var(--text); }
+.hero .stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+/* ── Section heading ── */
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 48px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Date grid (archive) ── */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.date-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color .2s, transform .2s;
+  display: block;
+  color: inherit;
+}
+.date-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.date-card .date-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.date-card .weekday { font-size: 12px; color: var(--text-muted); }
+.date-card .latest-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: #1f6feb;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+/* ── Day hero ── */
+.day-hero { margin-bottom: 24px; }
+.day-hero .date-str {
+  font-size: 13px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px;
+}
+.day-hero h1 { font-size: 28px; font-weight: 700; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar .tab {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .tab:hover { color: var(--text); border-color: #58a6ff; }
+.filter-bar .tab.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+.filter-bar .star-toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: #e3b341;
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .star-toggle:hover { border-color: #e3b341; }
+.filter-bar .star-toggle.active { background: rgba(227,179,65,.15); border-color: #e3b341; }
+
+/* ── Category section ── */
+.category { margin-bottom: 40px; }
+.category-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.category-header h2 { font-size: 18px; font-weight: 700; }
+.cat-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── Item card ── */
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color .2s;
+}
+.item-card:hover { border-color: var(--border-strong); }
+.item-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+.item-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+.item-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.stars { font-size: 13px; color: #e3b341; letter-spacing: 1px; }
+.item-value {
+  font-size: 13px; color: #7ee787;
+  background: rgba(46,160,67,.1); padding: 2px 10px; border-radius: 999px;
+}
+.item-sources { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.item-sources a { color: #58a6ff; margin-left: 6px; }
+.item-sources a:first-child { margin-left: 0; }
+
+/* ── Observation box ── */
+.observation {
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.observation h2 { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
+.observation p { font-size: 14px; color: var(--text-soft); line-height: 1.8; }
+
+.item-app {
+  font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  border-left: 3px solid #d29922; padding: 4px 10px; margin-bottom: 12px;
+  background: rgba(210,153,34,.08); border-radius: 0 6px 6px 0;
+}
+.insight {
+  border: 1px solid var(--border-strong); border-radius: 12px;
+  padding: 20px 24px; margin-top: 16px; background: var(--card);
+}
+.insight h2 { font-size: 16px; font-weight: 700; color: #d29922; margin-bottom: 10px; }
+.insight ul { padding-left: 20px; }
+.insight li { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 6px; }
+
+.empty-filter { display: none; color: var(--text-muted); font-size: 14px; text-align: center; padding: 32px; }
+
+/* ── Day nav ── */
+.day-nav {
+  display: flex; justify-content: space-between;
+  margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.nav-btn {
+  font-size: 14px; color: #58a6ff;
+  padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.nav-btn:hover { background: var(--card); text-decoration: none; }
+
+/* ── Back to top ── */
+#backToTop {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  z-index: 120;
+}
+#backToTop.visible { opacity: 1; pointer-events: auto; }
+#backToTop:hover { transform: translateY(-2px); }
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center; padding: 24px;
+  color: #484f58; font-size: 13px; border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 28px; }
+  .item-meta { flex-direction: column; align-items: flex-start; }
+  .item-sources { margin-left: 0; }
+  .site-header .logo { font-size: 15px; }
+  .search-box input { width: 150px; }
+  .search-box input:focus { width: 180px; }
+  .filter-bar .star-toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+  
+<div id="progressBar"></div>
+<header class="site-header">
+  <div class="logo"><a href="../index.html">⚡ AI <span>Daily</span> Digest</a></div>
+  <div class="header-tools">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="搜索全部日报…" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <input id="datePicker" type="date" class="date-picker" aria-label="选择日期">
+    <button id="langToggle" class="lang-toggle" aria-label="切换语言 / Switch language">EN</button>
+    <button id="themeToggle" class="theme-toggle" aria-label="切换主题" title="切换浅色/深色">🌙</button>
+    <nav>
+      <a href="../index.html"><span data-lang-content="zh">归档</span><span data-lang-content="en">Archive</span></a>
+      <a href="https://github.com/alicejacklead-bit/ai-daily" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+  
+    <div class="container">
+      <div class="day-hero">
+        <div class="date-str"><span data-lang-content="zh">周二 · 2026-11-03</span><span data-lang-content="en">Tuesday · 2026-11-03</span></div>
+        <h1><span data-lang-content="zh">Andy 的 AI 早报</span><span data-lang-content="en">Andy's AI Daily</span></h1>
+      </div>
+      
+    <div class="audio-player">
+      <div class="ap-text">
+        <span class="ap-label">🎧 <span data-lang-content="zh">语音播报</span><span data-lang-content="en">Listen</span></span>
+        <span class="ap-sub"><span data-lang-content="zh">通勤路上用耳朵看简报</span><span data-lang-content="en">Catch the digest on your commute</span></span>
+      </div>
+      <audio controls preload="none" src="../audio/2026-11-03.mp3" data-date="2026-11-03"></audio>
+    </div>
+      <div data-lang-content="zh">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">全部</span><span class="tab" data-cat="news">新闻</span>
+      <span class="star-toggle">★ 只看重点 (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 市场局势</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic 招股前夜：营收涨 12 倍，经营重回亏损 230 亿美元，算力承诺近 9000 亿</div>
+      <div class='item-desc'>多家媒体同日报道，Anthropic 在递交 S-1 后披露三季度重回经营亏损，亏损额 230 亿美元，同时营收同比增长约 12 倍；其 AI 相关支出承诺已膨胀至接近 9000 亿美元。与此同时，HN 上有文章称其增长"刚刚走平"，TechPolicy 则刊文呼吁 SEC 阻止其 IPO。</div>
+      <div class="item-app">💼 问他怎么看"9000 亿承诺 vs 230 亿亏损"这个组合，是护城河还是杠杆。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">这是一份"以算力换增长"的极端资产负债表。它说明头部模型公司的成本结构已从人力转向长期算力合约，一旦增速放缓，定价就必须往上走——这会直接传导到 API 单价。</span>
+        <div class="item-sources"><a href="https://the-decoder.com/anthropic-grows-revenue-twelvefold-but-posts-23-billion-loss/" target="_blank">The Decoder</a> · <a href="https://www.axios.com/2026/11/02/anthropic-spending-revenue-surge" target="_blank">Axios</a> · <a href="https://www.ft.com/content/4d91dbab-6fe4-45ab-beee-d77e091cb37f" target="_blank">FT</a> · <a href="https://www.36kr.com/p/4053289729905793" target="_blank">36Kr</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Oracle 申报发行 200 亿美元新股与债券，专项融资 AI 基建</div>
+      <div class='item-desc'>Oracle 于 11 月 2 日提交文件，拟通过新股与债券合计募资 200 亿美元用于 AI 数据中心建设。同期沙特阿美以 26 亿美元收购 AI 公司 Humain 49% 股权，韩国则把"最高性能主权 AI 模型"写进预算目标。</div>
+      <div class="item-app">💼 算力从"租"变成"债"，云厂商未来会不会把成本压力转成 API 涨价。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">AI 基建的融资方式正从"经营现金流"转向"资本市场直接加杠杆"。这意味着算力供给会继续扩张，但成本被固化在债务上，中长期会推高云厂商对模型 API 的毛利要求。</span>
+        <div class="item-sources"><a href="https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html" target="_blank">CNBC</a> · <a href="https://the-decoder.com/saudi-aramco-takes-49-percent-stake-in-ai-firm-humain-with-2-6-billion-deal/" target="_blank">The Decoder</a> · <a href="https://www.cnbc.com/2026/11/02/south-korea-ai-spending-budget.html" target="_blank">CNBC</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">纽约时报等多家媒体起诉 Brave，指控其为 Anthropic、Perplexity 抓取内容并绕过付费墙</div>
+      <div class='item-desc'>NYT、纽约每日新闻、芝加哥论坛报等对 Brave 浏览器提起诉讼，指其非法抓取受版权内容并分发给 Anthropic、Perplexity 等 AI 客户，同时允许用户绕过付费墙。</div>
+      <div class="item-app">💼 数据中间商会不会成为 AI 版权战里最先被打掉的一环。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">诉讼矛头第一次从"模型公司"转向"数据中间商"。如果 Brave 这类抓取层被认定侵权，模型厂商的数据获取成本会上升，进而影响训练与检索类 API 的定价。</span>
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/" target="_blank">TechCrunch</a> · <a href="https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 赛道深挖</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">OpenRouter 主力模型价格集体上调，DeepSeek V4.1 Flash 涨至 2 倍、GPT-OSS-120B 涨约 5 倍</div>
+      <div class='item-desc'>OpenRouter 模型价格接口快照对比显示，多个主力模型单价同日上调：deepseek/deepseek-v4.1-flash-1017 从 prompt $0.15/M、completion $0.60/M 涨至 $0.30/M 与 $1.20/M；deepseek-v4-flash-0731 从 $0.119/M、$0.238/M 涨至 $0.059/M、$0.30/M（输入降、输出大涨）；openai/gpt-oss-120b 从 $0.029/M、$0.107/M 涨至 $0.15/M、$0.60/M；minimax-m3.1-flash 从 $0.075/M、$0.30/M 翻倍至 $0.15/M、$0.60/M；qwen3-coder-30b-a3b 从 $0.07/M、$0.28/M 涨至 $0.15/M、$0.60/M；gemma-4-26b-a4b 从 $0.0675/M、$0.225/M 降至 $0.045/M、$0.135/M（少数降价）。</div>
+      <div class="item-app">💼 聚合平台的价差红利是不是快吃完了，下一步靠什么留住开发者。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">聚合平台上的价格是渠道风向标。这轮上调集中在中小参数、高并发模型上，说明推理侧的真实成本压力已经传导到聚合层；对做视频/图像 API 的平台意味着，靠"低价聚合"获客的空间在收窄，需要靠独家模型或能力差异化。</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">周畅从字节 Seed 离职，暴露多模态"理解 vs 生成"的路线之争</div>
+      <div class='item-desc'>36 氪报道，周畅从字节 Seed 团队离职，背后是团队内部关于多模态统一路线的分歧——理解与生成能否在同一套架构下统一，长期存在技术路线争议。</div>
+      <div class="item-app">💼 多模态统一到底是不是伪命题，还是只是还没到时间点。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">对视频生成赛道是直接信号：统一多模态架构若走不通，视频生成仍会是独立模型栈，意味着视频 API 的模型迭代节奏、成本结构都会与 LLM 分离，平台需要分别押注。</span>
+        <div class="item-sources"><a href="https://www.36kr.com/p/4053264494171008" target="_blank">36Kr</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Qwen 官方表态：Qwen 4.0 与 5.0 继续开源，不会转向纯 API</div>
+      <div class='item-desc'>r/LocalLLaMA 上流传的官方声明中，Qwen 负责人刘大一恒明确表示未来 Qwen 4.0 和 Qwen 5.0 将继续保持开源，否认了"Qwen4 是最后一个开源系列"的传闻，并强调 AI 价值不应只属于少数人。</div>
+      <div class="item-app">💼 开源阵营的持续承诺，会不会让闭源 API 的溢价越来越难讲。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">开源权重意味着视频/图像生成之外的模型层仍有低价替代品，API 平台可以据此构建"开源模型托管 + 自研模型"的双层供给，压低上游议价成本；对闭源模型厂商则是持续的价格压力。</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1xm28e6/official_statement_qwen_models_will_stick_to_open/" target="_blank">r/LocalLLaMA</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent 前沿</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">LangChain 推出 Managed Deep Agents 私有测试版，内置浏览器操作与持久化执行</div>
+      <div class='item-desc'>LangChain 发布 Managed Deep Agents，提供持久化执行、沙箱、工具接入和 LangSmith 可观测性，开发者无需自建 runtime 即可把 deep agent 跑在生产环境；同日发布浏览器使用能力，为 Agent 运行真实浏览器，并提供"人工接管登录"的 handoff 机制。</div>
+      <div class="item-app">💼 Agent 的"运行时"会不会像数据库一样，最终被少数托管服务垄断。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">它解决的是 Agent 从 demo 到生产之间最痛的一环——长时任务的容错、状态持久化和浏览器登录态。对做创作类 Agent 的团队，这意味着可以把"自动生成素材 + 登录平台发布"串成一条可运维的流水线。</span>
+        <div class="item-sources"><a href="https://www.langchain.com/blog/introducing-managed-deep-agents" target="_blank">LangChain Blog</a> · <a href="https://www.langchain.com/blog/browser-use-in-managed-deep-agents" target="_blank">LangChain Blog</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">NVIDIA 开源 Auto Ontology：给 Agent 的 SQL 查询加上"认证语义层"</div>
+      <div class='item-desc'>NVIDIA 发布 Apache 2.0 许可的 Auto Ontology 库，从企业元数据自动生成语义层，把 Agent 生成的 SQL 锚定在经认证的定义上，并通过 MCP、CLI 和 API 提供上下文。</div>
+      <div class="item-app">💼 Agent 的可信度问题，最后是不是都要靠"语义层 + 权限"解决，而不是靠模型更强。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Agent 做数据分析最大的失败原因是"字段理解错"。语义层把口径固化下来，等于给 Agent 加了一层可信底座，是 Agent 进入企业数据场景的前置条件。</span>
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/11/01/nvidia-auto-ontology-open-source-semantic-layer-ai-agents/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ 快讯</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Y Combinator 的 Garry Tan 自曝一年在 Agent token 上花掉最多 20 万美元</div>
+      <div class='item-desc'>，并称因与 Agent 协作兴奋到"几乎不睡"。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">SpaceXSI 下调 Grok Bot 配额</div>
+      <div class='item-desc'>，马斯克称运营成本"相对收入不可持续"，距其称该产品为"增长最快产品"不到两周。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/spacexsi-apparently-cuts-grok-bot-quotas-weeks-after-musk-called-it-his-fastest-growing-product/" target="_blank">The Decoder</a> · <a href="https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">高盛禁止交易员与投行人员使用 Claude Code、GitHub Copilot 等 AI 编码工具</div>
+      <div class='item-desc'>，仅限工程师使用，理由是"生产力与风险管理"。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/goldman-sachs-pulls-ai-coding-tools-from-traders-and-bankers/" target="_blank">The Decoder</a> · <a href="https://www.bloomberg.com/news/articles/2026-11-02/goldman-restricts-traders-and-bankers-from-using-some-ai-tools" target="_blank">Bloomberg</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Anthropic 更新 Claude Code 系统提示词，禁止用其复刻现有电子游戏</div>
+      <div class='item-desc'>，但仍允许用户制作原创游戏。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">OpenAI 合并 ChatGPT 的 Chat 与 Work 标签页</div>
+      <div class='item-desc'>，ChatGPT 与 Codex 将共用同一用量配额池。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">该筛选条件下没有内容。</div>
+      
+        <div class="observation">
+          <h2>💡 今日观察</h2>
+          <p>🎯 OpenRouter 上一批主力模型的 API 价格集体上调 2–5 倍，而 Anthropic 带着近 9000 亿美元算力承诺和 230 亿美元亏损冲刺 IPO——"便宜 token"的时代正在被"算力资本化"的时代取代，API 平台的分发议价权要重新算。 今天最值得注意的不是某条单点新闻，而是"成本"这个词同时出现在四个方向：Anthropic 的 9000 亿算力承诺、Oracle 的 200 亿债务融资、OpenRouter 上一批模型 2–5 倍的涨价、以及 Grok Bot 因成本不可持续被砍配额。这说明 AI 供给侧的定价逻辑正在从"抢份额补贴"切换到"覆盖真实资本成本"，过去一年 API 平台赖以获客的低价窗口在收窄。与此同时，Qwen 承诺继续开源、NVIDIA 用语义层给 Agent 加可信底座、LangChain 把 Agent 运行时托管化——需求侧正在从"调用模型"转向"跑通工作流"，这恰恰是低价模型无法替代的价值层。对视频生成 API 平台而言，这意味着单纯比单价的阶段接近尾声，接下来拼的是独家模型、工作流封装和渠道绑定。</p>
+          <button class="speak-btn" data-label="🔊 朗读今日观察" data-stop="⏹ 停止" data-speak-lang="zh-CN" data-text="🎯 OpenRouter 上一批主力模型的 API 价格集体上调 2–5 倍，而 Anthropic 带着近 9000 亿美元算力承诺和 230 亿美元亏损冲刺 IPO——&quot;便宜 token&quot;的时代正在被&quot;算力资本化&quot;的时代取代，API 平台的分发议价权要重新算。 今天最值得注意的不是某条单点新闻，而是&quot;成本&quot;这个词同时出现在四个方向：Anthropic 的 9000 亿算力承诺、Oracle 的 200 亿债务融资、OpenRouter 上一批模型 2–5 倍的涨价、以及 Grok Bot 因成本不可持续被砍配额。这说明 AI 供给侧的定价逻辑正在从&quot;抢份额补贴&quot;切换到&quot;覆盖真实资本成本&quot;，过去一年 API 平台赖以获客的低价窗口在收窄。与此同时，Qwen 承诺继续开源、NVIDIA 用语义层给 Agent 加可信底座、LangChain 把 Agent 运行时托管化——需求侧正在从&quot;调用模型&quot;转向&quot;跑通工作流&quot;，这恰恰是低价模型无法替代的价值层。对视频生成 API 平台而言，这意味着单纯比单价的阶段接近尾声，接下来拼的是独家模型、工作流封装和渠道绑定。">🔊 朗读今日观察</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 商业机会</h2>
+          <ul><li>面向中小创作团队做"成本可控的视频生成 API 网关"：依据 OpenRouter 主力模型集体涨价与 Grok Bot 砍配额两条事实，大量中小团队会同时面临单价上涨和配额收紧。谁能在聚合层之上做按任务类型自动路由（草稿用低价模型、成片用高质模型），并给出可预测的月度成本上限，谁就能接住这批被涨价挤出的需求。</li><li>把 Agent 运行时能力封装成视频创作工作流产品：依据 LangChain Managed Deep Agents 提供持久化执行与浏览器 handoff、NVIDIA Auto Ontology 提供可信语义层这两条，视频创作中最难自动化的"多轮改稿 + 登录平台发布 + 素材口径管理"已经具备工程基础。可以先服务需要批量产出短视频的营销与电商团队——他们最需要"生成到发布"一条龙，且对成本敏感度高于对模型品牌的敏感度。</li></ul>
+        </div>
+    </div></div><div data-lang-content="en">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">All</span><span class="tab" data-cat="news">News</span>
+      <span class="star-toggle">★ Top picks (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 Market Landscape</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic on the Eve of Its IPO: Revenue Up 12x, Back to an Operating Loss of $23 Billion, Compute Commitments Near $900 Billion</div>
+      <div class='item-desc'>Multiple outlets reported on the same day that Anthropic, after filing its S-1, disclosed a return to operating losses in Q3 totaling $23 billion, while revenue grew roughly 12x year-over-year; its AI-related spending commitments have ballooned to nearly $900 billion. Meanwhile, an article on HN claimed its growth "has just flattened out," and TechPolicy published a piece calling on the SEC to block its IPO.</div>
+      <div class="item-app">💼 Ask them how they view the combination of "$900 billion in commitments vs. $23 billion in losses" — is it a moat or leverage?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">This is an extreme balance sheet of "trading compute for growth." It shows that the cost structure of leading model companies has shifted from labor to long-term compute contracts — once growth slows, pricing must go up, and that feeds directly into API unit prices.</span>
+        <div class="item-sources"><a href="https://the-decoder.com/anthropic-grows-revenue-twelvefold-but-posts-23-billion-loss/" target="_blank">The Decoder</a> · <a href="https://www.axios.com/2026/11/02/anthropic-spending-revenue-surge" target="_blank">Axios</a> · <a href="https://www.ft.com/content/4d91dbab-6fe4-45ab-beee-d77e091cb37f" target="_blank">FT</a> · <a href="https://www.36kr.com/p/4053289729905793" target="_blank">36Kr</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Oracle Files to Issue $20 Billion in New Stock and Bonds, Earmarked for AI Infrastructure</div>
+      <div class='item-desc'>On November 2, Oracle filed to raise a combined $20 billion through new stock and bonds for AI data center construction. In the same period, Saudi Aramco acquired a 49% stake in AI company Humain for $2.6 billion, and South Korea wrote "highest-performance sovereign AI models" into its budget targets.</div>
+      <div class="item-app">💼 As compute goes from "rent" to "debt," will cloud providers eventually pass cost pressure on as API price hikes?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">AI infrastructure financing is shifting from "operating cash flow" to "direct leverage in the capital markets." That means compute supply will keep expanding, but costs get locked into debt, which over the medium to long term will raise cloud providers' margin requirements on model APIs.</span>
+        <div class="item-sources"><a href="https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html" target="_blank">CNBC</a> · <a href="https://the-decoder.com/saudi-aramco-takes-49-percent-stake-in-ai-firm-humain-with-2-6-billion-deal/" target="_blank">The Decoder</a> · <a href="https://www.cnbc.com/2026/11/02/south-korea-ai-spending-budget.html" target="_blank">CNBC</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">The New York Times and Other Outlets Sue Brave, Alleging It Scraped Content for Anthropic and Perplexity and Bypassed Paywalls</div>
+      <div class='item-desc'>NYT, the New York Daily News, the Chicago Tribune and others filed suit against the Brave browser, alleging it illegally scraped copyrighted content and distributed it to AI clients such as Anthropic and Perplexity, while also allowing users to bypass paywalls.</div>
+      <div class="item-app">💼 Will data intermediaries become the first casualty in the AI copyright wars?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">For the first time, the lawsuit's target has shifted from "model companies" to "data intermediaries." If scraping layers like Brave are found to infringe, model vendors' data acquisition costs will rise, which in turn affects pricing for training and retrieval-related APIs.</span>
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/" target="_blank">TechCrunch</a> · <a href="https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 Track Deep Dive</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">OpenRouter raises prices across its main models: DeepSeek V4.1 Flash doubles, GPT-OSS-120B up about 5x</div>
+      <div class='item-desc'>A snapshot comparison of OpenRouter's model pricing API shows unit prices for several main models raised on the same day: deepseek/deepseek-v4.1-flash-1017 from prompt $0.15/M, completion $0.60/M to $0.30/M and $1.20/M; deepseek-v4-flash-0731 from $0.119/M, $0.238/M to $0.059/M, $0.30/M (input down, output up sharply); openai/gpt-oss-120b from $0.029/M, $0.107/M to $0.15/M, $0.60/M; minimax-m3.1-flash doubled from $0.075/M, $0.30/M to $0.15/M, $0.60/M; qwen3-coder-30b-a3b from $0.07/M, $0.28/M to $0.15/M, $0.60/M; gemma-4-26b-a4b cut from $0.0675/M, $0.225/M to $0.045/M, $0.135/M (one of the few price cuts).</div>
+      <div class="item-app">💼 Is the price-gap dividend of aggregator platforms almost exhausted, and what will they rely on next to retain developers?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Prices on aggregator platforms are a channel bellwether. This round of increases is concentrated on small-to-mid-parameter, high-concurrency models, showing that real cost pressure on the inference side has reached the aggregation layer; for platforms building video/image APIs, the room to acquire users through "low-price aggregation" is narrowing, and they need to differentiate through exclusive models or capabilities.</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Zhou Chang leaves ByteDance Seed, exposing the multimodal "understanding vs. generation" route dispute</div>
+      <div class='item-desc'>36Kr reports that Zhou Chang has left the ByteDance Seed team, behind which lies internal disagreement over a unified multimodal route—whether understanding and generation can be unified under the same architecture has long been a subject of technical-route controversy.</div>
+      <div class="item-app">💼 Is unified multimodality really a false premise, or has the timing just not arrived yet?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">This is a direct signal for the video generation track: if a unified multimodal architecture doesn't work, video generation will remain a separate model stack, meaning the model iteration cadence and cost structure of video APIs will diverge from LLMs, and platforms will need to place separate bets.</span>
+        <div class="item-sources"><a href="https://www.36kr.com/p/4053264494171008" target="_blank">36Kr</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Qwen official statement: Qwen 4.0 and 5.0 will remain open source, no shift to API-only</div>
+      <div class='item-desc'>In an official statement circulating on r/LocalLLaMA, Qwen lead Liu Da Yiheng explicitly stated that Qwen 4.0 and Qwen 5.0 will continue to stay open source, denying rumors that "Qwen4 is the last open-source series" and emphasizing that AI value should not belong only to a few.</div>
+      <div class="item-app">💼 Will the open-source camp's continued commitment make it increasingly hard for closed-source APIs to justify their premium?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Open-source weights mean that model layers beyond video/image generation still have low-cost alternatives, allowing API platforms to build a two-tier supply of "open-source model hosting + in-house models" and lower upstream bargaining costs; for closed-source model vendors, it means sustained price pressure.</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/LocalLLaMA/comments/1xm28e6/official_statement_qwen_models_will_stick_to_open/" target="_blank">r/LocalLLaMA</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent Frontier</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">LangChain launches Managed Deep Agents private beta with built-in browser operation and durable execution</div>
+      <div class='item-desc'>LangChain released Managed Deep Agents, offering durable execution, sandboxes, tool integration, and LangSmith observability, so developers can run deep agents in production without building their own runtime; on the same day it released browser-use capabilities that let agents run a real browser, along with a "human takeover for login" handoff mechanism.</div>
+      <div class="item-app">💼 Will the agent "runtime" eventually be monopolized by a handful of hosted services, just like databases.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">It solves the most painful gap between agent demos and production—fault tolerance for long-running tasks, state persistence, and browser login sessions. For teams building creative agents, this means "auto-generate assets + log in to platforms and publish" can be chained into an operable pipeline.</span>
+        <div class="item-sources"><a href="https://www.langchain.com/blog/introducing-managed-deep-agents" target="_blank">LangChain Blog</a> · <a href="https://www.langchain.com/blog/browser-use-in-managed-deep-agents" target="_blank">LangChain Blog</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">NVIDIA open-sources Auto Ontology: adding a "certified semantic layer" to agents' SQL queries</div>
+      <div class='item-desc'>NVIDIA released the Apache 2.0-licensed Auto Ontology library, which automatically generates a semantic layer from enterprise metadata, anchors agent-generated SQL to certified definitions, and provides context via MCP, CLI, and API.</div>
+      <div class="item-app">💼 Will agent trustworthiness ultimately have to be solved through "semantic layer + permissions" rather than stronger models.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">The biggest cause of failure when agents do data analysis is "misunderstanding fields." A semantic layer locks down definitions, effectively adding a trustworthy foundation for agents—a prerequisite for agents entering enterprise data scenarios.</span>
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/11/01/nvidia-auto-ontology-open-source-semantic-layer-ai-agents/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ Quick Hits</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Y Combinator's Garry Tan reveals he spends up to $200,000 a year on Agent tokens</div>
+      <div class='item-desc'>, and says collaborating with Agents excites him so much he "barely sleeps."</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">SpaceXSI cuts Grok Bot quotas</div>
+      <div class='item-desc'>, with Musk saying operating costs are "unsustainable relative to revenue"—less than two weeks after calling the product his "fastest-growing product."</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/spacexsi-apparently-cuts-grok-bot-quotas-weeks-after-musk-called-it-his-fastest-growing-product/" target="_blank">The Decoder</a> · <a href="https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Goldman Sachs bans traders and investment bankers from using AI coding tools like Claude Code and GitHub Copilot</div>
+      <div class='item-desc'>, restricting them to engineers only, citing "productivity and risk management."</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/goldman-sachs-pulls-ai-coding-tools-from-traders-and-bankers/" target="_blank">The Decoder</a> · <a href="https://www.bloomberg.com/news/articles/2026-11-02/goldman-restricts-traders-and-bankers-from-using-some-ai-tools" target="_blank">Bloomberg</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Anthropic updates Claude Code's system prompt to prohibit using it to clone existing video games</div>
+      <div class='item-desc'>, while still allowing users to make original games.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">OpenAI merges ChatGPT's Chat and Work tabs</div>
+      <div class='item-desc'>, with ChatGPT and Codex now sharing the same usage quota pool.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">No items match this filter.</div>
+      
+        <div class="observation">
+          <h2>💡 Today's Take</h2>
+          <p>🎯 On OpenRouter, the API prices of a batch of flagship models have collectively risen 2–5x, while Anthropic is sprinting toward an IPO with nearly $900 billion in compute commitments and $23 billion in losses—the era of "cheap tokens" is being replaced by the era of "compute capitalization," and the distribution bargaining power of API platforms needs to be recalculated. What's most notable today isn't any single news item, but the word "cost" appearing across four directions at once: Anthropic's $900 billion compute commitment, Oracle's $20 billion debt financing, a 2–5x price hike on a batch of models on OpenRouter, and Grok Bot having its quotas cut due to unsustainable costs. This shows that the pricing logic on the AI supply side is shifting from "subsidize to grab share" to "cover real capital costs," and the low-price window that API platforms relied on for customer acquisition over the past year is narrowing. At the same time, Qwen committing to continued open source, NVIDIA adding a trustworthy foundation for Agents with a semantic layer, and LangChain hosting the Agent runtime—the demand side is shifting from "calling models" to "running workflows end to end," which is precisely the value layer that low-price models cannot replace. For video generation API platforms, this means the phase of simply competing on unit price is nearing its end; what comes next is competing on exclusive models, workflow packaging, and channel lock-in.</p>
+          <button class="speak-btn" data-label="🔊 Read aloud" data-stop="⏹ Stop" data-speak-lang="en-US" data-text="🎯 On OpenRouter, the API prices of a batch of flagship models have collectively risen 2–5x, while Anthropic is sprinting toward an IPO with nearly $900 billion in compute commitments and $23 billion in losses—the era of &quot;cheap tokens&quot; is being replaced by the era of &quot;compute capitalization,&quot; and the distribution bargaining power of API platforms needs to be recalculated. What's most notable today isn't any single news item, but the word &quot;cost&quot; appearing across four directions at once: Anthropic's $900 billion compute commitment, Oracle's $20 billion debt financing, a 2–5x price hike on a batch of models on OpenRouter, and Grok Bot having its quotas cut due to unsustainable costs. This shows that the pricing logic on the AI supply side is shifting from &quot;subsidize to grab share&quot; to &quot;cover real capital costs,&quot; and the low-price window that API platforms relied on for customer acquisition over the past year is narrowing. At the same time, Qwen committing to continued open source, NVIDIA adding a trustworthy foundation for Agents with a semantic layer, and LangChain hosting the Agent runtime—the demand side is shifting from &quot;calling models&quot; to &quot;running workflows end to end,&quot; which is precisely the value layer that low-price models cannot replace. For video generation API platforms, this means the phase of simply competing on unit price is nearing its end; what comes next is competing on exclusive models, workflow packaging, and channel lock-in.">🔊 Read aloud</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 Opportunities</h2>
+          <ul><li>Build a "cost-controllable video generation API gateway" for small and mid-sized creative teams: Based on the two facts of OpenRouter's flagship models raising prices across the board and Grok Bot cutting quotas, a large number of small and mid-sized teams will face both rising unit prices and tightening quotas. Whoever can build automatic routing by task type on top of the aggregation layer (low-price models for drafts, high-quality models for final cuts) and offer a predictable monthly cost cap will be able to capture this demand squeezed out by price hikes.</li><li>Package Agent runtime capabilities into a video creation workflow product: Based on LangChain Managed Deep Agents providing persistent execution and browser handoff, and NVIDIA Auto Ontology providing a trustworthy semantic layer, the hardest-to-automate parts of video creation—"multi-round revisions + logging into platforms to publish + managing material definitions"—now have an engineering foundation. You can start by serving marketing and e-commerce teams that need to produce short videos in bulk—they most need an all-in-one "generation to publishing" solution, and are more sensitive to cost than to model brand.</li></ul>
+        </div>
+    </div></div>
+      <div class="day-nav">
+        <a class="nav-btn" href="2026-11-02.html">← 2026-11-02</a>
+        <span></span>
+      </div>
+    </div>
+  
+<button id="backToTop" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  <span data-lang-content="zh">© Andy 的 AI 早报 · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
+  <span data-lang-content="en">© Andy's AI Daily · Auto-collected · Curated by DeepSeek · Updated daily</span>
+</footer>
+
+  <script>window.SITE_BASE="../";window.AVAILABLE_DATES=["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31", "2026-11-01", "2026-11-02", "2026-11-03"];window.CURRENT_DATE="2026-11-03";window.PREV_DATE="2026-11-02";</script>
+  <script>
+(function () {
+  var BASE = window.SITE_BASE || "";
+  var DATES = window.AVAILABLE_DATES || [];
+
+  function esc(s) {
+    return (s || "").replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  // ── Date picker ──
+  var dp = document.getElementById('datePicker');
+  if (dp && DATES.length) {
+    dp.min = DATES[0];
+    dp.max = DATES[DATES.length - 1];
+    dp.value = window.CURRENT_DATE || DATES[DATES.length - 1];
+    dp.addEventListener('change', function () {
+      var v = dp.value;
+      if (DATES.indexOf(v) === -1) {
+        var earlier = DATES.filter(function (d) { return d <= v; });
+        v = earlier.length ? earlier[earlier.length - 1] : DATES[0];
+      }
+      window.location.href = BASE + 'daily/' + v + '.html';
+    });
+  }
+
+  // ── Search ──
+  var si = document.getElementById('searchInput');
+  var sr = document.getElementById('searchResults');
+  var INDEX = null;
+  function loadIndex() {
+    if (INDEX) return Promise.resolve(INDEX);
+    return fetch(BASE + 'search-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { INDEX = data; return data; });
+  }
+  if (si && sr) {
+    si.addEventListener('input', function () {
+      var q = si.value.trim().toLowerCase();
+      if (q.length < 2) { sr.classList.remove('active'); sr.innerHTML = ''; return; }
+      loadIndex().then(function (idx) {
+        var en = window.CUR_LANG === 'en';
+        function fTitle(h) { return (en && h.title_en) ? h.title_en : h.title; }
+        function fDesc(h) { return (en && h.desc_en) ? h.desc_en : h.desc; }
+        function fCat(h) { return (en && h.cat_en) ? h.cat_en : h.cat; }
+        var hits = idx.filter(function (it) {
+          return (fTitle(it) + ' ' + fDesc(it) + ' ' + it.title + ' ' + it.desc)
+            .toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 25);
+        if (!hits.length) {
+          sr.innerHTML = '<div class="sr-empty">' +
+            (en ? 'No matches' : '没有匹配结果') + '</div>';
+        } else {
+          sr.innerHTML = hits.map(function (h) {
+            return '<a class="sr-item" href="' + BASE + 'daily/' + h.date + '.html">' +
+                   '<span class="sr-date">' + h.date + ' · ' + esc(fCat(h)) + '</span>' +
+                   '<span class="sr-title">' + esc(fTitle(h)) + '</span></a>';
+          }).join('');
+        }
+        sr.classList.add('active');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-box')) sr.classList.remove('active');
+    });
+  }
+
+  // ── Filters (category tabs + star toggle), scoped per digest ──
+  document.querySelectorAll('.filter-bar').forEach(function (bar) {
+    var scope = bar.closest('.digest-scope') || document;
+    var tabs = bar.querySelectorAll('.tab');
+    var starToggle = bar.querySelector('.star-toggle');
+    var curCat = 'all', starsOnly = false;
+
+    function apply() {
+      scope.querySelectorAll('.category').forEach(function (catEl) {
+        var ct = catEl.getAttribute('data-cat');
+        var catMatch = (curCat === 'all') || (ct === curCat);
+        var visible = 0;
+        catEl.querySelectorAll('.item-card').forEach(function (it) {
+          var stars = parseInt(it.getAttribute('data-stars') || '0', 10);
+          var show = catMatch && (!starsOnly || stars >= 4);
+          it.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        catEl.style.display = (catMatch && visible > 0) ? '' : 'none';
+      });
+      var anyVisible = Array.prototype.some.call(
+        scope.querySelectorAll('.category'),
+        function (c) { return c.style.display !== 'none'; }
+      );
+      var emptyMsg = scope.querySelector('.empty-filter');
+      if (emptyMsg) emptyMsg.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        curCat = t.getAttribute('data-cat');
+        apply();
+      });
+    });
+    if (starToggle) {
+      starToggle.addEventListener('click', function () {
+        starsOnly = !starsOnly;
+        starToggle.classList.toggle('active', starsOnly);
+        apply();
+      });
+    }
+  });
+
+  // ── Keyboard navigation (day pages) ──
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' && window.PREV_DATE) {
+      window.location.href = window.PREV_DATE + '.html';
+    } else if (e.key === 'ArrowRight' && window.NEXT_DATE) {
+      window.location.href = window.NEXT_DATE + '.html';
+    }
+  });
+
+  // ── Back to top ──
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Reading progress ──
+  var pb = document.getElementById('progressBar');
+  if (pb) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      pb.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+  }
+
+  // ── Theme toggle ──
+  var tt = document.getElementById('themeToggle');
+  function curTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+  function paintToggle() { if (tt) tt.textContent = curTheme() === 'light' ? '☀️' : '🌙'; }
+  paintToggle();
+  if (tt) {
+    tt.addEventListener('click', function () {
+      var next = curTheme() === 'light' ? 'dark' : 'light';
+      if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paintToggle();
+    });
+  }
+
+  // ── Language toggle ──
+  var PH = { zh: '搜索全部日报…', en: 'Search all digests…' };
+  function curLang() {
+    return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+  }
+  window.CUR_LANG = curLang();
+  var lt = document.getElementById('langToggle');
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+    window.CUR_LANG = lang;
+    if (lt) lt.textContent = lang === 'en' ? '中' : 'EN';
+    if (si) si.setAttribute('placeholder', PH[lang]);
+  }
+  applyLang(curLang());
+  if (lt) {
+    lt.addEventListener('click', function () {
+      var next = curLang() === 'en' ? 'zh' : 'en';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      applyLang(next);
+    });
+  }
+
+  // ── Hot-word tags → search ──
+  document.querySelectorAll('.trend-tag').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      var term = tag.getAttribute('data-term');
+      if (si) {
+        si.value = term;
+        si.focus();
+        si.dispatchEvent(new Event('input', { bubbles: true }));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Voice readout (Web Speech API) ──
+  var synth = window.speechSynthesis;
+  document.querySelectorAll('.speak-btn').forEach(function (btn) {
+    if (!synth) { btn.style.display = 'none'; return; }
+    var label = btn.getAttribute('data-label') || '🔊 朗读';
+    var stop = btn.getAttribute('data-stop') || '⏹ 停止';
+    btn.addEventListener('click', function () {
+      if (btn.classList.contains('playing')) {
+        synth.cancel();
+        return;
+      }
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-text') || '');
+      u.lang = btn.getAttribute('data-speak-lang') || 'zh-CN';
+      u.rate = 1.0;
+      u.onend = u.onerror = function () {
+        btn.classList.remove('playing');
+        btn.textContent = label;
+      };
+      btn.classList.add('playing');
+      btn.textContent = stop;
+      synth.speak(u);
+    });
+  });
+  window.addEventListener('beforeunload', function () { if (synth) synth.cancel(); });
+
+  // ── Audio player: lock-screen / car metadata via MediaSession ──
+  document.querySelectorAll('.audio-player audio').forEach(function (audio) {
+    audio.addEventListener('play', function () {
+      if (!('mediaSession' in navigator)) return;
+      var date = audio.getAttribute('data-date') || '';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Andy 的 AI 早报 · ' + date,
+          artist: 'Andy 的 AI 早报',
+          album: 'Andy 的 AI 早报',
+          artwork: [{ src: BASE + 'podcast-cover.png', sizes: '1400x1400', type: 'image/png' }]
+        });
+      } catch (e) {}
+    });
+  });
+
+  // ── Copy podcast feed URL ──
+  document.querySelectorAll('[data-copy-feed]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = el.getAttribute('data-copy-feed');
+      var done = function () {
+        var old = el.textContent;
+        el.textContent = (window.CUR_LANG === 'en' ? '✓ Copied!' : '✓ 已复制订阅链接');
+        setTimeout(function () { el.textContent = old; }, 1800);
+      };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, done); }
+      else { done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

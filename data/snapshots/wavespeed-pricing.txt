@@ -107,7 +107,7 @@ Frequently asked
 questions
 Can't find what you're looking for? Contact support
 How does pricing work? WaveSpeed uses a pay-per-use model. You only pay for what you generate. There are no monthly fees or commitments. Simply add credits to your account and start creating.
-What payment methods do you accept? We accept major credit and debit cards, PayPal, Google Pay, Apple Pay, WeChat Pay and Alipay (available methods vary by region). Enterprise customers can also pay by wire transfer.
+What payment methods do you accept? We accept major credit and debit cards, PayPal, Google Pay, Apple Pay, Alipay and WeChat Pay (available methods vary by region). Enterprise customers can also pay by wire transfer.
 Is there a free trial? Yes. Eligible new accounts receive $1 in free credits to try the platform, and no credit card is required to sign up. Some premium models may not be available with trial credits.
 What are account levels? WaveSpeed offers four account levels: Bronze (default), Silver (any successful top-up below $1,000), Gold (a single successful top-up of $1,000–$4,999), and Ultra (a single successful top-up of $5,000 or more). A top-up upgrades only to the tier selected by that single top-up amount; existing higher or restricted levels are preserved.
 Do you offer enterprise pricing? Yes! For high-volume usage, we offer custom enterprise plans with volume discounts, dedicated support, and SLAs. Contact our sales team to learn more.
