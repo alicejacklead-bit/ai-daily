@@ -56,10 +56,21 @@ GUI Agent 能力
 视觉定位 Grounding
 提示词工程
 结构化输出(beta)
-接入三方工具
 使用 Responses API
 迁移至 Responses API
 上下文编辑
+接入 AI 工具
+Codex
+Claude Code
+OpenCode
+OpenClaw
+Hermes Agent
+TRAE
+WorkBuddy
+ZCode
+DeepSeek Harness
+Pi
+其他工具
 推理
 推理方式概述
 在线推理（常规）

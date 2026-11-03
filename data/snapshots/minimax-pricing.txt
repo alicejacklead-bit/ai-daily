@@ -4,7 +4,7 @@ Fetch the complete documentation index at: /docs/llms.txt
 Use this file to discover all available pages before exploring further.
 Skip to main content
 Pricing Overview
-Model Pricing LLM Video Audio Image Music
+Model Pricing LLM Video Audio Image
 Tool Pricing MCP Server Tools
 Packages Audio Video
 Billing Guides Payment Methods Pay-as-you-go Billing Package Usage Rules FAQ
@@ -154,22 +154,6 @@ $100/M characters
 Image
 image-01
 $0.0035 per image
-Music
-Starting August 20, 2026, the paid APIs (Music Generation and Lyrics Generation) will no longer be available to new users; existing paying users can continue to use the current API services. The free music generation APIs (Music-3.0-free, Music-2.6-free, music-cover-free) will be discontinued. To experience or use music generation capabilities, please visit MiniMax Audio , or use the open-source MiniMax Music 3 model on Hugging Face .
-Music-3.0 (Discontinued)
-RPM = 120, contact sales to increase
-$0.15/up-to-5 minutes music
-Music-2.6 (Discontinued)
-Lyrics Generation (Discontinued)
-Lyrics generation/editing
-$0.01/per song
-Music-2.5+ (Discontinued)
-Instrumental unlocked, break through style boundaries
-Music-2.5 (Discontinued)
-Direct the detail, define the real
-Music-2.0 (Discontinued)
-Enhanced musical expression
-$0.03/up-to-5 minutes music
 MCP
 API-vlm
 $0.01 / request
@@ -325,9 +309,20 @@ What’s the difference between the Standard and Priority service tiers for Mini
 Priority gives your requests priority access for faster responses and improved reliability. It costs 1.5 times the Standard rate. To enable it, set service_tier to priority . See the LLM pricing tables for the rates that apply to each input length.
 Does video output pricing include charges for input media?
 H3 video output and input media are billed separately. Images beyond the free allowance incur an additional charge. Input video is billed based on its duration and the output resolution. If you regenerate a video, the input media from the original task is billed again. See the video pricing tables for the applicable rates.
-How do I add funds to my account?
-Visit the Recharge page to add funds to your account for pay-as-you-go API usage.
+How do I add funds and check usage and charges?
+Visit the Recharge page to add funds to your account for pay-as-you-go API usage. View usage and charges on the API Usage page .
 Which models can I use with packages?
 You can use Audio Packages with all speech models via the T2A v2 and T2A large v2 APIs. Video Packages support Hailuo video models, but do not currently support MiniMax H3. Before you buy, check the supported models, included points, and plan duration. For details, see Package Usage Rules .
 What happens to unused video points when my package expires?
 Any unused video points expire when your package ends, and your video point balance resets to zero. Each of the four standard video packages is valid for one month.
+About Music Models
+As of August 20, 2026, the music generation and lyrics generation APIs are no longer available to new users. Existing paying users can continue using these APIs. To generate music, visit MiniMax Audio or try the open-source MiniMax Music 3 model on Hugging Face or ModelScope . The following rates apply to existing paying users. Model
+Music-3.0
+$0.15 per track (up to 5 minutes)
+Music-2.6
+Lyrics Generation
+$0.01 per song
+Music-2.5+
+Music-2.5
+Music-2.0
+$0.03 per track (up to 5 minutes)
