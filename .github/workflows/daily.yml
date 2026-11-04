@@ -7,6 +7,9 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    outputs:
+      digest_date: ${{ steps.identity.outputs.date }}
+      rss_sha: ${{ steps.identity.outputs.rss_sha }}
     permissions:
       contents: write
 
@@ -29,6 +32,12 @@ jobs:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
         run: cd scripts && python main.py
 
+      - name: Record publication identity
+        id: identity
+        run: |
+          echo "date=$(TZ=Asia/Shanghai date +%F)" >> "$GITHUB_OUTPUT"
+          echo "rss_sha=$(sha256sum docs/podcast.xml | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
       - name: Commit and push
         run: |
           git config user.name "AI Daily Bot"
@@ -42,3 +51,86 @@ jobs:
             git pull --rebase
             git push
           fi
+
+  notify:
+    needs: generate
+    if: ${{ always() && !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check publication and notify Grok
+        env:
+          WEBHOOK: ${{ secrets.GROK_XIAOYUZHOU_WEBHOOK }}
+          SENDER_KEY: ${{ secrets.GROK_SENDER_KEY }}
+          SENDER_HEADER: ${{ vars.GROK_SENDER_KEY_HEADER }}
+          EXPECTED_RSS_SHA: ${{ needs.generate.outputs.rss_sha }}
+          DIGEST_DATE: ${{ needs.generate.outputs.digest_date }}
+          GENERATE_RESULT: ${{ needs.generate.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TZ: Asia/Shanghai
+        run: |
+          python - <<'PY'
+          import datetime, email.utils, hashlib, json, os, re, time, urllib.request, xml.etree.ElementTree as ET
+          from zoneinfo import ZoneInfo
+
+          webhook = os.environ["WEBHOOK"]
+          if not webhook:
+              print("::warning::GROK_XIAOYUZHOU_WEBHOOK is not configured; notification skipped.")
+              raise SystemExit(0)
+          key, header = os.environ["SENDER_KEY"], os.environ["SENDER_HEADER"]
+          if not key or not re.fullmatch(r"[!#$%&'*+.^_`|~0-9A-Za-z-]+", header):
+              print("::error::Grok Sender Key or header configuration is missing or invalid.")
+              raise SystemExit(1)
+          today = os.environ["DIGEST_DATE"] or datetime.datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()
+          rss = "https://alicejacklead-bit.github.io/ai-daily/podcast.xml"
+          payload = {"status": "failed", "date": today, "error": "Digest generation or push failed", "run_url": os.environ["RUN_URL"]}
+          if os.environ["GENERATE_RESULT"] == "success":
+              deadline = time.monotonic() + 900
+              while True:
+                  try:
+                      request = urllib.request.Request(rss, headers={"Cache-Control": "no-cache"})
+                      with urllib.request.urlopen(request, timeout=15) as response:
+                          raw = response.read()
+                      if not os.environ["EXPECTED_RSS_SHA"] or hashlib.sha256(raw).hexdigest() != os.environ["EXPECTED_RSS_SHA"]:
+                          raise ValueError("Pages has not published the generated RSS")
+                      root = ET.fromstring(raw)
+                      for item in root.findall("./channel/item"):
+                          pub = email.utils.parsedate_to_datetime(item.findtext("pubDate"))
+                          title = item.findtext("title", "").strip()
+                          enclosure = item.find("enclosure")
+                          if pub.astimezone(ZoneInfo("Asia/Shanghai")).date().isoformat() != today or not title or enclosure is None:
+                              continue
+                          audio = enclosure.get("url", "")
+                          if not audio.startswith("https://"):
+                              continue
+                          with urllib.request.urlopen(urllib.request.Request(audio, method="HEAD", headers={"Cache-Control": "no-cache"}), timeout=15) as response:
+                              if response.status == 200:
+                                  payload = {"status": "success", "date": today, "episode_title": title, "audio_url": audio, "rss_url": rss}
+                                  break
+                      if payload["status"] == "success":
+                          break
+                  except Exception:
+                      pass
+                  remaining = deadline - time.monotonic()
+                  if remaining <= 0:
+                      payload["error"] = "RSS entry or audio was not available within 15 minutes"
+                      break
+                  time.sleep(min(60, remaining))
+          data = json.dumps(payload, ensure_ascii=False).encode()
+          for attempt in range(3):
+              try:
+                  request = urllib.request.Request(webhook, data=data, headers={"Content-Type": "application/json", header: key}, method="POST")
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      if 200 <= response.status < 300:
+                          print("Grok notification delivered.")
+                          break
+              except Exception:
+                  pass
+              if attempt < 2:
+                  print("::warning::Grok notification failed; retrying in 30 seconds.")
+                  time.sleep(30)
+              else:
+                  print("::error::Grok notification failed after three attempts.")
+                  raise SystemExit(1)
+          if payload["status"] == "failed":
+              raise SystemExit(1)
+          PY
