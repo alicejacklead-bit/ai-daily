@@ -1,0 +1,1838 @@
+{
+  "date": "2026-11-05",
+  "generated_at": "2026-11-05T08:04:06.866853+08:00",
+  "counts": {
+    "papers": 10,
+    "projects": 7,
+    "news": 98
+  },
+  "health": [
+    {
+      "source": "HuggingFace Papers",
+      "type": "api",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "GitHub Trending",
+      "type": "page",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "Hacker News",
+      "type": "api",
+      "status": "ok",
+      "note": "14 条"
+    },
+    {
+      "source": "36Kr AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "量子位",
+      "type": "rss",
+      "status": "ok",
+      "note": "5 条"
+    },
+    {
+      "source": "InfoQ 中文",
+      "type": "rss",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "SSPAI AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "VentureBeat",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "TechCrunch AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "The Verge AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "The Decoder",
+      "type": "rss",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "MarkTechPost",
+      "type": "rss",
+      "status": "ok",
+      "note": "3 条"
+    },
+    {
+      "source": "Simon Willison",
+      "type": "rss",
+      "status": "ok",
+      "note": "2 条"
+    },
+    {
+      "source": "Hugging Face Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "5 条"
+    },
+    {
+      "source": "Google DeepMind",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "Google AI Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "OpenAI",
+      "type": "rss",
+      "status": "ok",
+      "note": "6 条"
+    },
+    {
+      "source": "fal blog",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "smol.ai AINews",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "TLDR AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "r/LocalLLaMA",
+      "type": "rss",
+      "status": "ok",
+      "note": "6 条"
+    },
+    {
+      "source": "r/aivideo",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "Latent Space",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "LangChain Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "One Useful Thing (Mollick)",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "BytePlus ModelArk 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+1 / -0 行"
+    },
+    {
+      "source": "火山方舟 模型价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "MiniMax 定价",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "阿里云百炼 模型列表（Wan）",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Gemini API 价格",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "Gemini API changelog",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "Anthropic news",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+1 / -1 行"
+    },
+    {
+      "source": "Anthropic 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "fal 价格（含 Kling 等第三方模型价）",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Replicate 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "WaveSpeedAI 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Higgsfield 定价套餐",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "OpenRouter 主力模型价格",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+6 / -6 行"
+    },
+    {
+      "source": "Artificial Analysis 视频模型榜",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    }
+  ],
+  "items": {
+    "papers": [
+      {
+        "category": "papers",
+        "title": "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing",
+        "url": "https://huggingface.co/papers/2610.35497",
+        "normalized_url": "https://huggingface.co/papers/2610.35497",
+        "summary": "Reinforcement learning (RL) has shown promise for training multimodal agents to reason and use tools. However, it remains unclear when fine-grained credit assignment improves learning and when it fails to improve task performance. Video editing provides a useful testbed for this question, combining multimodal perception, long-horizon planning, and tool use with delayed outcome feedback. We construct four movie-trailer editing task types---Content Selection, Narrative Sequencing, Rough Cut, and F",
+        "source": "HuggingFace Papers",
+        "published": "2026-10-26T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2610.35497"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Cross-Prompt Reuse of Entity-Replacement Responses",
+        "url": "https://huggingface.co/papers/2611.00352",
+        "normalized_url": "https://huggingface.co/papers/2611.00352",
+        "summary": "With model weights fixed, we measure how much of an entity-replacement response transfers between English factual questions, beyond whether answers change. We add the hidden-state change from two source questions to a target question about the same entity, comparing the predicted log-probability shift between two relations' published answers, given known answer prefixes, with the measured one. Hidden reuse injects the aligned change at 50% depth before the target's remaining layers; direct reuse",
+        "source": "HuggingFace Papers",
+        "published": "2026-10-30T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.00352"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "SphereFlow: Missing Modality Imputation via Geometric Transport on Hypersphere",
+        "url": "https://huggingface.co/papers/2611.04414",
+        "normalized_url": "https://huggingface.co/papers/2611.04414",
+        "summary": "Missing modality imputation aims to synthesize unobserved modalities from observed ones. Existing methods treat each modality as living on its own latent manifold, forcing the generator to learn a long, unstructured jump between them. We present SphereFlow, which takes a fundamentally different view: by projecting all modalities into a shared hyperspherical latent space via a frozen self-supervised encoder, cross-modal imputation reduces to short-range geometric transport between nearby points o",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-03T00:00:00.000Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.04414"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Length Is Cheap, Competition Is Not: Attention Predicts Context Rot in Retrieval",
+        "url": "https://huggingface.co/papers/2611.04169",
+        "normalized_url": "https://huggingface.co/papers/2611.04169",
+        "summary": "Why do language models fail on long inputs? The common answer is length. We show that, for retrieval, length is cheap and competition is not. On five open models (0.5B to 3B parameters, four families), neutral filler costs nothing: accuracy stays at 0.97 to 1.00, up to 32K tokens on Qwen2.5-1.5B. Statements in the format of the evidence, placed at the same positions, drop it to 0.16 to 0.33. A single statement that gives the queried key a rival value multiplies the loss by 9 to 110, and every ad",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-03T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.04169"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "QFabric: Guarded Cross-Domain Task Recovery and Its Limits on a Linux-RTOS Board",
+        "url": "https://huggingface.co/papers/2611.01598",
+        "normalized_url": "https://huggingface.co/papers/2611.01598",
+        "summary": "Heterogeneous embedded boards pair a Linux application processor with a real-time microcontroller (MCU), which suggests moving a task between the two domains when its timing degrades. We present QFabric, a prototype that treats cross-domain placement as guarded recovery from a violated empirical soft real-time contract: a bounded task is compiled for both domains, monitored in windows with hysteresis, switched only after semantic and capacity admission at a quiescent epoch boundary, and committe",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-01T00:00:00.000Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.01598"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
+        "url": "https://huggingface.co/papers/2611.05345",
+        "normalized_url": "https://huggingface.co/papers/2611.05345",
+        "summary": "Speculative decoding has been treated purely as a systems optimization that speeds up large language model decoding without changing the model behavior. Under this view, the growing effort to train better draft models has been focused solely on acceptance rate. We argue that this view does not hold true for long-horizon agent reasoning. Measuring frontier open-weight models on complex agentic tasks with different speculative decoding approaches, we found that numerical noise grows within verific",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-03T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.05345"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "BEND 2.0: Benchmarking the Capabilities Needed to Design DNA",
+        "url": "https://huggingface.co/papers/2611.03806",
+        "normalized_url": "https://huggingface.co/papers/2611.03806",
+        "summary": "Genomic foundation models are increasingly used to propose DNA sequences and edits. But successful design requires capabilities that current benchmarks do not measure. Here we introduce BEND 2.0 (BENchmark for DNA language models), which tests how well models predict the effects of DNA changes and whether these predictions can guide sequence design. Across eight tasks built on five experimental datasets, we find that model choice and how representations are accessed both affect performance. Line",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-02T19:00:07.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.03806"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Dory1.0-4B: A Looped Normalized-GPT",
+        "url": "https://huggingface.co/papers/2611.03998",
+        "normalized_url": "https://huggingface.co/papers/2611.03998",
+        "summary": "We introduce Dory1.0-4B, a 4-billion-parameter looped (latent-recurrent) language model with elastic depth: a single checkpoint serves different inference compute budgets. Dory1.0-4B is built on a normalized Transformer (nGPT) backbone with interleaved sliding-window and full-attention layers, organized into an input block, a shared recurrent block, and an output block. At inference, the recurrent block can be applied a variable number of times. We pre-trained Dory1.0-4B on 6 trillion tokens. Th",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-02T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.03998"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Every Token Needs Its Own Teacher: Multi-teacher Adaptive On-policy Self-distillation",
+        "url": "https://huggingface.co/papers/2610.40574",
+        "normalized_url": "https://huggingface.co/papers/2610.40574",
+        "summary": "On-policy Self-distillation (OPSD) has proven effective for post-training large language models by constructing a teacher conditioned on privileged references. However, existing approaches keep the teacher fixed either throughout training by consistently exposing it to the full reference, or within each response by adaptively varying partial reference exposure only across responses. In this paper, we argue that neither of them is sufficient. Instead, every token needs its own teacher, as the tea",
+        "source": "HuggingFace Papers",
+        "published": "2026-10-29T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2610.40574"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Kierston & KierstonBench: Simulation of Allentown, PA and Evaluation of Language Models in Crime Investigation and Surveillance Tasks",
+        "url": "https://huggingface.co/papers/2611.04785",
+        "normalized_url": "https://huggingface.co/papers/2611.04785",
+        "summary": "Large language models are candidates for collecting and analyzing records in criminal investigations and mass surveillance. Their capability and accuracy in this work cannot currently be measured. Real deployments lack the ground truth needed to score a model's conclusions, and no benchmark evaluates these capabilities in a simulated environment. We present Kierston, a city-scale simulation engine, and KierstonBench, a benchmark that tests these capabilities against known simulated events. Kiers",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-03T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.04785"
+        }
+      }
+    ],
+    "projects": [
+      {
+        "category": "projects",
+        "title": "NVIDIA/auto-ontology ⭐+2,050/天",
+        "url": "https://github.com/NVIDIA/auto-ontology",
+        "normalized_url": "https://github.com/NVIDIA/auto-ontology",
+        "summary": "Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows. （GitHub Trending · 今日 +2,050 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "2,050"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "max-sixty/worktrunk ⭐+531/天",
+        "url": "https://github.com/max-sixty/worktrunk",
+        "normalized_url": "https://github.com/max-sixty/worktrunk",
+        "summary": "Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows （GitHub Trending · 今日 +531 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "531"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "thedotmack/claude-mem ⭐+1,172/天",
+        "url": "https://github.com/thedotmack/claude-mem",
+        "normalized_url": "https://github.com/thedotmack/claude-mem",
+        "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More （GitHub Trending · 今日 +1,172 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "1,172"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "vercel-labs/agent-desktop ⭐+2,470/天",
+        "url": "https://github.com/vercel-labs/agent-desktop",
+        "normalized_url": "https://github.com/vercel-labs/agent-desktop",
+        "summary": "Computer use CLI for AI agents （GitHub Trending · 今日 +2,470 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "2,470"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "The-PR-Agent/pr-agent ⭐+280/天",
+        "url": "https://github.com/The-PR-Agent/pr-agent",
+        "normalized_url": "https://github.com/The-PR-Agent/pr-agent",
+        "summary": "🚀 PR Agent: The Original Open-Source PR Reviewer. This project is not the Qodo free tier. （GitHub Trending · 今日 +280 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "280"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "harry0703/MoneyPrinterTurbo ⭐+617/天",
+        "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+        "normalized_url": "https://github.com/harry0703/MoneyPrinterTurbo",
+        "summary": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow. （GitHub Trending · 今日 +617 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "617"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "garrytan/gstack ⭐+290/天",
+        "url": "https://github.com/garrytan/gstack",
+        "normalized_url": "https://github.com/garrytan/gstack",
+        "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA （GitHub Trending · 今日 +290 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "290"
+        }
+      }
+    ],
+    "news": [
+      {
+        "category": "news",
+        "title": "[页面变动] BytePlus ModelArk 价格",
+        "url": "https://docs.byteplus.com/en/docs/ModelArk/model-service-pricing",
+        "normalized_url": "https://docs.byteplus.com/en/docs/ModelArk/model-service-pricing",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ Retiring model migration guide\n删除：\n",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "byteplus-modelark-pricing"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] Anthropic news",
+        "url": "https://www.anthropic.com/news",
+        "normalized_url": "https://www.anthropic.com/news",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ November 5, 2026\n删除：\n- November 3, 2026",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "anthropic-news"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] OpenRouter 主力模型价格",
+        "url": "https://openrouter.ai/api/v1/models",
+        "normalized_url": "https://openrouter.ai/api/v1/models",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ deepseek/deepseek-v4-pro-0813 | prompt 0.000000115 | completion 0.0000046 | image None\n+ google/gemma-4-26b-a4b-it | prompt 0.000000034 | completion 0.000000101 | image None\n+ moonshotai/kimi-k3 | prompt 0.000000192 | completion 0.000016 | image None\n+ openai/gpt-oss-120b | prompt 0.00000002 | completion 0.000000073 | image None\n+ openai/gpt-oss-20b | prompt 0.000000018 | completion 0.00000009 | image None\n+ qwen/qwen3-235b-a22b-2507 | prompt 0.00000009 | completion 0.00000055 | image None\n删除：\n- deepseek/deepseek-v4-pro-0813 | prompt 0.000000115 | completion 0.000004 | image None\n- google/gemma-4-26b-a4b-it | prompt 0.00000007 | completion 0.000000211 | image None\n- moonshotai/kimi-k3 | prompt 0.000000276 | completion 0.0000096 | image None\n- openai/gpt-oss-120b | prompt 0.00000015 | completion 0.0000006 | image None\n- openai/gpt-oss-20b | prompt 0.00000003 | completion 0.00000013 | image None\n- qwen/qwen3-235b-a22b-2507 | prompt 0.00000014 | completion 0.0000008 | image None",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "openrouter-models"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anti-Oligarchy Activists Plan to Dox Elon Musk and Other Billionaires",
+        "url": "https://www.wired.com/story/anti-oligarchy-activists-plan-to-dox-elon-musk-and-hundreds-of-billionaire-linked-homes/",
+        "normalized_url": "https://www.wired.com/story/anti-oligarchy-activists-plan-to-dox-elon-musk-and-hundreds-of-billionaire-linked-homes",
+        "summary": "HN points: 13, comments: 0",
+        "source": "Hacker News",
+        "published": "2026-11-04T21:11:55Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Everything is an AI scam now",
+        "url": "https://www.davidralphlewis.co.uk/posts/everything-is-an-ai-scam-now/",
+        "normalized_url": "https://www.davidralphlewis.co.uk/posts/everything-is-an-ai-scam-now",
+        "summary": "HN points: 119, comments: 37",
+        "source": "Hacker News",
+        "published": "2026-11-04T21:05:19Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "In Praise of Japan's Failure to Keep Up",
+        "url": "https://www.noemamag.com/in-praise-of-japans-failure-to-keep-up/",
+        "normalized_url": "https://www.noemamag.com/in-praise-of-japans-failure-to-keep-up",
+        "summary": "HN points: 22, comments: 1",
+        "source": "Hacker News",
+        "published": "2026-11-04T20:59:01Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Qualcomm Cloud AI 100 Ultra – 150W AI Accelerator Card with 128GB at 548GB/s",
+        "url": "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra",
+        "normalized_url": "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra",
+        "summary": "HN points: 81, comments: 39",
+        "source": "Hacker News",
+        "published": "2026-11-04T19:55:14Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding",
+        "url": "https://www.ricursive.com/ripple",
+        "normalized_url": "https://www.ricursive.com/ripple",
+        "summary": "HN points: 200, comments: 67",
+        "source": "Hacker News",
+        "published": "2026-11-04T18:53:29Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "From wild to mild: Friendly foxes show changes in brain region",
+        "url": "https://news.cornell.edu/stories/2026/11/wild-mild-friendly-foxes-show-changes-brain-region",
+        "normalized_url": "https://news.cornell.edu/stories/2026/11/wild-mild-friendly-foxes-show-changes-brain-region",
+        "summary": "HN points: 36, comments: 6",
+        "source": "Hacker News",
+        "published": "2026-11-04T18:24:16Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Elon Musk's millions fail to deliver Texas for the Republicans in fierce midterm",
+        "url": "https://www.bbc.com/news/articles/cv8ez3p3ge5ko",
+        "normalized_url": "https://www.bbc.com/news/articles/cv8ez3p3ge5ko",
+        "summary": "HN points: 39, comments: 9",
+        "source": "Hacker News",
+        "published": "2026-11-04T18:00:30Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Dev Reverse Engineers Billion Dollar Harvey AI and Releases It Free, Open Source",
+        "url": "https://apnews.com/press-release/ein-presswire-newsmatics/press-release-89b81414fe7cc937935f093a01305110",
+        "normalized_url": "https://apnews.com/press-release/ein-presswire-newsmatics/press-release-89b81414fe7cc937935f093a01305110",
+        "summary": "HN points: 15, comments: 5",
+        "source": "Hacker News",
+        "published": "2026-11-04T17:42:05Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Launch HN: Kino AI (YC S23) – AI media manager and video editor",
+        "url": "https://news.ycombinator.com/item?id=50368804",
+        "normalized_url": "https://news.ycombinator.com/item?id=50368804",
+        "summary": "HN points: 66, comments: 26",
+        "source": "Hacker News",
+        "published": "2026-11-04T17:31:53Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Progress on provable inference for large language models",
+        "url": "https://www.anthropic.com/research/provable-inference",
+        "normalized_url": "https://www.anthropic.com/research/provable-inference",
+        "summary": "HN points: 166, comments: 83",
+        "source": "Hacker News",
+        "published": "2026-11-04T17:17:46Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Brainstem Theory of Consciousness",
+        "url": "https://journals.sagepub.com/doi/10.1177/10738584261470362",
+        "normalized_url": "https://journals.sagepub.com/doi/10.1177/10738584261470362",
+        "summary": "HN points: 18, comments: 3",
+        "source": "Hacker News",
+        "published": "2026-11-04T17:14:03Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "'It's just vape, nail, charity shops': Can anything save UK high street?",
+        "url": "https://www.theguardian.com/business/2026/nov/04/what-can-save-the-british-high-street-rotherham",
+        "normalized_url": "https://www.theguardian.com/business/2026/nov/04/what-can-save-the-british-high-street-rotherham",
+        "summary": "HN points: 52, comments: 124",
+        "source": "Hacker News",
+        "published": "2026-11-04T16:11:33Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Shlemiel the Painter Is Back: How Zig's Libc Rewrite Made SQLite 12,000× Slower",
+        "url": "https://dennisforbes.ca/blog/microblog/2026/10/the_accidental_12000x_sqlite_slowdown/",
+        "normalized_url": "https://dennisforbes.ca/blog/microblog/2026/10/the_accidental_12000x_sqlite_slowdown",
+        "summary": "HN points: 17, comments: 0",
+        "source": "Hacker News",
+        "published": "2026-11-04T16:06:45Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "AI data centers comprehensively defeated at US midterm elections",
+        "url": "https://www.tomshardware.com/tech-industry/data-centers/ai-data-centers-comprehensively-defeated-at-us-midterm-elections-45-measures-put-on-the-ballot-as-americans-overwhelmingly-vote-against-developments",
+        "normalized_url": "https://www.tomshardware.com/tech-industry/data-centers/ai-data-centers-comprehensively-defeated-at-us-midterm-elections-45-measures-put-on-the-ballot-as-americans-overwhelmingly-vote-against-developments",
+        "summary": "HN points: 55, comments: 45",
+        "source": "Hacker News",
+        "published": "2026-11-04T15:35:51Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "仰望U9X冲极速、改款SU7 Ultra刷纽北，AI时代电车拼速度有何意义？",
+        "url": "https://www.36kr.com/p/4055550365914755",
+        "normalized_url": "https://www.36kr.com/p/4055550365914755",
+        "summary": "既是速度之争，也是技术实力的集中体现。",
+        "source": "36Kr AI",
+        "published": "2026-11-04T23:56:17+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "国行苹果智能深度评测：AI功能马马虎虎，隐私保护秒杀安卓？",
+        "url": "https://www.36kr.com/p/4055427378550404",
+        "normalized_url": "https://www.36kr.com/p/4055427378550404",
+        "summary": "iPhone的AI终于能用了。",
+        "source": "36Kr AI",
+        "published": "2026-11-04T23:50:08+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Intel跌麻了、AMD分歧大，AI服务器越卖越火，普通PC何去何从？",
+        "url": "https://www.36kr.com/p/4055540692080257",
+        "normalized_url": "https://www.36kr.com/p/4055540692080257",
+        "summary": "传统PC要消亡了？",
+        "source": "36Kr AI",
+        "published": "2026-11-04T23:44:17+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic微微发力，AI中转站的天就要塌了？",
+        "url": "https://www.36kr.com/p/4056019887510401",
+        "normalized_url": "https://www.36kr.com/p/4056019887510401",
+        "summary": "就像发邮件加上数字签名一样",
+        "source": "36Kr AI",
+        "published": "2026-11-04T23:41:43+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "当AI不再「夸夸其谈」：决策模型爆红，物理世界需要端侧「快判断」",
+        "url": "https://www.36kr.com/p/4055330063766663",
+        "normalized_url": "https://www.36kr.com/p/4055330063766663",
+        "summary": "决策模型兴起，端侧多模态赋能物理 AI。",
+        "source": "36Kr AI",
+        "published": "2026-11-04T14:00:00+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "如果显卡、内存都被AI抢走，凭什么还需要AI？",
+        "url": "https://www.36kr.com/p/4055350289699717",
+        "normalized_url": "https://www.36kr.com/p/4055350289699717",
+        "summary": "奥尔特曼的这番言论，惹怒了全球玩家。",
+        "source": "36Kr AI",
+        "published": "2026-11-04T13:16:22+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "文科生在AI时代没人要？我盘了盘字节、腾讯和阿里都有哪些AI岗在招文科生",
+        "url": "https://www.36kr.com/p/4055273095353476",
+        "normalized_url": "https://www.36kr.com/p/4055273095353476",
+        "summary": "结论是：AI公司在招文科生。问题来了：哪一类文科生？",
+        "source": "36Kr AI",
+        "published": "2026-11-04T13:09:47+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "三年狂赚100亿美元，拆解Anthropic背后最牛VC的AI投资逻辑",
+        "url": "https://www.36kr.com/p/4055383600600193",
+        "normalized_url": "https://www.36kr.com/p/4055383600600193",
+        "summary": "最好的投资，是押注变化",
+        "source": "36Kr AI",
+        "published": "2026-11-04T12:51:57+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "有人每月烧掉1万美元，嫌Claude太贵，这家公司改用GLM：56张B200扛起2000名工程师，AI成本直降90%",
+        "url": "https://www.36kr.com/p/4055383551038595",
+        "normalized_url": "https://www.36kr.com/p/4055383551038595",
+        "summary": "真正拖慢开发进度的，可能根本不是写代码。",
+        "source": "36Kr AI",
+        "published": "2026-11-04T12:49:49+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "互联网大厂又盯上了新玩法，让AI短剧变游戏？",
+        "url": "https://www.36kr.com/p/4055376730691461",
+        "normalized_url": "https://www.36kr.com/p/4055376730691461",
+        "summary": "抖音让我打怪，快手让我做题。",
+        "source": "36Kr AI",
+        "published": "2026-11-04T12:37:40+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+        "url": "https://www.qbitai.com/2026/11/507647.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/507647.html",
+        "summary": "连路人都有自己的想法",
+        "source": "量子位",
+        "published": "2026-11-04T16:13:23+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "不靠堆砌数据，让机器人看懂真实物理世界 | 招商局狮子山实验室发布「驭物™ Lion-ER-35B-A3B」具身推理模型",
+        "url": "https://www.qbitai.com/2026/11/507586.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/507586.html",
+        "summary": "仅激活3B参数，十项基准全线提升！",
+        "source": "量子位",
+        "published": "2026-11-04T10:08:38+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "超维动力全栈矩阵亮相2026香港金融科技周，具身智能硬科技引爆全场",
+        "url": "https://www.qbitai.com/2026/11/507574.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/507574.html",
+        "summary": "一场别开生面的具身智能科技盛宴",
+        "source": "量子位",
+        "published": "2026-11-04T08:59:57+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "虎鲸文娱“鲸锐AI”平台正式上线，AI视频单分钟成本节省30%以上",
+        "url": "https://www.qbitai.com/2026/11/507567.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/507567.html",
+        "summary": "11月4日，虎鲸文娱集团打造的行业首个AI影视制作与管理平台“鲸锐AI”正式上线。",
+        "source": "量子位",
+        "published": "2026-11-04T08:49:12+00:00",
+        "importance_hint": 4,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落",
+        "url": "https://www.qbitai.com/2026/11/507533.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/507533.html",
+        "summary": "长视频记忆精度飙升，问答时延最高降97%",
+        "source": "量子位",
+        "published": "2026-11-04T02:49:02+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "当 Agent 成为数据库新用户，腾讯云如何解决“未知”的难题？",
+        "url": "https://www.infoq.cn/article/TeOb9MgqfeLOoNdxtMH2?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/TeOb9MgqfeLOoNdxtMH2",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T22:00:23+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Token 暴涨 5000 倍之后，企业 Agent 落地还卡在哪里？",
+        "url": "https://www.infoq.cn/article/VUmIUJ0ST9xIlPoViXmz?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/VUmIUJ0ST9xIlPoViXmz",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T21:56:58+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "谷歌 Data Agent Kit 正式发布：安全防护分为 Skill 与 IAM",
+        "url": "https://www.infoq.cn/article/UtKS9EofSoyd2P7Otx7e?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/UtKS9EofSoyd2P7Otx7e",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T20:01:56+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic 为重要开源项目新增可选安全扫描服务",
+        "url": "https://www.infoq.cn/article/hdmi6FdjpYSEvuMhPOAa?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/hdmi6FdjpYSEvuMhPOAa",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T19:53:34+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Vercel Labs 开源 fx：一款专为嵌入式应用设计的 Zig 编程代理",
+        "url": "https://www.infoq.cn/article/cNO8PCwQoZMRHhIyVDrB?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/cNO8PCwQoZMRHhIyVDrB",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T18:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Harbor 新增 Docker Sandboxes 支持，可在隔离的 MicroVM 中运行可重现的 AI 代理评估",
+        "url": "https://www.infoq.cn/article/pgmES06L2MAH2TCSMhJ9?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/pgmES06L2MAH2TCSMhJ9",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T17:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "研究发现：AI 生成代码受下游环节瓶颈制约，无法提升整体生产力",
+        "url": "https://www.infoq.cn/article/c3vTLNrRwfCzw8SAmz90?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/c3vTLNrRwfCzw8SAmz90",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T16:20:50+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "刚刚，被李飞飞团队写进代码库的具身底座，现身乌镇峰会“上岗抓药”",
+        "url": "https://www.infoq.cn/article/L5Q1XJbFSubVNB9DGJsl?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/L5Q1XJbFSubVNB9DGJsl",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-04T15:51:17+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI PACs spent millions trying to shape Congress — here’s how they fared",
+        "url": "https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared",
+        "summary": "AI industry PACs spent millions influencing the 2026 midterms, with mixed results. Political groups are already looking toward the next election cycle.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T22:45:09+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nothing CEO says company’s mysterious AI-first device is dropping next month",
+        "url": "https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month",
+        "summary": "While it's not yet clear what kind of product the smartphone startup is cooking up, Nothing's CEO said the product is designed to leverage AI for productivity gains.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T22:13:16+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Almost no one uses AI agents to book their Uber, company says",
+        "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says",
+        "summary": "During its busiest week last quarter, Uber said only four people booked a ride using an AI agent.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T21:56:01+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI is already trying to shape the 2028 election",
+        "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election",
+        "summary": "OpenAI’s Chris Lehane wants AI to define the 2028 election, proposing a new social contract that could benefit Americans while also advancing the AI giant’s own business interests.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T21:25:44+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Meta acquires AI coding startup Conductor",
+        "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor",
+        "summary": "The startup allows software engineers to deploy teams of agents to work on various aspects of a project simultaneously.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T21:10:56+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Open source AI is booming. Hugging Face explains who profits.",
+        "url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
+        "normalized_url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits",
+        "summary": "Open source models are becoming more mainstream as enterprises, governments and startups alike rely on the promise of lower costs, more control, and more flexibility. But as increasingly capable models become more freely available, how do companies capture value? And with Chinese open models gaining ground, can American players keep up? On this episode of […]",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T19:30:04+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy",
+        "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy",
+        "summary": "DuckDuckGo is courting schools frustrated by Google's AI restrictions, pointing educators to its search engine and options to disable AI features.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T19:29:52+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Building on open source AI? Hugging Face’s policy chief on the costs, risks, and trade-offs",
+        "url": "https://techcrunch.com/podcast/building-on-open-source-ai-hugging-faces-policy-chief-on-the-costs-risks-and-trade-offs/",
+        "normalized_url": "https://techcrunch.com/podcast/building-on-open-source-ai-hugging-faces-policy-chief-on-the-costs-risks-and-trade-offs",
+        "summary": "Open source models are becoming more mainstream as enterprises, governments and startups alike rely on the promise of lower costs, more control, and more flexibility. But as increasingly capable models become more freely available, how do companies capture value? And with Chinese open models gaining ground, can American players keep up? On this episode of […]",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T18:44:57+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "I tried Apple’s Siri Recaps. They’re surprisingly useful — and a little unsettling",
+        "url": "https://techcrunch.com/2026/11/04/i-tried-apples-siri-recaps-theyre-surprisingly-useful-and-a-little-unsettling/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/i-tried-apples-siri-recaps-theyre-surprisingly-useful-and-a-little-unsettling",
+        "summary": "Apple's AI-powered Siri Recaps won me over in just one day, despite my privacy reservations. But there's still room for improvement.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T16:51:35+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Google faces backlash for plan that would turn off Search for schools that restrict AI",
+        "url": "https://techcrunch.com/2026/11/04/google-faces-backlash-for-plan-that-would-turn-off-search-for-schools-that-restrict-ai/",
+        "normalized_url": "https://techcrunch.com/2026/11/04/google-faces-backlash-for-plan-that-would-turn-off-search-for-schools-that-restrict-ai",
+        "summary": "Politicians on the left, like NYC mayor Zohran Mamdani and former FTC chair Lina Khan, accused Google of acting as an unregulated monopoly.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-04T16:17:22+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Qualcomm is betting big on data centers as smartphone sales sink",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1026867/qualcomm-earnings-data-centers",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1026867/qualcomm-earnings-data-centers",
+        "summary": "With smartphone sales tanking by around 20 percent compared to 2025, Qualcomm is looking to data centers to help boost its bottom line. During its Q4 2026 earnings call, the company laid out its plans to make a splash in the AI data center business, through partnerships with companies like Amazon and Meta announced earlier […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T22:42:15+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "17 better ways Elon Musk could have wasted $446 million",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1026878/not-even-good-at-being-rich",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1026878/not-even-good-at-being-rich",
+        "summary": "One of the basic problems of spending too much time on social media is that you are cooking your brain by reading posts from a pack of attention-seeking lunatics. If your social media of choice is the site formerly known as Twitter, and it is your main source of contact with the outside world, you […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T21:45:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Gemini for Home now plugs into AT&T’s smart security system",
+        "url": "https://www.theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+        "normalized_url": "https://www.theverge.com/tech/1026787/att-gemini-for-home-connected-life-security-system",
+        "summary": "AT&T's smart home security system now integrates with Gemini for Home. The company says its Connected Life system is the \"first\" home security product to integrate with Google Home Premium, enabling a bunch of Gemini-powered features that can summarize home events, search your video history, and more. With the update, Gemini for Home can provide […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T20:23:24+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nothing teases a screen-free AI device ahead of launch next month",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1026586/nothing-screen-free-ai-device-carl-pei",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1026586/nothing-screen-free-ai-device-carl-pei",
+        "summary": "Nothing CEO Carl Pei said in a post on X that the company's launching its first AI device in December. That's just a little over a year after Pei announced plans for \"AI-native\" devices and an AI operating system. He didn't give away much about what exactly the new device is, only that one feature […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T18:26:07+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "My therapist thinks I should chuck the Amazon Bee Frontier out a window",
+        "url": "https://www.theverge.com/column/1026464/optimizer-amazon-bee-frontier-ambient-listening-wearables",
+        "normalized_url": "https://www.theverge.com/column/1026464/optimizer-amazon-bee-frontier-ambient-listening-wearables",
+        "summary": "This is Optimizer, a weekly newsletter sent from Verge senior reviewer Victoria Song that dissects and discusses the latest gizmos and potions that swear they're going to change your life. Opt in for Optimizer here. \"How does that make you feel?\" I get asked this a lot in therapy. Plenty of life events, big and […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T18:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "ChatGPT will now make you animated GIFs",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1026474/openai-chatgpt-animated-gifs-images-2-6",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1026474/openai-chatgpt-animated-gifs-images-2-6",
+        "summary": "ChatGPT can now create GIFs using a prompt or a photo uploaded to the AI chatbot. The update, which is rolling out alongside OpenAI's new Images 2.6 model, allows you to adjust the GIF's animation speed, edit individual frames, and share it with others. Before this change, ChatGPT couldn't natively generate GIFs in a single […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T18:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Data centers lost the midterms",
+        "url": "https://www.theverge.com/policy/1026365/data-centers-midterms-results",
+        "normalized_url": "https://www.theverge.com/policy/1026365/data-centers-midterms-results",
+        "summary": "Data center developers are poised to face a more restrictive building environment after voters across the country voted in candidates who favor moratoriums and ballot measures that put more obstacles on their expansion, delivering a stinging blow to a central pillar of the AI industry. Of voters polled by NBC News on Election Day, 76 […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T16:05:39+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Uber only fulfilled 4 rides from AI agents last quarter",
+        "url": "https://www.theverge.com/transportation/1026306/uber-ai-agents-q3-earnings-disintermediation",
+        "normalized_url": "https://www.theverge.com/transportation/1026306/uber-ai-agents-q3-earnings-disintermediation",
+        "summary": "AI agents won't be stealing Uber's lunch any time soon. Only four rides were arranged by third-party AI agents during the third quarter of 2026, Uber executives disclosed during an earnings call this morning. The volume of Uber Eats orders fulfilled by AI agents was a little higher, with the company recording \"around 500\" during […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T15:58:45+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Sam Altman addresses RAM comments: People should ‘put as much as they want in their computers’",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1026292/sam-altman-ram-shortage-pcs-comments",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1026292/sam-altman-ram-shortage-pcs-comments",
+        "summary": "OpenAI CEO Sam Altman spent election night defending his position on PC RAM purchases. He changed his name on X to \"Ram Altman\" in response to another user's comment, saying, \"i actually do want the world to have tons of memory and people to put as much as they want in their computers, and it […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T14:46:01+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Google hasn’t figured out how to make AI pay like its search engine",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1024862/google-search-ai-overviews-alphabet-earnings-q3",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1024862/google-search-ai-overviews-alphabet-earnings-q3",
+        "summary": "Search queries are growing at their fastest rate in five years, Google parent Alphabet said in its earnings report last week. However, Google's Search revenue growth slowed to 12 percent year over year in the third quarter, down from roughly 17 percent in the previous quarter. Meanwhile, growth in paid clicks - clicks on ads […]",
+        "source": "The Verge AI",
+        "published": "2026-11-04T12:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "ChatGPT can now turn text prompts and photos into animated GIFs with OpenAI's Images 2.6 model",
+        "url": "https://the-decoder.com/chatgpt-can-now-turn-text-prompts-and-photos-into-animated-gifs-with-openais-images-2-6-model/",
+        "normalized_url": "https://the-decoder.com/chatgpt-can-now-turn-text-prompts-and-photos-into-animated-gifs-with-openais-images-2-6-model",
+        "summary": "OpenAI is adding a GIF feature to ChatGPT. With the new Images 2.6 model, users can create animated GIFs from text prompts or photos and then adjust speed and individual frames. The model's image consistency is strong enough to keep characters recognizable across frames, making flipbook-style animation possible. According to OpenAI, users now generate more than four billion images per week. The article ChatGPT can now turn text prompts and photos into animated GIFs with OpenAI's Images 2.6 model",
+        "source": "The Decoder",
+        "published": "2026-11-04T19:44:20+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic's text watermark is easy to bypass on several older Claude models",
+        "url": "https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models/",
+        "normalized_url": "https://the-decoder.com/anthropics-text-watermark-is-easy-to-bypass-on-several-older-claude-models",
+        "summary": "Anthropic is rolling out text watermarks to four more Claude models ahead of the EU AI Act's December deadline. But on older models like Claude Opus 4.6 and Sonnet 4.6, API users can disable the watermark by changing a single sampling parameter. Anthropic's response to the loophole? A compliance warning. The article Anthropic's text watermark is easy to bypass on several older Claude models appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-04T19:03:55+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI acquires Pierre Computer Company to make Git keep up with AI coding agents",
+        "url": "https://the-decoder.com/openai-acquires-pierre-computer-company-to-make-git-keep-up-with-ai-coding-agents/",
+        "normalized_url": "https://the-decoder.com/openai-acquires-pierre-computer-company-to-make-git-keep-up-with-ai-coding-agents",
+        "summary": "OpenAI is buying Pierre Computer Company, the startup whose libraries already power the coding agent Codex. Combined with OpenAI's recently launched Git backend Pando, the deal shows the company is building out its infrastructure for developers and AI agents working side by side. The article OpenAI acquires Pierre Computer Company to make Git keep up with AI coding agents appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-04T18:41:03+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "New open-source benchmark reveals reasoning as the biggest bottleneck for AI in cloud operations",
+        "url": "https://the-decoder.com/new-open-source-benchmark-reveals-reasoning-as-the-biggest-bottleneck-for-ai-in-cloud-operations/",
+        "normalized_url": "https://the-decoder.com/new-open-source-benchmark-reveals-reasoning-as-the-biggest-bottleneck-for-ai-in-cloud-operations",
+        "summary": "CloudOpsBench is a new open-source benchmark that measures how well AI agents handle typical DevOps tasks in the cloud, from fixing services and removing resources to restricting access rights, rolling out updates, and decommissioning projects. The article New open-source benchmark reveals reasoning as the biggest bottleneck for AI in cloud operations appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-04T16:42:52+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "GPT-6 Astra sees the matrix and reprograms other AI models directly through their weights",
+        "url": "https://the-decoder.com/gpt-6-astra-sees-the-matrix-and-reprograms-other-ai-models-directly-through-their-weights/",
+        "normalized_url": "https://the-decoder.com/gpt-6-astra-sees-the-matrix-and-reprograms-other-ai-models-directly-through-their-weights",
+        "summary": "MIT researchers show that OpenAI's GPT-6 Astra can read and deliberately rewrite the weights of other AI models without traditional training. In one experiment, Astra boosted a Qwen model's math accuracy from 7.9 to 48.1 percent by changing just 0.016 percent of its weights. The approach could fundamentally simplify AI optimization but still hits clear limits. The article GPT-6 Astra sees the matrix and reprograms other AI models directly through their weights appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-04T15:44:44+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic's new prototype proves which model wrote an AI response without exposing its weights",
+        "url": "https://the-decoder.com/anthropics-new-prototype-proves-which-model-wrote-an-ai-response-without-exposing-its-weights/",
+        "normalized_url": "https://the-decoder.com/anthropics-new-prototype-proves-which-model-wrote-an-ai-response-without-exposing-its-weights",
+        "summary": "Anthropic has released FlashProve, a research prototype that uses cryptography to verify whether an AI response actually came from the claimed model. The system still has significant limitations. The article Anthropic's new prototype proves which model wrote an AI response without exposing its weights appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-04T15:23:49+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Exit polls show AI ranked last among voter priorities in the 2026 U.S. midterms",
+        "url": "https://the-decoder.com/exit-polls-show-ai-ranked-last-among-voter-priorities-in-the-2026-u-s-midterms/",
+        "normalized_url": "https://the-decoder.com/exit-polls-show-ai-ranked-last-among-voter-priorities-in-the-2026-u-s-midterms",
+        "summary": "In the 2026 U.S. midterm elections, AI ranked last among campaign issues: only 56 percent of respondents cited AI and data centers as an important factor. According to NBC exit polls, corruption (90 percent) and the cost of living (89 percent) clearly dominated, despite growing public attention to the issue. The article Exit polls show AI ranked last among voter priorities in the 2026 U.S. midterms appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-04T10:45:54+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Schools that turn off Google's AI will lose search too starting in 2027",
+        "url": "https://the-decoder.com/schools-that-turn-off-googles-ai-will-lose-search-too-starting-in-2027/",
+        "normalized_url": "https://the-decoder.com/schools-that-turn-off-googles-ai-will-lose-search-too-starting-in-2027",
+        "summary": "Starting in 2027, Google plans to turn off AI features in its school products by default, letting schools decide what to enable. The catch: schools that block AI entirely on their devices will also lose access to Google Search, since the two systems are now too deeply intertwined to separate. Given Google's grip on the US school market, that \"choice\" doesn't leave schools with much room to maneuver. The article Schools that turn off Google's AI will lose search too starting in 2027 appeared firs",
+        "source": "The Decoder",
+        "published": "2026-11-04T10:06:23+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "webAI Releases TwIL-8B, an 8.8B Reasoning Model Scoring 98.2 on MATH-500",
+        "url": "https://www.marktechpost.com/2026/11/04/webai-twil-8b-reasoning-model/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/04/webai-twil-8b-reasoning-model",
+        "summary": "webAI released TwIL-8B, an 8.8B reasoning model post-trained from IBM Granite 4.2 8B. It posts 98.2 on MATH-500 and 81.6 on LiveCodeBench, but trails similar-size models on knowledge benchmarks. The post webAI Releases TwIL-8B, an 8.8B Reasoning Model Scoring 98.2 on MATH-500 appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-04T22:25:05+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Ricursive AI Releases Ripple-65B Preview: A 65B Dense Open-Weight Model Scoring 80.5 on Terminal-Bench 2.1",
+        "url": "https://www.marktechpost.com/2026/11/04/ricursive-ripple-65b-preview-open-weight-model/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/04/ricursive-ripple-65b-preview-open-weight-model",
+        "summary": "Ricursive Intelligence released Ripple-65B Preview, a 65B dense open-weight LLM under Apache 2.0. It scores 80.5 on Terminal-Bench 2.1, ahead of US open models up to 15x its size. The post Ricursive AI Releases Ripple-65B Preview: A 65B Dense Open-Weight Model Scoring 80.5 on Terminal-Bench 2.1 appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-04T21:01:06+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Tencent WeVisOne-VL Unifies Detection, OCR, Segmentation and Matting",
+        "url": "https://www.marktechpost.com/2026/11/03/tencent-wevisone-vl-vision-language-model/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/03/tencent-wevisone-vl-vision-language-model",
+        "summary": "Tencent’s WeChat Vision team released WeVisOne-VL, an Apache 2.0 vision language model in 2B and 4B sizes. It handles detection, OCR, counting, segmentation and alpha matting in one model, with a 9.6M-parameter pixel decoder. The post Tencent WeVisOne-VL Unifies Detection, OCR, Segmentation and Matting appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-04T04:39:27+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "datasette-llm 0.1a10",
+        "url": "https://simonwillison.net/2026/Nov/4/datasette-llm/",
+        "normalized_url": "https://simonwillison.net/2026/Nov/4/datasette-llm",
+        "summary": "Release: datasette-llm 0.1a10 Fixes a bug that affected my agent.datasette.io demo site, where the set of available LLM models was not correctly restricted to just those in the configuration. Tags: datasette , llm",
+        "source": "Simon Willison",
+        "published": "2026-11-04T15:26:02+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://simonwillison.net/atom/everything/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "datasette-apps 0.3a0",
+        "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/",
+        "normalized_url": "https://simonwillison.net/2026/Nov/4/datasette-apps",
+        "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent . This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing # , which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored ",
+        "source": "Simon Willison",
+        "published": "2026-11-04T00:29:36+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://simonwillison.net/atom/everything/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+        "url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+        "normalized_url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-04T17:50:10+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "StateBench: Testing how language models track state changes over long documents",
+        "url": "https://huggingface.co/blog/allenai/statebench",
+        "normalized_url": "https://huggingface.co/blog/allenai/statebench",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-03T17:15:21+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Palette: teaching a small model to build decks in your design language",
+        "url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+        "normalized_url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-03T16:35:36+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "CWE-bench v2: More coverage, quality, and transparency",
+        "url": "https://huggingface.co/blog/cwe-bench",
+        "normalized_url": "https://huggingface.co/blog/cwe-bench",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-03T00:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Transformers Model Integration Contracts",
+        "url": "https://huggingface.co/blog/transformers-mic",
+        "normalized_url": "https://huggingface.co/blog/transformers-mic",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-03T00:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Agentic cheminformatics with Google Antigravity",
+        "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+        "normalized_url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity",
+        "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+        "source": "Google DeepMind",
+        "published": "2026-11-03T17:01:49+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://deepmind.google/blog/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "The latest AI news we announced in October 2026",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+        "normalized_url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026",
+        "summary": "Animated carousel of images from AI posts in October",
+        "source": "Google AI Blog",
+        "published": "2026-11-02T17:45:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://blog.google/technology/ai/rss/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+        "url": "https://openai.com/index/openai-to-acquire-pierre",
+        "normalized_url": "https://openai.com/index/openai-to-acquire-pierre",
+        "summary": "OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.",
+        "source": "OpenAI",
+        "published": "2026-11-04T14:30:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+        "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+        "normalized_url": "https://openai.com/index/daybreak-red-aws-govcloud",
+        "summary": "Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.",
+        "source": "OpenAI",
+        "published": "2026-11-04T07:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "A thousand fewer paths to root",
+        "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+        "normalized_url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+        "summary": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.",
+        "source": "OpenAI",
+        "published": "2026-11-04T08:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+        "url": "https://openai.com/index/devrev-enterprise-self-service",
+        "normalized_url": "https://openai.com/index/devrev-enterprise-self-service",
+        "summary": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
+        "source": "OpenAI",
+        "published": "2026-11-04T00:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Accelerating engineering for the physical world",
+        "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
+        "normalized_url": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
+        "summary": "Discover how ChatGPT and Codex are helping engineers accelerate CAD, PCB design, simulation, and other workflows across the physical world.",
+        "source": "OpenAI",
+        "published": "2026-11-03T12:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "How Cisco defends at machine speed with OpenAI",
+        "url": "https://openai.com/index/cisco-cyber",
+        "normalized_url": "https://openai.com/index/cisco-cyber",
+        "summary": "Cisco combines network intelligence with OpenAI models to strengthen enterprise security. Learn how it is building more adaptive defenses.",
+        "source": "OpenAI",
+        "published": "2026-11-03T08:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Kimi-K3.1-Pro is now open-weights",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnrhvb/kimik31pro_is_now_openweights/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnrhvb/kimik31pro_is_now_openweights",
+        "summary": "submitted by /u/ApprehensiveAd3629 [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-04T15:44:08+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "My gift to the mods:",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnr6zd/my_gift_to_the_mods/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnr6zd/my_gift_to_the_mods",
+        "summary": "Seriously tho, can we just have a mega thread for vibeforked engine releases from now on? submitted by /u/Porespellar [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-04T15:32:17+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "I removed 85% of gemma's weights (and it is mostly fine)",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnoqyy/i_removed_85_of_gemmas_weights_and_it_is_mostly/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnoqyy/i_removed_85_of_gemmas_weights_and_it_is_mostly",
+        "summary": "I pruned Gemma 4 26B-A4B, an MoE model, down to 15% of its original size, and the model still does great on one narrow task. It gets 92% agreement with the original on a classification task. That’s close to how often the 12B agrees with the 26B on the same ticks, which is 90%. This isn’t a model for general tasks, and tasks that require knowledge suffer because the knowledge is just gone. It was made for my app that runs an on-device LLM 24/7, so that makes memory footprint and energy consumptio",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-04T13:53:30+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Introducing Hy4 (open weights soon)",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnhzbz/introducing_hy4_open_weights_soon/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnhzbz/introducing_hy4_open_weights_soon",
+        "summary": "submitted by /u/heatOverflower [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-04T07:23:10+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "I am big enough to admit that this is me",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnqxlq/i_am_big_enough_to_admit_that_this_is_me/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnqxlq/i_am_big_enough_to_admit_that_this_is_me",
+        "summary": "submitted by /u/ForsookComparison [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-04T15:21:55+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Deepseek alone accounted for 53% of all (27 trillion) tokens on Openrouter yesterday. Open-weights labs totaling over 75% now",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnz8ct/deepseek_alone_accounted_for_53_of_all_27/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnz8ct/deepseek_alone_accounted_for_53_of_all_27",
+        "summary": "Source: https://dirac.run/labs-market-share#daily-token-share-by-lab submitted by /u/Comfortable-Rock-498 [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-04T20:39:28+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[AINews] Behind Latent Space: Kill My SaaS, Jev & AI in 2026 | AIEi Shanghai",
+        "url": "https://latent.space/p/ainews-behind-latent-space-kill-my-saas-jev-ai-in-2026-aiei-shanghai/",
+        "normalized_url": "https://latent.space/p/ainews-behind-latent-space-kill-my-saas-jev-ai-in-2026-aiei-shanghai",
+        "summary": "November 3, 2026 — A quiet day lets us share some behind the senes.",
+        "source": "Latent Space",
+        "published": "2026-11-04T19:17:30+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[AINews] LLMs can read & write neural network weights: \"Weight Space Programming\" cuts Autoresearch out of the RSI loop",
+        "url": "https://latent.space/p/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of/",
+        "normalized_url": "https://latent.space/p/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of",
+        "summary": "Editing Qwen’s weights to reduce reasoning loops, DeepSeek’s super-agent prototype, and the GDPx benchmark.",
+        "source": "Latent Space",
+        "published": "2026-11-03T05:35:00+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Building AI for Lawyers - Jacob Lauritzen, CTO of Legora",
+        "url": "https://latent.space/p/building-ai-for-lawyers-jacob-lauritzen-cto-of-legora/",
+        "normalized_url": "https://latent.space/p/building-ai-for-lawyers-jacob-lauritzen-cto-of-legora",
+        "summary": "Evals without traces, million-cell tabular reviews, and cracks in the billable hour as a business model",
+        "source": "Latent Space",
+        "published": "2026-11-02T23:01:02+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Building Legal Agents When You Can't See the Data - Jacob Lauritzen, CTO of Legora",
+        "url": "https://latent.space/p/building_legal_agents_when_you_can_t_see_the_data_-_jacob_lauritzen_cto_of_legora/",
+        "normalized_url": "https://latent.space/p/building_legal_agents_when_you_can_t_see_the_data_-_jacob_lauritzen_cto_of_legora",
+        "summary": "Legora can’t read a single trace of what its agent does for a lawyer. The data belongs to the law firm’s clients. How do you build and test an agent when you can’t see its work? Jacob Lauritzen is the CTO of Legora, one of the fastest-growing companies...",
+        "source": "Latent Space",
+        "published": "2026-11-02T22:54:03+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Why human insight is a strategic advantage for building better agents",
+        "url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "normalized_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "summary": "Explore 3 principles for effective human-in-the-loop workflows and how human-review is a strategic imperative for production-ready agents.",
+        "source": "LangChain Blog",
+        "published": "2026-11-04T16:40:04+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.langchain.com/blog/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "How We Optimized Browser Use for Deep Agents",
+        "url": "https://www.langchain.com/blog/how-we-optimized-browser-use-for-deep-agents",
+        "normalized_url": "https://www.langchain.com/blog/how-we-optimized-browser-use-for-deep-agents",
+        "summary": "We compared seven browser toolsets for Deep Agents, picked Stagehand from Browserbase, and tuned it with LangSmith traces and evals. Here's what we learned.",
+        "source": "LangChain Blog",
+        "published": "2026-11-03T22:30:50+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.langchain.com/blog/rss.xml"
+        }
+      }
+    ]
+  }
+}
