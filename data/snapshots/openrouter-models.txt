@@ -28,7 +28,7 @@ anthropic/claude-sonnet-5 | prompt 0.000002 | completion 0.00001 | image None
 anthropic/claude-sonnet-5.5 | prompt 0.000002 | completion 0.00001 | image None
 anthropic/claude-sonnet-5.5:batch | prompt 0.000001 | completion 0.000005 | image None
 anthropic/claude-sonnet-5:batch | prompt 0.000001 | completion 0.000005 | image None
-deepseek/deepseek-chat | prompt 0.0000002574 | completion 0.0000010287 | image None
+deepseek/deepseek-chat | prompt 0.00000032 | completion 0.00000089 | image None
 deepseek/deepseek-chat-v3-0324 | prompt 0.00000029 | completion 0.00000114 | image None
 deepseek/deepseek-chat-v3.1 | prompt 0.00000025 | completion 0.00000095 | image None
 deepseek/deepseek-r1-0528 | prompt 0.0000005 | completion 0.00000215 | image None
@@ -36,11 +36,12 @@ deepseek/deepseek-v3.1-terminus | prompt 0.00000027 | completion 0.000001 | imag
 deepseek/deepseek-v3.2 | prompt 0.00000026 | completion 0.00000038 | image None
 deepseek/deepseek-v3.2-exp | prompt 0.00000027 | completion 0.00000041 | image None
 deepseek/deepseek-v4-flash | prompt 0.000000091 | completion 0.000000182 | image None
-deepseek/deepseek-v4-flash-0731 | prompt 0.000000059 | completion 0.0000003 | image None
-deepseek/deepseek-v4-flash-vision-exp | prompt 0.0000002156 | completion 0.0000006468 | image None
-deepseek/deepseek-v4-pro | prompt 0.0000016 | completion 0.0000032 | image None
-deepseek/deepseek-v4-pro-0813 | prompt 0.000000103 | completion 0.00000411 | image None
-deepseek/deepseek-v4.1-flash | prompt 0.000000045 | completion 0.0000005 | image None
+deepseek/deepseek-v4-flash-0731 | prompt 0.0000000434 | completion 0.0000003 | image None
+deepseek/deepseek-v4-flash-0731:batch | prompt 0.000000048 | completion 0.000000144 | image None
+deepseek/deepseek-v4-flash-vision-exp | prompt 0.00000044 | completion 0.00000132 | image None
+deepseek/deepseek-v4-pro | prompt 0.00000069948 | completion 0.00000139896 | image None
+deepseek/deepseek-v4-pro-0813 | prompt 0.0000001165 | completion 0.00000466 | image None
+deepseek/deepseek-v4.1-flash | prompt 0.000000051 | completion 0.000000567 | image None
 deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000015 | completion 0.0000006 | image None
 deepseek/deepseek-v4.1-flash:batch | prompt 0.000000112 | completion 0.000000336 | image None
 google/gemini-2.5-flash | prompt 0.0000003 | completion 0.0000025 | image 0.0000003
@@ -80,7 +81,7 @@ google/gemma-2-27b-it | prompt 0.00000065 | completion 0.00000065 | image None
 google/gemma-3-12b-it | prompt 0.00000005 | completion 0.00000015 | image None
 google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000035 | image None
 google/gemma-3-4b-it | prompt 0.00000005 | completion 0.0000001 | image None
-google/gemma-4-26b-a4b-it | prompt 0.0000000765 | completion 0.000000255 | image None
+google/gemma-4-26b-a4b-it | prompt 0.0000000675 | completion 0.000000225 | image None
 google/gemma-4-26b-a4b-it:free | prompt 0 | completion 0 | image None
 google/gemma-4-31b-it | prompt 0.0000002 | completion 0.0000004 | image None
 google/gemma-4-31b-it:free | prompt 0 | completion 0 | image None
@@ -91,6 +92,7 @@ minimax/minimax-m2.5 | prompt 0.00000027 | completion 0.00000095 | image None
 minimax/minimax-m2.7 | prompt 0.00000021 | completion 0.00000084 | image None
 minimax/minimax-m3 | prompt 0.0000003 | completion 0.0000012 | image None
 minimax/minimax-m3.1-flash | prompt 0.000000075 | completion 0.0000003 | image None
+minimax/minimax-m3:batch | prompt 0.000000224 | completion 0.00000088 | image None
 moonshotai/kimi-k2 | prompt 0.00000057 | completion 0.0000023 | image None
 moonshotai/kimi-k2-0905 | prompt 0.0000006 | completion 0.0000025 | image None
 moonshotai/kimi-k2-thinking | prompt 0.0000006 | completion 0.0000025 | image None
@@ -188,7 +190,7 @@ openai/gpt-6.1-terra:batch | prompt 0.0000005 | completion 0.0000025 | image Non
 openai/gpt-audio | prompt 0.0000025 | completion 0.00001 | image None
 openai/gpt-audio-mini | prompt 0.0000006 | completion 0.0000024 | image None
 openai/gpt-chat-latest | prompt 0.000005 | completion 0.00003 | image None
-openai/gpt-oss-120b | prompt 0.000000025 | completion 0.000000093 | image None
+openai/gpt-oss-120b | prompt 0.00000001 | completion 0.000000037 | image None
 openai/gpt-oss-120b:batch | prompt 0.0000000296 | completion 0.000000136 | image None
 openai/gpt-oss-20b | prompt 0.00000003 | completion 0.00000013 | image None
 openai/gpt-oss-20b:batch | prompt 0.000000024 | completion 0.000000112 | image None
@@ -236,6 +238,7 @@ qwen/qwen3.7-plus | prompt 0.00000032 | completion 0.00000128 | image None
 qwen/qwen3.7-plus:batch | prompt 0.00000023 | completion 0.00000092 | image None
 qwen/qwen3.8-2.4t-a95b | prompt 0.000002 | completion 0.000006 | image None
 qwen/qwen3.8-27b | prompt 0.00000015 | completion 0.000001875 | image None
+qwen/qwen3.8-27b:batch | prompt 0.00000016 | completion 0.000002 | image None
 qwen/qwen3.8-flash | prompt 0.00000015 | completion 0.00000047 | image None
 qwen/qwen3.8-max-0902 | prompt 0.000002 | completion 0.000006 | image None
 qwen/qwen3.8-max-prime | prompt 0.000004 | completion 0.000012 | image None

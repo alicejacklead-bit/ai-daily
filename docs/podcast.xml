@@ -15,6 +15,27 @@
     <image><url>https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png</url><title>Andy 的 AI 早报</title><link>https://alicejacklead-bit.github.io/ai-daily/</link></image>
     <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
     <item>
+      <title>Andy 的 AI 早报 · 2026-11-07 周六</title>
+      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 11 月 7 日，星期五。先给你今天的一句话：模型 API 的竞争焦点，正从“每 token 多便宜”转向“Agent 用起来多顺”——fal 和 OpenRouter 的货架大换血、Perplexity 把常驻 Agent 卖到 200 美元一个月，都是在抢同一批愿意为“跑通任务”付钱的人。今天咱们重点聊三件事：第一，资本端对头部模型公司的定价开始松动了，Anthropic 的 IPO 估值被买方一路往下砍；第二，分发层的模型货架几天之内完成大换血，这背后是视频模型竞争的实时计分板；第三，Perplexity 用一个 200 美元每月的常驻 Agent，给整个行业扔出了一个新的价格锚。好，咱们一条一条来。
+先说市场局势。今天最扎眼的一条，是 Anthropic 的 IPO 估值预期。据 Bloomberg 报道，在 AI 板块一轮抛售之后，买方把 Anthropic 的估值看到最低 1.1 万亿美元，而此前市场的预期是 1.5 万亿；另外还有报道说，部分讨论已经降到了 1.3 万亿。你注意这个方向，不是往上修，是一路往下修。这件事为什么重要？因为它意味着“高估值、高算力承诺、高融资”这个循环被打断了。过去两年，头部模型公司讲故事的方式是：我估值高，所以我能承诺巨额算力；我能承诺算力，所以投资人更愿意给高估值。现在这个飞轮的第一环松了。对咱们下游做 API 平台的来说，这里有个反直觉的判断：上游厂商的定价纪律可能反而会收紧，而不是继续降价。因为他们要拿估值，就得拿收入说话，而不是拿补贴换规模。所以如果你和做模型平台的朋友聊到这件事，可以问问他怎么看“模型公司到底该按收入估值，还是按算力承诺估值”——这是现在硅谷最尴尬的一个问题，基本没人愿意正面回答。
+接着看 OpenAI。TechCrunch 报道，OpenAI 又融了 110 亿美元，估值 1.25 万亿美元，这是尚未关闭的一轮融资的一部分，预计未来几周内完成。你把这条和前几天“融资目标从 3000 亿砍到 110 亿”的报道放在一起看，就很有意思了：头部公司还在吸金，但单笔规模已经从“天文数字”回落到“可消化区间”。这说明这轮 AI 资本周期进入了一个新阶段——钱还在，但要价变挑剔了。这种挑剔会沿着链条往下传导，对中小模型公司和 API 平台的估值只会更严苛。跟创始人聊天的时候，你可以聊“现在融资是看模型能力还是看毛利”，我跟你讲，多数创始人会有切肤之痛，因为这直接关系到他们下一轮能不能活下去。
+第三条，是今天我觉得最值得琢磨的数据。TechCrunch 引用 Ramp 的支出数据指出，AI 的使用量还在持续攀升，但企业支出已经停滞了。原因有两个：一是降价，二是头部客户在做更聪明的成本控制。这个信号出现的时间点很微妙，恰好是 Anthropic 临近 IPO 的时候。它直接挑战了“AI 超高速增长”这个叙事——token 消耗在涨，账单不涨，说明单价下行的速度已经快过用量增长的速度。对做模型 API 分发的平台，这条的结论很硬：你必须靠增值层赚钱，而不是靠转售差价。差价这个生意，正在被结构性压缩。所以下次见到客户，别问模型能力，直接问他“你们客户这个季度的 AI 账单是涨的还是平的”，这个数字比任何 benchmark 都能看出真实温度。
+好，接下来是今天的重头戏，赛道深挖。咱们做视频生成 API 的，这部分得听仔细。
+第一条，fal 的模型货架大换血。根据 fal 价格页的快照，图像侧新增了 Seedream 5.0、GPT Image 2.6、FLUX 3 Image、Nano Banana 2.1 和 Krea 3，同时删掉了 GPT Image 2.5、GPT Image 2、Flux 2、Nano Banana 2、Ideogram 4 和 Krea 2。视频侧更狠：新增 Kling 4.0、FLUX 3 Max、PixVerse V6 和 Grok Imagine Free，删掉了 Kling 3.0、Veo 3.1、Grok Imagine 1.5，还有 Happy Horse 1.1 和 Happy Oyster。连导航层都把“Text to Video”这个入口换成了“AI Video Gener</description>
+      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 11 月 7 日，星期五。先给你今天的一句话：模型 API 的竞争焦点，正从“每 token 多便宜”转向“Agent 用起来多顺”——fal 和 OpenRouter 的货架大换血、Perplexity 把常驻 Agent 卖到 200 美元一个月，都是在抢同一批愿意为“跑通任务”付钱的人。今天咱们重点聊三件事：第一，资本端对头部模型公司的定价开始松动了，Anthropic 的 IPO 估值被买方一路往下砍；第二，分发层的模型货架几天之内完成大换血，这背后是视频模型竞争的实时计分板；第三，Perplexity 用一个 200 美元每月的常驻 Agent，给整个行业扔出了一个新的价格锚。好，咱们一条一条来。
+先说市场局势。今天最扎眼的一条，是 Anthropic 的 IPO 估值预期。据 Bloomberg 报道，在 AI 板块一轮抛售之后，买方把 Anthropic 的估值看到最低 1.1 万亿美元，而此前市场的预期是 1.5 万亿；另外还有报道说，部分讨论已经降到了 1.3 万亿。你注意这个方向，不是往上修，是一路往下修。这件事为什么重要？因为它意味着“高估值、高算力承诺、高融资”这个循环被打断了。过去两年，头部模型公司讲故事的方式是：我估值高，所以我能承诺巨额算力；我能承诺算力，所以投资人更愿意给高估值。现在这个飞轮的第一环松了。对咱们下游做 API 平台的来说，这里有个反直觉的判断：上游厂商的定价纪律可能反而会收紧，而不是继续降价。因为他们要拿估值，就得拿收入说话，而不是拿补贴换规模。所以如果你和做模型平台的朋友聊到这件事，可以问问他怎么看“模型公司到底该按收入估值，还是按算力承诺估值”——这是现在硅谷最尴尬的一个问题，基本没人愿意正面回答。
+接着看 OpenAI。TechCrunch 报道，OpenAI 又融了 110 亿美元，估值 1.25 万亿美元，这是尚未关闭的一轮融资的一部分，预计未来几周内完成。你把这条和前几天“融资目标从 3000 亿砍到 110 亿”的报道放在一起看，就很有意思了：头部公司还在吸金，但单笔规模已经从“天文数字”回落到“可消化区间”。这说明这轮 AI 资本周期进入了一个新阶段——钱还在，但要价变挑剔了。这种挑剔会沿着链条往下传导，对中小模型公司和 API 平台的估值只会更严苛。跟创始人聊天的时候，你可以聊“现在融资是看模型能力还是看毛利”，我跟你讲，多数创始人会有切肤之痛，因为这直接关系到他们下一轮能不能活下去。
+第三条，是今天我觉得最值得琢磨的数据。TechCrunch 引用 Ramp 的支出数据指出，AI 的使用量还在持续攀升，但企业支出已经停滞了。原因有两个：一是降价，二是头部客户在做更聪明的成本控制。这个信号出现的时间点很微妙，恰好是 Anthropic 临近 IPO 的时候。它直接挑战了“AI 超高速增长”这个叙事——token 消耗在涨，账单不涨，说明单价下行的速度已经快过用量增长的速度。对做模型 API 分发的平台，这条的结论很硬：你必须靠增值层赚钱，而不是靠转售差价。差价这个生意，正在被结构性压缩。所以下次见到客户，别问模型能力，直接问他“你们客户这个季度的 AI 账单是涨的还是平的”，这个数字比任何 benchmark 都能看出真实温度。
+好，接下来是今天的重头戏，赛道深挖。咱们做视频生成 API 的，这部分得听仔细。
+第一条，fal 的模型货架大换血。根据 fal 价格页的快照，图像侧新增了 Seedream 5.0、GPT Image 2.6、FLUX 3 Image、Nano Banana 2.1 和 Krea 3，同时删掉了 GPT Image 2.5、GPT Image 2、Flux 2、Nano Banana 2、Ideogram 4 和 Krea 2。视频侧更狠：新增 Kling 4.0、FLUX 3 Max、PixVerse V6 和 Grok Imagine Free，删掉了 Kling 3.0、Veo 3.1、Grok Imagine 1.5，还有 Happy Horse 1.1 和 Happy Oyster。连导航层都把“Text to Video”这个入口换成了“AI Video Gener</itunes:summary>
+      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-11-07.mp3" length="5120784" type="audio/mpeg"/>
+      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-11-07.mp3</guid>
+      <pubDate>Sat, 07 Nov 2026 08:00:00 +0800</pubDate>
+      <itunes:duration>14:13</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
+    </item>
+    <item>
       <title>Andy 的 AI 早报 · 2026-11-06 周五</title>
       <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 11 月 6 日，星期五。先给你今天的一句话：Google 把视频生成打到了 7 美分每秒，还顺手砍价 30%，叠加 OpenRouter 上 Gemini Omni Flash 两个版本同时上架——视频 API 的价格战，今天正式开打，靠“接入即卖”的平台，必须重新算毛利了。
 今天的内容挺密。市场这边，AI 股集体暴跌，纳指单日跌了 5%，同时数据中心的地方公投 41 项输了 40 项，算力扩张开始撞上选票。赛道深挖部分是我们今天的重头：Google Gemini Omni 1.2 Flash 正式 GA，OpenAI 的图像模型上新，还有 OpenRouter 模型表的一次大换血。Agent 前沿会聊两个很实在的东西：一个泼冷水的基准，一个讲工程的方法论。最后是快讯和今天的观察。咱们一条条来。
@@ -349,29 +370,6 @@ OpenAI 这次推出的 GPT-6.1 Terra，定位是中端模型，但 API 价格比
       <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-24.mp3</guid>
       <pubDate>Sat, 24 Oct 2026 08:00:00 +0800</pubDate>
       <itunes:duration>16:26</itunes:duration>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
-    </item>
-    <item>
-      <title>Andy 的 AI 早报 · 2026-10-23 周五</title>
-      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 23 日，星期五。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
-先预告今天最重要的三件事。第一，Agent 基础设施今天可以说是三层同时落地：Google 给每个 Gemini Agent 发了独立硬件隔离的微虚拟机，Anthropic 把 Agent Skills 标准捐给了基金会，1Password 解决了 Agent 代登录但不接触密码的问题，运行时、协议、身份三个卡点一天之内各有解法。第二，图像生成这边，Canva 发布了首个自研模型 Canva Craft，用的是先规划后生成的两阶段架构，设计工具厂商开始自己下场做模型了。第三，模型 API 层面有两个信号，OpenAI 上线了 Decisions API，把决策能力拆成低价独立接口，Cohere 发了 Rerank 5，重排环节又多了个又强又便宜的选择。另外还有个不太妙的消息，Gartner 的调查说只有百分之十三的企业从 AI 拿到了真实回报，这个数字值得每个从业者停下来想一想。
-好，我们一条一条展开。
-先说 Canva Craft。Canva 昨天发布了它历史上第一个自研图像生成模型，名字叫 Canva Craft，面向全量用户开放。它最有意思的地方在架构：不是直接文生图，而是两阶段，先生成一个设计方案，再基于方案出图。官方主打的是更强的可控性和更低的成本。为什么这件事重要？因为过去两年图像生成的竞争基本集中在采样器和底座模型上，谁的图更漂亮、更真实。但 Canva 走的是另一条路：它不跟你比画质，它比的是在真实设计场景里，用户能不能稳定拿到想要的结果。设计工具的用户要的不是一张惊艳的图，是一张能改、能对齐品牌、能批量出的图。两阶段架构本质上就是把规划能力和渲染能力解耦，规划阶段负责布局、元素、风格，渲染阶段负责出像素。对从业者来说，这个思路非常值得抄。如果你在做模板类场景、电商主图、海报批量生成，完全可以对标它的先规划后生成，搭一条两阶段管线，把可控性做上去，成本反而可能更低。这条我个人认为是今天产品层面最重要的新闻。
-接着是 OpenAI 的 Decisions API。OpenAI 上线了 Decisions API，把决策模型全面开放，定位是快速、聚焦、低成本的结构化决策能力，直接对标 Jev 那一类决策模型。这个动作的本质是什么？是把决策从通用对话里拆出来，做成一个独立的、便宜的 API。以前你要做客服分流、表单校验、Agent 的分支判断，往往是拿一个大模型去跑，贵而且慢，还容易话痨。现在这类路由和分类的调用可以迁到专门的决策接口上。对从业者的意义很直接：如果你有大量高频、低复杂度的判断型调用，赶紧去测一下迁过去的成本和准确率，这可能是一个立竿见影的降本点。而且这个信号本身也值得注意，基础模型厂商正在把细分能力一条条拆成低价独立接口，这对所有做 API 定价的人都是一个直接参照。
-第三条，Google 的 Agent Compute Engine。Google 推出了一个专为 Agent 设计的运行时，叫 Agent Compute Engine，核心是给每个 Gemini Agent 独享一个硬件隔离的微虚拟机，同时把云端、混合和本地环境的 Agent 治理能力一起扩展了。这件事的重要性在于，Agent 基础设施正在从沙箱升级到硬件隔离的虚拟机。以前企业部署 Agent，最大的顾虑之一就是隔离和合规，一个 Agent 跑出问题会不会影响别的租户，数据边界在哪。硬件隔离 VM 把这层顾虑往下压了一大截，企业部署门槛明显下降。对从业者来说，如果你在面向企业客户讲 Agent 合规部署，隔离运行时现在可以作为一个明确的选型卖点写进方案里了。
-第四条，Anthropic 的常驻 Agent 应用 Claude Duet。Anthropic 推出了一个叫 Claude Duet 的常驻 Agent 应用，基于 Claude Opus 5.5，接入了 Gmail、Slack、Stripe 等六千多个连接器，用户离线的时候它也能自主执行任务，敏感操作需要审批，目前对 Pro 和 Max 用户候补开放。这条的核心价值是 Agent 从被动响应转向了常驻后台主动执行。你不</description>
-      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 23 日，星期五。通勤路上这几分钟，我帮你把过去二十四小时 AI 圈最值得关心的事捋一遍。
-先预告今天最重要的三件事。第一，Agent 基础设施今天可以说是三层同时落地：Google 给每个 Gemini Agent 发了独立硬件隔离的微虚拟机，Anthropic 把 Agent Skills 标准捐给了基金会，1Password 解决了 Agent 代登录但不接触密码的问题，运行时、协议、身份三个卡点一天之内各有解法。第二，图像生成这边，Canva 发布了首个自研模型 Canva Craft，用的是先规划后生成的两阶段架构，设计工具厂商开始自己下场做模型了。第三，模型 API 层面有两个信号，OpenAI 上线了 Decisions API，把决策能力拆成低价独立接口，Cohere 发了 Rerank 5，重排环节又多了个又强又便宜的选择。另外还有个不太妙的消息，Gartner 的调查说只有百分之十三的企业从 AI 拿到了真实回报，这个数字值得每个从业者停下来想一想。
-好，我们一条一条展开。
-先说 Canva Craft。Canva 昨天发布了它历史上第一个自研图像生成模型，名字叫 Canva Craft，面向全量用户开放。它最有意思的地方在架构：不是直接文生图，而是两阶段，先生成一个设计方案，再基于方案出图。官方主打的是更强的可控性和更低的成本。为什么这件事重要？因为过去两年图像生成的竞争基本集中在采样器和底座模型上，谁的图更漂亮、更真实。但 Canva 走的是另一条路：它不跟你比画质，它比的是在真实设计场景里，用户能不能稳定拿到想要的结果。设计工具的用户要的不是一张惊艳的图，是一张能改、能对齐品牌、能批量出的图。两阶段架构本质上就是把规划能力和渲染能力解耦，规划阶段负责布局、元素、风格，渲染阶段负责出像素。对从业者来说，这个思路非常值得抄。如果你在做模板类场景、电商主图、海报批量生成，完全可以对标它的先规划后生成，搭一条两阶段管线，把可控性做上去，成本反而可能更低。这条我个人认为是今天产品层面最重要的新闻。
-接着是 OpenAI 的 Decisions API。OpenAI 上线了 Decisions API，把决策模型全面开放，定位是快速、聚焦、低成本的结构化决策能力，直接对标 Jev 那一类决策模型。这个动作的本质是什么？是把决策从通用对话里拆出来，做成一个独立的、便宜的 API。以前你要做客服分流、表单校验、Agent 的分支判断，往往是拿一个大模型去跑，贵而且慢，还容易话痨。现在这类路由和分类的调用可以迁到专门的决策接口上。对从业者的意义很直接：如果你有大量高频、低复杂度的判断型调用，赶紧去测一下迁过去的成本和准确率，这可能是一个立竿见影的降本点。而且这个信号本身也值得注意，基础模型厂商正在把细分能力一条条拆成低价独立接口，这对所有做 API 定价的人都是一个直接参照。
-第三条，Google 的 Agent Compute Engine。Google 推出了一个专为 Agent 设计的运行时，叫 Agent Compute Engine，核心是给每个 Gemini Agent 独享一个硬件隔离的微虚拟机，同时把云端、混合和本地环境的 Agent 治理能力一起扩展了。这件事的重要性在于，Agent 基础设施正在从沙箱升级到硬件隔离的虚拟机。以前企业部署 Agent，最大的顾虑之一就是隔离和合规，一个 Agent 跑出问题会不会影响别的租户，数据边界在哪。硬件隔离 VM 把这层顾虑往下压了一大截，企业部署门槛明显下降。对从业者来说，如果你在面向企业客户讲 Agent 合规部署，隔离运行时现在可以作为一个明确的选型卖点写进方案里了。
-第四条，Anthropic 的常驻 Agent 应用 Claude Duet。Anthropic 推出了一个叫 Claude Duet 的常驻 Agent 应用，基于 Claude Opus 5.5，接入了 Gmail、Slack、Stripe 等六千多个连接器，用户离线的时候它也能自主执行任务，敏感操作需要审批，目前对 Pro 和 Max 用户候补开放。这条的核心价值是 Agent 从被动响应转向了常驻后台主动执行。你不</itunes:summary>
-      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-23.mp3" length="5866848" type="audio/mpeg"/>
-      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-23.mp3</guid>
-      <pubDate>Fri, 23 Oct 2026 08:00:00 +0800</pubDate>
-      <itunes:duration>16:17</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
       <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
     </item>

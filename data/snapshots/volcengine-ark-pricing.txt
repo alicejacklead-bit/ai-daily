@@ -115,6 +115,7 @@ Managed Agents
 概述
 快速入门（代码）
 快速入门（控制台）
+将零代码应用迁移至 Managed Agents
 定义 Agent
 Agent
 Skills
@@ -142,9 +143,6 @@ Session 事件流
 使用 Dream 整理长期记忆
 配置上下文压缩
 编排 Multi Agent
-应用
-将零代码应用迁移至 Managed Agents
-知识库
 文档首页
 火山方舟 入门 模型价格 复制全文
 下载 pdf

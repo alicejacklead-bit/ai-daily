@@ -157,7 +157,7 @@ $0.0035 per image
 MCP
 API-vlm
 $0.01 / request
-When API-vlm is called through M Plan, usage deducts from the included M Plan quota according to its pay-as-you-go price. If the included quota is exhausted and purchased Credits are available, additional usage can be automatically covered by purchased Credits. 🔔 Pricing Update Notice — Effective July 22, 2026, the API-vlm price will be adjusted to $0.01 per call. Accordingly, the token quota deducted per API-vlm call under M Plan subscriptions will decrease, allowing the same plan to support more calls. API endpoints and model capabilities remain unchanged — no code changes required.
+When API-vlm is called through M Plan, usage deducts from the included M Plan quota according to its pay-as-you-go price. If the included quota is exhausted and purchased Credits are available, additional usage can be automatically covered by purchased Credits.
 Server Tools
 Recharge Now Server Tool
 web_search
