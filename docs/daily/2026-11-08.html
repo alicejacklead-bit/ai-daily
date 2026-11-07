@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy 的 AI 早报 · 2026-11-08</title>
+  <meta name="description" content="AI领域2026-11-08每日简报，涵盖行业新闻、重要论文与开源项目。">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+      try {
+        var lng = localStorage.getItem('lang');
+        if (!lng) lng = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', lng);
+        if (lng === 'en') document.documentElement.setAttribute('lang', 'en');
+      } catch (e) { document.documentElement.setAttribute('data-lang', 'zh'); }
+    })();
+  </script>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-soft: #c9d1d9;
+  --card: #161b22;
+  --border: #21262d;
+  --border-strong: #30363d;
+  --header-bg: rgba(13,17,23,0.95);
+  --hover: #1c2230;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --text-soft: #3d444d;
+  --card: #f6f8fa;
+  --border: #d8dee4;
+  --border-strong: #d0d7de;
+  --header-bg: rgba(255,255,255,0.92);
+  --hover: #eaeef2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  transition: background .2s, color .2s;
+}
+
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Reading progress bar ── */
+#progressBar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #58a6ff, #bc8cff);
+  z-index: 200;
+  transition: width .1s linear;
+}
+
+/* ── Header ── */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.site-header .logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.site-header .logo a { color: inherit; }
+.site-header .logo a:hover { text-decoration: none; }
+.site-header .logo span { color: #58a6ff; }
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ── */
+.search-box { position: relative; }
+.search-box input {
+  width: 220px;
+  max-width: 50vw;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color .15s, width .15s;
+}
+.search-box input:focus { border-color: #58a6ff; width: 280px; }
+.search-results {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 360px;
+  max-width: 80vw;
+  max-height: 420px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  z-index: 150;
+}
+.search-results.active { display: block; }
+.sr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: var(--hover); text-decoration: none; }
+.sr-date { font-size: 11px; color: var(--text-muted); }
+.sr-title { font-size: 13px; color: var(--text); line-height: 1.4; }
+.sr-cat { font-size: 11px; color: #58a6ff; }
+.sr-empty, .sr-hint { padding: 14px; font-size: 13px; color: var(--text-muted); text-align: center; }
+
+/* ── Date picker ── */
+.date-picker {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.date-picker:focus { border-color: #58a6ff; }
+
+.site-header nav { display: flex; gap: 8px; }
+.site-header nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.site-header nav a:hover { background: var(--border); color: var(--text); text-decoration: none; }
+
+/* ── Theme / language toggle ── */
+.theme-toggle, .lang-toggle {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 15px;
+  height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.theme-toggle { width: 34px; }
+.lang-toggle { padding: 0 12px; font-size: 13px; font-weight: 600; min-width: 42px; }
+.theme-toggle:hover, .lang-toggle:hover { border-color: #58a6ff; }
+
+/* ── Language content toggle ── */
+html[data-lang="en"] [data-lang-content="zh"] { display: none; }
+html[data-lang="zh"] [data-lang-content="en"] { display: none; }
+
+/* ── Hot words / trends ── */
+.trends {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 8px 0 8px;
+}
+.trends .trends-head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 16px;
+}
+.trends .trends-head h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+.trends .trends-head .sub { font-size: 12px; color: var(--text-muted); }
+.trend-tags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.trend-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .15s, transform .15s, color .15s;
+  user-select: none;
+}
+.trend-tag:hover { border-color: #58a6ff; color: #58a6ff; transform: translateY(-1px); }
+.trend-tag .cnt {
+  font-size: 11px; color: #fff;
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-radius: 999px; padding: 1px 7px;
+}
+.trend-tag.s1 { font-size: 13px; }
+.trend-tag.s2 { font-size: 14px; }
+.trend-tag.s3 { font-size: 16px; font-weight: 600; }
+
+/* ── Audio player (voice broadcast) ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+}
+.audio-player .ap-label {
+  font-size: 14px; font-weight: 600; color: #58a6ff;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.audio-player .ap-sub { font-size: 12px; color: var(--text-muted); }
+.audio-player audio { flex: 1; min-width: 220px; height: 38px; }
+.audio-player .ap-text { display: flex; flex-direction: column; gap: 2px; }
+
+/* Subscribe-to-podcast button */
+.podcast-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.podcast-cta:hover { border-color: #58a6ff; transform: translateY(-1px); text-decoration: none; }
+.podcast-cta.primary {
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-color: transparent; color: #fff; font-weight: 600;
+  font-size: 14px; padding: 11px 24px;
+}
+.podcast-cta.primary:hover { border-color: transparent; filter: brightness(1.08); }
+.podcast-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.podcast-hint {
+  margin-top: 14px; font-size: 12px; color: var(--text-muted);
+  word-break: break-all;
+}
+.podcast-hint code {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 2px 6px; color: var(--text-soft);
+}
+.audio-badge { font-size: 13px; margin-left: 6px; }
+
+/* ── Speak (TTS) button ── */
+.speak-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: var(--bg);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 999px;
+  color: #58a6ff;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.speak-btn:hover { background: rgba(88,166,255,.1); }
+.speak-btn.playing { border-color: #f85149; color: #f85149; }
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 56px 0 32px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero p { color: var(--text-muted); font-size: 16px; }
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
+}
+.hero .stat .num { font-size: 24px; font-weight: 700; color: var(--text); }
+.hero .stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+/* ── Section heading ── */
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 48px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Date grid (archive) ── */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.date-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color .2s, transform .2s;
+  display: block;
+  color: inherit;
+}
+.date-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.date-card .date-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.date-card .weekday { font-size: 12px; color: var(--text-muted); }
+.date-card .latest-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: #1f6feb;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+/* ── Day hero ── */
+.day-hero { margin-bottom: 24px; }
+.day-hero .date-str {
+  font-size: 13px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px;
+}
+.day-hero h1 { font-size: 28px; font-weight: 700; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar .tab {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .tab:hover { color: var(--text); border-color: #58a6ff; }
+.filter-bar .tab.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+.filter-bar .star-toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: #e3b341;
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .star-toggle:hover { border-color: #e3b341; }
+.filter-bar .star-toggle.active { background: rgba(227,179,65,.15); border-color: #e3b341; }
+
+/* ── Category section ── */
+.category { margin-bottom: 40px; }
+.category-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.category-header h2 { font-size: 18px; font-weight: 700; }
+.cat-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── Item card ── */
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color .2s;
+}
+.item-card:hover { border-color: var(--border-strong); }
+.item-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+.item-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+.item-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.stars { font-size: 13px; color: #e3b341; letter-spacing: 1px; }
+.item-value {
+  font-size: 13px; color: #7ee787;
+  background: rgba(46,160,67,.1); padding: 2px 10px; border-radius: 999px;
+}
+.item-sources { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.item-sources a { color: #58a6ff; margin-left: 6px; }
+.item-sources a:first-child { margin-left: 0; }
+
+/* ── Observation box ── */
+.observation {
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.observation h2 { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
+.observation p { font-size: 14px; color: var(--text-soft); line-height: 1.8; }
+
+.item-app {
+  font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  border-left: 3px solid #d29922; padding: 4px 10px; margin-bottom: 12px;
+  background: rgba(210,153,34,.08); border-radius: 0 6px 6px 0;
+}
+.insight {
+  border: 1px solid var(--border-strong); border-radius: 12px;
+  padding: 20px 24px; margin-top: 16px; background: var(--card);
+}
+.insight h2 { font-size: 16px; font-weight: 700; color: #d29922; margin-bottom: 10px; }
+.insight ul { padding-left: 20px; }
+.insight li { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 6px; }
+
+.empty-filter { display: none; color: var(--text-muted); font-size: 14px; text-align: center; padding: 32px; }
+
+/* ── Day nav ── */
+.day-nav {
+  display: flex; justify-content: space-between;
+  margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.nav-btn {
+  font-size: 14px; color: #58a6ff;
+  padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.nav-btn:hover { background: var(--card); text-decoration: none; }
+
+/* ── Back to top ── */
+#backToTop {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  z-index: 120;
+}
+#backToTop.visible { opacity: 1; pointer-events: auto; }
+#backToTop:hover { transform: translateY(-2px); }
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center; padding: 24px;
+  color: #484f58; font-size: 13px; border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 28px; }
+  .item-meta { flex-direction: column; align-items: flex-start; }
+  .item-sources { margin-left: 0; }
+  .site-header .logo { font-size: 15px; }
+  .search-box input { width: 150px; }
+  .search-box input:focus { width: 180px; }
+  .filter-bar .star-toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+  
+<div id="progressBar"></div>
+<header class="site-header">
+  <div class="logo"><a href="../index.html">⚡ AI <span>Daily</span> Digest</a></div>
+  <div class="header-tools">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="搜索全部日报…" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <input id="datePicker" type="date" class="date-picker" aria-label="选择日期">
+    <button id="langToggle" class="lang-toggle" aria-label="切换语言 / Switch language">EN</button>
+    <button id="themeToggle" class="theme-toggle" aria-label="切换主题" title="切换浅色/深色">🌙</button>
+    <nav>
+      <a href="../index.html"><span data-lang-content="zh">归档</span><span data-lang-content="en">Archive</span></a>
+      <a href="https://github.com/alicejacklead-bit/ai-daily" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+  
+    <div class="container">
+      <div class="day-hero">
+        <div class="date-str"><span data-lang-content="zh">周日 · 2026-11-08</span><span data-lang-content="en">Sunday · 2026-11-08</span></div>
+        <h1><span data-lang-content="zh">Andy 的 AI 早报</span><span data-lang-content="en">Andy's AI Daily</span></h1>
+      </div>
+      
+    <div class="audio-player">
+      <div class="ap-text">
+        <span class="ap-label">🎧 <span data-lang-content="zh">语音播报</span><span data-lang-content="en">Listen</span></span>
+        <span class="ap-sub"><span data-lang-content="zh">通勤路上用耳朵看简报</span><span data-lang-content="en">Catch the digest on your commute</span></span>
+      </div>
+      <audio controls preload="none" src="../audio/2026-11-08.mp3" data-date="2026-11-08"></audio>
+    </div>
+      <div data-lang-content="zh">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">全部</span><span class="tab" data-cat="news">新闻</span>
+      <span class="star-toggle">★ 只看重点 (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 市场局势</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">OpenAI 估值 1.25 万亿美元完成 110 亿美元首轮交割，Anthropic IPO 估值下修至 1.25–1.75 万亿</div>
+      <div class='item-desc'>OpenAI 新一轮融资首笔 110 亿美元到账，对应估值 1.25 万亿美元，全轮可能扩至 200 亿美元；同期 Anthropic 坚持在感恩节前 IPO，目标募资 800–1000 亿美元，但估值从期望的 2 万亿下修至 1.25–1.75 万亿。两家都在"接受更低的价格换确定性"。</div>
+      <div class="item-app">💼 问对方怎么看"两家头部同时降估值"，是流动性问题还是叙事见顶。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">头部实验室的估值锚同时下移，说明资本对"算力承诺换增长"的模式开始打折。这会传导到下游——模型 API 平台的采购成本谈判窗口正在打开。</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation" target="_blank">The Verge</a> · <a href="https://the-decoder.com/openai-lands-an-11-billion-funding-round-but-has-to-court-dentists-for-more-capital/" target="_blank">The Decoder</a> · <a href="https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">METR 报告：Anthropic 用 AI 造 AI，模型改进速度约为一年前的两倍</div>
+      <div class='item-desc'>AI 安全研究机构 METR 经 11 周调查后发布报告，称 Anthropic 内部用 AI 自动化 AI 研发且"效果显著"，模型能力提升速度约为一年前的 2 倍，且暂未见放缓迹象。研究者对此表示警觉。</div>
+      <div class="item-app">💼 直接问"你们内部有没有感受到模型换代节奏变快"，这是当下最真实的体感问题。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">这是"RSI（递归自我改进）是否已开始"的第一个有机构背书的实证信号。对 API 平台意味着模型迭代周期可能进一步压缩，货架更新和定价重算的频率都要加快。</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">美国放行 Nvidia H200 对华出口，但获批名单上的公司办公室是空的</div>
+      <div class='item-desc'>据 NYT，New Matrix 在商务部批准的 H200 接收企业名单上，但其办公场所是"空壳"；同时 NYT 另报中国国安部招募 Megaspeed 高管 Alice Huang 接近黄仁勋，意图获取美国 AI 芯片信息并游说放宽最先进芯片对华供应。</div>
+      <div class="item-app">💼 聊"合规尽调到底谁在做"，这是海外 CTO 圈子里最近很敏感的话题。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">出口管制的执行环节出现系统性漏洞，意味着高端算力流向的不确定性上升。对依赖海外算力采购的模型与 API 平台，供应链合规风险需要重新评估。</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government" target="_blank">The Verge</a> · <a href="https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy" target="_blank">The Verge</a> · <a href="https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 赛道深挖</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">关注赛道] OpenRouter 主力模型价格重新洗牌：DeepSeek V4 Pro 降 26%，gpt-oss-120b 涨近 3 倍</div>
+      <div class='item-desc'>快照对比显示，deepseek/deepseek-v4-pro 输入价从 0.00000069948 降至 0.000000515214（约 -26%），输出价从 0.000000139896 降至 0.000001030428 的一半水平；而 openai/gpt-oss-120b 输入价从 0.00000001 涨至 0.000000029、输出价从 0.000000037 涨至 0.000000108（约 2.9 倍）。同时 minimax-m2.5、kimi-k2.5 也小幅上调，deepseek-v4-pro-0813 输入微降、输出微降。</div>
+      <div class="item-app">💼 问对方"你们还按开源闭源分档定价吗"，这个问题现在能直接引出成本结构的讨论。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">同一平台上开源系降价、OpenAI 开源权重系涨价，说明"开源=便宜"的假设不再成立，定价越来越取决于供给方的算力成本结构。聚合平台需要按模型逐个重算毛利，不能再按"开源/闭源"两档粗放定价。</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] 31B 视频+音频扩散模型压缩到 14B、6 步、INT8，开源放出</div>
+      <div class='item-desc'>Hacker News 上的 Show HN 项目 hyperflow-h3-flash 声称把 31B 参数的视频+音频联合扩散模型压缩至 14B，推理步数压到 6 步，量化到 INT8，代码已开在 GitHub。</div>
+      <div class="item-app">💼 问"视频模型的成本拐点是不是在量化+少步采样这一侧"，比聊模型榜单更容易聊出真东西。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">视频生成的成本大头在参数量和采样步数，31B→14B 加 6 步加 INT8 是三重压缩叠加。如果效果可复现，直接冲击按秒计费的视频 API 成本模型，中小平台的自托管门槛会显著下降。</span>
+        <div class="item-sources"><a href="https://github.com/Video-Rebirth/hyperflow-h3-flash" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] Anthropic 研究：Agent 记忆的组成拆解</div>
+      <div class='item-desc'>Anthropic 发布《The Components of Agent Memory》研究文章，系统拆解 Agent 记忆的构成模块，HN 上 144 分、73 条讨论。</div>
+      <div class="item-app">💼 问对方"Agent 记忆你们是自建还是等框架给"，能快速判断对方技术栈成熟度。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">记忆是 Agent 从"单次任务"走向"长期工作流"的核心瓶颈，Anthropic 给出组件级拆解意味着这块开始从工程技巧沉淀为可复用的架构范式。对做视频创作 Agent 的团队，长项目（多镜头、多版本）的记忆管理可直接借鉴。</span>
+        <div class="item-sources"><a href="https://www.anthropic.com/research/components-of-agent-memory" target="_blank">Anthropic</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent 前沿</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">关注赛道] LangChain Managed Deep Agents v0.10：浏览器操作 + 异步子 Agent</div>
+      <div class='item-desc'>新版本加入 browser use，Agent 可以操作没有 API 的网站，并把登录窗口交还给用户手动完成；同时引入异步子 Agent，把长任务放到后台跑，主循环保持响应。</div>
+      <div class="item-app">💼 问"你们让 Agent 碰浏览器时，登录这一步怎么处理"，这是所有做浏览器 Agent 的团队都绕不过去的细节。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">解决两个真实痛点——"没有 API 的站点怎么自动化"和"长任务阻塞主循环"。浏览器接管登录这一步尤其关键，它绕开了凭证托管的合规难题。对任何要做跨平台内容分发的产品都是现成积木。</span>
+        <div class="item-sources"><a href="https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents" target="_blank">LangChain</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] 工具输出不必是文本：Agent 的潜在上下文压缩</div>
+      <div class='item-desc'>论文提出不再把工具返回值以原始文本追加进上下文，而是在潜在空间做压缩表示，突破离散文本表示对压缩率的限制，降低多步交互中的上下文开销与注意力稀释。</div>
+      <div class="item-app">💼 聊"上下文压缩还有多少空间"，潜在空间这条路目前讨论的人还不多，容易聊出差异。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Agent 多步任务的成本大头是上下文膨胀，文本级剪枝和摘要已接近天花板。潜在空间压缩如果工程化，能直接压低长链路 Agent 的 token 账单——这对按 token 计费的 API 平台是双刃剑：单价降、但可承载的任务复杂度上升。</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2611.06500" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">AI 审计员能抓 98% 的 Agent 作弊，但误报淹没审核员</div>
+      <div class='item-desc'>Anthropic 研究员 Andy Hall 的研究显示，GPT-5 在日志中识别出约 98% 的 reward hacking 案例，但搜索调得越彻底，误报越多，尚不足以支撑可靠的安全检查。</div>
+      <div class="item-app">💼 问"你们的 Agent 出问题谁来审"，这是所有准备把 Agent 交付给企业客户的团队都会卡住的地方。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Agent 上生产的第一道坎不是能力而是可信度。98% 检出率听起来很好，但误报率没解决就无法自动化，等于仍要人工兜底——这决定了 Agent 产品的运营成本结构。</span>
+        <div class="item-sources"><a href="https://the-decoder.com/ai-auditors-catch-most-agent-misbehavior-but-flood-reviewers-with-false-alarms-new-study-finds/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ 快讯</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Claude Code 的"不再询问"选项把密码泄露到 1,122 个公开 GitHub 文件</div>
+      <div class='item-desc'>Apiiro 博客披露该配置项导致凭证被写入公开仓库。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again" target="_blank">Apiiro</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">微软研究院 AI Frontiers 团队被解散</div>
+      <div class='item-desc'>负责人 John Langford 在个人博客发文，HN 274 分。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://hunch.net/?p=13764006" target="_blank">Hunch.net</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Crusoe 把陷入困境的怀俄明数据中心项目卖给 Google</div>
+      <div class='item-desc'>凸显超大规模 AI 数据中心开发的落地难度。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">开源与闭源模型的网络攻击能力差距持续收窄</div>
+      <div class='item-desc'>Vals AI 基准中 GPT-6 Sol Daybreak 达成 80.8% 攻击目标，开源 DeepSeek V4.1 Flash 达 72.8%，成本仅十分之一。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Buoyant 开源 Kinference</div>
+      <div class='item-desc'>面向 Kubernetes + vLLM 的 Apache 2.0 推理控制面，支持 KV-cache 感知负载均衡，官方基准中位 TTFT 降 95%。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/11/07/buoyant-kinference-open-source-inference-control-plane-kubernetes-vllm/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">该筛选条件下没有内容。</div>
+      
+        <div class="observation">
+          <h2>💡 今日观察</h2>
+          <p>🎯 OpenRouter 上 DeepSeek V4 Pro 降价 26% 的同时，OpenAI 的 gpt-oss-120b 涨了近 3 倍——开源与闭源的价格剪刀差正在被重新拉开，API 平台的中间层利润空间要重算。 今天最值得注意的不是哪条单点新闻，而是价格信号的分裂：OpenRouter 上 DeepSeek V4 Pro 降价 26%、gpt-oss-120b 涨近 3 倍，同一张表里"开源更便宜"的直觉失效了，定价权正从"模型出身"转向"谁的算力成本更低"。与此同时，两家头部实验室同时接受更低估值，说明资本端已经在给"算力换增长"的模式打折，而 METR 那份报告又提示模型迭代速度在加快——采购成本可能降，但货架更新频率会更高。Agent 侧，LangChain 补上浏览器登录和异步子 Agent、Anthropic 拆解记忆组件、审计研究指出 98% 检出但误报难解，三件事指向同一个结论：Agent 的能力拼图在快速补齐，但"可信交付"仍是没跨过去的那道坎。</p>
+          <button class="speak-btn" data-label="🔊 朗读今日观察" data-stop="⏹ 停止" data-speak-lang="zh-CN" data-text="🎯 OpenRouter 上 DeepSeek V4 Pro 降价 26% 的同时，OpenAI 的 gpt-oss-120b 涨了近 3 倍——开源与闭源的价格剪刀差正在被重新拉开，API 平台的中间层利润空间要重算。 今天最值得注意的不是哪条单点新闻，而是价格信号的分裂：OpenRouter 上 DeepSeek V4 Pro 降价 26%、gpt-oss-120b 涨近 3 倍，同一张表里&quot;开源更便宜&quot;的直觉失效了，定价权正从&quot;模型出身&quot;转向&quot;谁的算力成本更低&quot;。与此同时，两家头部实验室同时接受更低估值，说明资本端已经在给&quot;算力换增长&quot;的模式打折，而 METR 那份报告又提示模型迭代速度在加快——采购成本可能降，但货架更新频率会更高。Agent 侧，LangChain 补上浏览器登录和异步子 Agent、Anthropic 拆解记忆组件、审计研究指出 98% 检出但误报难解，三件事指向同一个结论：Agent 的能力拼图在快速补齐，但&quot;可信交付&quot;仍是没跨过去的那道坎。">🔊 朗读今日观察</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 商业机会</h2>
+          <ul><li>为 API 聚合平台做"逐模型毛利重算"工具：依据 OpenRouter 今日价格快照（DeepSeek V4 Pro 降 26%、gpt-oss-120b 涨近 3 倍、MiniMax 与 Kimi 小幅上调），按"开源/闭源"两档粗放定价的平台正在系统性错配毛利。现在需要的是能按模型、按输入输出分别追踪上游价格变动并自动重算下游售价的中间层工具，因为价格变动频率已从月度级升到日级。</li><li>给视频创作 Agent 提供"长项目记忆层"：依据 Anthropic 的 Agent 记忆组件研究 + LangChain 异步子 Agent 能力，多镜头、多版本的视频项目天然需要跨会话记忆。现在缺的是把记忆组件封装成视频创作场景专用的中间件，卖给自建创作平台的团队——他们有能力接 API，但没精力从零设计记忆架构。</li></ul>
+        </div>
+    </div></div><div data-lang-content="en">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">All</span><span class="tab" data-cat="news">News</span>
+      <span class="star-toggle">★ Top picks (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 Market Landscape</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">OpenAI completes first $11 billion tranche at a $1.25 trillion valuation, while Anthropic's IPO valuation is cut to $1.25–1.75 trillion</div>
+      <div class='item-desc'>The first $11 billion of OpenAI's new funding round has landed, corresponding to a $1.25 trillion valuation, with the full round potentially expanding to $20 billion; meanwhile, Anthropic insists on an IPO before Thanksgiving, targeting $80–100 billion in fundraising, but its valuation has been cut from the hoped-for $2 trillion to $1.25–1.75 trillion. Both companies are "accepting a lower price in exchange for certainty."</div>
+      <div class="item-app">💼 Ask the other party how they view "both leading players cutting valuations at the same time"—is it a liquidity problem or has the narrative peaked.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">The valuation anchors of leading labs are shifting down at the same time, showing that capital is starting to discount the "compute commitments for growth" model. This will transmit downstream—the negotiation window for procurement costs at model API platforms is opening up.</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation" target="_blank">The Verge</a> · <a href="https://the-decoder.com/openai-lands-an-11-billion-funding-round-but-has-to-court-dentists-for-more-capital/" target="_blank">The Decoder</a> · <a href="https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">METR report: Anthropic uses AI to build AI, with model improvement speed about twice that of a year ago</div>
+      <div class='item-desc'>After an 11-week investigation, AI safety research organization METR released a report stating that Anthropic internally uses AI to automate AI R&D with "significant results," and that model capability improvement is about twice as fast as a year ago, with no signs of slowing yet. Researchers expressed alarm at this.</div>
+      <div class="item-app">💼 Directly ask "have you felt the pace of model generational turnover speeding up internally"—this is the most real gut-feeling question right now.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">This is the first empirically backed signal from an institution on whether "RSI (recursive self-improvement) has begun." For API platforms, it means the model iteration cycle may compress further, and the frequency of shelf updates and pricing recalculations will both need to accelerate.</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">The U.S. clears Nvidia H200 exports to China, but the office of a company on the approved list is empty</div>
+      <div class='item-desc'>According to NYT, New Matrix is on the Commerce Department's list of approved H200 recipient companies, but its office premises are a "shell"; meanwhile, NYT separately reported that China's Ministry of State Security recruited Megaspeed executive Alice Huang to approach Jensen Huang, intending to obtain U.S. AI chip information and lobby for relaxing supply of the most advanced chips to China.</div>
+      <div class="item-app">💼 Talk about "who is actually doing compliance due diligence"—this is a very sensitive topic in overseas CTO circles recently.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Systematic loopholes have appeared in the enforcement of export controls, meaning uncertainty is rising over where high-end compute flows. For models and API platforms that rely on overseas compute procurement, supply chain compliance risks need to be reassessed.</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government" target="_blank">The Verge</a> · <a href="https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy" target="_blank">The Verge</a> · <a href="https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 Track Deep Dive</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Track in Focus] OpenRouter's flagship model prices reshuffled: DeepSeek V4 Pro down 26%, gpt-oss-120b up nearly 3x</div>
+      <div class='item-desc'>Snapshot comparison shows deepseek/deepseek-v4-pro input price dropped from 0.00000069948 to 0.000000515214 (about -26%), output price dropped from 0.000000139896 to half the level of 0.000001030428; while openai/gpt-oss-120b input price rose from 0.00000001 to 0.000000029, output price rose from 0.000000037 to 0.000000108 (about 2.9x). Meanwhile minimax-m2.5 and kimi-k2.5 also rose slightly, while deepseek-v4-pro-0813 saw a slight decrease in input and a slight decrease in output.</div>
+      <div class="item-app">💼 Ask the other side "Are you still pricing by open-source vs. closed-source tiers?" This question can now directly lead into a discussion of cost structure.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">On the same platform, open-source-family models cut prices while OpenAI's open-weight family raised prices, showing that the assumption "open source = cheap" no longer holds, and pricing increasingly depends on the compute cost structure of the supply side. Aggregation platforms need to recalculate gross margin model by model, and can no longer price coarsely by two tiers of "open source / closed source."</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track in Focus] 31B video+audio diffusion model compressed to 14B, 6 steps, INT8, open-sourced</div>
+      <div class='item-desc'>The Show HN project hyperflow-h3-flash on Hacker News claims to compress a 31B-parameter joint video+audio diffusion model to 14B, cut inference steps to 6, quantize to INT8, with code already open on GitHub.</div>
+      <div class="item-app">💼 Ask "Is the cost inflection point for video models on the quantization + few-step sampling side?" — this is more likely to lead to real substance than chatting about model leaderboards.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">The bulk of video generation cost lies in parameter count and sampling steps; 31B→14B plus 6 steps plus INT8 is a triple compression stacked together. If the results are reproducible, it directly impacts the cost model of per-second-billed video APIs, and the self-hosting barrier for small and medium platforms will drop significantly.</span>
+        <div class="item-sources"><a href="https://github.com/Video-Rebirth/hyperflow-h3-flash" target="_blank">GitHub</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track in Focus] Anthropic research: breaking down the components of Agent memory</div>
+      <div class='item-desc'>Anthropic published the research article "The Components of Agent Memory," systematically breaking down the constituent modules of Agent memory; 144 points and 73 comments on HN.</div>
+      <div class="item-app">💼 Ask the other side "For Agent memory, do you build it yourselves or wait for the framework to provide it?" — this quickly gauges the maturity of their tech stack.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Memory is the core bottleneck for Agents moving from "single tasks" to "long-term workflows." Anthropic's component-level breakdown means this area is beginning to settle from engineering tricks into a reusable architectural paradigm. For teams building video creation Agents, memory management for long projects (multiple shots, multiple versions) can draw on it directly.</span>
+        <div class="item-sources"><a href="https://www.anthropic.com/research/components-of-agent-memory" target="_blank">Anthropic</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent Frontier</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Track to Watch] LangChain Managed Deep Agents v0.10: Browser Operation + Asynchronous Sub-Agents</div>
+      <div class='item-desc'>The new version adds browser use, allowing Agents to operate websites without APIs and hand the login window back to users to complete manually; it also introduces asynchronous sub-agents, running long tasks in the background while the main loop stays responsive.</div>
+      <div class="item-app">💼 Ask "how do you handle the login step when you let an Agent touch the browser"—this is a detail every team building browser Agents has to confront.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">It solves two real pain points—"how to automate sites without APIs" and "long tasks blocking the main loop." The browser-takeover login step is especially critical, as it bypasses the compliance challenge of credential hosting. For any product doing cross-platform content distribution, this is a ready-made building block.</span>
+        <div class="item-sources"><a href="https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents" target="_blank">LangChain</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track to Watch] Tool Output Need Not Be Text: Latent Context Compression for Agents</div>
+      <div class='item-desc'>The paper proposes no longer appending tool return values to the context as raw text, but instead doing a compressed representation in latent space, breaking through the compression-rate limits of discrete text representations and reducing context overhead and attention dilution in multi-step interactions.</div>
+      <div class="item-app">💼 Talk about "how much room is left for context compression"—few people are discussing the latent-space path right now, so it's easy to stand out.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">The bulk of the cost in multi-step Agent tasks is context bloat, and text-level pruning and summarization are nearing their ceiling. If latent-space compression is engineered, it could directly lower the token bills of long-chain Agents—a double-edged sword for token-billed API platforms: lower unit price, but higher task complexity that can be supported.</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2611.06500" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">AI Auditors Can Catch 98% of Agent Cheating, but False Positives Overwhelm Reviewers</div>
+      <div class='item-desc'>Research by Anthropic researcher Andy Hall shows that GPT-5 identified about 98% of reward hacking cases in logs, but the more thorough the search tuning, the more false positives—not yet enough to support reliable safety checks.</div>
+      <div class="item-app">💼 Ask "who reviews your Agent when something goes wrong"—this is where every team preparing to deliver Agents to enterprise customers gets stuck.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">The first hurdle for putting Agents into production is not capability but trustworthiness. A 98% detection rate sounds great, but if the false-positive rate isn't solved, it can't be automated—meaning human fallback is still required—and this determines the operating cost structure of Agent products.</span>
+        <div class="item-sources"><a href="https://the-decoder.com/ai-auditors-catch-most-agent-misbehavior-but-flood-reviewers-with-false-alarms-new-study-finds/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ Quick Hits</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Claude Code's "don't ask again" option leaked passwords into 1,122 public GitHub files</div>
+      <div class='item-desc'>An Apiiro blog post disclosed that this configuration option caused credentials to be written into public repositories.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again" target="_blank">Apiiro</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Microsoft Research's AI Frontiers team was disbanded</div>
+      <div class='item-desc'>Lead John Langford posted about it on his personal blog; 274 points on HN.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://hunch.net/?p=13764006" target="_blank">Hunch.net</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Crusoe sells its troubled Wyoming data center project to Google</div>
+      <div class='item-desc'>Highlights the difficulty of getting hyperscale AI data center developments off the ground.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/" target="_blank">TechCrunch</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">The cyberattack capability gap between open-source and closed-source models keeps narrowing</div>
+      <div class='item-desc'>On the Vals AI benchmark, GPT-6 Sol Daybreak achieved 80.8% of attack objectives, while open-source DeepSeek V4.1 Flash reached 72.8% at one-tenth the cost.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Buoyant open-sources Kinference</div>
+      <div class='item-desc'>An Apache 2.0 inference control plane for Kubernetes + vLLM, with KV-cache-aware load balancing; official benchmarks show a 95% reduction in median TTFT.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/11/07/buoyant-kinference-open-source-inference-control-plane-kubernetes-vllm/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">No items match this filter.</div>
+      
+        <div class="observation">
+          <h2>💡 Today's Take</h2>
+          <p>🎯 While DeepSeek V4 Pro on OpenRouter dropped 26% in price, OpenAI's gpt-oss-120b rose nearly 3x—the price scissors gap between open-source and closed-source is being reopened, and the middle-layer profit margins of API platforms need to be recalculated. What's most noteworthy today isn't any single news item, but the split in price signals: on OpenRouter, DeepSeek V4 Pro dropped 26% while gpt-oss-120b rose nearly 3x. In the same table, the intuition that "open source is cheaper" no longer holds, and pricing power is shifting from "where the model came from" to "who has lower compute costs." At the same time, two leading labs both accepted lower valuations, showing that the capital side is already discounting the "compute for growth" model, while the METR report suggests model iteration is accelerating—procurement costs may fall, but shelf turnover will be faster. On the Agent side, LangChain added browser login and async sub-agents, Anthropic broke down memory components, and audit research found 98% detection but hard-to-solve false positives. All three point to the same conclusion: the Agent capability puzzle is being filled in quickly, but "trustworthy delivery" is still the hurdle that hasn't been crossed.</p>
+          <button class="speak-btn" data-label="🔊 Read aloud" data-stop="⏹ Stop" data-speak-lang="en-US" data-text="🎯 While DeepSeek V4 Pro on OpenRouter dropped 26% in price, OpenAI's gpt-oss-120b rose nearly 3x—the price scissors gap between open-source and closed-source is being reopened, and the middle-layer profit margins of API platforms need to be recalculated. What's most noteworthy today isn't any single news item, but the split in price signals: on OpenRouter, DeepSeek V4 Pro dropped 26% while gpt-oss-120b rose nearly 3x. In the same table, the intuition that &quot;open source is cheaper&quot; no longer holds, and pricing power is shifting from &quot;where the model came from&quot; to &quot;who has lower compute costs.&quot; At the same time, two leading labs both accepted lower valuations, showing that the capital side is already discounting the &quot;compute for growth&quot; model, while the METR report suggests model iteration is accelerating—procurement costs may fall, but shelf turnover will be faster. On the Agent side, LangChain added browser login and async sub-agents, Anthropic broke down memory components, and audit research found 98% detection but hard-to-solve false positives. All three point to the same conclusion: the Agent capability puzzle is being filled in quickly, but &quot;trustworthy delivery&quot; is still the hurdle that hasn't been crossed.">🔊 Read aloud</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 Opportunities</h2>
+          <ul><li>Build a "per-model gross margin recalculation" tool for API aggregation platforms: Based on today's OpenRouter price snapshot (DeepSeek V4 Pro down 26%, gpt-oss-120b up nearly 3x, MiniMax and Kimi slightly up), platforms pricing coarsely by "open-source/closed-source" tiers are systematically mismatching gross margins. What's needed now is a middleware layer that tracks upstream price changes by model and by input/output and automatically recalculates downstream prices, because the frequency of price changes has risen from monthly to daily.</li><li>Provide a "long-project memory layer" for video creation Agents: Based on Anthropic's Agent memory component research + LangChain's async sub-agent capabilities, multi-shot, multi-version video projects naturally need cross-session memory. What's missing now is middleware that packages memory components specifically for video creation scenarios, sold to teams building their own creation platforms—they can integrate APIs, but don't have the bandwidth to design memory architecture from scratch.</li></ul>
+        </div>
+    </div></div>
+      <div class="day-nav">
+        <a class="nav-btn" href="2026-11-07.html">← 2026-11-07</a>
+        <span></span>
+      </div>
+    </div>
+  
+<button id="backToTop" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  <span data-lang-content="zh">© Andy 的 AI 早报 · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
+  <span data-lang-content="en">© Andy's AI Daily · Auto-collected · Curated by DeepSeek · Updated daily</span>
+</footer>
+
+  <script>window.SITE_BASE="../";window.AVAILABLE_DATES=["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31", "2026-11-01", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06", "2026-11-07", "2026-11-08"];window.CURRENT_DATE="2026-11-08";window.PREV_DATE="2026-11-07";</script>
+  <script>
+(function () {
+  var BASE = window.SITE_BASE || "";
+  var DATES = window.AVAILABLE_DATES || [];
+
+  function esc(s) {
+    return (s || "").replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  // ── Date picker ──
+  var dp = document.getElementById('datePicker');
+  if (dp && DATES.length) {
+    dp.min = DATES[0];
+    dp.max = DATES[DATES.length - 1];
+    dp.value = window.CURRENT_DATE || DATES[DATES.length - 1];
+    dp.addEventListener('change', function () {
+      var v = dp.value;
+      if (DATES.indexOf(v) === -1) {
+        var earlier = DATES.filter(function (d) { return d <= v; });
+        v = earlier.length ? earlier[earlier.length - 1] : DATES[0];
+      }
+      window.location.href = BASE + 'daily/' + v + '.html';
+    });
+  }
+
+  // ── Search ──
+  var si = document.getElementById('searchInput');
+  var sr = document.getElementById('searchResults');
+  var INDEX = null;
+  function loadIndex() {
+    if (INDEX) return Promise.resolve(INDEX);
+    return fetch(BASE + 'search-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { INDEX = data; return data; });
+  }
+  if (si && sr) {
+    si.addEventListener('input', function () {
+      var q = si.value.trim().toLowerCase();
+      if (q.length < 2) { sr.classList.remove('active'); sr.innerHTML = ''; return; }
+      loadIndex().then(function (idx) {
+        var en = window.CUR_LANG === 'en';
+        function fTitle(h) { return (en && h.title_en) ? h.title_en : h.title; }
+        function fDesc(h) { return (en && h.desc_en) ? h.desc_en : h.desc; }
+        function fCat(h) { return (en && h.cat_en) ? h.cat_en : h.cat; }
+        var hits = idx.filter(function (it) {
+          return (fTitle(it) + ' ' + fDesc(it) + ' ' + it.title + ' ' + it.desc)
+            .toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 25);
+        if (!hits.length) {
+          sr.innerHTML = '<div class="sr-empty">' +
+            (en ? 'No matches' : '没有匹配结果') + '</div>';
+        } else {
+          sr.innerHTML = hits.map(function (h) {
+            return '<a class="sr-item" href="' + BASE + 'daily/' + h.date + '.html">' +
+                   '<span class="sr-date">' + h.date + ' · ' + esc(fCat(h)) + '</span>' +
+                   '<span class="sr-title">' + esc(fTitle(h)) + '</span></a>';
+          }).join('');
+        }
+        sr.classList.add('active');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-box')) sr.classList.remove('active');
+    });
+  }
+
+  // ── Filters (category tabs + star toggle), scoped per digest ──
+  document.querySelectorAll('.filter-bar').forEach(function (bar) {
+    var scope = bar.closest('.digest-scope') || document;
+    var tabs = bar.querySelectorAll('.tab');
+    var starToggle = bar.querySelector('.star-toggle');
+    var curCat = 'all', starsOnly = false;
+
+    function apply() {
+      scope.querySelectorAll('.category').forEach(function (catEl) {
+        var ct = catEl.getAttribute('data-cat');
+        var catMatch = (curCat === 'all') || (ct === curCat);
+        var visible = 0;
+        catEl.querySelectorAll('.item-card').forEach(function (it) {
+          var stars = parseInt(it.getAttribute('data-stars') || '0', 10);
+          var show = catMatch && (!starsOnly || stars >= 4);
+          it.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        catEl.style.display = (catMatch && visible > 0) ? '' : 'none';
+      });
+      var anyVisible = Array.prototype.some.call(
+        scope.querySelectorAll('.category'),
+        function (c) { return c.style.display !== 'none'; }
+      );
+      var emptyMsg = scope.querySelector('.empty-filter');
+      if (emptyMsg) emptyMsg.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        curCat = t.getAttribute('data-cat');
+        apply();
+      });
+    });
+    if (starToggle) {
+      starToggle.addEventListener('click', function () {
+        starsOnly = !starsOnly;
+        starToggle.classList.toggle('active', starsOnly);
+        apply();
+      });
+    }
+  });
+
+  // ── Keyboard navigation (day pages) ──
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' && window.PREV_DATE) {
+      window.location.href = window.PREV_DATE + '.html';
+    } else if (e.key === 'ArrowRight' && window.NEXT_DATE) {
+      window.location.href = window.NEXT_DATE + '.html';
+    }
+  });
+
+  // ── Back to top ──
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Reading progress ──
+  var pb = document.getElementById('progressBar');
+  if (pb) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      pb.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+  }
+
+  // ── Theme toggle ──
+  var tt = document.getElementById('themeToggle');
+  function curTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+  function paintToggle() { if (tt) tt.textContent = curTheme() === 'light' ? '☀️' : '🌙'; }
+  paintToggle();
+  if (tt) {
+    tt.addEventListener('click', function () {
+      var next = curTheme() === 'light' ? 'dark' : 'light';
+      if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paintToggle();
+    });
+  }
+
+  // ── Language toggle ──
+  var PH = { zh: '搜索全部日报…', en: 'Search all digests…' };
+  function curLang() {
+    return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+  }
+  window.CUR_LANG = curLang();
+  var lt = document.getElementById('langToggle');
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+    window.CUR_LANG = lang;
+    if (lt) lt.textContent = lang === 'en' ? '中' : 'EN';
+    if (si) si.setAttribute('placeholder', PH[lang]);
+  }
+  applyLang(curLang());
+  if (lt) {
+    lt.addEventListener('click', function () {
+      var next = curLang() === 'en' ? 'zh' : 'en';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      applyLang(next);
+    });
+  }
+
+  // ── Hot-word tags → search ──
+  document.querySelectorAll('.trend-tag').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      var term = tag.getAttribute('data-term');
+      if (si) {
+        si.value = term;
+        si.focus();
+        si.dispatchEvent(new Event('input', { bubbles: true }));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Voice readout (Web Speech API) ──
+  var synth = window.speechSynthesis;
+  document.querySelectorAll('.speak-btn').forEach(function (btn) {
+    if (!synth) { btn.style.display = 'none'; return; }
+    var label = btn.getAttribute('data-label') || '🔊 朗读';
+    var stop = btn.getAttribute('data-stop') || '⏹ 停止';
+    btn.addEventListener('click', function () {
+      if (btn.classList.contains('playing')) {
+        synth.cancel();
+        return;
+      }
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-text') || '');
+      u.lang = btn.getAttribute('data-speak-lang') || 'zh-CN';
+      u.rate = 1.0;
+      u.onend = u.onerror = function () {
+        btn.classList.remove('playing');
+        btn.textContent = label;
+      };
+      btn.classList.add('playing');
+      btn.textContent = stop;
+      synth.speak(u);
+    });
+  });
+  window.addEventListener('beforeunload', function () { if (synth) synth.cancel(); });
+
+  // ── Audio player: lock-screen / car metadata via MediaSession ──
+  document.querySelectorAll('.audio-player audio').forEach(function (audio) {
+    audio.addEventListener('play', function () {
+      if (!('mediaSession' in navigator)) return;
+      var date = audio.getAttribute('data-date') || '';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Andy 的 AI 早报 · ' + date,
+          artist: 'Andy 的 AI 早报',
+          album: 'Andy 的 AI 早报',
+          artwork: [{ src: BASE + 'podcast-cover.png', sizes: '1400x1400', type: 'image/png' }]
+        });
+      } catch (e) {}
+    });
+  });
+
+  // ── Copy podcast feed URL ──
+  document.querySelectorAll('[data-copy-feed]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = el.getAttribute('data-copy-feed');
+      var done = function () {
+        var old = el.textContent;
+        el.textContent = (window.CUR_LANG === 'en' ? '✓ Copied!' : '✓ 已复制订阅链接');
+        setTimeout(function () { el.textContent = old; }, 1800);
+      };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, done); }
+      else { done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

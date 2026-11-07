@@ -1,0 +1,1283 @@
+{
+  "date": "2026-11-08",
+  "generated_at": "2026-11-08T06:27:32.875459+08:00",
+  "counts": {
+    "papers": 10,
+    "projects": 8,
+    "news": 57
+  },
+  "health": [
+    {
+      "source": "HuggingFace Papers",
+      "type": "api",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "GitHub Trending",
+      "type": "page",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "Hacker News",
+      "type": "api",
+      "status": "ok",
+      "note": "12 条"
+    },
+    {
+      "source": "36Kr AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "量子位",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "InfoQ 中文",
+      "type": "rss",
+      "status": "ok",
+      "note": "3 条"
+    },
+    {
+      "source": "SSPAI AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "VentureBeat",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "TechCrunch AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "The Verge AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "6 条"
+    },
+    {
+      "source": "The Decoder",
+      "type": "rss",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "MarkTechPost",
+      "type": "rss",
+      "status": "ok",
+      "note": "2 条"
+    },
+    {
+      "source": "Simon Willison",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "Hugging Face Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "Google DeepMind",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "Google AI Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "OpenAI",
+      "type": "rss",
+      "status": "ok",
+      "note": "6 条"
+    },
+    {
+      "source": "fal blog",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "smol.ai AINews",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "TLDR AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "r/LocalLLaMA",
+      "type": "rss",
+      "status": "ok",
+      "note": "6 条"
+    },
+    {
+      "source": "r/aivideo",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "Latent Space",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "LangChain Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "One Useful Thing (Mollick)",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "BytePlus ModelArk 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "火山方舟 模型价格",
+      "type": "page",
+      "status": "ok",
+      "note": "大面积改版（507 行），已重建基线，不报"
+    },
+    {
+      "source": "MiniMax 定价",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "阿里云百炼 模型列表（Wan）",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Gemini API 价格",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "Gemini API changelog",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "Anthropic news",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+1 / -1 行"
+    },
+    {
+      "source": "Anthropic 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "fal 价格（含 Kling 等第三方模型价）",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Replicate 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "WaveSpeedAI 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Higgsfield 定价套餐",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "OpenRouter 主力模型价格",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+5 / -5 行"
+    },
+    {
+      "source": "Artificial Analysis 视频模型榜",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    }
+  ],
+  "items": {
+    "papers": [
+      {
+        "category": "papers",
+        "title": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+        "url": "https://huggingface.co/papers/2611.06500",
+        "normalized_url": "https://huggingface.co/papers/2611.06500",
+        "summary": "Large language model (LLM) agents typically append raw tool outputs to their context. Over multi-step interactions, long and noisy observations incur substantial context overhead and dilute the agent's attention to task-relevant information. Existing token pruning and summarization methods remain constrained by discrete text representations, limiting the achievable compression ratios. In this work, we challenge the prevailing assumption that agents must consume tool observations as explicit text",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-04T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.06500"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Signed but Steerable: Measuring and Closing the Text-Vector Integrity Gap in Offline Retrieval-Augmented Generation",
+        "url": "https://huggingface.co/papers/2611.06498",
+        "normalized_url": "https://huggingface.co/papers/2611.06498",
+        "summary": "Offline retrieval-augmented generation (RAG) on edge devices is updated through signed knowledge packs that carry text and precomputed embedding vectors. A signature proves who published a pack, not that its vectors encode its text. We study this text-vector integrity gap. A verifier that recomputes vectors and accepts them within a cosine tolerance concedes a predictable share of queries to an attacker who controls the vectors: the hijack rate equals the distribution of angular retrieval margin",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-04T13:32:04.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.06498"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "StepX-OPD: Rethinking Multi-Teacher On-Policy Distillation in Diffusion Models",
+        "url": "https://huggingface.co/papers/2611.04386",
+        "normalized_url": "https://huggingface.co/papers/2611.04386",
+        "summary": "A deployable text-to-image diffusion model must hold several capabilities at once, such as instruction following, text rendering and human preference, and must sample in a few steps. Capabilities and few-step sampling are built in separate stages: a full-step model first consolidates capabilities through multi-teacher on-policy distillation, then serves as a fixed teacher for step distillation. Every full-step model we evaluate scores lower once compressed, and the second stage cannot begin unti",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-03T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.04386"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "SwarmEvolve: Latent Agent Swarms for Evolutionary Discovery and Optimization",
+        "url": "https://huggingface.co/papers/2611.08483",
+        "normalized_url": "https://huggingface.co/papers/2611.08483",
+        "summary": "LLM-guided evolutionary search uses AI agents to improve programs for mathematical and computational problems by iteratively refining solutions and combining high-scoring methods. However, the process is often slow because the LLM generates a long textual chain of thought for each round and must repeat this generation many times to maintain population diversity. We present SwarmEvolve, a framework in which hundreds of low-cost agents per round work in swarms, reason in latent space without decod",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-05T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.08483"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
+        "url": "https://huggingface.co/papers/2610.37739",
+        "normalized_url": "https://huggingface.co/papers/2610.37739",
+        "summary": "Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensive collection of such problems is still missing, and evaluating them on research-level problems remains challenging. We introduce OpenFrontiers, a cross-disciplinary resource that combines a structured corpus of open research problems with a retrospective benchmark of recently resolved problems in mathematics. The corpus records problem statements, context, progress, and other informati",
+        "source": "HuggingFace Papers",
+        "published": "2026-10-27T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2610.37739"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Terminal-style Mathematical Modeling Bench: The First Agentic and Verifiable Benchmark for Mathematical Modeling",
+        "url": "https://huggingface.co/papers/2611.08237",
+        "normalized_url": "https://huggingface.co/papers/2611.08237",
+        "summary": "Mathematical modeling turns an open-ended real-world problem into assumptions, a model, a solution, and a defended recommendation, and its answers matter only if they are both close to a credible reference and physically feasible; existing benchmarks either score solver fragments or grade reports with an LLM judge, leaving those numbers unchecked. We introduce TB-MathModel (the Terminal-style Mathematical Modeling Bench), the first benchmark to make complete contest-style modeling problems agent",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-05T16:18:35.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.08237"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Muir: Linear Attention with Sensitivity-Allocated Gating and Matched-Filter Readout",
+        "url": "https://huggingface.co/papers/2611.08376",
+        "normalized_url": "https://huggingface.co/papers/2611.08376",
+        "summary": "Linear attention compresses context into a fixed-size key-value state for linear-time training and constant-memory inference. Gated delta-rule models decay this state and erase its prediction for an incoming key before writing a new value; Gated DeltaNet-2 (GDN-2) generalizes this with channel-wise decay and decoupled, full-rank erase and write gates. However, we show that state updates are far less sensitive to erasure than to writes: key activation and unit normalization concentrate key energy",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-05T17:53:49.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.08376"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Information Games: Strategic Crowding and Firm Repositioning in Language-Model Space",
+        "url": "https://huggingface.co/papers/2609.37820",
+        "normalized_url": "https://huggingface.co/papers/2609.37820",
+        "summary": "When firms respond to new market opportunities, their capacity choices alter the future discounted free cash flows available to both competitors and investors. In competitive markets, these investment decisions publicized in news articles and analyst reports, measuring the changes in capital structure, product mix, firm leadership, risk exposure and operating procedure made by the firm. Modern search engines rely on Large Language Models to measure the relevancy of source documents to given sear",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-05T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2609.37820"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Reducing Representational Interference in Retrieval Embeddings with Trainable Prefix Tokens",
+        "url": "https://huggingface.co/papers/2611.07298",
+        "normalized_url": "https://huggingface.co/papers/2611.07298",
+        "summary": "Embedding models compress variable-length text into fixed-size vector representations, but this compression can entangle semantic content with residual token-level information, such as artifacts arising from attention sink behavior. We propose a simple method that prepends trainable [DUMP] tokens to the input during embedding model training. The method keeps the model architecture, pooling strategy, and training loss unchanged, while optimizing the added tokens through the standard contrastive r",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-05T01:30:28.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.07298"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Hard Sample-Conditioned Decorrelated Attention for Robust Face Recognition",
+        "url": "https://huggingface.co/papers/2610.41789",
+        "normalized_url": "https://huggingface.co/papers/2610.41789",
+        "summary": "Multi-head attention in Vision Transformers (ViTs) allows independent attention patterns across heads, but without explicit regularization, heads may learn redundant patterns rather than complementary roles. Correlation-based penalties encourage head disentanglement, yet apply uniform regularization across all training samples. In face recognition (FR), hard samples whose embeddings lie close to competing identities are critical for optimization and generalization. Motivated by this, we propose ",
+        "source": "HuggingFace Papers",
+        "published": "2026-10-30T14:21:43.000Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2610.41789"
+        }
+      }
+    ],
+    "projects": [
+      {
+        "category": "projects",
+        "title": "vercel-labs/agent-browser ⭐+180/天",
+        "url": "https://github.com/vercel-labs/agent-browser",
+        "normalized_url": "https://github.com/vercel-labs/agent-browser",
+        "summary": "Browser automation CLI for AI agents （GitHub Trending · 今日 +180 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "180"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "cloudflare/security-audit-skill ⭐+2,088/天",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "normalized_url": "https://github.com/cloudflare/security-audit-skill",
+        "summary": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings （GitHub Trending · 今日 +2,088 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "2,088"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "google/skills ⭐+449/天",
+        "url": "https://github.com/google/skills",
+        "normalized_url": "https://github.com/google/skills",
+        "summary": "Agent Skills for Google products and technologies （GitHub Trending · 今日 +449 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "449"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "mattpocock/skills ⭐+1,111/天",
+        "url": "https://github.com/mattpocock/skills",
+        "normalized_url": "https://github.com/mattpocock/skills",
+        "summary": "Skills for Real Engineers. Straight from my .agents directory. （GitHub Trending · 今日 +1,111 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "1,111"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "anthropics/skills ⭐+386/天",
+        "url": "https://github.com/anthropics/skills",
+        "normalized_url": "https://github.com/anthropics/skills",
+        "summary": "Public repository for Agent Skills （GitHub Trending · 今日 +386 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "386"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "meta/astryx ⭐+185/天",
+        "url": "https://github.com/meta/astryx",
+        "normalized_url": "https://github.com/meta/astryx",
+        "summary": "An open source design system that's fully customizable and agent ready （GitHub Trending · 今日 +185 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "185"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "tailwindlabs/tailwindcss ⭐+181/天",
+        "url": "https://github.com/tailwindlabs/tailwindcss",
+        "normalized_url": "https://github.com/tailwindlabs/tailwindcss",
+        "summary": "A utility-first CSS framework for rapid UI development. （GitHub Trending · 今日 +181 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "181"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "dsx-ai-factory/nvke ⭐+125/天",
+        "url": "https://github.com/dsx-ai-factory/nvke",
+        "normalized_url": "https://github.com/dsx-ai-factory/nvke",
+        "summary": "NVIDIA Kubernetes Engine (NVKE). A management plane for GPU Kubernetes on bare metal. （GitHub Trending · 今日 +125 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "125"
+        }
+      }
+    ],
+    "news": [
+      {
+        "category": "news",
+        "title": "[页面变动] Anthropic news",
+        "url": "https://www.anthropic.com/news",
+        "normalized_url": "https://www.anthropic.com/news",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ November 7, 2026\n删除：\n- November 6, 2026",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "anthropic-news"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] OpenRouter 主力模型价格",
+        "url": "https://openrouter.ai/api/v1/models",
+        "normalized_url": "https://openrouter.ai/api/v1/models",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ deepseek/deepseek-v4-pro | prompt 0.000000515214 | completion 0.000001030428 | image None\n+ deepseek/deepseek-v4-pro-0813 | prompt 0.000000111 | completion 0.00000444 | image None\n+ minimax/minimax-m2.5 | prompt 0.0000003 | completion 0.0000012 | image None\n+ moonshotai/kimi-k2.5 | prompt 0.000000532 | completion 0.000003325 | image None\n+ openai/gpt-oss-120b | prompt 0.000000029 | completion 0.000000108 | image None\n删除：\n- deepseek/deepseek-v4-pro | prompt 0.00000069948 | completion 0.00000139896 | image None\n- deepseek/deepseek-v4-pro-0813 | prompt 0.0000001165 | completion 0.00000466 | image None\n- minimax/minimax-m2.5 | prompt 0.00000027 | completion 0.00000095 | image None\n- moonshotai/kimi-k2.5 | prompt 0.0000005 | completion 0.0000025 | image None\n- openai/gpt-oss-120b | prompt 0.00000001 | completion 0.000000037 | image None",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "openrouter-models"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+        "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+        "normalized_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+        "summary": "HN points: 52, comments: 40",
+        "source": "Hacker News",
+        "published": "2026-11-07T20:45:32Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "The end of Microsoft Research's AI Frontiers group",
+        "url": "https://hunch.net/?p=13764006",
+        "normalized_url": "https://hunch.net?p=13764006",
+        "summary": "HN points: 274, comments: 154",
+        "source": "Hacker News, Hacker News",
+        "published": "2026-11-07T18:02:17Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "US intelligence: Jensen Huang had affair with Chinese spy; linked to smuggling",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/us-intelligence-believes-jensen-huang-had-romantic-relationship-with-chinese-spy-in-honeypot-operation-spy-suspect-linked-to-company-accused-of-smuggling-usd2-billion-in-ai-chips",
+        "normalized_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/us-intelligence-believes-jensen-huang-had-romantic-relationship-with-chinese-spy-in-honeypot-operation-spy-suspect-linked-to-company-accused-of-smuggling-usd2-billion-in-ai-chips",
+        "summary": "HN points: 21, comments: 4",
+        "source": "Hacker News",
+        "published": "2026-11-07T18:00:02Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "How Long Can Life Wait?",
+        "url": "https://mceglowski.substack.com/p/how-long-can-life-wait",
+        "normalized_url": "https://mceglowski.substack.com/p/how-long-can-life-wait",
+        "summary": "HN points: 104, comments: 57",
+        "source": "Hacker News",
+        "published": "2026-11-07T16:22:59Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Show HN: We compressed a 31B video+audio diffusion model to 14B, 6 steps, INT8",
+        "url": "https://github.com/Video-Rebirth/hyperflow-h3-flash",
+        "normalized_url": "https://github.com/Video-Rebirth/hyperflow-h3-flash",
+        "summary": "HN points: 47, comments: 10",
+        "source": "Hacker News",
+        "published": "2026-11-07T15:16:01Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "I don't care if web content is AI-generated",
+        "url": "https://kevinboone.me/ai.html",
+        "normalized_url": "https://kevinboone.me/ai.html",
+        "summary": "HN points: 14, comments: 9",
+        "source": "Hacker News",
+        "published": "2026-11-07T14:02:56Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Inter-AI Morality: How AI Systems Treat One Another [pdf]",
+        "url": "https://digitalminds.cam/inter-ai-morality.pdf",
+        "normalized_url": "https://digitalminds.cam/inter-ai-morality.pdf",
+        "summary": "HN points: 13, comments: 0",
+        "source": "Hacker News",
+        "published": "2026-11-07T08:02:02Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "The Components of Agent Memory",
+        "url": "https://www.anthropic.com/research/components-of-agent-memory",
+        "normalized_url": "https://www.anthropic.com/research/components-of-agent-memory",
+        "summary": "HN points: 144, comments: 73",
+        "source": "Hacker News",
+        "published": "2026-11-07T06:39:04Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Show HN: Backwords – Let AI teach you how to speak in reverse",
+        "url": "https://backwords.greg.technology/",
+        "normalized_url": "https://backwords.greg.technology",
+        "summary": "HN points: 12, comments: 3",
+        "source": "Hacker News",
+        "published": "2026-11-07T03:39:46Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Brave Sells Its Search Index to AI, and Your Website Is Probably in It",
+        "url": "https://www.searchenginejournal.com/brave-sells-its-search-index-to-ai-and-your-website-is-probably-in-it/595829/",
+        "normalized_url": "https://www.searchenginejournal.com/brave-sells-its-search-index-to-ai-and-your-website-is-probably-in-it/595829",
+        "summary": "HN points: 15, comments: 4",
+        "source": "Hacker News",
+        "published": "2026-11-07T02:59:27Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "The AI sell-off compared to well-known stock market crashes",
+        "url": "https://www.kadoa.com/companies/insights/ai-selloff-perspective",
+        "normalized_url": "https://www.kadoa.com/companies/insights/ai-selloff-perspective",
+        "summary": "HN points: 83, comments: 69",
+        "source": "Hacker News",
+        "published": "2026-11-07T02:20:06Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
+        "url": "https://www.qbitai.com/2026/11/508264.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/508264.html",
+        "summary": "苦单Session久矣，两大Agent玩家不谋而合。",
+        "source": "量子位",
+        "published": "2026-11-07T05:01:17+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AGENTS.MD，危险危险危险！！！",
+        "url": "https://www.qbitai.com/2026/11/508244.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/508244.html",
+        "summary": "全新的电脑病毒",
+        "source": "量子位",
+        "published": "2026-11-07T03:43:55+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "",
+        "url": "https://www.qbitai.com/2026/11/508236.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/508236.html",
+        "summary": "中国版cosmos再交卷",
+        "source": "量子位",
+        "published": "2026-11-07T03:31:44+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Jeff Dean李飞飞最新对谈：全是RSI非共识",
+        "url": "https://www.qbitai.com/2026/11/508196.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/508196.html",
+        "summary": "RSI不可能无限快",
+        "source": "量子位",
+        "published": "2026-11-07T03:23:29+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "不复制海量数据，直接查询 S3：CSIRO 重构基因组分析架构",
+        "url": "https://www.infoq.cn/article/mF9A6U1M6SQFWfEKOJGW?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/mF9A6U1M6SQFWfEKOJGW",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-07T16:11:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "CyberwIIOS：如何驾驭大模型在 OT 侧跨越“幻觉”与“失控”｜AICon北京",
+        "url": "https://www.infoq.cn/article/K1bCIbHxeu3wLIjdusgr?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/K1bCIbHxeu3wLIjdusgr",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-07T10:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "线上 Worker 变慢，本地却复现不了？Cloudflare 让开发者直接看生产环境火焰图",
+        "url": "https://www.infoq.cn/article/pMNGPheLLJ8hkfikmjUU?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/pMNGPheLLJ8hkfikmjUU",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-07T09:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+        "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+        "normalized_url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers",
+        "summary": "On Equity, we unpacked what the midterms mean for the tech industry.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-07T22:07:22+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+        "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+        "normalized_url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo",
+        "summary": "A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-07T21:17:08+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Crusoe sells troubled Wyoming data center project to Google",
+        "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+        "normalized_url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google",
+        "summary": "The deal highlights the challenges of developing massive AI data centers.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-07T01:40:28+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "NYT Cooking’s AI assistant saved my weeknight chicken, but almost ruined my cake",
+        "url": "https://www.theverge.com/tech/1029489/nyt-cooking-ai-assistant-review",
+        "normalized_url": "https://www.theverge.com/tech/1029489/nyt-cooking-ai-assistant-review",
+        "summary": "Around 7PM each weeknight, I find myself standing in front of the fridge, trying to decide on something for dinner that won't make my husband complain, \"Chicken again?\" Yes, I should meal plan more, but I don't, so this is where I'm at. A nightly battle in which the chicken usually wins. Recently, my best […]",
+        "source": "The Verge AI",
+        "published": "2026-11-07T15:50:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "The US let Nvidia sell chips to an empty office in China",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+        "summary": "Concerns are being raised that neither the Commerce Department nor Nvidia are doing their due diligence when it comes to vetting Chinese firms cleared to handle the company's H200 AI chips. According to The New York Times, New Matrix is on the list of approved firms, yet its offices are empty, \"a hollow gray shell […]",
+        "source": "The Verge AI",
+        "published": "2026-11-07T15:43:45+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI broke the cybersecurity world. What’s next?",
+        "url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+        "normalized_url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+        "summary": "Today, I’m talking with Alex Stamos, chief security officer at Cognition and longtime cybersecurity expert, about what a mess cybersecurity is right now. This episode is part one of a special series looking at AI in real life. I’ve always enjoyed talking to Alex because he’s so direct, and you’re going to hear him say […]",
+        "source": "The Verge AI",
+        "published": "2026-11-07T15:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Why a new report on Anthropic automating AI development is alarming researchers",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+        "summary": "Anthropic is using AI to build more powerful AI. And it appears to be working remarkably well, with the company's models improving roughly twice as quickly as a year ago, with little indication of slowing down. That's according to a new report published Thursday by the AI safety research organization METR, following an 11-week investigation […]",
+        "source": "The Verge AI",
+        "published": "2026-11-07T12:30:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+        "summary": "OpenAI is now valued at $1.25 trillion in a new round of funding that has raised another $11 billion, according to Bloomberg. That would make it one of the world's most valuable companies, not long after raising $122 billion from investors in March at a valuation of $852 billion. Echoing FT and Wall Street Journal […]",
+        "source": "The Verge AI",
+        "published": "2026-11-06T23:46:18+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+        "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+        "normalized_url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+        "summary": "China's intelligence agency recruited Megaspeed executive Alice Huang to spy on Nvidia CEO Jensen Huang, according to The New York Times. The Ministry of State Security (MSS) enlisted her to glean information about American AI chips and \"potentially influence the company to push for its most advanced chips to be made available to China.\" Megaspeed […]",
+        "source": "The Verge AI",
+        "published": "2026-11-06T23:00:44+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation",
+        "url": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/",
+        "normalized_url": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation",
+        "summary": "Despite the tech selloff, Anthropic is pressing ahead with its IPO at a valuation of $1.25 to $1.75 trillion, well below the hoped-for $2 trillion. The Claude developer aims to raise $80 to $100 billion before Thanksgiving. Rival OpenAI has also recently had to cut its valuation. The article Anthropic pushes ahead with pre-Thanksgiving IPO despite tech selloff, accepts lower valuation appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-07T17:37:25+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI auditors catch most agent misbehavior but flood reviewers with false alarms, new study finds",
+        "url": "https://the-decoder.com/ai-auditors-catch-most-agent-misbehavior-but-flood-reviewers-with-false-alarms-new-study-finds/",
+        "normalized_url": "https://the-decoder.com/ai-auditors-catch-most-agent-misbehavior-but-flood-reviewers-with-false-alarms-new-study-finds",
+        "summary": "AI models can often spot problematic behavior by other AI agents in logs, according to a study by Anthropic researcher Andy Hall. GPT-5 found about 98 percent of reward-hacking cases, but the more exhaustively the search is tuned, the more false alarms pile up. That's not yet enough for reliable safety checks. The article AI auditors catch most agent misbehavior but flood reviewers with false alarms, new study finds appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-07T16:56:38+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Thinking Machines' Inkling 2 Small drops 316 F-bombs across benchmark runs",
+        "url": "https://the-decoder.com/thinking-machines-inkling-2-small-drops-316-f-bombs-across-benchmark-runs/",
+        "normalized_url": "https://the-decoder.com/thinking-machines-inkling-2-small-drops-316-f-bombs-across-benchmark-runs",
+        "summary": "Thinking Machines' AI model Inkling 2 Small swears during its internal reasoning, 316 times across 2,655 benchmark runs, according to an analysis by Vals AI. The profanity typically shows up late in long runs that fail anyway. But it doesn't work as a warning signal: 96 percent of failed runs contained no cursing at all. The article Thinking Machines' Inkling 2 Small drops 316 F-bombs across benchmark runs appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-07T16:31:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "The gap between open and closed AI models in cyber capabilities keeps shrinking",
+        "url": "https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking/",
+        "normalized_url": "https://the-decoder.com/the-gap-between-open-and-closed-ai-models-in-cyber-capabilities-keeps-shrinking",
+        "summary": "In the Vals AI benchmark, OpenAI's GPT-6 Sol Daybreak hits 80.8 percent of attack objectives in simulated corporate networks. Worse, the open-weight model DeepSeek V4.1 Flash reaches 72.8 percent at a tenth of the cost. Because open models can no longer be restricted, analysts say the window for defenders is shrinking fast. The article The gap between open and closed AI models in cyber capabilities keeps shrinking appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-07T15:35:50+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away",
+        "url": "https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away/",
+        "normalized_url": "https://the-decoder.com/state-propaganda-in-some-chinese-ai-models-is-only-a-thin-layer-that-fine-tuning-can-strip-away",
+        "summary": "Nous Research retrained Alibaba's Qwen3.8-27B to produce Arete-27B, largely stripping out its pro-Chinese bias. The propaganda rate dropped from 22 percent to less than one percent, while general capabilities remained intact in tests. The method relied on 53 million tokens of supervised fine-tuning. The political bias is \"applied late, it is applied thin,\" the team writes. The article State propaganda in some Chinese AI models is only \"a thin layer\" that fine-tuning can strip away appeared first",
+        "source": "The Decoder",
+        "published": "2026-11-07T12:32:45+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar",
+        "url": "https://the-decoder.com/nine-ai-agents-tried-autonomous-research-on-open-questions-from-us-national-labs-and-none-passed-the-experts-bar/",
+        "normalized_url": "https://the-decoder.com/nine-ai-agents-tried-autonomous-research-on-open-questions-from-us-national-labs-and-none-passed-the-experts-bar",
+        "summary": "The \"Into the Unknown\" benchmark tasks nine AI agents with tackling open research questions from U.S. national laboratories. None of the 135 submissions meets all requirements. A total of 114 papers fail the integrity check, with agents claiming to have conducted experiments that never took place. GPT-6 Astra performs best but still doesn't meet the experts' standards. The article Nine AI agents tried autonomous research on open questions from US national labs and none passed the experts' bar ap",
+        "source": "The Decoder",
+        "published": "2026-11-07T11:13:42+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Google's AI detects high blood pressure from a regular smartwatch without a cuff",
+        "url": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff/",
+        "normalized_url": "https://the-decoder.com/googles-ai-detects-high-blood-pressure-from-a-regular-smartwatch-without-a-cuff",
+        "summary": "Google Research built an AI that spots signs of high blood pressure using only the pulse and motion sensors in a standard smartwatch, no cuff needed. In a 196-person study, its 65.8 percent detection rate beat the traditional in-office measurement. The method is already live in the Google Health app, though it doesn't replace a formal diagnosis. The article Google's AI detects high blood pressure from a regular smartwatch without a cuff appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-07T09:54:09+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI lands an $11 billion funding round, but has to court dentists for more capital",
+        "url": "https://the-decoder.com/openai-lands-an-11-billion-funding-round-but-has-to-court-dentists-for-more-capital/",
+        "normalized_url": "https://the-decoder.com/openai-lands-an-11-billion-funding-round-but-has-to-court-dentists-for-more-capital",
+        "summary": "OpenAI has secured $11 billion in fresh capital, the first tranche of a round that values the company at $1.25 trillion. The full round could swell to $20 billion. That OpenAI is already turning to wealthy private investors hints at a saturating AI capital market and growing investor caution. The article OpenAI lands an $11 billion funding round, but has to court dentists for more capital appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-07T09:45:23+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "How to Run NVIDIA Dory 4B with llama.cpp: Loop by Loop Guide",
+        "url": "https://www.marktechpost.com/2026/11/07/coding-guide-nvidia-dory-4b-llama-cpp/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/07/coding-guide-nvidia-dory-4b-llama-cpp",
+        "summary": "Explore a comprehensive coding guide for NVIDIA's Dory 1.0 4B looped language model. Learn how to build the pinned llama.cpp branch, analyze loop-by-loop compute costs, test memory caching, and run paired evaluations. The post How to Run NVIDIA Dory 4B with llama.cpp: Loop by Loop Guide appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-07T19:22:44+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Buoyant Releases Kinference: An Open Source Inference Control Plane for Kubernetes and vLLM",
+        "url": "https://www.marktechpost.com/2026/11/07/buoyant-kinference-open-source-inference-control-plane-kubernetes-vllm/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/07/buoyant-kinference-open-source-inference-control-plane-kubernetes-vllm",
+        "summary": "Buoyant has released Kinference, an Apache 2.0 inference control plane for vLLM on Kubernetes. It adds declarative routing policies, KV-cache-aware load balancing and per-tenant metrics, and cut median TTFT 95% in Buoyant’s own benchmark. The post Buoyant Releases Kinference: An Open Source Inference Control Plane for Kubernetes and vLLM appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-07T08:16:33+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "ToyBlocks: A controlled world for robot learning and evaluation",
+        "url": "https://huggingface.co/blog/allenai/toyblocks",
+        "normalized_url": "https://huggingface.co/blog/allenai/toyblocks",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-06T14:00:48+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
+        "url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+        "normalized_url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-06T00:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+        "url": "https://huggingface.co/blog/phonon-tts",
+        "normalized_url": "https://huggingface.co/blog/phonon-tts",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-05T00:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+        "url": "https://openai.com/index/partnering-with-hacktron",
+        "normalized_url": "https://openai.com/index/partnering-with-hacktron",
+        "summary": "OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.",
+        "source": "OpenAI",
+        "published": "2026-11-06T08:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Measuring how AI agents handle everyday wet-lab science",
+        "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+        "normalized_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+        "summary": "OpenAI introduces BioBasicsBench, a 100-task benchmark measuring how well AI agents interpret raw experimental data and handle everyday wet-lab science.",
+        "source": "OpenAI",
+        "published": "2026-11-06T00:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Australian universities are creating AI-native graduates",
+        "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+        "normalized_url": "https://openai.com/index/australian-universities-ai-native-graduates",
+        "summary": "Australian universities are expanding access to ChatGPT and bringing AI into teaching and learning to prepare students for an AI-enabled workforce.",
+        "source": "OpenAI",
+        "published": "2026-11-05T17:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Cult.fit builds operational muscle with Codex",
+        "url": "https://openai.com/index/cultfit-builds-with-codex",
+        "normalized_url": "https://openai.com/index/cultfit-builds-with-codex",
+        "summary": "Cult.fit is using Codex to help teams across functions build tools, move faster, and change how work gets done.",
+        "source": "OpenAI",
+        "published": "2026-11-05T20:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Merge builds product and business tools with OpenAI technology",
+        "url": "https://openai.com/index/merge-builds-with-openai",
+        "normalized_url": "https://openai.com/index/merge-builds-with-openai",
+        "summary": "Merge uses GPT-6 Astra, ChatGPT, and Codex to review product code and support marketing. Its teams also use AI to plan executive dinners and prepare sales updates.",
+        "source": "OpenAI",
+        "published": "2026-11-05T08:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Good Luck Getting a Cheap GPU. AMD Is a 'Data Center First Company,' CEO Says",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpx0on/good_luck_getting_a_cheap_gpu_amd_is_a_data/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpx0on/good_luck_getting_a_cheap_gpu_amd_is_a_data",
+        "summary": "they are all the same and we ... are too emotional! and yes we already knew that. submitted by /u/ab2377 [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-07T04:05:32+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Six Pallets of NVIDIA Hardware Worth $11.4 Million Stolen on the Way to Texas",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpqx1p/six_pallets_of_nvidia_hardware_worth_114_million/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpqx1p/six_pallets_of_nvidia_hardware_worth_114_million",
+        "summary": "submitted by /u/chemist_slime [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-06T23:03:21+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Harness Leaderboard - Kimi Code, Hermes, Pi, Claude Code, Codex, and Others Were Benchmarked Against Terminal Bench 2.1 & Deep SWE 1.1",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpvfx8/harness_leaderboard_kimi_code_hermes_pi_claude/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpvfx8/harness_leaderboard_kimi_code_hermes_pi_claude",
+        "summary": "submitted by /u/Izento [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-07T02:41:59+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "llama_moe_cache: run missed experts on CPU, add tuning script by am17an · Pull Request #30966 · ggml-org/llama.cpp",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xqacka/llama_moe_cache_run_missed_experts_on_cpu_add/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xqacka/llama_moe_cache_run_missed_experts_on_cpu_add",
+        "summary": "This is a significant speedup for MoE offloading (low VRAM people). I tried Strata once, and it had some tuning mechanism, so probably this is a similar idea. submitted by /u/jacek2023 [link] [comments]",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-07T16:25:06+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Use your phone to monitor anything with local models! Demo of my Open Source and 100% local agent (iOS and Android!)",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xqd058/use_your_phone_to_monitor_anything_with_local/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xqd058/use_your_phone_to_monitor_anything_with_local",
+        "summary": "Hey r/LocalLLaMA ! I made this quick demo of how Observer can run local models to monitor anything with your phone! These are some crazy things I've monitored: When someone that's not me, approaches my car, send me a picture. When a bird is on the bird's nest, send me a telegram with the picture. When my washing machine is on the rinse cycle, call me. When my dog finishes eating their food, notify me. When a machine at the gym is available, call me. So pretty much anything! I love seeing what yo",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-07T18:16:41+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Another benchmark has hit the quant war",
+        "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpxfob/another_benchmark_has_hit_the_quant_war/",
+        "normalized_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpxfob/another_benchmark_has_hit_the_quant_war",
+        "summary": "If you have not been following ISTA-DASLab the creators of the gsq-rco quants have received some criticism from unsloth regarding the inabilty to reproduce the benchmark numbers that ISTA-DASLab have quoted. The methodology used to produce their benchmark numbers has not been posted and their has been difficulty reproducing their numbers with unsloth finding in there testing unsloth quants outperforming the gsq-rco quants. The numbers in this post here are from another creator the creator of bas",
+        "source": "r/LocalLLaMA",
+        "published": "2026-11-07T04:28:19+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[AINews] Anthropic IPO: Whither Now?",
+        "url": "https://latent.space/p/ainews-anthropic-ipo-whither-now/",
+        "normalized_url": "https://latent.space/p/ainews-anthropic-ipo-whither-now",
+        "summary": "November 6, 2026 — ARC Prize tests Inkling 2 Small, and Thinking Machines explains how it caught early checkpoints bypassing guardrails.",
+        "source": "Latent Space",
+        "published": "2026-11-07T03:04:53+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Controlling Biology - Fabian Theis, Helmholtz Munich",
+        "url": "https://latent.space/p/controlling-biology-fabian-theis-helmholtz-munich/",
+        "normalized_url": "https://latent.space/p/controlling-biology-fabian-theis-helmholtz-munich",
+        "summary": "As systems biology efforts heat up to map biology at higher resolution, greater breadth and more modalities, Fabian Theis is pushing the frontier from mapping to predicting to controlling biology",
+        "source": "Latent Space",
+        "published": "2026-11-06T15:10:53+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[AINews] It's Swapping Season",
+        "url": "https://latent.space/p/ainews-it-s-swapping-season/",
+        "normalized_url": "https://latent.space/p/ainews-it-s-swapping-season",
+        "summary": "November 4, 2026 — OpenAI’s Linux kernel security work, Kimi K3.1 Pro’s open weights, and Ricursive’s Ripple-65B.",
+        "source": "Latent Space",
+        "published": "2026-11-05T06:24:09+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.latent.space/feed"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Managed Deep Agents v0.10: Browser Use and Async Subagents",
+        "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+        "normalized_url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+        "summary": "Managed Deep Agents v0.10 adds browser use, so agents can work on sites with no API and hand you the window to sign in, and async subagents for background work.",
+        "source": "LangChain Blog",
+        "published": "2026-11-07T00:01:46+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.langchain.com/blog/rss.xml"
+        }
+      }
+    ]
+  }
+}
