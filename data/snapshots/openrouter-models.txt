@@ -39,11 +39,12 @@ deepseek/deepseek-v4-flash | prompt 0.000000091 | completion 0.000000182 | image
 deepseek/deepseek-v4-flash-0731 | prompt 0.0000000434 | completion 0.0000003 | image None
 deepseek/deepseek-v4-flash-0731:batch | prompt 0.000000048 | completion 0.000000144 | image None
 deepseek/deepseek-v4-flash-vision-exp | prompt 0.00000044 | completion 0.00000132 | image None
-deepseek/deepseek-v4-pro | prompt 0.000000515214 | completion 0.000001030428 | image None
+deepseek/deepseek-v4-pro | prompt 0.0000002088 | completion 0.0000004176 | image None
 deepseek/deepseek-v4-pro-0813 | prompt 0.000000111 | completion 0.00000444 | image None
 deepseek/deepseek-v4.1-flash | prompt 0.000000051 | completion 0.000000567 | image None
-deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000015 | completion 0.0000006 | image None
-deepseek/deepseek-v4.1-flash:batch | prompt 0.000000112 | completion 0.000000336 | image None
+deepseek/deepseek-v4.1-flash-1017 | prompt 0.000000006 | completion 0.0000005 | image None
+deepseek/deepseek-v4.1-flash-1017:batch | prompt 0.000000011 | completion 0.0000002 | image None
+deepseek/deepseek-v4.1-flash:batch | prompt 0.000000011 | completion 0.0000002 | image None
 google/gemini-2.5-flash | prompt 0.0000003 | completion 0.0000025 | image 0.0000003
 google/gemini-2.5-flash-image | prompt 0.0000003 | completion 0.0000025 | image 0.0000003
 google/gemini-2.5-flash-lite | prompt 0.0000001 | completion 0.0000004 | image 0.0000001
@@ -101,7 +102,7 @@ moonshotai/kimi-k2.6 | prompt 0.00000065 | completion 0.00000341 | image None
 moonshotai/kimi-k2.7-code | prompt 0.0000006 | completion 0.0000035 | image None
 moonshotai/kimi-k3 | prompt 0.000000192 | completion 0.000016 | image None
 moonshotai/kimi-k3.1-pro | prompt 0.000002 | completion 0.00001 | image None
-moonshotai/kimi-k3:batch | prompt 0.00000228 | completion 0.0000114 | image None
+moonshotai/kimi-k3:batch | prompt 0.000000917 | completion 0.000006 | image None
 openai/gpt-3.5-turbo-0613 | prompt 0.000001 | completion 0.000002 | image None
 openai/gpt-3.5-turbo-16k | prompt 0.000003 | completion 0.000004 | image None
 openai/gpt-4 | prompt 0.00003 | completion 0.00006 | image None
@@ -190,7 +191,7 @@ openai/gpt-6.1-terra:batch | prompt 0.0000005 | completion 0.0000025 | image Non
 openai/gpt-audio | prompt 0.0000025 | completion 0.00001 | image None
 openai/gpt-audio-mini | prompt 0.0000006 | completion 0.0000024 | image None
 openai/gpt-chat-latest | prompt 0.000005 | completion 0.00003 | image None
-openai/gpt-oss-120b | prompt 0.000000029 | completion 0.000000108 | image None
+openai/gpt-oss-120b | prompt 0.000000017 | completion 0.000000063 | image None
 openai/gpt-oss-120b:batch | prompt 0.0000000296 | completion 0.000000136 | image None
 openai/gpt-oss-20b | prompt 0.00000003 | completion 0.00000013 | image None
 openai/gpt-oss-20b:batch | prompt 0.000000024 | completion 0.000000112 | image None
@@ -228,7 +229,7 @@ qwen/qwen3.5-9b | prompt 0.00000017 | completion 0.00000025 | image None
 qwen/qwen3.5-flash-02-23 | prompt 0.000000065 | completion 0.00000026 | image None
 qwen/qwen3.5-plus-02-15 | prompt 0.00000026 | completion 0.00000156 | image None
 qwen/qwen3.5-plus-20260420 | prompt 0.0000003 | completion 0.0000018 | image None
-qwen/qwen3.6-27b | prompt 0.00000045 | completion 0.0000027 | image None
+qwen/qwen3.6-27b | prompt 0.00000032 | completion 0.0000032 | image None
 qwen/qwen3.6-35b-a3b | prompt 0.0000001 | completion 0.0000009 | image None
 qwen/qwen3.6-flash | prompt 0.0000001875 | completion 0.000001125 | image None
 qwen/qwen3.6-plus | prompt 0.000000325 | completion 0.00000195 | image None
