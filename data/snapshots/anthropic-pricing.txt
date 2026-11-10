@@ -207,20 +207,19 @@ Latest models
 Contact sales Start building (opens in new tab)
 Save 50% with batch processing. Learn more
 Batch processing
-Fable 5.1
+Fable 5.2
 Next generation intelligence for long-running agents
 Prompt caching
 Read
-$0.25 / MTok
+$0.20 / MTok
 Write
-$12.50 / MTok
-Input
 $10 / MTok
+Input
+$8 / MTok
 Output
-$50 / MTok
+$40 / MTok
 Opus 5.5
 Daily driver for agentic coding and enterprise work
-$0.20 / MTok
 $5 / MTok
 $4 / MTok
 $20 / MTok
@@ -239,7 +238,7 @@ $0.05 / MTok
 $0.625 / MTok
 $0.50 / MTok
 For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. Learn more .
-Get up to 2.5x faster speeds with fast mode for Opus 5.5 at 2x standard pricing. Learn more .
+Get up to 2.5x faster speeds with fast mode for Opus 5.5 and Fable 5.2 at 2x standard pricing. Learn more .
 Prompt caching pricing reflects 5-minute TTL. Learn about extended prompt caching .
 Explore detailed pricing (opens in new tab)
 Pricing for Claude Platform features
@@ -264,6 +263,10 @@ Batch
 For asynchronous workloads that can be processed together for better efficiency
 Legacy models
 Learn more (opens in new tab) Explore detailed pricing (opens in new tab)
+Fable 5.1
+$0.25 / MTok
+$12.50 / MTok
+$50 / MTok
 Haiku 4.5
 $1.25 / MTok
 $1 / MTok

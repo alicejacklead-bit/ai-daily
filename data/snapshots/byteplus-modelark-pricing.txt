@@ -9,6 +9,7 @@ Official Ark SDK upgrade notice
 Model releases
 Model deprecations
 Retiring model migration guide
+LTS mechanism overview
 Previous releases
 2025
 Model releases - 2025

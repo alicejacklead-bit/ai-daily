@@ -153,6 +153,7 @@ speech-2.6-hd / speech-02-hd
 $100/M characters
 Image
 image-01
+image-01-live
 $0.0035 per image
 MCP
 API-vlm

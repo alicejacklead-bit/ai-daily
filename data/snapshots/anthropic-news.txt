@@ -1,9 +1,9 @@
 Newsroom \ Anthropic
 Skip to main content News
 Latest news
-November 8, 2026
-Introducing Claude Opus 5.5
-Claude Opus 5.5 leads in agentic coding and knowledge work, and costs 40% less to run than Opus 5 on typical workloads.
+November 10, 2026
+Introducing Claude Fable 5.2 and Claude Mythos 5.2
+Our most capable models for daunting technical work, Claude Fable 5.2 and Claude Mythos 5.2 set a new bar in coding, finance, and the sciences.
 Investing in the public benefit
 We’re committing a portion of Anthropic’s shares to the Anthropic Public Benefit Fund, a new entity with a structure that increases the stake as the company grows.
 Anthropic files S-1 with the SEC for proposed initial public offering
@@ -12,8 +12,8 @@ Early progress on accelerating drug development with Claude
 We're at the start of a major effort to speed up drug development with Claude. Over the past several months, our scientists have engaged in deep research partnerships with six organizations developing new medicines.
 Introducing Claude Haiku 5.5
 Claude Haiku 5.5 is our fastest, most capable small model. Built for high-volume work like summarization, subagents, and browser use.
-Introducing Claude Sonnet 5.5
-Claude Sonnet 5.5 is a clear upgrade over Claude Sonnet 5, runs 30%+ faster, and costs up to 30% less for most work.
+Introducing Claude Opus 5.5
+Claude Opus 5.5 leads in agentic coding and knowledge work, and costs 40% less to run than Opus 5 on typical workloads.
 Features
 The Situation Report
 A rare Ebola strain is spreading in the DRC, with no confirmed vaccine. Global health organizations are using Claude to respond as fast as possible.
@@ -28,13 +28,14 @@ The first AI-planned drive on Mars
 The first AI-assisted drive on another planet. Claude helped NASA's Perseverance rover travel four hundred meters on Mars.
 01
 05
-282
+283
 ARTICLES
 Filter
 Most recent
+Announcements
+Nov 9, 2026
 AI for Science expands to foundations and research institutions
 We’re highlighting 20 scientific foundations, institutions, and research groups around the world that we’ve partnered with in an expansion of our AI for Science program.
-Announcements
 Oct 28, 2026
 Expanding our partnership with GSA to bring Claude to all levels of government
 We are expanding our partnership with the General Services Administration (GSA) through a new agreement that gives government partners a 40% discount on Claude Enterprise, Claude for Government, and the Claude API.
@@ -82,6 +83,8 @@ Oct 2, 2026
 Barclays scales Claude to upgrade operations and improve client experience
 Barclays, the British universal bank, is expanding its strategic collaboration with Anthropic to integrate secure, enterprise-grade AI systems across its global operations.
 Oct 1, 2026
+Introducing Claude Sonnet 5.5
+Claude Sonnet 5.5 is a clear upgrade over Claude Sonnet 5, runs 30%+ faster, and costs up to 30% less for most work.
 Sep 28, 2026
 Sep 22, 2026
 Sep 21, 2026
@@ -91,9 +94,6 @@ Sep 18, 2026
 Introducing the Life Sciences Verification Program
 The Life Sciences Verification Program (LSVP) gives life science professionals access to Claude Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.
 Sep 17, 2026
-Introducing Claude Mythos and Fable 5.1
-They’re the world’s most advanced models for coding and knowledge work—and their research capabilities offer an early glimpse of how AI models will contribute to scientific progress.
-Sep 15, 2026
 See more
 Contact us or download our press kit
 Press
