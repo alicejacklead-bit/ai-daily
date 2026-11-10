@@ -43,7 +43,7 @@ deepseek/deepseek-v4-flash-0731:batch | prompt 0.000000048 | completion 0.000000
 deepseek/deepseek-v4-flash-vision-exp | prompt 0.00000044 | completion 0.00000132 | image None
 deepseek/deepseek-v4-pro | prompt 0.00000095526 | completion 0.00000191052 | image None
 deepseek/deepseek-v4-pro-0813 | prompt 0.000000111 | completion 0.00000444 | image None
-deepseek/deepseek-v4.1-flash | prompt 0.000000051 | completion 0.000000567 | image None
+deepseek/deepseek-v4.1-flash | prompt 0.0000003 | completion 0.0000012 | image None
 deepseek/deepseek-v4.1-flash-1017 | prompt 0.000000006 | completion 0.0000005 | image None
 deepseek/deepseek-v4.1-flash-1017:batch | prompt 0.000000011 | completion 0.0000002 | image None
 deepseek/deepseek-v4.1-flash:batch | prompt 0.000000112 | completion 0.000000336 | image None
@@ -77,6 +77,8 @@ google/gemini-3.8-flash | prompt 0.000000825 | completion 0.000004125 | image 0.
 google/gemini-3.8-flash:batch | prompt 0.000000375 | completion 0.000001875 | image 0.000000375
 google/gemini-4-argon | prompt 0.000002 | completion 0.00001 | image 0.000002
 google/gemini-4-argon:batch | prompt 0.000001 | completion 0.000005 | image 0.000001
+google/gemini-4-carbon | prompt 0.000002 | completion 0.00001 | image 0.000002
+google/gemini-4-carbon:batch | prompt 0.000001 | completion 0.000005 | image 0.000001
 google/gemini-nano-banana-2.1 | prompt 0.0000015 | completion 0.0000075 | image None
 google/gemini-omni-1.1-flash | prompt 0.0000015 | completion 0.000009 | image None
 google/gemini-omni-1.2-flash | prompt 0.0000015 | completion 0.000009 | image None
@@ -90,10 +92,10 @@ google/gemma-4-31b-it | prompt 0.0000002 | completion 0.0000004 | image None
 google/gemma-4-31b-it:free | prompt 0 | completion 0 | image None
 google/lyria-3-clip-preview | prompt 0 | completion 0 | image None
 google/lyria-3-pro-preview | prompt 0 | completion 0 | image None
-minimax/minimax-m2.5 | prompt 0.0000003 | completion 0.0000012 | image None
+minimax/minimax-m2.5 | prompt 0.00000027 | completion 0.00000108 | image None
 minimax/minimax-m2.7 | prompt 0.00000021 | completion 0.00000084 | image None
 minimax/minimax-m3 | prompt 0.0000003 | completion 0.0000012 | image None
-minimax/minimax-m3.1-flash | prompt 0.00000015 | completion 0.0000006 | image None
+minimax/minimax-m3.1-flash | prompt 0.000000075 | completion 0.0000003 | image None
 minimax/minimax-m3:batch | prompt 0.000000224 | completion 0.00000088 | image None
 moonshotai/kimi-k2 | prompt 0.00000057 | completion 0.0000023 | image None
 moonshotai/kimi-k2-0905 | prompt 0.0000006 | completion 0.0000025 | image None

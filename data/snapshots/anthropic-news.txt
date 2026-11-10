@@ -28,11 +28,14 @@ The first AI-planned drive on Mars
 The first AI-assisted drive on another planet. Claude helped NASA's Perseverance rover travel four hundred meters on Mars.
 01
 05
-283
+284
 ARTICLES
 Filter
 Most recent
+Anthropic launches roadshow for proposed initial public offering
+Today Anthropic, PBC launched the roadshow for its proposed initial public offering of its Class A common stock.
 Announcements
+Nov 10, 2026
 Nov 9, 2026
 AI for Science expands to foundations and research institutions
 We’re highlighting 20 scientific foundations, institutions, and research groups around the world that we’ve partnered with in an expansion of our AI for Science program.
@@ -91,9 +94,6 @@ Sep 21, 2026
 Partnering with Accenture on embedded evaluation
 We’re partnering with Accenture on independent evaluation of frontier AI—part of our recent commitment to embed evaluators at Anthropic. Both we and Accenture expect to invest at least $1 billion to build capacity in this area over the next five years.
 Sep 18, 2026
-Introducing the Life Sciences Verification Program
-The Life Sciences Verification Program (LSVP) gives life science professionals access to Claude Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.
-Sep 17, 2026
 See more
 Contact us or download our press kit
 Press

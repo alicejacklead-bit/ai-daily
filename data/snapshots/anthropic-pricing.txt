@@ -1,3 +1,4 @@
+Plans & pricing | Claude by Anthropic
 Skip to main content Pricing
 Individual Team & Enterprise API
 Free
@@ -19,7 +20,7 @@ Everything in Free, plus:
 More usage than Free , every 5 hours and every week *
 Fable, paid with usage credits New
 Hand off and schedule tasks
-Claude Dashboards (beta)
+Claude Data, plus Sheets and Whiteboards (beta)
 Claude Code
 Claude Science
 Projects
@@ -54,10 +55,13 @@ Chat on web, iOS, Android and Desktop
 Yes
 No
 Create Artifacts More information
+Claude Data
 Claude Design
 Claude Docs
 Claude Motion (beta) More information
+New Claude Sheets (beta)
 Claude Slides
+New Claude Whiteboards (beta)
 Claude for Microsoft 365
 Claude for Microsoft Outlook
 Claude in Chrome
@@ -94,7 +98,7 @@ Usage credits More information
 New Monthly API credits †
 $100/month
 $200/month
-User and organizational level spend controls More information
+Organizational level spend controls More information
 Model training More information
 Opt-out
 Security and administration
@@ -131,7 +135,7 @@ Premium seat
 Per seat / month if billed annually. $125 if billed monthly.
 Claude Code and Claude Cowork
 Claude Design, Slides, and Docs
-Claude Motion and Dashboards (beta)
+Claude Data, plus Motion, Sheets, and Whiteboards (beta)
 Microsoft 365, Claude Tag, and more
 Enterprise search across your organization
 Central billing and administration
@@ -172,16 +176,18 @@ Create plan
 Enterprise (self-serve)
 Enterprise (sales-assisted)
 Contact sales
-Claude Dashboards (beta) More information
+Claude Data More information
 Claude Design More information
 Claude Docs More information
+New Claude Sheets (beta) More information
 Claude Slides More information
+New Claude Whiteboards (beta) More information
 Claude Security More information
 Claude Tag
 Project sharing and collaboration
 50% of weekly limits* on premium seats
 Up to $500/month
-User and organizational level spend controls
+Spend controls
 None by default
 Domain verification
 Restrict org creation More information
@@ -327,4 +333,3 @@ Sales-assisted Enterprise: Reach out to your Anthropic Contact or our Sales team
 Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro, Max, and Ultra, your account moves to the Free plan once the period ends. For step-by-step help, see how to cancel a Pro, Max, or Ultra plan or cancel a Team plan .
 Does Claude offer volume discounts?
 Yes, Claude Enterprise and Claude API pricing can be customized for your organization with volume and committed-spend discounts through our sales team. We don't publish discount rates, so figures you see elsewhere may not reflect our pricing. Contact sales to learn more.
-Plans & pricing | Claude by Anthropic
