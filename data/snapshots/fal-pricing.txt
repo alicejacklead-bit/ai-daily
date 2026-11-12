@@ -198,7 +198,7 @@ Build with the fastest inference platform on the planet.
 Whether you need to ship a feature today or train a massive model from scratch — fal gives you the power and flexibility to do both.
 Learn More
 Status Documentation Pricing Serverless Enterprise Genmedia CLI Events Verify fal-Generated Content Report Content Gen Media Report 2026
-Trust & Safety Careers Blog Grants Legal Your Privacy Choices MCP Learn Get in touch
+Trust & Safety Careers Blog Grants Legal Your Privacy Choices Plugins MCP Learn Get in touch
 Seedream 5.0 GPT Image 2.6 FLUX 3 Image Nano Banana 2.1 Krea 3 Qwen Image 3 Explore Image Models
 AI Video Generator Seedance 2.5 MiniMax H3 Max Kling 4.0 FLUX 3 Max Wan 3.0 LTX 2.5 Explore video models PixVerse V6
 Labs

@@ -15,6 +15,37 @@
     <image><url>https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png</url><title>Andy 的 AI 早报</title><link>https://alicejacklead-bit.github.io/ai-daily/</link></image>
     <itunes:owner><itunes:name>Andy</itunes:name></itunes:owner>
     <item>
+      <title>Andy 的 AI 早报 · 2026-11-13 周五</title>
+      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 11 月 13 日，星期五。先报今天的这一句话：黄仁勋辞职叠加民主党启动国会调查，Nvidia 从“AI 叙事锚点”变成“不确定性来源”，而这恰好是视频模型 API 平台重排供应商、抢占开发者心智的窗口期。
+今天信息量很大，我们重点讲三块：第一，Nvidia 这场突如其来的权力真空，会怎么传导到算力采购和 API 吞吐；第二，视频和图像生成赛道的价格表在同一天发生了结构性变化，火山方舟、MiniMax、OpenRouter 三家一起动手；第三，Agent 这一侧，Google 把“判断”这件事单独拆出来做成了一个便宜的 API，这个信号值得你认真听。好，我们开始。
+先看市场局势。今天最大的一条，毫无疑问是 Nvidia。11 月 12 日，Nvidia 宣布黄仁勋即刻辞去 CEO、总裁和董事职务，由 Colette Kress 出任临时 CEO。董事会此前已经就他与一名疑似中国间谍的婚外关系启动了独立调查，路透社同一天还报道，他存在第三段与 Nvidia 员工的婚外关系。消息公布之后，公司市值蒸发大约 1.4 万亿美元。紧接着，众议院民主党人对 Nvidia 的对华销售、以及它和特朗普政府的往来发起了国会调查，这是间谍传闻爆发以来的第二次调查。
+这件事为什么重要？因为 Nvidia 是全球 AI 算力事实上的唯一“总供应商”，现在它进入了一个没有接班计划的权力真空期。短期的算力采购决策，会被政治和合规审查拖慢。而对下游的模型公司来说，GPU 供给的不确定性会直接传导到 API 的吞吐和价格上。如果你和做视频平台的朋友聊到这件事，可以问问他：如果 Nvidia 的新管理层把更多产能优先给美国本土大客户，你们明年的推理扩容计划怎么排？这个问题问出去，基本就能听出对方对供应链的真实焦虑程度。
+第二条还是 Nvidia 的余波。黄仁勋离任之后，Nvidia 对开源 AI 的一系列承诺，包括那笔 129 亿美元收购 Hugging Face 的交易、开放权重模型、以及反对监管限制的游说，全部进入不确定状态。Hugging Face 的 CEO 公开表态，说会继续为开源而战，但外界已经开始质疑这笔收购能不能按原条件完成。
+这条对在座各位的意义在哪？Hugging Face 是开放权重模型最重要的分发渠道，里面包含大量视频和图像模型。收购如果生变，开源模型的托管、推理和商业化路径会出现一段空窗期，而聚合平台和自建推理的需求会被推高。这里有个很好的谈资：开源模型的“中立分发层”到底该由谁来当？Nvidia 当股东、Hugging Face 独立运营，你更愿意押哪一边？这个问题在海外创始人圈子里现在正热。
+第三条，neocloud 厂商 Nebius 抛出了 400 亿美元的扩张计划，靠客户预付款和借款来融资。同时它一处微软数据中心的交付出现延迟，外界开始质疑它的融资模式。
+你要注意，neocloud 是视频和图像模型 API 平台最现实的算力来源之一。用预付款撑资本开支，意味着这些平台会被长期合约绑定，未来 12 个月推理单价还能不能往下探，取决于这批厂商能不能顺利交付。跟人聊天时可以抛这个角度：客户预付款本质上是把算力风险转嫁给了模型公司，你觉得这种结构在需求增速放缓的时候，会先崩在哪一环？
+好，接下来是我们最关心的赛道深挖部分，今天这三条，条条都跟你的定价和产品设计直接相关。
+第一条，火山方舟上线了 doubao-seedance-2.5 和 2.5-flash，视频价格改成按 token 分档，flash 档最低给到 2.21 元。价格页上 flash 档一共四组数字：2.21、0.44、2.42 到 9.42、5.44 到 21.17。更关键的是新增了一条说明：Seedance 2.0 和 2.5 系列在输入包含视频的时候，存在最低 token 用量限制，最低用量跟分辨率、宽高比、输出时长都相关，官方还配了价格计算器。图像这一侧，新增了 doubao-seedream-5-5，出现 0.05 和“P 小于等于 2.61M 时 0.13”两档报价，同时删掉了旧版 Seedream 按像素分档的 0.30 和 0.60 那两行。
+这条为什么给五星？因为它标志着视频生成从“按条计价”</description>
+      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 11 月 13 日，星期五。先报今天的这一句话：黄仁勋辞职叠加民主党启动国会调查，Nvidia 从“AI 叙事锚点”变成“不确定性来源”，而这恰好是视频模型 API 平台重排供应商、抢占开发者心智的窗口期。
+今天信息量很大，我们重点讲三块：第一，Nvidia 这场突如其来的权力真空，会怎么传导到算力采购和 API 吞吐；第二，视频和图像生成赛道的价格表在同一天发生了结构性变化，火山方舟、MiniMax、OpenRouter 三家一起动手；第三，Agent 这一侧，Google 把“判断”这件事单独拆出来做成了一个便宜的 API，这个信号值得你认真听。好，我们开始。
+先看市场局势。今天最大的一条，毫无疑问是 Nvidia。11 月 12 日，Nvidia 宣布黄仁勋即刻辞去 CEO、总裁和董事职务，由 Colette Kress 出任临时 CEO。董事会此前已经就他与一名疑似中国间谍的婚外关系启动了独立调查，路透社同一天还报道，他存在第三段与 Nvidia 员工的婚外关系。消息公布之后，公司市值蒸发大约 1.4 万亿美元。紧接着，众议院民主党人对 Nvidia 的对华销售、以及它和特朗普政府的往来发起了国会调查，这是间谍传闻爆发以来的第二次调查。
+这件事为什么重要？因为 Nvidia 是全球 AI 算力事实上的唯一“总供应商”，现在它进入了一个没有接班计划的权力真空期。短期的算力采购决策，会被政治和合规审查拖慢。而对下游的模型公司来说，GPU 供给的不确定性会直接传导到 API 的吞吐和价格上。如果你和做视频平台的朋友聊到这件事，可以问问他：如果 Nvidia 的新管理层把更多产能优先给美国本土大客户，你们明年的推理扩容计划怎么排？这个问题问出去，基本就能听出对方对供应链的真实焦虑程度。
+第二条还是 Nvidia 的余波。黄仁勋离任之后，Nvidia 对开源 AI 的一系列承诺，包括那笔 129 亿美元收购 Hugging Face 的交易、开放权重模型、以及反对监管限制的游说，全部进入不确定状态。Hugging Face 的 CEO 公开表态，说会继续为开源而战，但外界已经开始质疑这笔收购能不能按原条件完成。
+这条对在座各位的意义在哪？Hugging Face 是开放权重模型最重要的分发渠道，里面包含大量视频和图像模型。收购如果生变，开源模型的托管、推理和商业化路径会出现一段空窗期，而聚合平台和自建推理的需求会被推高。这里有个很好的谈资：开源模型的“中立分发层”到底该由谁来当？Nvidia 当股东、Hugging Face 独立运营，你更愿意押哪一边？这个问题在海外创始人圈子里现在正热。
+第三条，neocloud 厂商 Nebius 抛出了 400 亿美元的扩张计划，靠客户预付款和借款来融资。同时它一处微软数据中心的交付出现延迟，外界开始质疑它的融资模式。
+你要注意，neocloud 是视频和图像模型 API 平台最现实的算力来源之一。用预付款撑资本开支，意味着这些平台会被长期合约绑定，未来 12 个月推理单价还能不能往下探，取决于这批厂商能不能顺利交付。跟人聊天时可以抛这个角度：客户预付款本质上是把算力风险转嫁给了模型公司，你觉得这种结构在需求增速放缓的时候，会先崩在哪一环？
+好，接下来是我们最关心的赛道深挖部分，今天这三条，条条都跟你的定价和产品设计直接相关。
+第一条，火山方舟上线了 doubao-seedance-2.5 和 2.5-flash，视频价格改成按 token 分档，flash 档最低给到 2.21 元。价格页上 flash 档一共四组数字：2.21、0.44、2.42 到 9.42、5.44 到 21.17。更关键的是新增了一条说明：Seedance 2.0 和 2.5 系列在输入包含视频的时候，存在最低 token 用量限制，最低用量跟分辨率、宽高比、输出时长都相关，官方还配了价格计算器。图像这一侧，新增了 doubao-seedream-5-5，出现 0.05 和“P 小于等于 2.61M 时 0.13”两档报价，同时删掉了旧版 Seedream 按像素分档的 0.30 和 0.60 那两行。
+这条为什么给五星？因为它标志着视频生成从“按条计价”</itunes:summary>
+      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-11-13.mp3" length="3281184" type="audio/mpeg"/>
+      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-11-13.mp3</guid>
+      <pubDate>Fri, 13 Nov 2026 08:00:00 +0800</pubDate>
+      <itunes:duration>09:06</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
+    </item>
+    <item>
       <title>Andy 的 AI 早报 · 2026-11-12 周四</title>
       <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 11 月 12 号，星期四。先给你今天的一句话：视频生成的价格战，已经从“每秒多少钱”打进了“每像素多少钱”——火山方舟开始按输出分辨率分档计费，这说明厂商现在拼的不是模型参数，而是计费颗粒度。今天重点三块：第一，Nvidia 那边出了大事，董事会据报准备罢免黄仁勋；第二，火山方舟的视频计价改版，直接关系到我们做视频 API 的毛利结构；第三，Google 上线了一个 Decisions API，把“判断”这件事做成了廉价接口，Agent 架构可能要变天。咱们一条一条来。
 先看市场局势。今天最大的变量，毫无疑问是 Nvidia。据华尔街日报和纽约时报报道，Nvidia 董事会最早可能在周三晚决定，是否罢免任职 33 年的创始人兼 CEO 黄仁勋。导火索是治理层面的问题：他承认与一名被指为中国情报人员的女性有婚外情，随后又曝出与一名直接向他汇报的 Nvidia 高管存在第二段关系。消息出来股价应声下跌，众议院共和党人还要求他在当天结束前答复闭门简报的要求。这件事为什么重要？因为 Nvidia 是全球 AI 算力供给里单一最大的节点，现在这个节点出现了治理真空的风险。短期看是股价和供应链情绪，中期看，Nvidia 的路线连续性、还有对华出口政策的博弈，都会被重新定价。如果你和做跨境算力的朋友聊到这件事，可以问问他：如果 CEO 真的换人，Nvidia 对华出口的强硬派立场会不会松动？这是现在所有做跨境算力的人最想知道的问题。
@@ -355,29 +386,6 @@ DeepSeek V4.1 Flash，也就是 deepseek-v4.1-flash-1017，prompt 从每百万 t
       <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-30.mp3</guid>
       <pubDate>Fri, 30 Oct 2026 08:00:00 +0800</pubDate>
       <itunes:duration>15:16</itunes:duration>
-      <itunes:explicit>no</itunes:explicit>
-      <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
-    </item>
-    <item>
-      <title>Andy 的 AI 早报 · 2026-10-29 周四</title>
-      <description>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 29 号，星期四。今天这期信息量特别大，我挑了最重要的三件事先给你垫个底：第一，Google 在 Gemini 4 Argon 之后仅仅两周，又甩出了 Gemini 4 Carbon，主打编码、Agent 和网络安全，直接登顶了 Artificial Analysis 的智能指数；第二，入口之争全面开打，Google 把 Android Studio 和 Search 向第三方 Agent 开放，Cursor 也把自己的 Agent 能力做成了 SDK 对外输出；第三，大模型价格战继续升级，大客户直接打一折，四个月降价八成，单纯卖 token 的生意越来越薄了。好，我们一条一条展开。
-先说 Google 的 Gemini 4 Carbon。这事儿最震撼的地方不是它多强，而是它的节奏。距离 Gemini 4 Argon 发布才两周，Carbon 就来了，在 Artificial Analysis Intelligence Index v5 上拿了 59 分登顶，SEC-bench Pro 拿到 88.2%，定价是每百万 token 输入 2 美元、输出 10 美元。为什么重要？因为前沿模型的迭代周期已经被压缩到两周这个量级了，这意味着你上个月做的模型选型评估，这个月可能就过时了。而且这次 Google 把网络安全能力当成核心卖点，但相关访问初期只向经过审核的安全专家开放。对从业者来说，如果你在做安全类或者编码类的产品，我建议你尽早去申请这个受审核访问，抢做一个 Carbon 的能力展示页，这个时间窗口不会太长。
-紧接着是 Google 向第三方 AI Agent 开放 Android 开发。Android Studio 上线了一个叫 Bring Your Own Agent 的功能，支持 Claude Agent、Codex 等四十多个编码 Agent 接入。同时他们还推出了新的终端工具，让 Agent 完成 UI 任务快 77%，token 用量最多降到三分之一。这件事的意义在于，移动开发的工作流正在被 Agent 化，而且 Google 把 Agent 生态的入口向第三方敞开了。如果你手里有一个垂直场景的 Agent，现在可以认真考虑把它接进 Android Studio 生态，去移动端开发这个场景里获客，这是一个正在快速膨胀的新工作流。
-同一时间，Google 还向更多应用开放了 Gemini 和 Search，推出了新的开发者平台，企业可以把自家服务接入 Google 的 AI 体验。这条的重要性我给满分，因为它可能改变消费级应用的发现和使用方式。AI 搜索正在变成新的应用分发渠道，Agent 在重塑 Web 入口。我的建议很直接：尽早提交你的服务接入，去抢 AI 搜索时代的应用曝光位，这种分发红利期通常只有几个月。
-再说 Cursor 发布 Agent SDK。Cursor 把自己的 Agent 能力以 SDK 的形式对外提供了，在 Hacker News 上讨论热度很高。这条的核心价值是，编码 Agent 的能力现在可以被嵌入你自己的产品，你不需要自己从零搭一套 harness。如果你想快速给内部工具或者垂直 SaaS 加上编码和自动化 Agent，这是目前最省事的一条路。
-然后我们说说钱的事儿。Anthropic 推出了一个 AI 支出可视化工具，在企业客户面前揭开了模型花费的黑箱，而且这个时点选在计划 IPO 之前，意味深长。为什么重要？因为 AI 成本终于可以归因了，企业采购决策有了可审计的依据。对从业者的启示是，你对外报价的时候可以附上一个成本归因看板，这会明显降低企业客户的采购阻力。与此同时，InfoQ 报道大模型价格战已经没有退路，大客户直接打一折，模型四个月降价 80%。API 的毛利在被持续压缩，你必须重新审视自己的模型选型和转售加价空间，能锁长约折扣的尽早锁。
-接下来这条是语音赛道的重磅。Nvidia 开源了 Nemotron 3.5 Transcribe，转写、翻译、说话人识别三合一，用文本 prompt 就能控制任务，多项 benchmark 领先，而且激活参数只有最强开源对手的六分之一，同时还放出了八十万小时以上的语音数据集和</description>
-      <itunes:summary>早上好，欢迎收听 Andy 的 AI 早报，今天是 2026 年 10 月 29 号，星期四。今天这期信息量特别大，我挑了最重要的三件事先给你垫个底：第一，Google 在 Gemini 4 Argon 之后仅仅两周，又甩出了 Gemini 4 Carbon，主打编码、Agent 和网络安全，直接登顶了 Artificial Analysis 的智能指数；第二，入口之争全面开打，Google 把 Android Studio 和 Search 向第三方 Agent 开放，Cursor 也把自己的 Agent 能力做成了 SDK 对外输出；第三，大模型价格战继续升级，大客户直接打一折，四个月降价八成，单纯卖 token 的生意越来越薄了。好，我们一条一条展开。
-先说 Google 的 Gemini 4 Carbon。这事儿最震撼的地方不是它多强，而是它的节奏。距离 Gemini 4 Argon 发布才两周，Carbon 就来了，在 Artificial Analysis Intelligence Index v5 上拿了 59 分登顶，SEC-bench Pro 拿到 88.2%，定价是每百万 token 输入 2 美元、输出 10 美元。为什么重要？因为前沿模型的迭代周期已经被压缩到两周这个量级了，这意味着你上个月做的模型选型评估，这个月可能就过时了。而且这次 Google 把网络安全能力当成核心卖点，但相关访问初期只向经过审核的安全专家开放。对从业者来说，如果你在做安全类或者编码类的产品，我建议你尽早去申请这个受审核访问，抢做一个 Carbon 的能力展示页，这个时间窗口不会太长。
-紧接着是 Google 向第三方 AI Agent 开放 Android 开发。Android Studio 上线了一个叫 Bring Your Own Agent 的功能，支持 Claude Agent、Codex 等四十多个编码 Agent 接入。同时他们还推出了新的终端工具，让 Agent 完成 UI 任务快 77%，token 用量最多降到三分之一。这件事的意义在于，移动开发的工作流正在被 Agent 化，而且 Google 把 Agent 生态的入口向第三方敞开了。如果你手里有一个垂直场景的 Agent，现在可以认真考虑把它接进 Android Studio 生态，去移动端开发这个场景里获客，这是一个正在快速膨胀的新工作流。
-同一时间，Google 还向更多应用开放了 Gemini 和 Search，推出了新的开发者平台，企业可以把自家服务接入 Google 的 AI 体验。这条的重要性我给满分，因为它可能改变消费级应用的发现和使用方式。AI 搜索正在变成新的应用分发渠道，Agent 在重塑 Web 入口。我的建议很直接：尽早提交你的服务接入，去抢 AI 搜索时代的应用曝光位，这种分发红利期通常只有几个月。
-再说 Cursor 发布 Agent SDK。Cursor 把自己的 Agent 能力以 SDK 的形式对外提供了，在 Hacker News 上讨论热度很高。这条的核心价值是，编码 Agent 的能力现在可以被嵌入你自己的产品，你不需要自己从零搭一套 harness。如果你想快速给内部工具或者垂直 SaaS 加上编码和自动化 Agent，这是目前最省事的一条路。
-然后我们说说钱的事儿。Anthropic 推出了一个 AI 支出可视化工具，在企业客户面前揭开了模型花费的黑箱，而且这个时点选在计划 IPO 之前，意味深长。为什么重要？因为 AI 成本终于可以归因了，企业采购决策有了可审计的依据。对从业者的启示是，你对外报价的时候可以附上一个成本归因看板，这会明显降低企业客户的采购阻力。与此同时，InfoQ 报道大模型价格战已经没有退路，大客户直接打一折，模型四个月降价 80%。API 的毛利在被持续压缩，你必须重新审视自己的模型选型和转售加价空间，能锁长约折扣的尽早锁。
-接下来这条是语音赛道的重磅。Nvidia 开源了 Nemotron 3.5 Transcribe，转写、翻译、说话人识别三合一，用文本 prompt 就能控制任务，多项 benchmark 领先，而且激活参数只有最强开源对手的六分之一，同时还放出了八十万小时以上的语音数据集和</itunes:summary>
-      <enclosure url="https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-29.mp3" length="5213520" type="audio/mpeg"/>
-      <guid isPermaLink="true">https://alicejacklead-bit.github.io/ai-daily/audio/2026-10-29.mp3</guid>
-      <pubDate>Thu, 29 Oct 2026 08:00:00 +0800</pubDate>
-      <itunes:duration>14:28</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
       <itunes:image href="https://alicejacklead-bit.github.io/ai-daily/podcast-cover.png"/>
     </item>
