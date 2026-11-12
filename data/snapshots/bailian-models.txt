@@ -3,7 +3,7 @@
 阿里云百炼提供千问及第三方模型服务，覆盖文本、图像、音频、视频等多种模态。
 文本
 文本生成
-qwen3.8-max 复杂推理与编程
+qwen4-max-preview 复杂推理与编程（Token Plan）
 qwen3.7-plus 性能、速度与成本均衡
 qwen3.8-flash 快速且低成本
 deepseek-v4-pro-0813 文本生成
@@ -17,7 +17,7 @@ mimo-v2.6-pro-ultraspeed 文本生成
 查看更多
 视觉理解
 分析图片和视频内容，返回文本描述或结构化结果
-qwen3.8-max 视觉理解
+qwen4-max-preview 视觉理解（Token Plan）
 qwen3.7-plus 视觉理解
 qwen3.8-omni-flash 视觉理解
 kimi/kimi-k3 视觉理解
