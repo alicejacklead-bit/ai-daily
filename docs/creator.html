@@ -36,6 +36,60 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-15">Andy 的 AI 早报 · 2026-11-15 周日</span>
+    <button class="cbtn" data-copy="t-2026-11-15">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-15.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-15.mp3" download="2026-11-15.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-15">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-15">Andy 的 AI 早报 · 2026-11-15 周日
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· Anthropic IPO 前夜，CEO 承认&quot;明年有巨大不确定性&quot;，算力承诺已达 9010 亿美元：距史上最大 IPO 仅剩数日，Dario Amodei 称购买算力是公司面临的&quot;最深的商业困境&quot;，累计算力承诺接近 9010 亿美元，而未来收入能否覆盖这些成本仍不明朗，IPO 本身被定位为对冲不确定性的资金缓冲。
+  来源：https://the-decoder.com/anthropic-ceo-amodei-admits-theres-a-huge-uncertainty-in-whats-going-to-happen-next-year-days-before-a-record-ipo/
+· Gemini 4 Carbon 拿下 MathArena 榜首，但成本是 GPT-6.1 Sol 的 15 倍：这是近期首次没有 OpenAI 模型领跑 MathArena，Google 的 Gemini 4 Carbon 与 Anthropic 的 Fable 5.2 把 GPT-6.1 Sol 挤下第一，但两者价格都显著更高；测试中 Gemini 无视时间限制、几乎从不放弃任务。
+  来源：https://the-decoder.com/gemini-4-carbon-takes-the-matharena-crown-but-costs-15-times-more-than-gpt-6-1-sol/
+· Anthropic 把 Claude Opus 5.5 设为所有付费计划默认模型，并公开&quot;旧提示词习惯在拖慢模型&quot;：官方指南的核心结论是丢掉&quot;think hard&quot;这类指令、从 Medium effort 起步；同时前研究员 Coxon 引用 IPO 路演材料称，Anthropic 已能用&quot;原始所需算力的一小部分&quot;重训 Mythos。
+  来源：https://the-decoder.com/anthropic-says-outdated-prompting-habits-are-slowing-down-claude-opus-5-5/ / https://the-decoder.com/anthropic-can-already-retrain-mythos-with-a-fraction-of-the-compute-originally-needed-says-former-researcher-coxon/
+
+🎬 赛道深挖
+· 关注赛道] OpenRouter 四款主力模型同步降价，GPT-5.6 Sol 输入价降约 9%、DeepSeek V4.1 Flash 输入价降约 83%：快照对比显示，deepseek/deepseek-r1-0528 输入从 0.0000005 降到 0.000000571（按每 token 计价的原始字段）、completion 从 0.00000215 到 0.000002286；deepseek/deepseek-v4.1-flash 输入从 0.0000003 降至 0.0000000507、输出从 0.0000012 降至 0.0000002028；openai/gpt-5.6-sol 输入从 0.0000044 降至 0.000004、输出从 0.000022 降至 0.00002；qwen/qwen3.5-9b 输入从 0.000000158 降至 0.000000101、输出从 0.000000232 降至 0.000000149。
+  来源：https://openrouter.ai/api/v1/models
+· 关注赛道] DeepSeek 开放&quot;全家桶&quot;API，官方 App 功能可自由组合调用：DeepSeek 把官方 App 内的各项能力拆成可独立调用的 API，开发者可以自由组合拼装，而非只能调用单一对话接口。
+  来源：https://www.qbitai.com/2026/11/510003.html
+· 关注赛道] Runway 开源机器人模型 Praxis-1，用视频训练知识做机器人控制：Runway 以 Apache 2.0 许可开放 Praxis-1 的权重与源码，模型把视频训练中获得的知识迁移到机器人控制，在 Nvidia RoboLab-120 基准的 World Action Model 类别中排名第一；但目前还无法自主规划复杂动作序列。
+  来源：https://the-decoder.com/runways-open-source-praxis-1-turns-video-ai-into-a-robot-controller/
+
+🤖 Agent 前沿
+· LangChain 提出&quot;目标工程&quot;（Goal Engineering）：Agent 的未来是接手开放式目标并自主推进到完成：文章主张 Agent 的下一阶段不是执行单步指令，而是被赋予开放式目标后自行拆解、推进、判断完成度。
+  来源：https://www.langchain.com/blog/goal-engineering
+· Vercel 发布 UI SDK：50+ 种 UI 行为供编码 Agent 直接组装：Vercel Labs 以 Apache-2.0 发布 beta 版库，编码 Agent 可把这些行为组合成可访问组件，覆盖 React、Vue、Svelte、Solid 与 Web Components，并提供直接控制 UI 的桥接层。
+  来源：https://www.marktechpost.com/2026/11/13/vercel-ui-sdk-agent-ui-behaviors/
+
+⚡ 快讯
+· Vercel 社区呼吁 fork 并维护 Deno：HN 上出现&quot;Vercel should fork and maintain Deno&quot;的讨论，指向 Deno 的项目维护前景。
+  来源：https://news.ycombinator.com/item?id=50497196
+· Lovable 应用泄露护照信息与超 20 万条私信：一项安全研究称 Lovable 构建的应用暴露了护照细节及 20 万条以上私人消息，HN 热度 539。
+  来源：https://www.crissyfield.de/research/lovable-en/
+· Nvidia 双 DGX 跑 GLM-5.3，达 607.8 tok/s：Nvidia 开发者博客给出用 vLLM 在两台 DGX Station 上服务 GLM-5.3 的实测吞吐。
+  来源：https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/
+· 斯坦福开源 Memorilla：把文档集压成 16 个 memory token：在冻结的 Qwen3-8B 上，以比全上下文少 108 倍的文档 token 在 FactKG 达到 84.33%。
+  来源：https://www.marktechpost.com/2026/11/14/stanford-memorilla-memory-system-16-memory-tokens/
+· Cmpnd 发布 dspy-wsp：把权重空间编程带进 DSPy：由前沿 LLM 读取小模型权重、在沙箱中修改并逐次验证，无需梯度，单次运行约 5–10 美元。
+  来源：https://www.marktechpost.com/2026/11/14/cmpnd-dspy-wsp-weight-space-programming/
+
+💡 今日观察
+🎯 OpenRouter 上四款主力模型同步降价、DeepSeek 把全家桶拆成可自由组合的 API——模型层正在从&quot;卖模型&quot;转向&quot;卖可组装的积木&quot;，API 平台的价格战才刚开始。 今天最值得记的信号是&quot;降价&quot;和&quot;拆积木&quot;同时发生：OpenRouter 上四款主力模型一夜降价，DeepSeek 把 App 能力拆成可自由组合的 API，Anthropic 则用默认模型换代逼着所有人重写提示词。三者指向同一件事——模型层的竞争已经从&quot;谁更强&quot;转向&quot;谁更便宜、更好被编排&quot;。与此同时，Runway 把视频模型能力外溢到机器人控制并开源，说明视频生成赛道的第二条出口可能不在创作工具里。对做视频模型 API 的平台，真正的风险不是某个模型降价，而是聚合层比价速度超过自己调整定价的速度。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-14">Andy 的 AI 早报 · 2026-11-14 周六</span>
     <button class="cbtn" data-copy="t-2026-11-14">📋 复制标题</button>
   </div>
@@ -832,96 +886,6 @@
 
 💡 今日观察
 今天最清晰的信号是&quot;Harness 层正在独立成层&quot;：Factory Droid 1.0 主打模型无关，Vercel 的 agent-desktop 用无障碍树替代像素，EasyProver 靠 Agent 编排而非训练就逼近基准饱和——能力增量越来越多来自外壳而非底座。与之呼应的是供给侧收紧：Anthropic 一边扩水印一边留漏洞，一边封禁&quot;触及训练更大模型&quot;的账号，模型 API 的&quot;用途合规风险&quot;首次成为选型变量。融资端，OpenAI 只募到目标的三分之一，意味着补贴与价格战的持续性要打折，而 Agent Sandbox 每天千万次创建说明需求侧仍在加速。一句话：需求在涨、供给在收紧、资本在退潮，中间层的工程能力是最确定的套利空间。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-10-31">Andy 的 AI 早报 · 2026-10-31 周六</span>
-    <button class="cbtn" data-copy="t-2026-10-31">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-10-31.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-10-31.mp3" download="2026-10-31.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-10-31">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-10-31">Andy 的 AI 早报 · 2026-10-31 周六
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-📰 行业新闻
-· 美股因 AI 现金消耗担忧大跌，科技股遭抛售：Reuters 与 BBC 同步报道，Amazon、Intel 财报加剧了市场对 AI 资本开支可持续性的疑虑，纳指期货下挫。
-  来源：https://www.reuters.com/business/nasdaq-futures-tumble-amazon-intel-results-deepen-ai-spending-woes-2026-10-30/ / https://www.bbc.co.uk/news/articles/cvwy72e0n72yo / https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/
-· Anthropic IPO 后预计获高&quot;垃圾级&quot;信用评级：FT 援引 Blackstone 预测，高收益债评级将推高 Anthropic 融资成本，削弱其持续大规模算力投入的能力。
-  来源：https://www.ft.com/content/59383c7f-8d82-493f-bf01-d2e862a1018f / https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/
-· OpenAI、Google、Microsoft、Anthropic 共同采纳 AI 抓取退出新标准：四家将支持统一的&quot;policy token&quot;信号，发布方一次设置即可跨多家 AI 公司表达训练偏好，OpenAI 同步发文确认将遵守共享 robots.txt 信号。
-  来源：https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out / https://openai.com/index/helping-websites-express-ai-training-preferences
-· Cursor 市场里的 Claude Code 扩展被植入后门近 12 小时：篡改版本影响最多 5000 名用户，尝试窃取数据并建立远程访问；Cursor 一度下线整个市场，攻击者如何拿到 Anthropic 认证账号仍未知。
-  来源：https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/ / https://the-decoder.com/malicious-claude-code-extension-in-cursors-marketplace-attempted-remote-access-and-data-theft/
-· OpenAI 发布新版 Model Spec，围绕五大核心价值重构行为准则：强调对人类意图的忠实与&quot;可纠正性&quot;，要求模型结合对话历史推断真实意图并披露自身假设。
-  来源：https://openai.com/index/updated-model-spec / https://the-decoder.com/openai-sets-new-behavioral-guidelines-for-ai-models-that-have-already-proven-hard-to-control/
-· Google 首个数据中心卫星上线，太空 TPU 跑 Gemma 4 写俳句：卫星上的 TPU 成功启动，机载 Gemma 4 完成首次从太空向地球返回的推理响应。
-  来源：https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission / https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/
-· DoorDash 称仅收到&quot;数百单&quot;来自 AI Agent 的订单：公司表示对与第三方 Agent 厂商合作持开放态度，但当前量级远未成气候。
-  来源：https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/
-· Zest 推出 AI 餐厅 Agent，可合并众人口味投票并完成订位：通过短信交互，把&quot;吃什么&quot;的群体决策与预订一步做完。
-  来源：https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/
-· Reddit CEO 警告 Google AI Mode&quot;不给任何人导流&quot;：Huffman 称 Reddit 10 月每周损失超百万次 Google 搜索引荐，股价跌超 25%，将推登录墙并转型为直接目的地。
-  来源：https://the-decoder.com/googles-ai-mode-doesnt-drive-traffic-for-anybody-reddit-ceo-huffman-warns-the-entire-web/
-· 首部 AI 电影惨败：观众对 AI 内容的价格锚点就是零：36Kr 复盘指出芒果超媒拿到结果而博纳没有，核心差异在内容定位而非 AI 技术本身。
-  来源：https://www.36kr.com/p/4048171268831749
-· Sam Altman：把 DRAM 放在个人电脑里而非数据中心是&quot;糟糕的&quot;：他在播客中称从全球资源分配看，本地推理是对稀缺资源的浪费，同时表示对数学家的处境同情但 OpenAI 的数学攻势不会停。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1023820/sam-altman-ram-shortage-cloud-servers / https://www.thegamer.com/openai-ceo-sam-altman-consumers-having-dram-terrible/ / https://www.reddit.com/r/LocalLLaMA/comments/1xizbq1/sam_altman_local_inference_is_a_terrible/
-· 腾讯内测 AI 教育产品&quot;懂了鸭&quot;：将游戏与教育结合，切入 K12 学习场景。
-  来源：https://www.36kr.com/p/4048256433076739
-· 润建股份拿下 2 亿美元 AI 订单，尝试&quot;卖 Token&quot;出海：从卖算力&quot;铲子&quot;转向卖模型调用，探索 Token 分销模式。
-  来源：https://www.36kr.com/p/4048185033439489
-
-📄 重要论文
-· EPSBench：评测 LLM Agent 的季度盈利预测能力：覆盖 86 家美国公司 149 个财季，Agent 需读财报、电话会与新闻，估算利润表驱动项并给出引用证据。
-  来源：https://huggingface.co/papers/2610.38293
-· Samaya AI 发布 Sterling：3B 激活的金融研究 Agent 模型，成本仅为 Claude Fable 5.1 的 1/11：基于 Nemotron 3.5 Lightning 后训练，FrontierFinance 得分 58.9%（对比 55.9%），单题成本 $0.61 vs $6.89。
-  来源：https://www.marktechpost.com/2026/10/30/samaya-sterling-post-trained-finance-research-model-frontierfinance/
-· Microsoft 与 UC Berkeley 开源 TokenEconomizer：编码 Agent 成本降 18.4%–30.9%：从历史会话中学习，无需改动 Agent 本身，在 SWE-Bench 上验证。
-  来源：https://www.marktechpost.com/2026/10/30/microsoft-tokeneconomizer-coding-agent-cost-control/
-· GLM 5.3 在 48 小时内零人工构建完整 Firefox 漏洞利用链：Epoch AI 称该开源权重模型把公开安全补丁转成可用 exploit，攻破 6 个 Firefox 版本，每次约 1000 美元 API 费用，未触发任何厂商防护。
-  来源：https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours/
-· Claude 模型自主选择基因疗法并完成小鼠脑部手术：研究者称这是首次由 AI Agent 自主选定治疗方案并递送到活体哺乳动物；中途出现校准误差时 Agent 拒绝继续且无法被说服。
-  来源：https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making/
-· Youtu-Parsing-Omni：一个编码器、一套 schema 解析所有模态：把文档、图像、音频、视频转成带时空定位的结构化记录，为 Agent 提供可引用的感知层。
-  来源：https://huggingface.co/papers/2610.39301
-· AB-Attention：面向视频扩散 Transformer 的精确块注意力加速：针对 3D 全注意力的二次成本，改进动态块稀疏注意力的保真度衰减问题。
-  来源：https://huggingface.co/papers/2610.39663
-· Matched Capabilities, Different Behaviors：MCP 与 CLI 接口对 Agent 行为的受控研究：在可执行能力相同的前提下，比较两种接口表征如何改变 Agent 的决策行为。
-  来源：https://huggingface.co/papers/2610.34298
-· Broken on Arrival：公共模型库里的量化 LLM 有相当比例&quot;到货即坏&quot;：测试 Ollama 官方库 305 个 GGUF 标签与 22 个 HF 社区文件，7 个官方标签在 164 道 HumanEval+ 上最多只解出 6 题。
-  来源：https://huggingface.co/papers/2609.05881
-· Multi-Token Prediction Done Right：指出标准 MTP 训练中交叉熵梯度含残余分量干扰下一 token 学习，随规模放大，并给出修正方案。
-  来源：https://huggingface.co/papers/2610.38331
-
-🔧 开源项目
-· anthropics/skills：Agent Skills 官方公开仓库：（今日 +287 star）：Anthropic 把 Agent 技能的组织方式公开成可复用仓库。
-  来源：https://github.com/anthropics/skills
-· pbakaus/impeccable：给编码 Agent 的设计词汇表：（今日 +2,299 star）：用 polish、bolder、critique、audit 等指令词控制产出质量，主打&quot;上线前拦截 AI slop&quot;。
-  来源：https://github.com/pbakaus/impeccable
-· mattpocock/skills：来自真实 .agents 目录的工程师技能集：（今日 +889 star）：直接开源作者日常使用的 Agent 技能配置。
-  来源：https://github.com/mattpocock/skills
-· lightpanda-io/browser：为 AI 与自动化设计的无头浏览器：（今日 +652 star）：面向 Agent 抓取与操作场景优化。
-  来源：https://github.com/lightpanda-io/browser
-· spinf-serve：面向批量打分与决策的推理服务器：（Show HN）：定位批量 scoring 而非对话，适合风控、排序类负载。
-  来源：https://github.com/spinfinc/spinf-serve
-· Edge0 开源 Audio8-TTS-Realistic：0.6B 零样本音色克隆 TTS，Apache 2.0：支持 23 种语言，末段加入由学习式真实感 critic 驱动的 GRPO 阶段。
-  来源：https://www.marktechpost.com/2026/10/29/edge0-audio8-tts-realistic-0-6b-voice-cloning/
-
-🐦 AI 圈热议
-· r/LocalLLaMA 与 HN 同时热议：&quot;AI 不是在取代 SRE，而是在让 SRE 去技能化&quot;：HN 上该文获 458 分、332 条评论，社区担忧运维能力被 Agent 掏空。
-  来源：https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling / https://news.ycombinator.com/item?id=50307092
-· Sam Altman 的&quot;本地推理浪费论&quot;在 r/LocalLLaMA 引爆讨论：社区反驳称&quot;账号可能在一次悄悄更新后被封&quot;，自主算力才是长期保障。
-  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xizbq1/sam_altman_local_inference_is_a_terrible/ / https://www.reddit.com/r/LocalLLaMA/comments/1xjgfuv/another_reason_to_own_your_own_compute_your/
-
-💡 今日观察
-今天最强的信号不是某个模型，而是&quot;AI 资本叙事的第一次公开压力测试&quot;——美股因 AI 现金消耗大跌、Anthropic 预计拿垃圾级评级、Reddit 承认搜索流量枯竭，三件事指向同一个事实：靠无限融资 + 无限流量支撑的增长模型正在被重新定价。与之对照，技术侧反而在加速降本：TokenEconomizer 砍 30% 编码 Agent 成本、Sterling 用 1/11 的价格打赢前沿模型、AB-Attention 直击视频生成推理成本。对做 API 平台的人来说，这意味着客户会同时要求&quot;更便宜&quot;和&quot;更可靠&quot;，而供应商财务健康度第一次成为选型变量。另一个被低估的变化是接口层：MCP vs CLI 的受控研究说明，同样的能力用不同方式暴露给模型，行为会变——这是产品设计问题，不只是工程问题。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
