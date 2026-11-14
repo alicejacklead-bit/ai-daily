@@ -45,8 +45,7 @@ Note:
 The billing item is token count; the token-to-character ratio varies slightly depending on the usage scenario, subject to actual consumption
 Token to English word ratio (estimate): approximately 750 English words consume 1000 tokens
 Video
-Recharge Now ​
-H3 Series Flagship Models
+Recharge Now H3 Series Flagship Models
 Output Resolution
 Output Video
 per second
@@ -263,8 +262,7 @@ Functions
 • More voices and more cloning options
 • Exclusive security and stability guarantees
 Payment Methods
-MiniMax offers pay-as-you-go billing and Audio Packages. Choose a billing option based on the models you use, how much you expect to use them, and for how long. ​
-Compare Billing Options
+MiniMax offers pay-as-you-go billing and Audio Packages. Choose a billing option based on the models you use, how much you expect to use them, and for how long. Compare Billing Options
 Feature
 Pay-as-you-go
 Audio Packages
@@ -285,8 +283,7 @@ View Audio Packages
 Before You Buy
 Check the supported models, included points, and how long the package lasts. Audio Packages support all speech models. View Audio Packages · View Usage Rules
 Pay-as-you-go Billing
-With pay-as-you-go billing, you use standard Open Platform API keys and pay from your account balance based on usage. All prices are in USD. ​
-How Billing Works
+With pay-as-you-go billing, you use standard Open Platform API keys and pay from your account balance based on usage. All prices are in USD. How Billing Works
 Payment: API usage charges are deducted from your account balance.
 Billing units: Depending on the service, charges are based on tokens, characters, duration, images, voices, or requests. See the relevant pricing table for the exact unit.
 Rates: Rates vary by model, API, and configuration. For example, LLM input length and service tier, or video output resolution, can affect pricing.
@@ -294,7 +291,7 @@ How Charges Are Calculated
 For each billing item, multiply actual usage by the applicable unit price. First, convert usage to the unit listed in the pricing table. For example, if a price is listed per million tokens, divide the token count by 1,000,000 before multiplying by the price. If a request includes multiple billing items, add their costs together.
 See Model Pricing and Tool Pricing for individual rates. Audio Packages are also available for speech models. To compare these options, see Payment Methods .
 Package Usage Rules
-Audio Packages include points for use with supported speech models and APIs. Before purchasing, check which models are supported, how many points are included, and how long the package lasts. ​
+Audio Packages include points for use with supported speech models and APIs. Before purchasing, check which models are supported, how many points are included, and how long the package lasts. Coverage
 Supported models
 Supported APIs
 T2A v2 and T2A large v2
@@ -303,12 +300,10 @@ Package duration
 1 month, 3 months (10% off), or 1 year (20% off)
 Plan details
 How Points Are Used
-Starter, Standard, Pro, Scale, and Business each include a monthly allowance of audio points. The allowance varies by plan. See the Audio package pricing table for included points, voice slots, and rate limits. ​
-Package Terms and Usage Limits
+Starter, Standard, Pro, Scale, and Business each include a monthly allowance of audio points. The allowance varies by plan. See the Audio package pricing table for included points, voice slots, and rate limits. Package Terms and Usage Limits
 See the Audio package pricing table for available terms, monthly audio points, rate limits, and other plan features.
 FAQ
-Find answers to common questions about pay-as-you-go billing and Audio Packages. See the relevant pricing tables for exact prices and included features. ​
-Billing and Usage
+Find answers to common questions about pay-as-you-go billing and Audio Packages. See the relevant pricing tables for exact prices and included features. Billing and Usage
 What’s the difference between the Standard and Priority service tiers for MiniMax-M3?
 Priority gives your requests priority access for faster responses and improved reliability. It costs 1.5 times the Standard rate. To enable it, set service_tier to priority . See the LLM pricing tables for the rates that apply to each input length.
 Does video output pricing include charges for input media?

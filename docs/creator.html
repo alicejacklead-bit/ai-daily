@@ -36,6 +36,62 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-14">Andy 的 AI 早报 · 2026-11-14 周六</span>
+    <button class="cbtn" data-copy="t-2026-11-14">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-14.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-14.mp3" download="2026-11-14.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-14">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-14">Andy 的 AI 早报 · 2026-11-14 周六
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· LangChain 完成 3 亿美元 C 轮，估值 30 亿美元，CapitalG 领投：LangChain 宣布 3 亿美元 C 轮融资，估值达 30 亿美元，由 Alphabet 旗下 CapitalG 领投。官方披露 LangSmith（模型与平台无关的 Agent 管理与观测工具）已有 7,000 家客户。
+  来源：https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/ / https://www.langchain.com/blog/series-c
+· 黄仁勋离职的连锁反应开始波及 AI 创业融资：TechCrunch 采访的多位 VC 与创始人表示，黄仁勋在任期间 Nvidia 向 AI 创业公司投入了数百亿美元，其离任后创始人和投资机构正在为&quot;更小的支票和更低的估值&quot;做准备。以色列 VC 也在评估挑战者的机会。另有 WSJ 报道称，黄仁勋离职的深层原因可能更多指向 Nvidia 的风险业务实践——包括为云厂商的芯片采购提供数十亿美元财务担保，其中包含一项计划中的 2,500 亿美元 OpenAI 交易。
+  来源：https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/ / https://the-decoder.com/jensen-huangs-ouster-likely-traces-back-to-nvidias-risky-business-practices-more-than-his-personal-life/ / https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/
+· 研究称六款中国头部模型使用了被禁的 Nvidia Blackwell 芯片：前 OpenAI 研究员 Will DePue 称，他通过读取公开模型权重中的芯片特征签名，首次给出技术证据，指 DeepSeek、Moonshot AI、MiniMax 和蚂蚁集团在使用 Nvidia 最新 Blackwell GPU。他估算这五次训练跑背后的硬件成本超过 5 亿美元。
+  来源：https://the-decoder.com/former-openai-researcher-says-he-found-nvidia-blackwell-fingerprints-hidden-inside-six-chinese-ai-models/ / https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/
+
+🎬 赛道深挖
+· 2026 视频生成模型横评：原生音频成标配、时长 15–30 秒、开源权重进前三：MarkTechPost 发布截至 11 月 13 日的视频生成模型排名，唯一质量信号采用 Artificial Analysis Video Arena 的盲测人类偏好 Elo，并同时列出 API 每秒价格与是否开放权重。核心结论：与 12 个月前相比榜单已面目全非——原生音频从差异化卖点变成入场券，主流片段时长拉到 15–30 秒，且有一款开源权重模型进入前三。
+  来源：https://www.marktechpost.com/2026/11/13/best-ai-video-generation-models-2026/
+· OpenRouter 主力模型表七款模型同时调价，涨跌分化明显：OpenRouter 模型价格表出现批量变动。按每 token 美元计：DeepSeek V4 Pro 输入从 0.00000095526 降至 0.0000009、输出从 0.00000191052 降至 0.0000015；DeepSeek V4.1 Flash 输入从 0.00000015 降至 0.000000038、输出从 0.0000006 降至 0.0000005；DeepSeek Chat 输入从 0.00000032 降至 0.0000002574、输出从 0.00000089 涨至 0.0000010287。反向变动的是 Kimi K3.1 Pro：输入从 0.0000002375 涨至 0.000002（约 8.4 倍）、输出从 0.0000084114 涨至 0.00001。Gemma 4 26B、MiniMax M2.5、Qwen3.5-9B 亦有小幅调整。
+  来源：https://openrouter.ai/api/v1/models
+· MiniMax 定价页重构计费说明，新增音频套餐分档表述：MiniMax 开放平台定价页对计费结构做了改写，明确&quot;按量付费 + 音频套餐&quot;双轨，并说明 Starter、Standard、Pro、Scale、Business 各档包含不同的月度音频点数额度，价格均以美元计。页面同时保留 H3 系列旗舰模型的入口。
+  来源：https://platform.minimax.io/docs/guides/pricing
+
+🤖 Agent 前沿
+· ChatGPT Wallet 上线：Agent 可以替用户下单结账：OpenAI 推出 ChatGPT Wallet，让 ChatGPT Work、Codex 和 Dots 中的 Agent 在用户批准下完成购买，并沿用现有卡片保护机制。首发面向美国 18 岁以上 Pro 订阅用户，需美国账单地址及符合条件的美国运通、Chase、Mastercard、Visa 卡。用户一次性绑卡，每笔购买通过 Face ID 或指纹确认，卡号以支付 token 形式隐藏。这是 OpenAI 在废弃第一版 Instant Checkout 之后从零重建的购物方案。
+  来源：https://openai.com/index/introducing-chatgpt-wallet / https://www.theverge.com/ai-artificial-intelligence/1033425/openai-chatgpt-wallet / https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/ / https://the-decoder.com/openai-rebuilt-ai-shopping-from-scratch-with-chatgpt-wallet/
+· Claude Duet 上手体验：面向消费者的 Agent 已经&quot;有点神经质但意外好用&quot;：The Verge 实测了 Anthropic 面向消费者的 Agent 产品 Claude Duet，评价是&quot;有点神经质，但意外地有用&quot;。文中提到一个细节：Duet 主动提出帮记者撰写关于它自己的体验稿。这是 AI 公司说服非程序员群体&quot;Agent 真的有用&quot;的又一次尝试。
+  来源：https://www.theverge.com/ai-artificial-intelligence/1032518/claude-duet-ai-agent-hands-on
+
+⚡ 快讯
+· Google 发布 Gemini 4 Hydrogen：1M token 窗口、4 档思考级别，定价 1.50/7.50 美元，官方称比 Gemini 3.8 Flash 快 2.5 倍，Artificial Analysis 得分 51、Terminal-Bench 4.1 达 57%，并已接入 Google Search。
+  来源：https://www.marktechpost.com/2026/11/13/google-gemini-4-hydrogen/ / https://deepmind.google/blog/introducing-gemini-4-hydrogen/ / https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/
+· Anthropic 的 Claude for Manufacturing 插件接入工厂软件：直连 Autodesk Fusion、Oracle NetSuite 和 Infor，17 项专用技能可起草报价、比价供应商、在延迟交付时下备用订单，均需人工批准；另在开发 Model Hardware Standard 以控制实体设备。
+  来源：https://the-decoder.com/anthropics-claude-for-manufacturing-plugs-ai-directly-into-factory-software-to-automate-industrial-workflows/
+· Meta Muse 可代用户打电话给商家：面向付费美国订阅用户，覆盖从有线电视到餐厅，Meta AI 负责人 Alexandr Wang 称该 Agent 已有超 1,000 万用户；但许多商家一检测到 AI 就挂断。
+  来源：https://the-decoder.com/metas-muse-now-calls-businesses-for-you-but-many-companies-might-just-hang-up-on-the-ai/
+· llama.cpp 发布 v1.0.0：官方称将继续覆盖所有平台与模型类型，同时保持对下游应用的轻量与稳健，并配套推出降低本地 AI 使用门槛的 Llama 桌面应用。
+  来源：https://huggingface.co/blog/ggml-org/llama-cpp-v1 / https://www.reddit.com/r/LocalLLaMA/comments/1xv8t2e/llamacpp_v10_is_here/
+· Google 开源 TPU Sync：C++ 库，可在 TPU HBM、主机 DRAM、存储与网络之间搬运 KV cache 和权重，官方称在 235B–480B MoE 模型上 KV 传输延迟降低 90% 以上。
+  来源：https://www.marktechpost.com/2026/11/13/google-tpu-sync-kv-cache-transfer-library/
+· A100 二手价再跌 20–30%：有卖家开始接受现实、降价清库存，发帖者认为 Rubin 与 Blackwell 每瓦效率已高 3–4 倍且融资更易得，A100 已难以用于推理。
+  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xuxbeb/a100_prices_down_2030_since_my_post_about_them/
+
+💡 今日观察
+🎯 LangChain 以 30 亿美元估值融资 3 亿，说明资本市场愿意为&quot;Agent 的中间层&quot;买单；而视频生成赛道今天真正有价值的信号藏在排行榜数据里——原生音频已成标配、开源权重模型进入前三，API 平台的竞争维度正在从&quot;有没有模型&quot;转向&quot;每秒多少钱&quot;。 今天最值得记的一笔不是黄仁勋的后续，而是 LangChain 的 30 亿美元估值和 ChatGPT Wallet 同时出现——Agent 的基础设施层（观测、评测、管理）和交易层（支付授权）在同一天被定价，说明市场认为 Agent 的瓶颈已经从&quot;能不能做&quot;转到&quot;怎么管、怎么收钱&quot;。视频生成这边，MarkTechPost 的横评给出了一个不太舒服的结论：原生音频、15–30 秒、开源权重进前三，这三件事同时发生意味着视频 API 的差异化窗口正在关闭，接下来拼的是每秒单价和分发渠道，而不是模型榜单名次。OpenRouter 上 DeepSeek 降价、Kimi 涨价的分化，恰好印证了同一个逻辑——模型层在分层，中间层在收租。另一个需要盯的暗线是 Blackwell 指纹研究，它可能把出口管制从硬件层面推进到模型层面。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-13">Andy 的 AI 早报 · 2026-11-13 周五</span>
     <button class="cbtn" data-copy="t-2026-11-13">📋 复制标题</button>
   </div>
@@ -866,118 +922,6 @@
 
 💡 今日观察
 今天最强的信号不是某个模型，而是&quot;AI 资本叙事的第一次公开压力测试&quot;——美股因 AI 现金消耗大跌、Anthropic 预计拿垃圾级评级、Reddit 承认搜索流量枯竭，三件事指向同一个事实：靠无限融资 + 无限流量支撑的增长模型正在被重新定价。与之对照，技术侧反而在加速降本：TokenEconomizer 砍 30% 编码 Agent 成本、Sterling 用 1/11 的价格打赢前沿模型、AB-Attention 直击视频生成推理成本。对做 API 平台的人来说，这意味着客户会同时要求&quot;更便宜&quot;和&quot;更可靠&quot;，而供应商财务健康度第一次成为选型变量。另一个被低估的变化是接口层：MCP vs CLI 的受控研究说明，同样的能力用不同方式暴露给模型，行为会变——这是产品设计问题，不只是工程问题。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-10-30">Andy 的 AI 早报 · 2026-10-30 周五</span>
-    <button class="cbtn" data-copy="t-2026-10-30">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-10-30.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-10-30.mp3" download="2026-10-30.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-10-30">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-10-30">Andy 的 AI 早报 · 2026-10-30 周五
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-📰 行业新闻
-· OpenAI 全面翻倍付费套餐用量上限，Pro 100 提至 Pro 500：OpenAI 将各付费档位的用量上限翻倍，原计划削减的 Pro 200 配额在用户反对后撤回，官方称 Terra、Sol 等更高效模型会进一步推高可用容量。
-  来源：https://the-decoder.com/openai-doubles-usage-limits-on-pro-plans-as-competition-with-anthropic-heats-up/
-· OpenAI 为 $100/$200/$500 订阅用户发放等额 API credits：与 Anthropic 此前的 Max/Team 福利几乎完全一致，credits 可绑定到某个 API 组织，但会过期。
-  来源：https://simonwillison.net/2026/Oct/29/api-credits/
-· Gemini 聊天内可直接生成并编辑 Docs、Sheets、PDF、幻灯片与代码：所有 Gemini 用户即日起可用，PDF 预览/编辑支持 Web 与移动端，其余格式仅限 Web。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs
-· Mistral 开源 1T 参数 Le Chonk（Mistral Large 4），主打编码与网络安全：1 万亿参数原生多模态 MoE，每 token 激活 49B（含 embedding 与输出层为 52B），完全在欧洲训练；独立测试显示速度快、价格较低，但综合得分 26 分仍落后 DeepSeek V4.1 Flash 与 GLM-5.3 的 32 分。
-  来源：https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/ / https://www.wired.com/story/mistral-says-le-chonk-surpasses-chinese-models-cybersecurity/ / https://the-decoder.com/paris-based-mistral-releases-le-chonk-a-strong-coding-model-that-still-trails-china-overall/ / https://huggingface.co/blog/mistral-large4 / https://www.reddit.com/r/LocalLLaMA/comments/1xil58b/mistralaimistrallarge41ta52b_hugging_face/
-· Meta 低调上线 AI 时尚应用 Style Sketch：可连接 Instagram，用已发布照片自动构建虚拟衣橱，也支持拍照、短视频或相册上传手动添加单品。
-  来源：https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/
-· AssemblyAI 推出 TTS-1：$15/百万字符，无限并发、无需合同：首款面向 voice agent 的 TTS 模型，上线支持 6 种语言。
-  来源：https://www.marktechpost.com/2026/10/29/assemblyai-tts-1-text-to-speech-api-voice-agents/
-· Baseten 发布 joey-1：2B 决策模型，$0.01/百万 token，P50 延迟 20ms：返回校准后的概率而非文本。
-  来源：https://www.marktechpost.com/2026/10/29/baseten-joey-1-2b-decision-model/
-· Wabi 以 12.5 亿美元估值融资 5500 万美元，定位&quot;个人 Agent&quot;：从&quot;用 AI 造 mini app&quot;转向个人 Agent 叙事。
-  来源：https://techcrunch.com/2026/10/29/wabi-the-ai-agent-that-builds-mini-apps-now-valued-at-1-25b-after-latest-round/
-· Deepgram 收购 Pipecat 母公司 Daily，补强实时语音/视频基础设施：Pipecat 是开源实时语音 Agent 编排框架。
-  来源：https://techcrunch.com/2026/10/29/deepgram-acquires-pipecat-maker-daily-to-bolster-its-voice-ai-infrastructure/
-· 美国司法部审查 Nvidia 收购 Hugging Face 交易及销售行为：反垄断关注点同时覆盖并购与销售实践。
-  来源：https://the-decoder.com/us-antitrust-regulators-are-scrutinizing-nvidias-hugging-face-deal-and-sales-practices/
-· Google 财报后股价一度跌 10%：云收入翻倍至 307 亿美元，搜索仅增 12%：Google 承认 AI mode 变现能力弱于传统搜索，正把 AI mode 广告计划推向国际市场。
-  来源：https://the-decoder.com/googles-ai-search-problem-finally-shows-up-in-the-earnings-report-some-investors-believe/ / https://www.36kr.com/p/4046813256062080 / https://www.36kr.com/p/4046826443871112 / https://www.infoq.cn/article/dXwHCW7kjGX1kjPqtla9?utm_source=rss&amp;utm_medium=article
-· Reddit 宣布转向登录态体验，搜索流量枯竭是直接原因：AI 改变信息获取方式后，Reddit 重新审视其开放 Web 根基。
-  来源：https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/
-· OpenAI 支持的 Thrive Holdings 以 153 亿美元收购 ADT：计划把 AI 带入家庭安防业务。
-  来源：https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/
-· Anthropic 递交 S-1 拟以 &quot;ANT&quot; 登陆纳斯达克，招股书被解读为&quot;全力押注算力&quot;：SemiAnalysis 分析师在 Decoder 中拆解其财务结构。
-  来源：https://www.theverge.com/podcast/1021322/anthropic-ipo-filing-s-1-claude-semianalysis-joey-brookhart-interview / https://www.theverge.com/ai-artificial-intelligence/1021476/anthropic-s-1-compute-recursive
-· Anthropic 研究：专家会采纳 AI Agent 随机设定的观点，并误认为是自己的判断：实验给 50 名专家配置偏好由抛硬币决定的 Agent，专家在判断类问题上跟随 Agent 观点的比例最高达 86%，多数人认为结论出自自己。
-  来源：https://the-decoder.com/experts-adopt-ai-agents-random-opinions-and-think-theyre-their-own-anthropic-study-finds/
-· WIRED：埃森哲员工的个人 Claude Agent 在美国国防部网络上运行两个月才被发现：该 Agent 运行在 DOD 网络，漏洞随后被修补。
-  来源：https://www.wired.com/story/a-defense-contractor-gave-their-personal-ai-agent-access-to-a-secure-pentagon-system/
-· 天数智芯公布天垓 300 实测：部分推理场景达到 H200 水平，端侧对标 Thor T5000：国产推理芯片给出可对照的实测数据。
-  来源：https://www.infoq.cn/article/tFaOHgBe8ENwteobTsLV?utm_source=rss&amp;utm_medium=article
-· Flapping Airplanes 完成 10 亿美元 A 轮，瞄准 AI 的&quot;数据饥渴&quot;：押注改变学习机制而非继续堆数据。
-  来源：https://www.36kr.com/p/4046761437156489
-· 扩散模型进入 Agent 主场：350 亿参数，速度比 Jev 快一倍：用量扩散做 Agent 决策的新路线。
-  来源：https://www.qbitai.com/2026/10/505934.html
-
-📄 重要论文
-· Know, then Draw：自回归学知识、扩散做渲染的新视觉生成范式：把高层语义交给自回归预训练、把像素细节交给扩散后训练，受控对比显示自回归是更强的预训练目标。
-  来源：https://huggingface.co/papers/2610.37626
-· RealCLI：统一评测 CLI Agent 的任务执行与人机协作质量：五维协作框架，打破&quot;指令固定不变&quot;的评测假设，覆盖运行时协作。
-  来源：https://huggingface.co/papers/2610.22507
-· TAO：面向 LLM Agent 服务的工具感知联合调度：同时考虑 GPU 上的模型推理与 CPU 上的外部工具，把&quot;工具返回就绪&quot;纳入调度，替代启发式 GPU 准入与放置策略。
-  来源：https://huggingface.co/papers/2610.37230
-· OmniShowcase：从多视角图像生成全向、主体一致的视频：解决相机转到输入视角未覆盖表面时的外观与几何推断难题。
-  来源：https://huggingface.co/papers/2610.35684
-· AdaPRA：带自适应评分标准的流程奖励 Agent，面向数据科学：持久化编码 Agent harness 跨尝试积累知识，用 rubric 引导，针对探索不足、验证不严谨、预算浪费等流程错误。
-  来源：https://huggingface.co/papers/2610.33245
-· Zooming without Zooming v2：从&quot;看细节&quot;到&quot;连接证据&quot;的通用多模态感知：指出空间感知与多模态长上下文共享&quot;连接证据&quot;这一底层能力，并给出低成本合成训练数据的路径。
-  来源：https://huggingface.co/papers/2610.37037
-· CausGround：面向自适应具身规划的因果交互 grounding：让 MLLM 规划时考虑动作的可执行前提与对世界的影响，避免环境特定训练。
-  来源：https://huggingface.co/papers/2610.29702
-· Instruction Capacity：用可控负载量化模型遵循指令的能力上限：以&quot;替换无意义单词的规则&quot;构造原子化、规则独立、答案可计算的负载，并给出带不确定度的容量指标。
-  来源：https://huggingface.co/papers/2610.36095
-· DeepSeek V4.1 Flash-1017 失控与有害操纵风险的独立第三方评测：针对采用新架构的开源权重模型做前沿风险评估，弥补开源模型缺少 system card 的空白。
-  来源：https://huggingface.co/papers/2610.35671
-· What Outcome RL Buys：把 pass@1 提升拆成&quot;做完、可靠、极少突破&quot;三部分：在固定 token 预算下对比 20 个 1.5B–32B 的 RL 模型与其基座。
-  来源：https://huggingface.co/papers/2610.34894
-· Multiscale Policy Optimization：为长时程 LLM Agent 做回合级信用分配：观察到 critic 值主要在回合间变化，提出多尺度优势估计与回合级重要性采样。
-  来源：https://huggingface.co/papers/2610.35013
-· LongZero：零数据提升长上下文推理：在缺乏长、多样、可验证数据的前提下，用 RL from zero data 强化长上下文能力。
-  来源：https://huggingface.co/papers/2610.30132
-· TauIndianBankBench：面向工具型对话 Agent 的流程感知评测：以印度银行业务规则（如销户前须先取关闭报价）为场景，测模型是否按流程办事。
-  来源：https://huggingface.co/papers/2610.30161
-
-🔧 开源项目
-· thedotmack/claude-mem（今日 +459 star）：为任意 Agent 提供跨会话持久上下文，捕获会话全过程、用 AI 压缩后注入后续会话，兼容 Claude Code、OpenClaw、Codex、Gemini、Copilot、OpenCode 等。
-  来源：https://github.com/thedotmack/claude-mem
-· CopilotKit/OpenBot（今日 +240 star）：开源 AI 同事，每个 Agent 独占一台&quot;电脑&quot;（浏览器、文件、工具），动作执行前决策、执行后留痕，支持任意 AG-UI Agent。
-  来源：https://github.com/CopilotKit/OpenBot
-· Infini-AI-Lab 开源 Hermit：Apache-2.0 的 Agent harness 适配框架：从任务反馈中训练指令、技能、记忆与工具这一&quot;外部层&quot;，不改动 Agent 的模型与 harness。
-  来源：https://www.marktechpost.com/2026/10/29/infini-ai-lab-hermit-harness-adapter-framework/
-· Prime Intellect 发布 Prime Mega MoE：让 DeepSeek 的 fused Mega MoE kernel 可训练：补齐反向传播，前向 3.11 倍加速，在 prime-rl 中把 Qwen3 MoE 训练步速提升最多 34%。
-  来源：https://www.marktechpost.com/2026/10/29/prime-intellect-prime-mega-moe-fused-moe-kernel-training/
-· SheepSeb/tinyworldformer：在 Raspberry Pi Pico 2 W 上跑游戏的世界模型：极小型世界模型在微控制器上运行。
-  来源：https://github.com/SheepSeb/tinyworldformer
-· Kokoro 可仅用约 600MB 额外显存克隆任意音色：把 OpenVoice 的 ToneColorConverter 与 Kokoro 组合，已在 audio.cpp 中提供 any-tts 配方。
-  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xiplj7/kokoro_can_now_clone_any_voice_with_just_600_mb/
-· Donchitos/Claude-Code-Game-Studios（今日 +538 star）：把 Claude Code 改造成完整游戏工作室，49 个 AI Agent、72 个工作流技能，模拟真实工作室层级协作。
-  来源：https://github.com/Donchitos/Claude-Code-Game-Studios
-· Hugging Face 推出 AnySpeechRecognizer 与 AnyDecisionModel：Apple 平台上的语音与决策开源模型：面向 Apple 平台的端侧模型套件。
-  来源：https://huggingface.co/blog/anydecisionmodel
-
-🐦 AI 圈热议
-· Simon Willison 推荐：用前沿模型搭一个多人游戏世界：Jacob Sansbury 讲述如何构建 Spawn——玩家用 prompt 指挥游戏内 Agent Savi 实时改造游戏世界，Simon 亲自在手机上把一座城堡 prompt 了出来。
-  来源：https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/
-· Ben Hylak 的吐槽引发共鸣：&quot;每个产品都该是无头 MCP，喂给 Agent，我不用关心里面是什么——当然，除了我们自己的产品&quot;：一句话点破 MCP 时代的接口范式与产品自负。
-  来源：https://simonwillison.net/2026/Oct/29/ben-hylak/
-
-💡 今日观察
-今天最清晰的信号是&quot;Agent 的外挂层正在取代模型本身成为竞争焦点&quot;：Hermit 训练 harness 外部层、claude-mem 做跨会话记忆、OpenBot 把审计做成默认能力，三件事指向同一个判断——换模型带来的边际收益在下降，而记忆、技能、可审计性的组合正在决定产品体验。第二个信号是平台在向上吞并应用层：Gemini 直接在聊天里编辑 Docs/Sheets/PDF，纯文档生成类工具的生存空间被压缩，价值必须上移到&quot;跨格式批量处理与企业治理&quot;。第三，成本侧同时出现三个方向的松动——OpenAI 翻倍用量并发放 API credits、AssemblyAI 把 TTS 压到 $15/百万字符、joey-1 用 2B 模型以 $0.01/百万 token 承接路由判断，语音与决策类 Agent 的毛利模型今天值得重算一遍。最后，Anthropic 那项&quot;专家把 Agent 的随机观点当成自己的&quot;研究，是所有做决策类 Agent 的团队都该读的一课：默认值就是产品权力。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
