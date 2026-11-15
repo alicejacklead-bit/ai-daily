@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy 的 AI 早报 · 2026-11-16</title>
+  <meta name="description" content="AI领域2026-11-16每日简报，涵盖行业新闻、重要论文与开源项目。">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+      try {
+        var lng = localStorage.getItem('lang');
+        if (!lng) lng = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', lng);
+        if (lng === 'en') document.documentElement.setAttribute('lang', 'en');
+      } catch (e) { document.documentElement.setAttribute('data-lang', 'zh'); }
+    })();
+  </script>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-soft: #c9d1d9;
+  --card: #161b22;
+  --border: #21262d;
+  --border-strong: #30363d;
+  --header-bg: rgba(13,17,23,0.95);
+  --hover: #1c2230;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --text-soft: #3d444d;
+  --card: #f6f8fa;
+  --border: #d8dee4;
+  --border-strong: #d0d7de;
+  --header-bg: rgba(255,255,255,0.92);
+  --hover: #eaeef2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  transition: background .2s, color .2s;
+}
+
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Reading progress bar ── */
+#progressBar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #58a6ff, #bc8cff);
+  z-index: 200;
+  transition: width .1s linear;
+}
+
+/* ── Header ── */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.site-header .logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.site-header .logo a { color: inherit; }
+.site-header .logo a:hover { text-decoration: none; }
+.site-header .logo span { color: #58a6ff; }
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ── */
+.search-box { position: relative; }
+.search-box input {
+  width: 220px;
+  max-width: 50vw;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color .15s, width .15s;
+}
+.search-box input:focus { border-color: #58a6ff; width: 280px; }
+.search-results {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 360px;
+  max-width: 80vw;
+  max-height: 420px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  z-index: 150;
+}
+.search-results.active { display: block; }
+.sr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: var(--hover); text-decoration: none; }
+.sr-date { font-size: 11px; color: var(--text-muted); }
+.sr-title { font-size: 13px; color: var(--text); line-height: 1.4; }
+.sr-cat { font-size: 11px; color: #58a6ff; }
+.sr-empty, .sr-hint { padding: 14px; font-size: 13px; color: var(--text-muted); text-align: center; }
+
+/* ── Date picker ── */
+.date-picker {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.date-picker:focus { border-color: #58a6ff; }
+
+.site-header nav { display: flex; gap: 8px; }
+.site-header nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.site-header nav a:hover { background: var(--border); color: var(--text); text-decoration: none; }
+
+/* ── Theme / language toggle ── */
+.theme-toggle, .lang-toggle {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 15px;
+  height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.theme-toggle { width: 34px; }
+.lang-toggle { padding: 0 12px; font-size: 13px; font-weight: 600; min-width: 42px; }
+.theme-toggle:hover, .lang-toggle:hover { border-color: #58a6ff; }
+
+/* ── Language content toggle ── */
+html[data-lang="en"] [data-lang-content="zh"] { display: none; }
+html[data-lang="zh"] [data-lang-content="en"] { display: none; }
+
+/* ── Hot words / trends ── */
+.trends {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 8px 0 8px;
+}
+.trends .trends-head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 16px;
+}
+.trends .trends-head h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+.trends .trends-head .sub { font-size: 12px; color: var(--text-muted); }
+.trend-tags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.trend-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .15s, transform .15s, color .15s;
+  user-select: none;
+}
+.trend-tag:hover { border-color: #58a6ff; color: #58a6ff; transform: translateY(-1px); }
+.trend-tag .cnt {
+  font-size: 11px; color: #fff;
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-radius: 999px; padding: 1px 7px;
+}
+.trend-tag.s1 { font-size: 13px; }
+.trend-tag.s2 { font-size: 14px; }
+.trend-tag.s3 { font-size: 16px; font-weight: 600; }
+
+/* ── Audio player (voice broadcast) ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+}
+.audio-player .ap-label {
+  font-size: 14px; font-weight: 600; color: #58a6ff;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.audio-player .ap-sub { font-size: 12px; color: var(--text-muted); }
+.audio-player audio { flex: 1; min-width: 220px; height: 38px; }
+.audio-player .ap-text { display: flex; flex-direction: column; gap: 2px; }
+
+/* Subscribe-to-podcast button */
+.podcast-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.podcast-cta:hover { border-color: #58a6ff; transform: translateY(-1px); text-decoration: none; }
+.podcast-cta.primary {
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-color: transparent; color: #fff; font-weight: 600;
+  font-size: 14px; padding: 11px 24px;
+}
+.podcast-cta.primary:hover { border-color: transparent; filter: brightness(1.08); }
+.podcast-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.podcast-hint {
+  margin-top: 14px; font-size: 12px; color: var(--text-muted);
+  word-break: break-all;
+}
+.podcast-hint code {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 2px 6px; color: var(--text-soft);
+}
+.audio-badge { font-size: 13px; margin-left: 6px; }
+
+/* ── Speak (TTS) button ── */
+.speak-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: var(--bg);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 999px;
+  color: #58a6ff;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.speak-btn:hover { background: rgba(88,166,255,.1); }
+.speak-btn.playing { border-color: #f85149; color: #f85149; }
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 56px 0 32px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero p { color: var(--text-muted); font-size: 16px; }
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
+}
+.hero .stat .num { font-size: 24px; font-weight: 700; color: var(--text); }
+.hero .stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+/* ── Section heading ── */
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 48px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Date grid (archive) ── */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.date-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color .2s, transform .2s;
+  display: block;
+  color: inherit;
+}
+.date-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.date-card .date-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.date-card .weekday { font-size: 12px; color: var(--text-muted); }
+.date-card .latest-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: #1f6feb;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+/* ── Day hero ── */
+.day-hero { margin-bottom: 24px; }
+.day-hero .date-str {
+  font-size: 13px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px;
+}
+.day-hero h1 { font-size: 28px; font-weight: 700; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar .tab {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .tab:hover { color: var(--text); border-color: #58a6ff; }
+.filter-bar .tab.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+.filter-bar .star-toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: #e3b341;
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .star-toggle:hover { border-color: #e3b341; }
+.filter-bar .star-toggle.active { background: rgba(227,179,65,.15); border-color: #e3b341; }
+
+/* ── Category section ── */
+.category { margin-bottom: 40px; }
+.category-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.category-header h2 { font-size: 18px; font-weight: 700; }
+.cat-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── Item card ── */
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color .2s;
+}
+.item-card:hover { border-color: var(--border-strong); }
+.item-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+.item-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+.item-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.stars { font-size: 13px; color: #e3b341; letter-spacing: 1px; }
+.item-value {
+  font-size: 13px; color: #7ee787;
+  background: rgba(46,160,67,.1); padding: 2px 10px; border-radius: 999px;
+}
+.item-sources { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.item-sources a { color: #58a6ff; margin-left: 6px; }
+.item-sources a:first-child { margin-left: 0; }
+
+/* ── Observation box ── */
+.observation {
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.observation h2 { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
+.observation p { font-size: 14px; color: var(--text-soft); line-height: 1.8; }
+
+.item-app {
+  font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  border-left: 3px solid #d29922; padding: 4px 10px; margin-bottom: 12px;
+  background: rgba(210,153,34,.08); border-radius: 0 6px 6px 0;
+}
+.insight {
+  border: 1px solid var(--border-strong); border-radius: 12px;
+  padding: 20px 24px; margin-top: 16px; background: var(--card);
+}
+.insight h2 { font-size: 16px; font-weight: 700; color: #d29922; margin-bottom: 10px; }
+.insight ul { padding-left: 20px; }
+.insight li { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 6px; }
+
+.empty-filter { display: none; color: var(--text-muted); font-size: 14px; text-align: center; padding: 32px; }
+
+/* ── Day nav ── */
+.day-nav {
+  display: flex; justify-content: space-between;
+  margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.nav-btn {
+  font-size: 14px; color: #58a6ff;
+  padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.nav-btn:hover { background: var(--card); text-decoration: none; }
+
+/* ── Back to top ── */
+#backToTop {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  z-index: 120;
+}
+#backToTop.visible { opacity: 1; pointer-events: auto; }
+#backToTop:hover { transform: translateY(-2px); }
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center; padding: 24px;
+  color: #484f58; font-size: 13px; border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 28px; }
+  .item-meta { flex-direction: column; align-items: flex-start; }
+  .item-sources { margin-left: 0; }
+  .site-header .logo { font-size: 15px; }
+  .search-box input { width: 150px; }
+  .search-box input:focus { width: 180px; }
+  .filter-bar .star-toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+  
+<div id="progressBar"></div>
+<header class="site-header">
+  <div class="logo"><a href="../index.html">⚡ AI <span>Daily</span> Digest</a></div>
+  <div class="header-tools">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="搜索全部日报…" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <input id="datePicker" type="date" class="date-picker" aria-label="选择日期">
+    <button id="langToggle" class="lang-toggle" aria-label="切换语言 / Switch language">EN</button>
+    <button id="themeToggle" class="theme-toggle" aria-label="切换主题" title="切换浅色/深色">🌙</button>
+    <nav>
+      <a href="../index.html"><span data-lang-content="zh">归档</span><span data-lang-content="en">Archive</span></a>
+      <a href="https://github.com/alicejacklead-bit/ai-daily" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+  
+    <div class="container">
+      <div class="day-hero">
+        <div class="date-str"><span data-lang-content="zh">周一 · 2026-11-16</span><span data-lang-content="en">Monday · 2026-11-16</span></div>
+        <h1><span data-lang-content="zh">Andy 的 AI 早报</span><span data-lang-content="en">Andy's AI Daily</span></h1>
+      </div>
+      
+    <div class="audio-player">
+      <div class="ap-text">
+        <span class="ap-label">🎧 <span data-lang-content="zh">语音播报</span><span data-lang-content="en">Listen</span></span>
+        <span class="ap-sub"><span data-lang-content="zh">通勤路上用耳朵看简报</span><span data-lang-content="en">Catch the digest on your commute</span></span>
+      </div>
+      <audio controls preload="none" src="../audio/2026-11-16.mp3" data-date="2026-11-16"></audio>
+    </div>
+      <div data-lang-content="zh">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">全部</span><span class="tab" data-cat="news">新闻</span>
+      <span class="star-toggle">★ 只看重点 (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 市场局势</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">黄仁勋辞任后连锁反应升级：国会推动收紧 AI 芯片出口，Megaspeed 被指经手近 120 亿美元对华芯片订单</div>
+      <div class='item-desc'>The Verge 报道，民主党和共和党均表态支持多项收紧出口的法案，并要求黄仁勋等 Nvidia 高管到国会作证；The Decoder 引 WSJ 称，黄仁勋前伴侣 Alice Huang 拥有的 Megaspeed 在 2024–2025 年间为中方企业安排了近 120 亿美元的 Nvidia 芯片订单，做空机构 Culper Research 估算 Nvidia 实际中国营收占比超过 20%，远高于官方披露的 7%。</div>
+      <div class="item-app">💼 可以问对方——如果实际中国营收占比是官方数字的三倍，那"算力稀缺"的定价假设该怎么重估？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">芯片出口从"行政管制"升级为"立法+国会调查"，意味着合规成本会变成长期结构性成本，而不只是短期冲击；对算力供给和模型训练成本的传导会滞后但持续。</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china" target="_blank">The Verge</a> · <a href="https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china/" target="_blank">The Decoder</a> · <a href="https://www.theverge.com/tech/1033999/jensen-huang-return-nvidia-megaspeed" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">美团发布 1.6 万亿参数 Agent 模型 LongCat-2.5，全程未用 Nvidia GPU</div>
+      <div class='item-desc'>LongCat-2.5 面向 AI Agent 场景，在 Terminal Bench 上得 88.4 分，仅次于 Claude Opus 5；示例部署跑在 194 颗华为昇腾芯片上，官方未提及任何 Nvidia GPU。</div>
+      <div class="item-app">💼 1.6 万亿参数跑在昇腾上拿到 88.4 分——你会把它当"中国版 Opus"还是当"算力去美化"的信号？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">这是"国产算力能否撑起前沿 Agent 模型"的一次公开答卷。若可复现，意味着 Agent 模型的训练供给不再单一依赖 Nvidia 生态，对模型 API 的长期成本曲线是利好变量。</span>
+        <div class="item-sources"><a href="https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Anthropic 官网 news 页新增 11 月 15 日条目</div>
+      <div class='item-desc'>页面快照显示新增一条 November 15, 2026 的更新，但摘要未给出标题与正文内容。</div>
+      <div class="item-app">💼 IPO 前夜官网每一条更新都会被放大解读，你会盯它的产品线还是合规口径？</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">在 IPO 路演窗口期，Anthropic 任何官方页面更新都可能牵动估值叙事；但本条信息量不足，只能作为待跟踪信号，不宜过度解读。</span>
+        <div class="item-sources"><a href="https://www.anthropic.com/news" target="_blank">Anthropic News</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 赛道深挖</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">关注赛道] OpenRouter 主力模型表六款同时调价，涨跌分化，并新增 gpt-5.6-sol 与 gpt-oss-20b 档位</div>
+      <div class='item-desc'>据 API 价格快照，deepseek-r1-0528 输入价从 0.000000571 降至 0.0000005（约 -12%），输出从 0.000002286 降至 0.00000215；deepseek-v4.1-flash-1017 输入从 0.000000038 降至 0.00000002（约 -47%），输出从 0.0000005 降至 0.000000108（约 -78%）；其 batch 版输入从 0.00000005 降至 0.000000029，但输出从 0.00000015 升至 0.000000253（约 +69%）；openai/gpt-5.6-sol 输入从 0.000004 升至 0.0000044、输出从 0.00002 升至 0.000022（约 +10%）；openai/gpt-oss-20b 输入从 0.00000003 升至 0.000000075、输出从 0.0000003 升至 0.0000003 不变；qwen3.5-9b 输入从 0.000000101 升至 0.000000138（约 +37%）、输出从 0.000000149 升至 0.000000203（约 +36%）；qwen3-vl-30b-a3b-thinking 从表内移除。</div>
+      <div class="item-app">💼 batch 版输出价反而涨了 69%，你怎么看"批处理折扣"这件事正在被重新定义？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">DeepSeek 系大幅降价、OpenAI 与 Qwen 小模型涨价，说明聚合平台上的价格已按"任务分层"重新定价——便宜模型卷推理成本，贵的模型卷能力溢价。对做视频模型 API 的平台来说，这意味着"同货架多模型"的比价压力会更快传导到视频侧。</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter Models API</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] WaveSpeedAI 首页主推位换血：Seedance 2.5 Flash 上线，Seedream 5.5 从横幅撤下</div>
+      <div class='item-desc'>价格页快照显示新增"Seedance 2.5 Flash Now Live | Try in Video Generator →"，删除"Seedream 5.5 is LIVE | Try in Image Generator →"。这是继此前 Seedream 5.5 上线主推位、GPT Image 2.6 撤下之后的又一次货架轮换。</div>
+      <div class="item-app">💼 聚合平台的主推位从图像切回视频，你觉得是需求变了还是供给（新模型）变了？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">视频模型聚合平台的主推位是需求侧最灵敏的指针——从图像模型主推切回视频模型主推，说明平台判断当下流量与付费意愿在视频侧。对视频生成 API 平台而言，货架位就是渠道话语权。</span>
+        <div class="item-sources"><a href="https://wavespeed.ai/pricing" target="_blank">WaveSpeedAI Pricing</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">关注赛道] Replicate 价格页删除 CPU (Small) / cpu-small 档位（$0.000025/sec、$0.09/hr，2GB RAM）</div>
+      <div class='item-desc'>快照显示该低价 CPU 实例条目整体从价格页移除，其余 GPU 档位未见对应新增。</div>
+      <div class="item-app">💼 聚合平台砍掉最便宜的 CPU 档，是在清理低毛利流量还是在为托管推理让路？</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">最低价 CPU 档位通常是轻量推理、预处理、Agent 工具调用的入口。入口档位消失，可能意味着平台在把低价流量往 GPU 或托管推理上收，对依赖廉价 CPU 跑预处理管线的视频/图像工作流是成本信号。</span>
+        <div class="item-sources"><a href="https://replicate.com/pricing" target="_blank">Replicate Pricing</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent 前沿</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="4">
+      <div class="item-title">GitLab 19.5 把智能体开发纳入可治理的 DevOps 平台能力</div>
+      <div class='item-desc'>GitLab 19.5 发布，将 Agent 开发流程接入统一的 DevOps 治理体系，使 Agent 的构建、权限与发布纳入既有平台管控。</div>
+      <div class="item-app">💼 Agent 上生产最大的阻力是模型不行，还是没人敢给它发布权限？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Agent 从"个人脚本"走向"企业资产"，卡点从来不是模型能力而是治理——谁批准、谁能改、出问题谁负责。把 Agent 纳入 DevOps 治理，等于给 Agent 上生产补上了组织流程这一环。</span>
+        <div class="item-sources"><a href="https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1?utm_source=rss&utm_medium=article" target="_blank">InfoQ 中文</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">多用户、多 Agent 的记忆提取：谁该记住什么、什么必须保密</div>
+      <div class='item-desc'>论文 MixUA 提出多粒度记忆系统，把独立的用户-Agent 轨迹蒸馏成"经验"，并为每条经验判定哪个用户、哪类异构 Agent 能从中受益、哪些信息必须保持私有。</div>
+      <div class="item-app">💼 Agent 之间共享"经验"时，你更担心它学错，还是担心它把别人的东西学走？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">自进化 Agent 共享经验时，最大的隐患是跨用户信息泄露与经验错配。这条把"记忆共享"从工程技巧升级为权限与隐私问题，是 Agent 产品做多租户时必须回答的问题。</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2611.10439" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ 快讯</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Anthropic 的 Claude Fable 5.2 不"生成"图像而是"画"图像</div>
+      <div class='item-desc'>模型不计算像素，而是写 Python 代码在虚拟画布上落数十万笔模拟笔触，一张写实停车场场景约 70 万笔。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Bland 发布 Tofu-1 全双工语音模型</div>
+      <div class='item-desc'>面向嘈杂、高风险的电话通话场景，处于企业研究预览阶段，暂无公开基准、参数量与定价。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/11/15/bland-tofu-1-full-duplex-speech-to-speech-model/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">澳大利亚央行：AI 先冲击年轻劳动者</div>
+      <div class='item-desc'>软件开发与客服等暴露度高的岗位，15–24 岁群体的招聘与就业自 ChatGPT 发布以来下滑幅度大于年长群体；作者提醒商业周期与远程办公趋势也可能是解释因素。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">李沐加入 Aimotion，联合打造产业级世界模型</div>
+      <div class='item-desc'>。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.36kr.com/p/4070692160754562" target="_blank">36Kr AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">AG-UI 协议单日 +393 star</div>
+      <div class='item-desc'>把 Agent 接入前端应用的 Agent-User 交互协议持续升温；同日 Univer 办公 SDK +1,041 star。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://github.com/ag-ui-protocol/ag-ui" target="_blank">GitHub Trending</a> · <a href="https://github.com/dream-num/univer" target="_blank">GitHub Trending</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">该筛选条件下没有内容。</div>
+      
+        <div class="observation">
+          <h2>💡 今日观察</h2>
+          <p>🎯 OpenRouter 上六款主力模型同一天调价、涨跌互现，模型 API 的"货架价"已经从季度级波动变成周级波动——聚合平台正在变成模型定价的真实发现机制。 今天的价格信号比模型信号更值得读：OpenRouter 上 DeepSeek 系大幅降价、OpenAI 与 Qwen 小模型涨价、batch 输出价反向上涨，说明聚合平台已按"任务分层"重新定价，而不是整体涨或整体跌。供给端同时出现两条分叉——美团用昇腾跑出 1.6 万亿参数 Agent 模型，Anthropic 用"写代码画画"绕开像素生成，都在证明前沿能力不必沿着同一条算力与架构路径走。需求侧，WaveSpeedAI 主推位从图像切回视频、Replicate 砍掉最低价 CPU 档，是渠道在重新分配流量与毛利。对视频模型 API 平台而言，比价窗口正在从季度压缩到周，货架位与档位设计本身就是竞争力。</p>
+          <button class="speak-btn" data-label="🔊 朗读今日观察" data-stop="⏹ 停止" data-speak-lang="zh-CN" data-text="🎯 OpenRouter 上六款主力模型同一天调价、涨跌互现，模型 API 的&quot;货架价&quot;已经从季度级波动变成周级波动——聚合平台正在变成模型定价的真实发现机制。 今天的价格信号比模型信号更值得读：OpenRouter 上 DeepSeek 系大幅降价、OpenAI 与 Qwen 小模型涨价、batch 输出价反向上涨，说明聚合平台已按&quot;任务分层&quot;重新定价，而不是整体涨或整体跌。供给端同时出现两条分叉——美团用昇腾跑出 1.6 万亿参数 Agent 模型，Anthropic 用&quot;写代码画画&quot;绕开像素生成，都在证明前沿能力不必沿着同一条算力与架构路径走。需求侧，WaveSpeedAI 主推位从图像切回视频、Replicate 砍掉最低价 CPU 档，是渠道在重新分配流量与毛利。对视频模型 API 平台而言，比价窗口正在从季度压缩到周，货架位与档位设计本身就是竞争力。">🔊 朗读今日观察</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 商业机会</h2>
+          <ul><li>做"跨聚合平台视频模型比价与成本路由"层：依据今天 OpenRouter 六款模型同日调价、WaveSpeedAI 货架轮换、Replicate 砍低价 CPU 档三条事实，视频/图像工作流的调用成本已进入周级波动；面向中小 AI 创作团队提供按任务自动选模型、自动切档的路由服务，解决"同一提示词在不同平台价差与质量差都很大"的问题。</li><li>为多租户 Agent 产品提供"记忆权限"中间件：依据 MixUA 论文指出的跨用户经验共享与隐私边界问题，以及 GitLab 19.5 把 Agent 纳入治理体系的方向，面向正在把 Agent 推向企业客户的团队，提供经验蒸馏时的可见性判定与审计能力——为什么是现在：Agent 正从单用户脚本进入多租户生产环境，治理缺口先于需求暴露。</li></ul>
+        </div>
+    </div></div><div data-lang-content="en">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">All</span><span class="tab" data-cat="news">News</span>
+      <span class="star-toggle">★ Top picks (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 Market Landscape</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Chain reaction escalates after Jensen Huang's resignation: Congress pushes to tighten AI chip exports, Megaspeed alleged to have handled nearly $12 billion in chip orders for China</div>
+      <div class='item-desc'>The Verge reports that both Democrats and Republicans have voiced support for multiple bills to tighten exports and have demanded that Nvidia executives including Jensen Huang testify before Congress; The Decoder, citing the WSJ, says that Megaspeed, owned by Jensen Huang's former partner Alice Huang, arranged nearly $12 billion in Nvidia chip orders for Chinese companies between 2024 and 2025, and short-seller Culper Research estimates that Nvidia's actual China revenue share exceeds 20%, far above the officially disclosed 7%.</div>
+      <div class="item-app">💼 You can ask your counterpart—if the actual China revenue share is three times the official figure, how should the pricing assumption of "compute scarcity" be revalued?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">Chip exports are escalating from "administrative controls" to "legislation + congressional investigation," meaning compliance costs will become a long-term structural cost rather than just a short-term shock; the transmission to compute supply and model training costs will lag but persist.</span>
+        <div class="item-sources"><a href="https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china" target="_blank">The Verge</a> · <a href="https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china/" target="_blank">The Decoder</a> · <a href="https://www.theverge.com/tech/1033999/jensen-huang-return-nvidia-megaspeed" target="_blank">The Verge</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Meituan releases 1.6-trillion-parameter Agent model LongCat-2.5, built entirely without Nvidia GPUs</div>
+      <div class='item-desc'>LongCat-2.5 targets AI Agent scenarios and scores 88.4 on Terminal Bench, second only to Claude Opus 5; the example deployment runs on 194 Huawei Ascend chips, with no mention of any Nvidia GPU.</div>
+      <div class="item-app">💼 1.6 trillion parameters running on Ascend scoring 88.4—would you see it as a "Chinese Opus" or as a signal of "de-Americanizing compute"?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">This is a public answer to the question of "whether domestic compute can support frontier Agent models." If reproducible, it means the training supply for Agent models no longer depends solely on the Nvidia ecosystem, which is a favorable variable for the long-term cost curve of model APIs.</span>
+        <div class="item-sources"><a href="https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Anthropic's official news page adds a November 15 entry</div>
+      <div class='item-desc'>A page snapshot shows a newly added update dated November 15, 2026, but the summary gives neither a title nor body content.</div>
+      <div class="item-app">💼 On the eve of an IPO, every official website update gets amplified—would you watch its product line or its compliance stance?</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">During the IPO roadshow window, any official page update from Anthropic could sway the valuation narrative; but this item carries insufficient information and should only be treated as a signal to track, not over-interpreted.</span>
+        <div class="item-sources"><a href="https://www.anthropic.com/news" target="_blank">Anthropic News</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 Track Deep Dive</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Track in Focus] Six flagship models on OpenRouter's main model table adjusted prices simultaneously, with mixed increases and decreases, and new gpt-5.6-sol and gpt-oss-20b tiers added</div>
+      <div class='item-desc'>According to an API price snapshot, deepseek-r1-0528's input price dropped from 0.000000571 to 0.0000005 (about -12%), and output from 0.000002286 to 0.00000215; deepseek-v4.1-flash-1017's input dropped from 0.000000038 to 0.00000002 (about -47%), and output from 0.0000005 to 0.000000108 (about -78%); its batch version's input dropped from 0.00000005 to 0.000000029, but output rose from 0.00000015 to 0.000000253 (about +69%); openai/gpt-5.6-sol's input rose from 0.000004 to 0.0000044, and output from 0.00002 to 0.000022 (about +10%); openai/gpt-oss-20b's input rose from 0.00000003 to 0.000000075, and output rose from 0.0000003 to 0.0000003, unchanged; qwen3.5-9b's input rose from 0.000000101 to 0.000000138 (about +37%), and output from 0.000000149 to 0.000000203 (about +36%); qwen3-vl-30b-a3b-thinking was removed from the table.</div>
+      <div class="item-app">💼 The batch version's output price actually rose 69%. What do you think about the fact that "batch-processing discounts" are being redefined?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">The sharp price cuts across the DeepSeek family and the price increases for OpenAI and Qwen small models show that pricing on aggregation platforms has been repriced by "task tier"—cheap models compete on inference cost, while expensive models compete on capability premium. For platforms building video model APIs, this means the price-comparison pressure of "multiple models on the same shelf" will transmit to the video side faster.</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter Models API</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track in Focus] WaveSpeedAI's homepage featured slot changes hands: Seedance 2.5 Flash goes live, Seedream 5.5 is pulled from the banner</div>
+      <div class='item-desc'>A pricing page snapshot shows the addition of "Seedance 2.5 Flash Now Live | Try in Video Generator →" and the removal of "Seedream 5.5 is LIVE | Try in Image Generator →". This is another shelf rotation, following the earlier addition of Seedream 5.5 to the featured slot and the removal of GPT Image 2.6.</div>
+      <div class="item-app">💼 The aggregation platform's featured slot switched from image back to video—do you think demand changed or supply (new models) changed?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">The featured slot on video model aggregation platforms is the most sensitive pointer on the demand side—switching the featured slot from an image model back to a video model shows that the platform judges current traffic and willingness to pay to be on the video side. For video generation API platforms, shelf position is channel leverage.</span>
+        <div class="item-sources"><a href="https://wavespeed.ai/pricing" target="_blank">WaveSpeedAI Pricing</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="3">
+      <div class="item-title">Track in Focus] Replicate's pricing page removes the CPU (Small) / cpu-small tier ($0.000025/sec, $0.09/hr, 2GB RAM)</div>
+      <div class='item-desc'>The snapshot shows that this low-cost CPU instance entry was removed entirely from the pricing page, with no corresponding additions among the other GPU tiers.</div>
+      <div class="item-app">💼 Is the aggregation platform cutting its cheapest CPU tier to clean up low-margin traffic or to make way for managed inference?</div>
+      <div class="item-meta">
+        <span class="stars">★★★☆☆</span>
+        <span class="item-value">The lowest-priced CPU tier is usually the entry point for lightweight inference, preprocessing, and Agent tool calls. The disappearance of the entry tier may mean the platform is steering low-cost traffic toward GPUs or managed inference—a cost signal for video/image workflows that rely on cheap CPUs to run preprocessing pipelines.</span>
+        <div class="item-sources"><a href="https://replicate.com/pricing" target="_blank">Replicate Pricing</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent Frontier</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="4">
+      <div class="item-title">GitLab 19.5 brings agent development into a governable DevOps platform capability</div>
+      <div class='item-desc'>GitLab 19.5 is released, integrating the agent development process into a unified DevOps governance system, so that agent building, permissions, and release fall under existing platform controls.</div>
+      <div class="item-app">💼 Is the biggest obstacle to putting agents into production that models aren't good enough, or that no one dares give them release permissions?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">As agents move from "personal scripts" to "enterprise assets," the bottleneck has never been model capability but governance—who approves, who can modify, and who is accountable when something goes wrong. Bringing agents into DevOps governance is equivalent to adding the organizational process piece needed to put agents into production.</span>
+        <div class="item-sources"><a href="https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1?utm_source=rss&utm_medium=article" target="_blank">InfoQ 中文</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Memory extraction for multi-user, multi-agent settings: who should remember what, and what must stay confidential</div>
+      <div class='item-desc'>The paper MixUA proposes a multi-granularity memory system that distills independent user-agent trajectories into "experience," and for each piece of experience determines which users and which types of heterogeneous agents can benefit from it, and which information must remain private.</div>
+      <div class="item-app">💼 When agents share "experience" with each other, are you more worried that they learn the wrong thing, or that they learn and take away other people's information?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">When self-evolving agents share experience, the biggest hidden risks are cross-user information leakage and experience mismatch. This work upgrades "memory sharing" from an engineering trick to a question of permissions and privacy—a question that agent products must answer when building multi-tenant systems.</span>
+        <div class="item-sources"><a href="https://huggingface.co/papers/2611.10439" target="_blank">HuggingFace Papers</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ Quick Hits</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Anthropic's Claude Fable 5.2 doesn't "generate" images—it "paints" them</div>
+      <div class='item-desc'>The model doesn't compute pixels; instead it writes Python code to lay down hundreds of thousands of simulated brushstrokes on a virtual canvas—roughly 700,000 strokes for a single photorealistic parking-lot scene.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Bland releases Tofu-1 full-duplex speech model</div>
+      <div class='item-desc'>Aimed at noisy, high-stakes phone-call scenarios; currently in enterprise research preview, with no public benchmarks, parameter counts, or pricing yet.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.marktechpost.com/2026/11/15/bland-tofu-1-full-duplex-speech-to-speech-model/" target="_blank">MarkTechPost</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Reserve Bank of Australia: AI hits young workers first</div>
+      <div class='item-desc'>In highly exposed roles such as software development and customer service, hiring and employment for the 15–24 age group have fallen more sharply than for older groups since ChatGPT's release; the authors caution that business cycles and remote-work trends may also be explanatory factors.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Li Mu joins Aimotion to jointly build an industry-grade world model</div>
+      <div class='item-desc'>.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.36kr.com/p/4070692160754562" target="_blank">36Kr AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">AG-UI protocol gains +393 stars in a single day</div>
+      <div class='item-desc'>The Agent-User interaction protocol for connecting Agents to frontend applications continues to heat up; on the same day, the Univer office SDK gained +1,041 stars.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://github.com/ag-ui-protocol/ag-ui" target="_blank">GitHub Trending</a> · <a href="https://github.com/dream-num/univer" target="_blank">GitHub Trending</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">No items match this filter.</div>
+      
+        <div class="observation">
+          <h2>💡 Today's Take</h2>
+          <p>🎯 Six major models on OpenRouter changed prices on the same day, with a mix of increases and decreases—the "shelf price" of model APIs has shifted from quarterly-level fluctuations to weekly-level fluctuations, and aggregation platforms are becoming the real price-discovery mechanism for model pricing. Today's price signals are more worth reading than the model signals: on OpenRouter, the DeepSeek family saw major price cuts, OpenAI and Qwen small models went up in price, and batch output prices rose in the opposite direction—showing that aggregator platforms have already repriced by "task tier" rather than raising or lowering everything across the board. On the supply side, two forks are emerging at once—Meituan ran a 1.6-trillion-parameter Agent model on Ascend, while Anthropic sidesteps pixel generation by "writing code to paint"—both proving that frontier capabilities need not follow the same compute and architecture path. On the demand side, WaveSpeedAI's featured slot has shifted from image back to video, and Replicate has cut its lowest-priced CPU tier—channels are reallocating traffic and gross margin. For video model API platforms, the price-comparison window is compressing from quarterly to weekly; shelf placement and tier design are themselves competitiveness.</p>
+          <button class="speak-btn" data-label="🔊 Read aloud" data-stop="⏹ Stop" data-speak-lang="en-US" data-text="🎯 Six major models on OpenRouter changed prices on the same day, with a mix of increases and decreases—the &quot;shelf price&quot; of model APIs has shifted from quarterly-level fluctuations to weekly-level fluctuations, and aggregation platforms are becoming the real price-discovery mechanism for model pricing. Today's price signals are more worth reading than the model signals: on OpenRouter, the DeepSeek family saw major price cuts, OpenAI and Qwen small models went up in price, and batch output prices rose in the opposite direction—showing that aggregator platforms have already repriced by &quot;task tier&quot; rather than raising or lowering everything across the board. On the supply side, two forks are emerging at once—Meituan ran a 1.6-trillion-parameter Agent model on Ascend, while Anthropic sidesteps pixel generation by &quot;writing code to paint&quot;—both proving that frontier capabilities need not follow the same compute and architecture path. On the demand side, WaveSpeedAI's featured slot has shifted from image back to video, and Replicate has cut its lowest-priced CPU tier—channels are reallocating traffic and gross margin. For video model API platforms, the price-comparison window is compressing from quarterly to weekly; shelf placement and tier design are themselves competitiveness.">🔊 Read aloud</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 Opportunities</h2>
+          <ul><li>Build a "cross-aggregator video model price comparison and cost routing" layer: Based on three facts today—six OpenRouter models repriced on the same day, WaveSpeedAI's shelf rotation, and Replicate cutting its low-price CPU tier—the invocation cost of video/image workflows has entered weekly-level volatility; offer small and mid-sized AI creative teams a routing service that automatically selects models and switches tiers by task, solving the problem that "the same prompt varies widely in both price and quality across platforms."</li><li>Provide "memory permissions" middleware for multi-tenant Agent products: Based on the cross-user experience-sharing and privacy-boundary issues raised in the MixUA paper, and GitLab 19.5's direction of bringing Agents into its governance system, offer teams pushing Agents to enterprise customers visibility determination and audit capabilities during experience distillation—why now: Agents are moving from single-user scripts into multi-tenant production environments, and governance gaps are surfacing ahead of demand.</li></ul>
+        </div>
+    </div></div>
+      <div class="day-nav">
+        <a class="nav-btn" href="2026-11-15.html">← 2026-11-15</a>
+        <span></span>
+      </div>
+    </div>
+  
+<button id="backToTop" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  <span data-lang-content="zh">© Andy 的 AI 早报 · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
+  <span data-lang-content="en">© Andy's AI Daily · Auto-collected · Curated by DeepSeek · Updated daily</span>
+</footer>
+
+  <script>window.SITE_BASE="../";window.AVAILABLE_DATES=["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31", "2026-11-01", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06", "2026-11-07", "2026-11-08", "2026-11-09", "2026-11-10", "2026-11-11", "2026-11-12", "2026-11-13", "2026-11-14", "2026-11-15", "2026-11-16"];window.CURRENT_DATE="2026-11-16";window.PREV_DATE="2026-11-15";</script>
+  <script>
+(function () {
+  var BASE = window.SITE_BASE || "";
+  var DATES = window.AVAILABLE_DATES || [];
+
+  function esc(s) {
+    return (s || "").replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  // ── Date picker ──
+  var dp = document.getElementById('datePicker');
+  if (dp && DATES.length) {
+    dp.min = DATES[0];
+    dp.max = DATES[DATES.length - 1];
+    dp.value = window.CURRENT_DATE || DATES[DATES.length - 1];
+    dp.addEventListener('change', function () {
+      var v = dp.value;
+      if (DATES.indexOf(v) === -1) {
+        var earlier = DATES.filter(function (d) { return d <= v; });
+        v = earlier.length ? earlier[earlier.length - 1] : DATES[0];
+      }
+      window.location.href = BASE + 'daily/' + v + '.html';
+    });
+  }
+
+  // ── Search ──
+  var si = document.getElementById('searchInput');
+  var sr = document.getElementById('searchResults');
+  var INDEX = null;
+  function loadIndex() {
+    if (INDEX) return Promise.resolve(INDEX);
+    return fetch(BASE + 'search-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { INDEX = data; return data; });
+  }
+  if (si && sr) {
+    si.addEventListener('input', function () {
+      var q = si.value.trim().toLowerCase();
+      if (q.length < 2) { sr.classList.remove('active'); sr.innerHTML = ''; return; }
+      loadIndex().then(function (idx) {
+        var en = window.CUR_LANG === 'en';
+        function fTitle(h) { return (en && h.title_en) ? h.title_en : h.title; }
+        function fDesc(h) { return (en && h.desc_en) ? h.desc_en : h.desc; }
+        function fCat(h) { return (en && h.cat_en) ? h.cat_en : h.cat; }
+        var hits = idx.filter(function (it) {
+          return (fTitle(it) + ' ' + fDesc(it) + ' ' + it.title + ' ' + it.desc)
+            .toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 25);
+        if (!hits.length) {
+          sr.innerHTML = '<div class="sr-empty">' +
+            (en ? 'No matches' : '没有匹配结果') + '</div>';
+        } else {
+          sr.innerHTML = hits.map(function (h) {
+            return '<a class="sr-item" href="' + BASE + 'daily/' + h.date + '.html">' +
+                   '<span class="sr-date">' + h.date + ' · ' + esc(fCat(h)) + '</span>' +
+                   '<span class="sr-title">' + esc(fTitle(h)) + '</span></a>';
+          }).join('');
+        }
+        sr.classList.add('active');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-box')) sr.classList.remove('active');
+    });
+  }
+
+  // ── Filters (category tabs + star toggle), scoped per digest ──
+  document.querySelectorAll('.filter-bar').forEach(function (bar) {
+    var scope = bar.closest('.digest-scope') || document;
+    var tabs = bar.querySelectorAll('.tab');
+    var starToggle = bar.querySelector('.star-toggle');
+    var curCat = 'all', starsOnly = false;
+
+    function apply() {
+      scope.querySelectorAll('.category').forEach(function (catEl) {
+        var ct = catEl.getAttribute('data-cat');
+        var catMatch = (curCat === 'all') || (ct === curCat);
+        var visible = 0;
+        catEl.querySelectorAll('.item-card').forEach(function (it) {
+          var stars = parseInt(it.getAttribute('data-stars') || '0', 10);
+          var show = catMatch && (!starsOnly || stars >= 4);
+          it.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        catEl.style.display = (catMatch && visible > 0) ? '' : 'none';
+      });
+      var anyVisible = Array.prototype.some.call(
+        scope.querySelectorAll('.category'),
+        function (c) { return c.style.display !== 'none'; }
+      );
+      var emptyMsg = scope.querySelector('.empty-filter');
+      if (emptyMsg) emptyMsg.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        curCat = t.getAttribute('data-cat');
+        apply();
+      });
+    });
+    if (starToggle) {
+      starToggle.addEventListener('click', function () {
+        starsOnly = !starsOnly;
+        starToggle.classList.toggle('active', starsOnly);
+        apply();
+      });
+    }
+  });
+
+  // ── Keyboard navigation (day pages) ──
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' && window.PREV_DATE) {
+      window.location.href = window.PREV_DATE + '.html';
+    } else if (e.key === 'ArrowRight' && window.NEXT_DATE) {
+      window.location.href = window.NEXT_DATE + '.html';
+    }
+  });
+
+  // ── Back to top ──
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Reading progress ──
+  var pb = document.getElementById('progressBar');
+  if (pb) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      pb.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+  }
+
+  // ── Theme toggle ──
+  var tt = document.getElementById('themeToggle');
+  function curTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+  function paintToggle() { if (tt) tt.textContent = curTheme() === 'light' ? '☀️' : '🌙'; }
+  paintToggle();
+  if (tt) {
+    tt.addEventListener('click', function () {
+      var next = curTheme() === 'light' ? 'dark' : 'light';
+      if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paintToggle();
+    });
+  }
+
+  // ── Language toggle ──
+  var PH = { zh: '搜索全部日报…', en: 'Search all digests…' };
+  function curLang() {
+    return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+  }
+  window.CUR_LANG = curLang();
+  var lt = document.getElementById('langToggle');
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+    window.CUR_LANG = lang;
+    if (lt) lt.textContent = lang === 'en' ? '中' : 'EN';
+    if (si) si.setAttribute('placeholder', PH[lang]);
+  }
+  applyLang(curLang());
+  if (lt) {
+    lt.addEventListener('click', function () {
+      var next = curLang() === 'en' ? 'zh' : 'en';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      applyLang(next);
+    });
+  }
+
+  // ── Hot-word tags → search ──
+  document.querySelectorAll('.trend-tag').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      var term = tag.getAttribute('data-term');
+      if (si) {
+        si.value = term;
+        si.focus();
+        si.dispatchEvent(new Event('input', { bubbles: true }));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Voice readout (Web Speech API) ──
+  var synth = window.speechSynthesis;
+  document.querySelectorAll('.speak-btn').forEach(function (btn) {
+    if (!synth) { btn.style.display = 'none'; return; }
+    var label = btn.getAttribute('data-label') || '🔊 朗读';
+    var stop = btn.getAttribute('data-stop') || '⏹ 停止';
+    btn.addEventListener('click', function () {
+      if (btn.classList.contains('playing')) {
+        synth.cancel();
+        return;
+      }
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-text') || '');
+      u.lang = btn.getAttribute('data-speak-lang') || 'zh-CN';
+      u.rate = 1.0;
+      u.onend = u.onerror = function () {
+        btn.classList.remove('playing');
+        btn.textContent = label;
+      };
+      btn.classList.add('playing');
+      btn.textContent = stop;
+      synth.speak(u);
+    });
+  });
+  window.addEventListener('beforeunload', function () { if (synth) synth.cancel(); });
+
+  // ── Audio player: lock-screen / car metadata via MediaSession ──
+  document.querySelectorAll('.audio-player audio').forEach(function (audio) {
+    audio.addEventListener('play', function () {
+      if (!('mediaSession' in navigator)) return;
+      var date = audio.getAttribute('data-date') || '';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Andy 的 AI 早报 · ' + date,
+          artist: 'Andy 的 AI 早报',
+          album: 'Andy 的 AI 早报',
+          artwork: [{ src: BASE + 'podcast-cover.png', sizes: '1400x1400', type: 'image/png' }]
+        });
+      } catch (e) {}
+    });
+  });
+
+  // ── Copy podcast feed URL ──
+  document.querySelectorAll('[data-copy-feed]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = el.getAttribute('data-copy-feed');
+      var done = function () {
+        var old = el.textContent;
+        el.textContent = (window.CUR_LANG === 'en' ? '✓ Copied!' : '✓ 已复制订阅链接');
+        setTimeout(function () { el.textContent = old; }, 1800);
+      };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, done); }
+      else { done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

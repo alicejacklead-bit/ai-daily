@@ -36,6 +36,60 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-16">Andy 的 AI 早报 · 2026-11-16 周一</span>
+    <button class="cbtn" data-copy="t-2026-11-16">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-16.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-16.mp3" download="2026-11-16.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-16">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-16">Andy 的 AI 早报 · 2026-11-16 周一
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· 黄仁勋辞任后连锁反应升级：国会推动收紧 AI 芯片出口，Megaspeed 被指经手近 120 亿美元对华芯片订单：The Verge 报道，民主党和共和党均表态支持多项收紧出口的法案，并要求黄仁勋等 Nvidia 高管到国会作证；The Decoder 引 WSJ 称，黄仁勋前伴侣 Alice Huang 拥有的 Megaspeed 在 2024–2025 年间为中方企业安排了近 120 亿美元的 Nvidia 芯片订单，做空机构 Culper Research 估算 Nvidia 实际中国营收占比超过 20%，远高于官方披露的 7%。
+  来源：https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china / https://the-decoder.com/firm-linked-to-jensen-huangs-ex-lover-reportedly-brokered-nearly-12-billion-in-nvidia-chip-orders-for-china/ / https://www.theverge.com/tech/1033999/jensen-huang-return-nvidia-megaspeed
+· 美团发布 1.6 万亿参数 Agent 模型 LongCat-2.5，全程未用 Nvidia GPU：LongCat-2.5 面向 AI Agent 场景，在 Terminal Bench 上得 88.4 分，仅次于 Claude Opus 5；示例部署跑在 194 颗华为昇腾芯片上，官方未提及任何 Nvidia GPU。
+  来源：https://the-decoder.com/meituan-releases-a-1-6-trillion-parameter-agent-model-that-never-touched-an-nvidia-gpu/
+· Anthropic 官网 news 页新增 11 月 15 日条目：页面快照显示新增一条 November 15, 2026 的更新，但摘要未给出标题与正文内容。
+  来源：https://www.anthropic.com/news
+
+🎬 赛道深挖
+· 关注赛道] OpenRouter 主力模型表六款同时调价，涨跌分化，并新增 gpt-5.6-sol 与 gpt-oss-20b 档位：据 API 价格快照，deepseek-r1-0528 输入价从 0.000000571 降至 0.0000005（约 -12%），输出从 0.000002286 降至 0.00000215；deepseek-v4.1-flash-1017 输入从 0.000000038 降至 0.00000002（约 -47%），输出从 0.0000005 降至 0.000000108（约 -78%）；其 batch 版输入从 0.00000005 降至 0.000000029，但输出从 0.00000015 升至 0.000000253（约 +69%）；openai/gpt-5.6-sol 输入从 0.000004 升至 0.0000044、输出从 0.00002 升至 0.000022（约 +10%）；openai/gpt-oss-20b 输入从 0.00000003 升至 0.000000075、输出从 0.0000003 升至 0.0000003 不变；qwen3.5-9b 输入从 0.000000101 升至 0.000000138（约 +37%）、输出从 0.000000149 升至 0.000000203（约 +36%）；qwen3-vl-30b-a3b-thinking 从表内移除。
+  来源：https://openrouter.ai/api/v1/models
+· 关注赛道] WaveSpeedAI 首页主推位换血：Seedance 2.5 Flash 上线，Seedream 5.5 从横幅撤下：价格页快照显示新增&quot;Seedance 2.5 Flash Now Live | Try in Video Generator →&quot;，删除&quot;Seedream 5.5 is LIVE | Try in Image Generator →&quot;。这是继此前 Seedream 5.5 上线主推位、GPT Image 2.6 撤下之后的又一次货架轮换。
+  来源：https://wavespeed.ai/pricing
+· 关注赛道] Replicate 价格页删除 CPU (Small) / cpu-small 档位（$0.000025/sec、$0.09/hr，2GB RAM）：快照显示该低价 CPU 实例条目整体从价格页移除，其余 GPU 档位未见对应新增。
+  来源：https://replicate.com/pricing
+
+🤖 Agent 前沿
+· GitLab 19.5 把智能体开发纳入可治理的 DevOps 平台能力：GitLab 19.5 发布，将 Agent 开发流程接入统一的 DevOps 治理体系，使 Agent 的构建、权限与发布纳入既有平台管控。
+  来源：https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1?utm_source=rss&amp;utm_medium=article
+· 多用户、多 Agent 的记忆提取：谁该记住什么、什么必须保密：论文 MixUA 提出多粒度记忆系统，把独立的用户-Agent 轨迹蒸馏成&quot;经验&quot;，并为每条经验判定哪个用户、哪类异构 Agent 能从中受益、哪些信息必须保持私有。
+  来源：https://huggingface.co/papers/2611.10439
+
+⚡ 快讯
+· Anthropic 的 Claude Fable 5.2 不&quot;生成&quot;图像而是&quot;画&quot;图像：模型不计算像素，而是写 Python 代码在虚拟画布上落数十万笔模拟笔触，一张写实停车场场景约 70 万笔。
+  来源：https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/
+· Bland 发布 Tofu-1 全双工语音模型：面向嘈杂、高风险的电话通话场景，处于企业研究预览阶段，暂无公开基准、参数量与定价。
+  来源：https://www.marktechpost.com/2026/11/15/bland-tofu-1-full-duplex-speech-to-speech-model/
+· 澳大利亚央行：AI 先冲击年轻劳动者：软件开发与客服等暴露度高的岗位，15–24 岁群体的招聘与就业自 ChatGPT 发布以来下滑幅度大于年长群体；作者提醒商业周期与远程办公趋势也可能是解释因素。
+  来源：https://the-decoder.com/australias-central-bank-finds-ai-hitting-young-workers-first-especially-in-software-and-customer-service/
+· 李沐加入 Aimotion，联合打造产业级世界模型：。
+  来源：https://www.36kr.com/p/4070692160754562
+· AG-UI 协议单日 +393 star：把 Agent 接入前端应用的 Agent-User 交互协议持续升温；同日 Univer 办公 SDK +1,041 star。
+  来源：https://github.com/ag-ui-protocol/ag-ui / https://github.com/dream-num/univer
+
+💡 今日观察
+🎯 OpenRouter 上六款主力模型同一天调价、涨跌互现，模型 API 的&quot;货架价&quot;已经从季度级波动变成周级波动——聚合平台正在变成模型定价的真实发现机制。 今天的价格信号比模型信号更值得读：OpenRouter 上 DeepSeek 系大幅降价、OpenAI 与 Qwen 小模型涨价、batch 输出价反向上涨，说明聚合平台已按&quot;任务分层&quot;重新定价，而不是整体涨或整体跌。供给端同时出现两条分叉——美团用昇腾跑出 1.6 万亿参数 Agent 模型，Anthropic 用&quot;写代码画画&quot;绕开像素生成，都在证明前沿能力不必沿着同一条算力与架构路径走。需求侧，WaveSpeedAI 主推位从图像切回视频、Replicate 砍掉最低价 CPU 档，是渠道在重新分配流量与毛利。对视频模型 API 平台而言，比价窗口正在从季度压缩到周，货架位与档位设计本身就是竞争力。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-15">Andy 的 AI 早报 · 2026-11-15 周日</span>
     <button class="cbtn" data-copy="t-2026-11-15">📋 复制标题</button>
   </div>
@@ -796,96 +850,6 @@
 
 💡 今日观察
 🎯 OpenAI 把 ChatGPT 订阅改成 token 配额制，是&quot;无限 prompt&quot;时代终结的第一张多米诺骨牌——按量计费会从 API 一路传导到所有 C 端创作工具。 今天最值得记住的不是某个模型，而是定价逻辑的集体转向：OpenAI 一边把订阅改成 token 配额，一边封堵多账号套利，本质上是在承认&quot;无限量&quot;在推理成本面前不可持续。与此同时，融资端从 300 亿缩到 110 亿、Meta 转向千亿级债务融资，说明支撑低价 API 的上游补贴正在退潮。这两件事叠加，意味着未来 6-12 个月 API 和 C 端订阅的价格大概率只会上不会下。技术侧则在往&quot;架构提效&quot;走——DeepSeek 的 Router-Worker 把 p95 砍半、LangChain 补上浏览器操作，都是在不换模型的前提下榨出产能。对视频生成这类单次成本高的品类，谁先把&quot;基础额度 + 超额按量&quot;的套餐设计跑通，谁就先拿到毛利。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-11-01">Andy 的 AI 早报 · 2026-11-01 周日</span>
-    <button class="cbtn" data-copy="t-2026-11-01">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-11-01.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-11-01.mp3" download="2026-11-01.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-11-01">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-01">Andy 的 AI 早报 · 2026-11-01 周日
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-📰 行业新闻
-· OpenAI 新一轮融资仅募得 110 亿美元，目标 300 亿：估值 1.25 万亿美元低于预期，大型投资人在科技股抛售中收缩，与此同时 Anthropic 寻求最早 11 月上市。
-  来源：https://the-decoder.com/openai-raises-just-11-billion-of-its-30-billion-target-as-big-investors-lose-their-ai-appetite/ / https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/
-· Anthropic 把文本水印扩展到 4 个 Claude 模型，但两个旧模型留了后门：为赶 EU AI Act 12 月截止期，Opus 4.6 与 Sonnet 4.6 上改一个采样参数即可绕过水印，Anthropic 仅以合规警告处理。
-  来源：https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models/
-· OpenAI 将从 11 月 29 日起用 Daybreak Blue 网络安全会话数据训练模型：即使用户关闭训练开关也适用，遭反弹后补发邮件承诺单独 opt-out。
-  来源：https://the-decoder.com/openai-plans-to-train-models-on-daybreak-blue-cybersecurity-session-data-that-was-previously-off-limits/
-· Anthropic 限制 Claude 用于游戏逆向与克隆：用户报告连非恶意的通用逆向工程任务也被拦截。
-  来源：https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-ai-model-is-now-blocking-attempts-at-video-game-recreation-and-cloning-users-also-claim-non-malicious-generic-reverse-engineering-tasks-are-blocked / https://mashable.com/tech/anthropic-takes-steps-to-block-video-game-cloning-and-reverse-engineering / https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games
-· Anthropic 封禁&quot;任何触及训练更大模型&quot;的账号：HN 热议，开发者称正常使用被误伤。
-  来源：https://twitter.com/jiahaoshao1/status/2116475922190922088
-· Claude 取消 5 小时用量限制，200 美元 Ultra 用户首批解封：重度用户的使用天花板被抬高。
-  来源：https://www.qbitai.com/2026/10/506855.html
-· Factory 发布 Droid 1.0：模型无关的编码 Agent Harness：默认走程序化工具调用，Terminal-Bench 4 上配 Claude Opus 5.5 得 65.2%，每个通过任务成本 4.73 美元。
-  来源：https://www.marktechpost.com/2026/10/31/factory-droid-1-0-frontier-harness/
-· Vercel Labs 开源 agent-desktop：Apache-2.0 的 Rust CLI，通过读取 OS 无障碍树而非像素，让任意 Agent 在 macOS/Windows/Linux 上做 computer use。
-  来源：https://www.marktechpost.com/2026/10/31/vercel-labs-agent-desktop-computer-use/
-· AI Agent 在活体小鼠脑内完成基因疗法选择与注射：生物科技初创让 Agent 自主选疗法并成功注入，实验室自动化的一个信号。
-  来源：https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse/
-· Agent Sandbox 成为新算力形态：每天上千万次创建：InfoQ 讨论沙箱化执行环境为何成为 Agent 基础设施的核心。
-  来源：https://www.infoq.cn/video/4qjamMQLVIoZvytUQwpI?utm_source=rss&amp;utm_medium=article
-· Apple Intelligence 将于 iOS 27.3 进入中国：11 月 4 日随 beta 上线，12 月正式发布。
-  来源：https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3
-· Google DeepMind 与 WRI 发布 ForTy 全球森林地图：用卫星数据与 AI 把地表分为六类，但只识别出约一半人工林与树作区、60% 种植园。
-  来源：https://the-decoder.com/google-deepmind-creates-a-global-map-of-forests-with-satellite-data-and-ai/
-· 世界模型首次指导芯片设计：超大核 NPU 700 TOPS，99% 算力可用：算力利用率被推到接近满格。
-  来源：https://www.qbitai.com/2026/10/506866.html
-· 恶意软件用 LLM 给受害者&quot;估值&quot;排序：Volta 信息窃取器用 AI 评估受害者价值，Talos 与 Wired 均有分析。
-  来源：https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/ / https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/
-
-📄 重要论文
-· Training Foundation Models with a Single Algorithm：把预训练、midtraining、SFT、RL 统一为同一个基于似然的训练算法，声称各阶段在算法上并非必须分离。
-  来源：https://huggingface.co/papers/2610.40564
-· Unlocking Any-Order Generation in Pretrained Autoregressive Image Models：让已训练好的自回归图像模型支持任意顺序生成，从而具备 inpainting/outpainting/编辑能力，无需 3 倍算力重训。
-  来源：https://huggingface.co/papers/2610.39293
-· L3G-World：用隐式 3D 高斯记忆做实时无限世界生成：避开显式 3D 记忆随流长膨胀、需重编码 RGB 导致无法实时的问题。
-  来源：https://huggingface.co/papers/2610.40614
-· Holo4D：把 4D 重建当作视频扩散的几何控制：用重建出的 3D 轨迹作为整体 4D 脚手架，实现单目视频新机位重拍。
-  来源：https://huggingface.co/papers/2610.25276
-· Proving and Improving the Platonic Representation Hypothesis with JEPAs：把柏拉图表示假说变成定理——分别在不同模态上训练的 JEPA 学到同一表示（相差一个旋转）。
-  来源：https://huggingface.co/papers/2610.39302
-· EasyProver：把 Lean 定理证明扩展到真实代码验证：用递归 Agent + 异步搜索，无额外训练即解 669/672 PutnamBench、全部 6 道 IMO 2026 形式化、597/600 NTP4VC。
-  来源：https://huggingface.co/papers/2610.38174
-· Investor's Last Exam：AI Agent 能不能不看未来做股权投资：由买方投资人主导、严格冻结信息集的权益研究基准。
-  来源：https://huggingface.co/papers/2610.38342
-· Online Dense RL + Planning-Grounding Agent：在真实 iOS App 上训练 UI 导航：直接在线训练小模型，绕开 SFT/离线 RL 的记忆化与脆弱性。
-  来源：https://huggingface.co/papers/2610.39264
-· Glance：生成器自己就是 reranker：给生成器加轻量决策适配器与指针头，在共享 prefill 上给候选段落打分，单个 9B 主干同时做生成与重排。
-  来源：https://huggingface.co/papers/2610.40454
-· A-RSI：零数据多模态自我改进中的自适应任务刷新：解决&quot;何时引入新经验&quot;而非只解决&quot;生成什么经验&quot;。
-  来源：https://huggingface.co/papers/2610.38568
-· Intrinsic Distribution Matching：一步/少步文生图的分布匹配新约束：在内部速度分支上引入显式矩约束，改进 DMD 的分数监督。
-  来源：https://huggingface.co/papers/2610.39633
-
-🔧 开源项目
-· Orkas-AI/Orkas（今日 +1,118 star）：MIT 许可的本地优先桌面 AI 团队，Commander 把目标拆成待办，协调 16 个内置专家 Agent 及 Claude Code、Codex、OpenCode、OpenClaw、Hermes。
-  来源：https://github.com/Orkas-AI/Orkas
-· THU-MAIC/OpenMAIC（今日 +115 star）：清华开源多 Agent 互动课堂，一键获得沉浸式多 Agent 学习体验。
-  来源：https://github.com/THU-MAIC/OpenMAIC
-· Show HN: bootgpt——住在引导扇区里的语言模型：把语言模型塞进 boot sector 运行。
-  来源：https://github.com/kerlenton/bootgpt
-· Betelgeuse：RTX 3060 12GB + 16GB DDR4 上跑 Qwen 3.8 Flash Next，IQ4_XS 达 24 tok/s 且 100% 字节精确：修正了此前靠 gate pruning 作弊的问题，改用 oracle + victim-cache DMA 路径。
-  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xkh2ns/betelgeuse_running_qwen_38_flash_next_iq4_xs_at/
-
-🐦 AI 圈热议
-· GPT-5.6 Sol 能在和平模式下通关 Factorio：HN 132 分、134 条评论，讨论集中在长时程规划与&quot;这算不算真智能&quot;。
-  来源：https://ryanmadden.net/gpt-56-beats-factorio/
-· 有人在 Qwen 3.5-4B 权重里编译了一个 NPU，并在其中跑起另一个 LLM：同一作者此前把 RISC-V CPU 塞进 Qwen，这次让 Karpathy 的 stories260k 在模型内部运行。
-  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xkiuut/an_llm_inside_an_llm_same_guy_who_put_a_riskv_cpu/
-
-💡 今日观察
-今天最清晰的信号是&quot;Harness 层正在独立成层&quot;：Factory Droid 1.0 主打模型无关，Vercel 的 agent-desktop 用无障碍树替代像素，EasyProver 靠 Agent 编排而非训练就逼近基准饱和——能力增量越来越多来自外壳而非底座。与之呼应的是供给侧收紧：Anthropic 一边扩水印一边留漏洞，一边封禁&quot;触及训练更大模型&quot;的账号，模型 API 的&quot;用途合规风险&quot;首次成为选型变量。融资端，OpenAI 只募到目标的三分之一，意味着补贴与价格战的持续性要打折，而 Agent Sandbox 每天千万次创建说明需求侧仍在加速。一句话：需求在涨、供给在收紧、资本在退潮，中间层的工程能力是最确定的套利空间。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>

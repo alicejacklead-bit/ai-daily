@@ -36,11 +36,6 @@ You aren't limited to the public models on Replicate: you can deploy your own cu
 Unlike public models, most private models (with the exception of fast booting fine-tunes ) run on dedicated hardware so you don't have to share a queue with anyone else. This means you pay for all the time instances of the model are online: the time they spend setting up; the time they spend idle, waiting for requests; and the time they spend active, processing your requests. If you get a ton of traffic, we automatically scale up and down to handle the demand.
 For fast booting fine-tunes you'll only be billed for the time the model is active and processing your requests, so you won't pay for idle time like with other private models. Fast booting fine-tunes are labeled as such in the model's version list.
 Hardware pricing
-CPU (Small)
-cpu-small
-$ 0.000025 /sec
-$ 0.09 /hr
-GPU - CPU 1x GPU RAM - RAM 2GB
 CPU
 cpu
 $ 0.000100 /sec
@@ -123,10 +118,9 @@ Price
 GPU
 GPU RAM
 RAM
-1x
-2GB
 4x
 8GB
+1x
 10x
 80GB
 144GB
