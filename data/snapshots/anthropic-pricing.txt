@@ -147,7 +147,7 @@ Mix and match seat types
 Up to $500 per month in pooled API credits †
 Enterprise
 For large businesses operating at scale
-Get Enterprise plan Chat with buying specialist
+Get Enterprise plan Chat about your plan
 Seat price + usage at API rates
 US$20/seat/month, billed annually, 20 seat minimum. Usage cost scales with model and task.
 All Team plan features, plus:

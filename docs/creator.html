@@ -36,6 +36,60 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-18">Andy 的 AI 早报 · 2026-11-18 周三</span>
+    <button class="cbtn" data-copy="t-2026-11-18">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-18.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-18.mp3" download="2026-11-18.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-18">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-18">Andy 的 AI 早报 · 2026-11-18 周三
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· 英伟达 Q3 营收破千亿美元，但宣布放弃中国市场、董事会拒绝黄仁勋回归：临时 CEO Colette Kress 公布 Q3 财报，营收首次突破千亿美元，并称创纪录增长仍将持续；董事会主席 Harvey Jones 明确表示&quot;不打算让 Huang 复职&quot;。同日临时 CEO 确认公司不再向中国销售芯片，但重申开源 AI 战略不变、并计划收购 Hugging Face。SEC 据 WSJ 报道已就黄仁勋离职展开调查。
+  来源：https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/ / https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/ / https://techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit/ / https://www.theverge.com/tech/1036032/nvidia-q3-2027-jensen-huang / https://techcrunch.com/2026/11/17/sec-reportedly-investigating-nvidia-amid-huang-exit/
+· Anthropic IPO 后 Amazon 与 Google 合计持股近 30%：IPO 完成后 Amazon 持股略低于 15%（且有继续增持的选择权），Google 紧随其后接近 14%。这意味着 Anthropic 的独立性与两大云厂商深度绑定。
+  来源：https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/
+· 美国收紧第三国数据中心芯片许可，中国以&quot;蒸馏&quot;建立平行供应链：新加坡、马来西亚等第三国数据中心购买 Nvidia 芯片将需美国许可证，堵住中国企业租用海外算力的通道；路透调查同时显示中国正以工业级规模蒸馏美国模型来弥补硬件缺口。
+  来源：https://the-decoder.com/the-us-wants-to-block-china-from-renting-ai-power-abroad-but-china-already-built-a-parallel-supply-chain-from-us-ai-output/
+
+🎬 赛道深挖
+· OpenAI 发布 GPT-6.2 Astra 与 Sol，Astra API 降价 20% 至 $8/$40：11 月 17 日发布，Astra 定位前沿模型、Sol 定位日常高效模型。Astra 输入 $8 / 输出 $40 每百万 token，恰与 Claude Fable 5.2 同价（两者都是前代 $10/$50 的 80%）；Sol 为 $2/$10，batch 档再减半至 $1/$5。Astra 在 Artificial Analysis Intelligence Index 上排名第二，仅次于 Claude Fable 5.2，并成为 OpenAI 自家&quot;AI 自我改进&quot;量表上首个达到 High 阈值的已发布模型——OpenAI 自己将其列为风险。OpenRouter 同步上架 astra / astra-pro / sol / sol-pro 及各自 batch 档。
+  来源：https://openai.com/index/introducing-gpt-6-2-astra-sol / https://www.marktechpost.com/2026/11/17/openai-gpt-6-2-astra-sol-release/ / https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/ / https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/ / https://www.36kr.com/p/4074370835977092
+· OpenRouter 主力模型表新增 Astra/Sol 全系与多款开源模型，同时多款模型调价：新增 openai/gpt-6.2-astra（$8/$40）、astra-pro、sol（$2/$10）、sol-pro 及四个 batch 档（astra batch $4/$20、sol batch $1/$5），另新增 deepseek-v4.1-flash（$0.051/$0.567）、kimi-k2.7-code（$0.7/$3.75）、qwen3.8-27b（$0.06/$2.2）等。同时多款模型价格上调：deepseek-v4.1-flash 输入从 $0.14 降至 $0.051（降约 64%）、completion 从 $0.42 升至 $0.567；qwen3.8-27b 输入从 $0.15 降至 $0.06、输出从 $1.875 升至 $2.2；gpt-oss-20b 输入从 $0.03 降至 $0.018、输出从 $0.13 降至 $0.09。
+  来源：https://openrouter.ai/api/v1/models
+· Sarvam 推出 Token Factory：印度本土托管 8 个开源模型的 OpenAI 兼容 API：向所有人开放，托管 Sarvam 105B、GLM 5.3、DeepSeek V4.1 Flash、Kimi K3.1 Pro、Gemma 4 31B 等模型，全部跑在印度 GPU 集群上，统一走 OpenAI 兼容接口。
+  来源：https://www.marktechpost.com/2026/11/17/sarvam-token-factory-india-inference-platform/
+
+🤖 Agent 前沿
+· Perplexity Computer 上线 Multiagent：最多 16 个 Agent 交叉核验：在 Ultra 之上新增&quot;effort level&quot;，由一个 lead agent 调度最多 16 个分别跑在 Claude、GPT、Gemini 上的 Agent，共享发现并互相检查对方的工作。同日 Perplexity 宣布达到 10 亿美元收入年化 run rate，2026 年增长 4 倍。
+  来源：https://www.marktechpost.com/2026/11/17/perplexity-computer-multiagent-effort-level/ / https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/
+· 研究：多 Agent 的收益大多来自采样与算力，而非&quot;协调&quot;本身：论文汇总 9 项实证评估、516 个多 Agent 配置，按六维资源向量与四级基线阶梯组织。结论是：与单次贪心解码的基线相比，多 Agent 的准确率差异整体为负——此前的&quot;多 Agent 更强&quot;很大程度上混淆了协调机制、样本数量与推理算力。
+  来源：https://huggingface.co/papers/2611.17610
+
+⚡ 快讯
+· Google 把 Spark Agent 改名 Tasks 并免费开放：由 Gemini 4 Hydrogen 驱动，可做餐食计划、日历管理、翻邮件找重复订阅，美国用户先行。
+  来源：https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free / https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/
+· OpenAI 计算机使用 Agent 进入美国医疗行政流程：Luna 处理事先授权约 8.5 美分/次，CVS Health、Cigna Healthcare 已部署。
+  来源：https://the-decoder.com/ai-agents-are-starting-to-fill-out-medical-forms-and-file-insurance-requests-in-place-of-human-staff/ / https://openai.com/index/advancing-computer-use-for-healthcare-teams/
+· Model ML 融资 2.5 亿美元：用 Agent 自动化投行的建模与材料更新等基础工作。
+  来源：https://techcrunch.com/2026/11/17/model-ml-raises-250m-to-automate-investment-banking-grunt-work/
+· Isomorphic Labs 半年内第二笔超大额融资，5 亿美元：此前六个月刚完成 21 亿美元，尚无获批药物，资金用于推进管线进入临床。
+  来源：https://the-decoder.com/isomorphic-labs-raises-5-billion-in-its-second-mega-round-within-six-months/
+· Gemini 聊天记录保留期从 72 小时延长至 2 个月：即使用户关闭历史记录也生效，未来数周全球推送。
+  来源：https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/
+
+💡 今日观察
+🎯 OpenAI 用 GPT-6.2 Astra 把前沿价格打到 $8/$40 并同时推出 $2/$10 的 Sol，&quot;旗舰降价 + 廉价档补位&quot;正在把模型 API 变成一门拼毛利而非拼能力的生意。 今天最清晰的信号是模型 API 的&quot;价格锚点&quot;被重新钉死：Astra 与 Fable 5.2 同为 $8/$40、Sol 压到 $2/$10，前沿能力正在以前代八折的节奏商品化。与此同时，Perplexity 把 16 个异构 Agent 互检做成付费档位，而学术侧刚证明多 Agent 的增益大多来自算力而非协调——供给变便宜、消耗变贵，中间层的毛利被两头挤压。聚合平台和区域主权推理（Sarvam）从两侧夹击 token 转售生意，纯做&quot;转发&quot;的空间在快速消失。对视频生成赛道而言，文本侧的成本塌陷意味着多模态工作流与创作体验才是能收钱的地方。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-17">Andy 的 AI 早报 · 2026-11-17 周二</span>
     <button class="cbtn" data-copy="t-2026-11-17">📋 复制标题</button>
   </div>
@@ -796,60 +850,6 @@
 
 💡 今日观察
 🎯 fal 估值半年翻倍到 160 亿美元、OpenRouter 主力模型集体涨价——生成媒体的&quot;卖水人&quot;正在同时收割需求红利和定价权，纯做模型 API 转售的中间层压力会越来越大。 今天最值得注意的组合信号是：分发层在涨价、在融资、在抢入口。fal 估值翻倍、Replicate 用五折引流、火山方舟把接入工具列表拆到十多个 Agent 客户端，三件事指向同一个判断——生成媒体模型的竞争重心正从&quot;模型能力&quot;转向&quot;谁掌握开发者的调用入口&quot;。与此同时，Anthropic 把上下文增量传输做进 API、LangSmith 把 Agent 追踪推进客户自己的云账户，说明 Agent 基础设施正在往&quot;更省、更可审计&quot;两个方向同时下沉。对做视频模型 API 的平台来说，最危险的位置是既没有模型代差、又没有分发入口的纯转售层。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-11-03">Andy 的 AI 早报 · 2026-11-03 周二</span>
-    <button class="cbtn" data-copy="t-2026-11-03">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-11-03.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-11-03.mp3" download="2026-11-03.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-11-03">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-03">Andy 的 AI 早报 · 2026-11-03 周二
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-🌐 市场局势
-· Anthropic 招股前夜：营收涨 12 倍，经营重回亏损 230 亿美元，算力承诺近 9000 亿：多家媒体同日报道，Anthropic 在递交 S-1 后披露三季度重回经营亏损，亏损额 230 亿美元，同时营收同比增长约 12 倍；其 AI 相关支出承诺已膨胀至接近 9000 亿美元。与此同时，HN 上有文章称其增长&quot;刚刚走平&quot;，TechPolicy 则刊文呼吁 SEC 阻止其 IPO。
-  来源：https://the-decoder.com/anthropic-grows-revenue-twelvefold-but-posts-23-billion-loss/ / https://www.axios.com/2026/11/02/anthropic-spending-revenue-surge / https://www.ft.com/content/4d91dbab-6fe4-45ab-beee-d77e091cb37f / https://www.36kr.com/p/4053289729905793
-· Oracle 申报发行 200 亿美元新股与债券，专项融资 AI 基建：Oracle 于 11 月 2 日提交文件，拟通过新股与债券合计募资 200 亿美元用于 AI 数据中心建设。同期沙特阿美以 26 亿美元收购 AI 公司 Humain 49% 股权，韩国则把&quot;最高性能主权 AI 模型&quot;写进预算目标。
-  来源：https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html / https://the-decoder.com/saudi-aramco-takes-49-percent-stake-in-ai-firm-humain-with-2-6-billion-deal/ / https://www.cnbc.com/2026/11/02/south-korea-ai-spending-budget.html
-· 纽约时报等多家媒体起诉 Brave，指控其为 Anthropic、Perplexity 抓取内容并绕过付费墙：NYT、纽约每日新闻、芝加哥论坛报等对 Brave 浏览器提起诉讼，指其非法抓取受版权内容并分发给 Anthropic、Perplexity 等 AI 客户，同时允许用户绕过付费墙。
-  来源：https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/ / https://www.theverge.com/tech/1024588/brave-lawsuit-ai-scraping-new-york-times
-
-🎬 赛道深挖
-· OpenRouter 主力模型价格集体上调，DeepSeek V4.1 Flash 涨至 2 倍、GPT-OSS-120B 涨约 5 倍：OpenRouter 模型价格接口快照对比显示，多个主力模型单价同日上调：deepseek/deepseek-v4.1-flash-1017 从 prompt $0.15/M、completion $0.60/M 涨至 $0.30/M 与 $1.20/M；deepseek-v4-flash-0731 从 $0.119/M、$0.238/M 涨至 $0.059/M、$0.30/M（输入降、输出大涨）；openai/gpt-oss-120b 从 $0.029/M、$0.107/M 涨至 $0.15/M、$0.60/M；minimax-m3.1-flash 从 $0.075/M、$0.30/M 翻倍至 $0.15/M、$0.60/M；qwen3-coder-30b-a3b 从 $0.07/M、$0.28/M 涨至 $0.15/M、$0.60/M；gemma-4-26b-a4b 从 $0.0675/M、$0.225/M 降至 $0.045/M、$0.135/M（少数降价）。
-  来源：https://openrouter.ai/api/v1/models
-· 周畅从字节 Seed 离职，暴露多模态&quot;理解 vs 生成&quot;的路线之争：36 氪报道，周畅从字节 Seed 团队离职，背后是团队内部关于多模态统一路线的分歧——理解与生成能否在同一套架构下统一，长期存在技术路线争议。
-  来源：https://www.36kr.com/p/4053264494171008
-· Qwen 官方表态：Qwen 4.0 与 5.0 继续开源，不会转向纯 API：r/LocalLLaMA 上流传的官方声明中，Qwen 负责人刘大一恒明确表示未来 Qwen 4.0 和 Qwen 5.0 将继续保持开源，否认了&quot;Qwen4 是最后一个开源系列&quot;的传闻，并强调 AI 价值不应只属于少数人。
-  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xm28e6/official_statement_qwen_models_will_stick_to_open/
-
-🤖 Agent 前沿
-· LangChain 推出 Managed Deep Agents 私有测试版，内置浏览器操作与持久化执行：LangChain 发布 Managed Deep Agents，提供持久化执行、沙箱、工具接入和 LangSmith 可观测性，开发者无需自建 runtime 即可把 deep agent 跑在生产环境；同日发布浏览器使用能力，为 Agent 运行真实浏览器，并提供&quot;人工接管登录&quot;的 handoff 机制。
-  来源：https://www.langchain.com/blog/introducing-managed-deep-agents / https://www.langchain.com/blog/browser-use-in-managed-deep-agents
-· NVIDIA 开源 Auto Ontology：给 Agent 的 SQL 查询加上&quot;认证语义层&quot;：NVIDIA 发布 Apache 2.0 许可的 Auto Ontology 库，从企业元数据自动生成语义层，把 Agent 生成的 SQL 锚定在经认证的定义上，并通过 MCP、CLI 和 API 提供上下文。
-  来源：https://www.marktechpost.com/2026/11/01/nvidia-auto-ontology-open-source-semantic-layer-ai-agents/
-
-⚡ 快讯
-· Y Combinator 的 Garry Tan 自曝一年在 Agent token 上花掉最多 20 万美元：，并称因与 Agent 协作兴奋到&quot;几乎不睡&quot;。
-  来源：https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/
-· SpaceXSI 下调 Grok Bot 配额：，马斯克称运营成本&quot;相对收入不可持续&quot;，距其称该产品为&quot;增长最快产品&quot;不到两周。
-  来源：https://the-decoder.com/spacexsi-apparently-cuts-grok-bot-quotas-weeks-after-musk-called-it-his-fastest-growing-product/ / https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/
-· 高盛禁止交易员与投行人员使用 Claude Code、GitHub Copilot 等 AI 编码工具：，仅限工程师使用，理由是&quot;生产力与风险管理&quot;。
-  来源：https://the-decoder.com/goldman-sachs-pulls-ai-coding-tools-from-traders-and-bankers/ / https://www.bloomberg.com/news/articles/2026-11-02/goldman-restricts-traders-and-bankers-from-using-some-ai-tools
-· Anthropic 更新 Claude Code 系统提示词，禁止用其复刻现有电子游戏：，但仍允许用户制作原创游戏。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1024632/anthropic-claude-ai-video-game-clones
-· OpenAI 合并 ChatGPT 的 Chat 与 Work 标签页：，ChatGPT 与 Codex 将共用同一用量配额池。
-  来源：https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/
-
-💡 今日观察
-🎯 OpenRouter 上一批主力模型的 API 价格集体上调 2–5 倍，而 Anthropic 带着近 9000 亿美元算力承诺和 230 亿美元亏损冲刺 IPO——&quot;便宜 token&quot;的时代正在被&quot;算力资本化&quot;的时代取代，API 平台的分发议价权要重新算。 今天最值得注意的不是某条单点新闻，而是&quot;成本&quot;这个词同时出现在四个方向：Anthropic 的 9000 亿算力承诺、Oracle 的 200 亿债务融资、OpenRouter 上一批模型 2–5 倍的涨价、以及 Grok Bot 因成本不可持续被砍配额。这说明 AI 供给侧的定价逻辑正在从&quot;抢份额补贴&quot;切换到&quot;覆盖真实资本成本&quot;，过去一年 API 平台赖以获客的低价窗口在收窄。与此同时，Qwen 承诺继续开源、NVIDIA 用语义层给 Agent 加可信底座、LangChain 把 Agent 运行时托管化——需求侧正在从&quot;调用模型&quot;转向&quot;跑通工作流&quot;，这恰恰是低价模型无法替代的价值层。对视频生成 API 平台而言，这意味着单纯比单价的阶段接近尾声，接下来拼的是独家模型、工作流封装和渠道绑定。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
