@@ -9,49 +9,54 @@ Starting price
 Output per $1
 Image
 Seedream 5.5
+$0.019 / image $0.02 - 5 %
+52 images
+Seedream 5 Pro
+$0.0405 / image $0.045 - 10 %
+24 images
+GPT Image 2.6
+$0.027 / image $0.03 - 10 %
+37 images
+Nano Banana 2.1
+$0.036 / image $0.04 - 10 %
+27 images
+Nano Banana Pro
+$0.126 / image $0.14 - 10 %
+7 images
+Kling Image 4.0
+$0.063 / image
+15 images
+MiniMax H3 Image
 $0.02 / image
 50 images
-Seedream 5 Pro
-$0.045 / image
-22 images
-GPT Image 2.6
+Qwen Image 3.0
 $0.03 / image
 33 images
-Nano Banana 2.1
-$0.04 / image
-25 images
-Nano Banana Pro
-$0.14 / image
-7 images
-MiniMax H3 Image
-Qwen Image 3.0
-WAN 2.7
 Video
 Seedance 2.5
-$0.18 / second
-5.5 seconds
+$0.162 / second $0.18 - 10 %
+6.1 seconds
 Seedance 2.5 Flash
-$0.12 / second
-8.3 seconds
+$0.108 / second $0.12 - 10 %
+9.2 seconds
 MiniMax H3
-$0.04 / second
-25 seconds
+$0.02 / second $0.04 - 50 %
+50 seconds
 WAN 3.0
-$0.05 / second
-20 seconds
+$0.0475 / second $0.05 - 5 %
+21 seconds
 WAN 3.0 Prime
-$0.075 / second
-13.3 seconds
+$0.0713 / second $0.075 - 5 %
+14 seconds
 Kling 4.0
-$0.157 / second
-6.3 seconds
+$0.1335 / second $0.157 - 15 %
+7.4 seconds
 Kling 4.0 Flash
 $0.094 / second
 10.6 seconds
 OpenVideo
 $0.02 / second
-50 seconds
-Starting prices are list prices at the lowest resolution or quality. Actual cost depends on resolution, duration and other parameters, and discounts may apply. Browse all models and open one to see its exact price →
+Starting prices are at the lowest resolution or quality; a discounted model shows its discounted price with the list price struck through. Actual cost depends on resolution, duration and other parameters. Browse all models and open one to see its exact price →
 Language Models
 Prices are shown per 1M tokens.
 Context Window

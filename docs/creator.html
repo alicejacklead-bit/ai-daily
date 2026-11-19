@@ -36,6 +36,60 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-19">Andy 的 AI 早报 · 2026-11-19 周四</span>
+    <button class="cbtn" data-copy="t-2026-11-19">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-19.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-19.mp3" download="2026-11-19.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-19">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-19">Andy 的 AI 早报 · 2026-11-19 周四
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· Anthropic IPO 定价 $83/股，估值 $1.5 万亿：Anthropic 于 11 月 18 日正式为 IPO 定价，A 类普通股每股 $83，高于此前预期区间，按完全稀释口径估值 $1.5 万亿。官方新闻稿由 Anthropic 自己发布，AP、WSJ、TechCrunch 均同步报道。
+  来源：https://www.anthropic.com/news/anthropic-prices-initial-public-offering / https://apnews.com/article/anthropic-ipo-pricing-70b660ddf900d90bbf484ecdf1fb441c / https://www.wsj.com/finance/stocks/anthropic-prices-ipo-at-83-a-share-0290494c / https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/
+· Google 一个月内发第四款 Gemini：Gemini 4 Neon，$3/$15 定价高于前代：Gemini 4 Neon 定位软件开发、知识工作与科研，支持文本、图像、视频、音频与 PDF，上下文窗口 100 万 token，定价为每百万输入 token $3、输出 $15，高于此前 Gemini 4 系列。HN 上讨论热度 391 分。
+  来源：https://the-decoder.com/google-ships-gemini-4-neon-its-fourth-new-gemini-model-in-a-month/ / https://deepmind.google/blog/introducing-gemini-4-neon/ / https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/
+· 微软自研 MAI 七款模型替换外部模型，Code 2 以 40% 成本达到 GPT-6.1 Sol 的 98%：微软 AI 部门 MAI 在 Ignite 上发布覆盖代码、安全、图像、语言与路由的七款模型，官方称 MAI Code 2 达到 GPT-6.1 Sol 98% 的性能、成本仅 40%，目标是在企业里 7×24 跑 Agent。
+  来源：https://the-decoder.com/microsoft-is-replacing-outside-ai-models-in-its-own-products-with-cheaper-in-house-alternatives/
+
+🎬 赛道深挖
+· Hugging Face 把模型请求全部路由到 OpenRouter，自带 API Key 模式取消：Hugging Face 现在通过 OpenRouter 路由语言模型请求，由 OpenRouter 自动选择最便宜或最快的供应商；面向语言模型的 bring-your-own API key 模式将下线。据 OpenRouter 数据，新路由把容量错误降低了 46%。两家公司都面临数十亿美元级别的收购。
+  来源：https://the-decoder.com/hugging-face-now-routes-model-requests-through-openrouter-for-the-best-price-or-speed/
+· WaveSpeedAI 视频/图像价格页大改：Kling Image 4.0 上线，WAN 2.7 下架，多项单价降 5%–10%：新增 Kling Image 4.0（$0.063/图），多档图像价格下调：$0.02→$0.019（-5%）、$0.045→$0.0405（-10%）、$0.03→$0.027（-10%）、$0.04→$0.036（-10%）、$0.14→$0.126（-10%）。视频侧 $0.18/秒→$0.162/秒、$0.12/秒→$0.108/秒（均 -10%），同时删除 WAN 2.7 及 $0.04/秒、$0.05/秒、$0.075/秒等旧视频档位。
+  来源：https://wavespeed.ai/pricing
+· Suno 上线 Visuals：把 AI 音乐一键变成带口型同步的 AI 视频：Suno 新增图像与视频生成功能&quot;Visuals&quot;，用户可把 Suno 歌曲转成自动对口型歌词的 AI 视频片段，也可用提示词生成封面图和专辑 artwork。这是 Suno 从音乐平台向创作平台扩张的一步。
+  来源：https://www.theverge.com/ai-artificial-intelligence/1036415/suno-visuals-ai-generated-video-images-feature
+
+🤖 Agent 前沿
+· 微软官方 Python Agent 框架被劫持用于分发恶意软件：据 The Register 报道，微软官方的 Python agent 框架遭劫持，被用来分发恶意软件。
+  来源：https://www.theregister.com/security/2026/11/18/microsofts-official-python-agent-framework-hijacked-to-distribute-malware/5310858
+· 多 Agent 协调基准发布：第一次把&quot;协调&quot;单独拿出来测：Bespoke Labs 发布 Multi Agent Coordination Benchmark，专门评估多 Agent 系统在协调层面的表现。
+  来源：https://benchmarks.bespokelabs.ai/multi-agent-coordination-bench/
+
+⚡ 快讯
+· Claude Code v2.1.323 加入 Code Mode：Claude 可写 JavaScript 把 Bash、Read、Edit 调用串成一步，并在长命令运行时继续对话。
+  来源：https://www.marktechpost.com/2026/11/17/anthropic-claude-code-code-mode-javascript-tool-calls/
+· Google DeepMind 上线 Genie 4：面向 Google AI Ultra 订阅用户，生成可实时用文本修改的交互式 3D 世界，首次带原生音效，并开放社区画廊供分享与 remix。
+  来源：https://the-decoder.com/google-deepminds-project-genie-update-brings-genie-4-chainable-worlds-and-a-community-gallery-for-remixing/ / https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/
+· OpenAI 首次向四家独立驻场审计方开放未发布模型、源码与训练数据：包括 Apollo Research 和 METR，但 OpenAI 可对报告做删改或延迟发布。
+  来源：https://the-decoder.com/openai-opens-its-ai-systems-to-four-independent-on-site-auditors-for-the-first-time/
+· Vals AI 调查：Anthropic、OpenAI、Google 模型几乎无自主武器防护：测试中模型轻易把平民标为军事目标，提示词里加一句&quot;这是电子游戏&quot;就能绕过拒绝。
+  来源：https://the-decoder.com/anthropic-openai-and-google-models-readily-marked-medics-journalists-and-surrendering-soldiers-as-kamikaze-drone-targets/
+· Nvidia 停止向中国销售 AI 芯片：临时 CEO Colette Kress 在财报电话会上宣布，尽管白宫去年 12 月已批准。
+  来源：https://www.theverge.com/tech/1036445/nvidia-h200-ai-chips-china-stop-selling
+
+💡 今日观察
+🎯 Anthropic 以 $83/股、$1.5 万亿估值完成 IPO 定价，前沿模型的资本化到了顶点；同一天 OpenRouter 上 DeepSeek V4.1 Flash 输入价涨 5.9 倍——算力成本正在从&quot;模型公司烧钱补贴&quot;转向&quot;调用方买单&quot;。 今天最值得注意的不是 Anthropic 的 $1.5 万亿，而是同一天发生的两件&quot;下游&quot;事件：Hugging Face 把模型请求整体交给 OpenRouter 路由，微软用自研模型替换外部采购。上游在资本化，下游在合并和自研，中间层的独立模型 API 平台正在被两头挤压。WaveSpeedAI 那种 5%–10% 的精细降价，恰恰说明视频 API 已经进入&quot;按代际重排价格带&quot;的消耗战阶段——谁能拿到新模型的首发档位，谁才有定价权。Agent 侧今天两条（框架供应链被劫持、多 Agent 协调基准）指向同一件事：这个方向正从&quot;能不能跑&quot;转向&quot;能不能被信任和度量&quot;。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-18">Andy 的 AI 早报 · 2026-11-18 周三</span>
     <button class="cbtn" data-copy="t-2026-11-18">📋 复制标题</button>
   </div>
@@ -794,62 +848,6 @@
 
 💡 今日观察
 🎯 OpenRouter 上六款主力模型价格同步下调、DeepSeek 单日吃掉全平台 53% token——API 分发层的价格战与开源模型的市场份额争夺，正在同时加速。 今天最值得记的两条线是价格与份额：OpenRouter 上六款主力模型同步降价，同时 DeepSeek 单日吃掉全平台 53% 的 token——降价不是孤立的促销，而是在为开源权重模型抢份额服务，聚合层的定价权正在从平台向跑量最大的模型方转移。另一条线是能力边界：OpenAI 用 Images 2.6 把图像模型推进到动图，虎鲸文娱则用&quot;单分钟成本降 30%&quot;把视频生成拉进影视流水线，两端同时挤压中间地带。Agent 侧的真实数据（Uber 上季度 4 单）提醒我们，替代型 Agent 还很早，但记忆与权限这类基础设施正在快速补齐——下一波竞争会先发生在&quot;Agent 能不能被信任地接进生产系统&quot;，而不是&quot;Agent 能不能做演示&quot;。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-11-04">Andy 的 AI 早报 · 2026-11-04 周三</span>
-    <button class="cbtn" data-copy="t-2026-11-04">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-11-04.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-11-04.mp3" download="2026-11-04.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-11-04">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-04">Andy 的 AI 早报 · 2026-11-04 周三
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-🌐 市场局势
-· fal 以 160 亿美元估值融资 13 亿美元，Bessemer 领投，估值半年翻倍：这家成立五年的生成媒体推理平台拿到 13 亿美元新融资，估值从上一轮的 80 亿美元直接翻倍至 160 亿。它是 Kling 等第三方视频模型的主要分发渠道之一，同时自建推理栈。
-  来源：https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/
-· OpenRouter 主力模型价格集体上调：DeepSeek V4.1 Flash 翻倍，Kimi K3 输出价近乎翻倍：快照对比显示，deepseek-v4.1-flash-1017 输入价从 $0.30/百万 token 涨到 $0.15（注：快照中 prompt 由 0.0000003 降至 0.00000015，completion 由 0.0000012 降至 0.0000006，实为下调一半）；而 moonshotai/kimi-k3 的 completion 从 0.000015 涨至 0.0000096（下调），qwen3-235b-a22b-2507 的 prompt 从 0.00000009 升至 0.00000014、completion 从 0.00000055 升至 0.0000008，google/gemma-4-26b-a4b-it 的 prompt 从 0.000000045 升至 0.00000007。同时新增 grok-4.6:batch 与 grok-4.7:batch，均为 prompt 0.0000016 / completion 0.0000048。
-  来源：https://openrouter.ai/api/v1/models
-· 美国科技巨头隐性 AI 债务半年膨胀 90% 至 3.2 万亿美元：日经报道称，美国科技公司的表外 AI 相关债务在六个月内增长九成，达到 3.2 万亿美元规模；Bloomberg 同期发表评论警告 AI 投资热潮需要更强的金融监管。
-  来源：https://asia.nikkei.com/business/technology/artificial-intelligence/us-tech-giants-hidden-ai-debt-swells-90-to-3.2tn-in-6-months / https://www.bloomberg.com/opinion/articles/2026-11-03/ai-investment-boom-demands-stronger-financial-oversight
-
-🎬 赛道深挖
-· Replicate 把 MiniMax H3 Lite 与 Highspeed 打到五折，年底截止：Replicate 价格页新增提示&quot;Minimax H3 Lite and Highspeed are 50% until end of year&quot;，同时撤下了原先首页的&quot;Try Kling 4.0 from Kuaishou&quot;推广位。
-  来源：https://replicate.com/pricing
-· 火山方舟把&quot;接入三方工具&quot;拆成十余个具体 Agent 工具入口：价格页快照显示，原先笼统的&quot;接入三方工具&quot;被替换为 Codex、Claude Code、OpenCode、OpenClaw、Hermes Agent、TRAE、WorkBuddy、ZCode、DeepSeek Harness、Pi 等具体条目，并新增&quot;接入 AI 工具&quot;总分类。
-  来源：https://www.volcengine.com/docs/82379/1544106
-· MiniMax 音乐 API 对新增用户永久关闭，仅保留存量付费用户：定价页显示，自 2026 年 8 月 20 日起 Music Generation 与 Lyrics Generation API 不再向新用户开放，存量付费用户可继续使用；同时 Music-3.0 标价 $0.15/首（最长 5 分钟）、Music-2.6 歌词生成 $0.01/首、Music-2.0 为 $0.03/首，多个旧版本标记为 Discontinued。
-  来源：https://platform.minimax.io/docs/guides/pricing
-
-🤖 Agent 前沿
-· Anthropic 为 Messages API 推出 Message Threads，长对话首 token 延迟降约 35%：新机制不再每轮重发完整对话，Agent 只传增量变化。在 50 万至 100 万 token 的请求区间，time to first token 下降约 35%。
-  来源：https://the-decoder.com/anthropics-message-threads-cut-time-to-first-token-by-35-percent-for-long-conversations/
-· LangSmith BYOC 在 AWS 正式可用、Azure 与 Google Cloud 进入 Beta：客户可以把 traces、evals 和 Agent 部署留在自己的云账户内，由 LangChain 远程运营。
-  来源：https://www.langchain.com/blog/langsmith-byoc-aws-gc-azure
-
-⚡ 快讯
-· Anthropic 研发 FlashProve，让任何人可验证 AI 回复确实来自声称的模型：用于模型身份溯源。
-  来源：https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/
-· ChatGPT 搜索查询量已达 Google 的 20%：OpenAI 消费产品负责人 Adam Fry 在发布会上披露。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1025482/openai-says-chatgpt-is-catching-up-to-google-in-search
-· Google 对拒绝其 AI 功能的学校彻底关闭 Search 访问：K-12 学生账号的 Gemini、Gemini Notebook、Classroom 与 Search 将&quot;全部关闭&quot;。
-  来源：https://www.theverge.com/tech/1025411/google-turn-off-search-ai-features / https://www.forbes.com/sites/maryroeloffs/2026/11/03/google-will-cut-off-search-engine-access-to-schools-banning-generative-ai/
-· Postman 被指静默自动安装 AI 插件并尝试共享全部 API 数据：GitHub issue 已获 956 点热度、312 条评论。
-  来源：https://github.com/postmanlabs/postman-app-support/issues/14370
-· 字节新规限制员工使用 Claude、Codex 等外部 AI 工具：收紧外部工具权限，转向自研闭环。
-  来源：https://www.36kr.com/p/4053803714549379
-· Qwen Code 仓库泄露 qwen4-max、qwen4-coder-plus、qwen4-omni-120b 等模型 ID：PR 中这些 ID 均解析到 262,144 上下文。
-  来源：https://www.reddit.com/r/LocalLLaMA/comments/1xmitzx/alibabas_qwen_code_repo_just_leaked_qwen4max/
-
-💡 今日观察
-🎯 fal 估值半年翻倍到 160 亿美元、OpenRouter 主力模型集体涨价——生成媒体的&quot;卖水人&quot;正在同时收割需求红利和定价权，纯做模型 API 转售的中间层压力会越来越大。 今天最值得注意的组合信号是：分发层在涨价、在融资、在抢入口。fal 估值翻倍、Replicate 用五折引流、火山方舟把接入工具列表拆到十多个 Agent 客户端，三件事指向同一个判断——生成媒体模型的竞争重心正从&quot;模型能力&quot;转向&quot;谁掌握开发者的调用入口&quot;。与此同时，Anthropic 把上下文增量传输做进 API、LangSmith 把 Agent 追踪推进客户自己的云账户，说明 Agent 基础设施正在往&quot;更省、更可审计&quot;两个方向同时下沉。对做视频模型 API 的平台来说，最危险的位置是既没有模型代差、又没有分发入口的纯转售层。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
