@@ -118,7 +118,7 @@ $0.10 per 512P, 6s video
 $0.15 per 512P, 10s video
 Image
 Recharge Now 🔔
-Limited-Time Offer: 50% Off 4K Image Generation: From now until November 17, 2026, at 16:00 UTC (exclusive), enjoy 50% off the total request cost for MiniMax-H3-Image and MiniMax-H3-Image-Highspeed when the final delivered image has at least 16,600,000 pixels (width × height).
+Limited-Time Offer: 50% Off 4K Image Generation: Enjoy 50% off the total request cost for MiniMax-H3-Image and MiniMax-H3-Image-Highspeed when the final delivered image has at least 16,600,000 pixels (width × height).
 Image Generation
 Input Text
 Output Image
