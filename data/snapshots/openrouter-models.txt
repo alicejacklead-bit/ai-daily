@@ -43,8 +43,8 @@ deepseek/deepseek-v4-flash-0731:batch | prompt 0.000000048 | completion 0.000000
 deepseek/deepseek-v4-flash-vision-exp | prompt 0.0000002156 | completion 0.0000006468 | image None
 deepseek/deepseek-v4-pro | prompt 0.0000009 | completion 0.0000015 | image None
 deepseek/deepseek-v4-pro-0813 | prompt 0.00000132 | completion 0.00000396 | image None
-deepseek/deepseek-v4.1-flash | prompt 0.0000000507 | completion 0.0000002028 | image None
-deepseek/deepseek-v4.1-flash-1017 | prompt 0.000000036 | completion 0.0000005 | image None
+deepseek/deepseek-v4.1-flash | prompt 0.0000000498 | completion 0.0000001992 | image None
+deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000015 | completion 0.0000006 | image None
 deepseek/deepseek-v4.1-flash-1017:batch | prompt 0.000000035 | completion 0.000000149 | image None
 deepseek/deepseek-v4.1-flash:batch | prompt 0.00000005 | completion 0.00000015 | image None
 google/gemini-2.5-flash | prompt 0.0000003 | completion 0.0000025 | image 0.0000003

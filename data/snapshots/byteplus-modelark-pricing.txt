@@ -26,7 +26,7 @@ Inference free trial
 ModelArk referral campaign
 Best practices
 Managed Agents
-[Basics] How to use custom tools in Managed Agents
+How to use custom tools in Managed Agents
 Seedance-1.5-pro prompt guide
 Seedance-1.0-pro&pro-fast prompt guide
 Seedream 4.0-4.5 prompt guide
