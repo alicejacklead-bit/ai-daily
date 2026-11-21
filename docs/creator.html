@@ -36,6 +36,60 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-21">Andy 的 AI 早报 · 2026-11-21 周六</span>
+    <button class="cbtn" data-copy="t-2026-11-21">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-21.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-21.mp3" download="2026-11-21.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-21">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-21">Andy 的 AI 早报 · 2026-11-21 周六
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· Anthropic 完成史上最大 IPO，但首日即破发，纳斯达克回吐 2026 年全部涨幅：Anthropic 以每股 $83 定价、发行 11.27 亿股 Class A 普通股完成 IPO，估值 $1.5 万亿；开盘 $111.50，收盘 $97.17，仍高于发行价但市场情绪迅速反转，WSJ 称其&quot;IPO 破发加深了华尔街 4 万亿美元的 AI 蒸发&quot;，NBC 报道纳斯达克已抹平 2026 年全部涨幅。
+  来源：https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/ / https://www.wsj.com/finance/stocks/anthropics-ipo-bust-punctuates-4-trillion-ai-wipeout-on-wall-street-f1f1ec90 / https://www.nbcnews.com/business/markets/anthropic-shares-markets-selloff-nasdaq-rcna610394 / https://www.anthropic.com/news
+· Nvidia 拟以至少 5 亿美元收购成立两年的 Inception，押注扩散式语言模型：据 The Information 报道，Nvidia 接近收购 AI 初创 Inception，交易金额至少 $5 亿；Inception 做的是基于扩散过程的语言模型，而非 ChatGPT 式逐 token 自回归生成，目的是补强 Nvidia 自家开源 Nemotron 系列与机器人方向。
+  来源：https://the-decoder.com/nvidia-bets-at-least-500-million-on-inceptions-diffusion-models-to-strengthen-its-open-source-nemotron-lineup/
+· Trump 威胁对在境外建 AI 数据中心的企业征收&quot;巨额税&quot;：Trump 表示&quot;不会允许我们的公司在美国境外建数据中心&quot;，并承诺对境外建设行为征收&quot;tremendous tax&quot;；与此同时美国多个州和城市正在限制新建数据中心的申请。
+  来源：https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax
+
+🎬 赛道深挖
+· OpenRouter 主力模型表大改：DeepSeek V4 系列集体降价，DeepSeek V4 Pro 输出价从 $11.5/M 砍到 $3.96/M：本次快照对比显示，OpenRouter 上多款 DeepSeek 模型价格大幅下调——deepseek-v4-pro-0813 输入从 $1.32/M 降至 $1.32/M 不变但输出从 $11.5/M 降至 $3.96/M；deepseek-v4.1-flash 输入从 $0.30/M 降至 $0.0507/M（约降 83%）、输出从 $1.20/M 降至 $0.2028/M；deepseek-v4-flash-vision-exp 输入从 $0.44/M 降至 $0.2156/M、输出从 $1.32/M 降至 $0.6468/M。同时新增 qwen3.8-27b（输入 $0.06/M、输出 $1.96/M）、minimax-m2.7（$0.60/$1.80）、gemma-4-26b-a4b-it（$0.0675/$0.225）等档位，batch 档位也同步下调。
+  来源：https://openrouter.ai/api/v1/models
+· Google DeepMind 的 Genie 4 向开发者开放：DeepMind 博客确认 Genie 4 已可用，Latent Space 的 AINews 将其列为当日要点之一，与 Anthropic IPO 并列。这是 Google 在交互式世界模型上的最新一代产品化落地。
+  来源：https://deepmind.google/blog/genie-4-is-now-available/ / https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/
+· AI 短剧的定价权不在做剧的人手里：2.57% 营收撑起 120% 涨幅，三个跌停蒸发 41 亿：36Kr 报道 AI 短剧赛道出现极端估值背离——相关标的以 2.57% 的营收占比撑起 120% 的股价涨幅，随后三个跌停蒸发 41 亿元市值，文章核心论点是&quot;定价权不在做剧的人手里&quot;。
+  来源：https://www.36kr.com/p/4077920945542022
+
+🤖 Agent 前沿
+· Hermes Agent 的 Collective Wisdom：把一个员工的 AI 技巧变成全团队技能，并将跑进 Microsoft Teams：Nous Research 的开源 Hermes Agent 推出 Collective Wisdom 功能，能把单个员工摸索出的 Agent 用法沉淀为团队级技能；报道称企业很快可以直接在 Microsoft Teams 里运行该开源 Agent。
+  来源：https://the-decoder.com/hermes-agents-collective-wisdom-feature-turns-one-employees-ai-trick-into-the-whole-teams-skill/
+· RadixArk 发布 DaisyRose-27B：纯 RL 后训练、单卡可跑的 Agentic 编程模型，Terminal Bench 4.1 通过率翻倍至 12.0：该模型基于 Qwen3.8-27B 后训练，采用 Apache 2.0 许可，仅用强化学习、不做 SFT，把 Terminal Bench 4.1 的 pass@1 从基线提升一倍以上到 12.0，并可在单张 GPU 上运行。
+  来源：https://www.marktechpost.com/2026/11/20/radixark-daisyrose-27b-agentic-model/ / https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin
+
+⚡ 快讯
+· OpenAI 强化对抗蒸馏防护：针对 GPT-6.2 Astra 与 Sol 的推理内容提取攻击，自适应红队测试成功率从 54% 降至 0.2%，并每周封禁数千至数万个参与协同蒸馏的账号。
+  来源：https://the-decoder.com/openai-makes-it-much-harder-for-attackers-to-extract-how-its-latest-ai-models-think/ / https://openai.com/index/combatting-adversarial-distillation
+· Signal 在 iOS 27 与 Android 上屏蔽截图，阻止 Siri AI、Gemini、Meta Muse 等 Agent 读取私聊：Signal 称这是对隐私的&quot;生存性威胁&quot;，但承认 macOS 等平台防护仍不完整。
+  来源：https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app / https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/
+· Apple 入局设备控制型 AI Agent，同时抬高竞品接入门槛：在 Meta、OpenAI、Anthropic、Google 之后，Apple 也开始自建可操作设备的 Agent，并收紧第三方对其设备的访问。
+  来源：https://the-decoder.com/apple-joins-the-race-for-ai-agents-that-control-your-device-while-raising-new-barriers-for-competitors/
+· NVIDIA 开源 Nemotron-Labs-Sigma 连续扩散语言模型：14 个 3B/8B checkpoint，在 16 维嵌入空间去噪，蒸馏到少步采样器，解码速度最高达自回归的 4.20 倍。
+  来源：https://www.marktechpost.com/2026/11/20/nvidia-nemotron-labs-sigma-continuous-diffusion-language-model/
+· Google 搜索首页全球上线可折叠侧栏，AI Mode 可重开历史 AI 搜索、建 notebook：搜索进一步向&quot;AI 答案引擎&quot;演化。
+  来源：https://the-decoder.com/googles-latest-homepage-update-pushes-its-search-engine-further-toward-an-ai-answer-engine/
+
+💡 今日观察
+🎯 Anthropic 以 1.5 万亿美元估值完成史上最大 IPO，却在上市首日跌破发行价、拖累纳斯达克回吐全年涨幅——AI 资产的定价逻辑正在从&quot;叙事溢价&quot;转向&quot;现金流审视&quot;，这会最先传导到模型 API 的定价与分发层。 Anthropic 的 IPO 破发和纳斯达克回吐全年涨幅，是今天所有信号的&quot;重力中心&quot;——它意味着资本市场不再无条件为 AI 叙事付费，接下来会看到模型公司收敛补贴、更认真地做单位经济。与此同时，OpenRouter 上 DeepSeek 系价格的腰斩式下探说明推理层正在快速商品化，模型能力的溢价窗口在收窄。对视频生成 API 平台，这两股力量叠加的结果是：靠&quot;接入更多模型&quot;已经不够，价值必须往工作流、分发对接和生成质量上迁移。Agent 侧则出现反向信号——Hermes 的技能沉淀和 DaisyRose 的单卡纯 RL，都在把 Agent 的成本和复制门槛往下压，这恰恰是下一阶段可以承接视频生成能力的地方。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-20">Andy 的 AI 早报 · 2026-11-20 周五</span>
     <button class="cbtn" data-copy="t-2026-11-20">📋 复制标题</button>
   </div>
@@ -792,62 +846,6 @@
 
 💡 今日观察
 🎯 模型 API 的竞争焦点正从&quot;每 token 多便宜&quot;转向&quot;Agent 用起来多顺&quot;——fal 和 OpenRouter 的货架大换血、Perplexity 把常驻 Agent 卖到 200 美元/月，都是在抢同一批愿意为&quot;跑通任务&quot;付钱的人。 今天最值得注意的不是哪个模型更强，而是&quot;钱和货架&quot;同时在重排：Anthropic 的 IPO 估值被买方砍到 1.1–1.3 万亿，OpenAI 这轮只补了 110 亿，Ramp 数据又显示企业 AI 支出已经走平——资本端对&quot;高增长&quot;的耐心在下降。与此同时，fal 和 OpenRouter 的模型表在几天内完成大换血，Kling 3.0、Veo 3.1 被移出列表，batch 档位密集出现，说明分发层正在用&quot;上架速度 + 分层定价&quot;对冲单价下行。Agent 侧，Perplexity 用 200 美元/月的常驻 Agent 给出了一个新价格锚，而 LangChain 的浏览器工具实测说明落地瓶颈仍在工程细节。合起来看：模型能力的边际差异在缩小，竞争正转移到&quot;谁能把任务跑通、并且把成本结构讲清楚&quot;。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-11-06">Andy 的 AI 早报 · 2026-11-06 周五</span>
-    <button class="cbtn" data-copy="t-2026-11-06">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-11-06.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-11-06.mp3" download="2026-11-06.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-11-06">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-06">Andy 的 AI 早报 · 2026-11-06 周五
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-🌐 市场局势
-· AI 股集体暴跌，纳指单日跌 5%，S&amp;P 500 跌超 3%：中期选举后投资者大规模撤离 AI 交易，WSJ 记录纳指跌 5%，AP 记录 S&amp;P 500 跌超 3%。此前一天刚有 OpenAI 融资目标从 300 亿砍到 110 亿的重定价信号。
-  来源：https://apnews.com/article/stocks-markets-ai-midterm-oil-trump-7ee9c212805aa5e70cf34d25aab7a36e / https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-05-2026
-· 中期选举后数据中心公投 41 项输了 40 项，OpenAI 紧急出&quot;社区公约&quot;：选民在 40/41 项地方公投中否决新建数据中心，OpenAI 随即发布 National Community Compact 与 Compute Campus Policy Blueprint 作自愿承诺，但只覆盖自营设施，Oracle 等伙伴建的部分不在内。Meta 同日警告政治阻力会拖慢 AI 扩张。
-  来源：https://the-decoder.com/after-midterm-rout-openai-tries-to-win-over-communities-it-needs-for-ai-expansion/ / https://openai.com/index/setting-new-standard-responsible-ai-infrastructure / https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/
-· OpenAI 总裁 Brockman：公司 2027 年可能具备 IPO 条件：在 WSJ 科技大会上，Brockman 强调 OpenAI 在企业市场正在追赶已先行一步的 Anthropic。
-  来源：https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/
-
-🎬 赛道深挖
-· Google Gemini Omni 1.2 Flash 正式 GA：单条视频拉到 15 秒，720p 每秒 0.07 美元，比上代便宜 30%：DeepMind 宣布该视频生成模型全面可用，支持对话式逐步编辑；官方还提示&quot;低分辨率草稿 + 只对最终结果做超分&quot;可以再省一笔。同日 OpenRouter 模型列表新增 `google/gemini-omni-1.1-flash` 与 `1.2-flash` 两个条目，prompt 均为 0.0000015、completion 均为 0.000009（按 token 计价）。
-  来源：https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent/ / https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/ / https://openrouter.ai/api/v1/models
-· OpenAI 上线 GPT-Image-2.6 Flare 与 Sunburst：最快 6 秒出图，新增 GIF 输出、SVG 导出、标记编辑和 complexity 参数：Flare 主打速度，两个模型都支持动图与矢量导出。WaveSpeedAI 价格页已把&quot;GPT Image 2.6 is LIVE — Flare &amp; Sunburst&quot;放上首页，同时撤下&quot;Kling 4.0 20% OFF&quot;促销位。
-  来源：https://www.marktechpost.com/2026/11/04/openai-gpt-image-2-6-flare-sunburst/ / https://www.qbitai.com/2026/11/507707.html / https://wavespeed.ai/pricing
-· OpenRouter 模型表大换血：MiniMax 四代旧模型被清退，DeepSeek V4 Pro 与 Gemma 4 反向涨价：新增 `minimax/minimax-m2.7`（prompt 0.00000021 / completion 0.00000084），同时删除 m2、m2-her、m2.1 与旧版 m2.7；`deepseek/deepseek-v4-pro-0813` prompt 从 0.000000115 降至 0.000000103，但 completion 从 0.0000046 升至 0.00000411 对应的新档位；`google/gemma-4-26b-a4b-it` 从 0.000000034/0.000000101 涨到 0.0000000765/0.000000255；`deepseek-v4.1-flash:batch` 也从 0.00000005/0.00000015 涨到 0.000000112/0.000000336。
-  来源：https://openrouter.ai/api/v1/models
-
-🤖 Agent 前沿
-· SemiAnalysis 新基准 GDPx：没有一个 AI Agent 在真实知识工作上超过 12%：该基准用模拟知识工作覆盖芯片设计到量化交易，Claude Opus 5.5 以微弱优势领先 Gemini 4 Carbon。批评者指出每个领域的任务数偏少、测试条件不均。
-  来源：https://the-decoder.com/no-ai-agent-scores-above-12-percent-on-semianalysis-new-real-world-work-benchmark/
-· LangChain 提出&quot;Agent 走向异步&quot;：异步子 Agent 让主循环保持响应，后台跑长任务：Deep Agents 里由 orchestrator 负责派发、通知与审批，长任务交给后台 worker，避免主 Agent 被阻塞。
-  来源：https://www.langchain.com/blog/agents-are-going-async / https://www.langchain.com/blog/context-engineering-starts-with-retrieval
-
-⚡ 快讯
-· OpenAI 发布 GPT-6 Cyber：专攻漏洞发现与修复，测试中越界率从上一代的约 10% 降到不足 1%，已在 Firefox 挖出 81 个未知漏洞、在 Linux 内核构造 948 条可用提权路径，成本约 120 万美元。
-  来源：https://openai.com/index/introducing-gpt-6-cyber / https://www.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch / https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/
-· 腾讯发布 Hy4：首个多模态模型，支持图像理解与自主操作软件，Artificial Analysis 智能指数 35 分，落后 Kimi K3.1 Pro，腾讯自承在难数学与复杂图像上仍大幅落后商业最强模型。
-  来源：https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/ / https://the-decoder.com/tencent-releases-hy4-with-vision-and-computer-use-claims-second-place-among-chinese-ai-models/
-· 百度开源 ERNIE 5.5 Flash Base：280B 稀疏 MoE、14B 激活参数、33.5T token 预训练，刻意不做中后训练直接放出基座。
-  来源：https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model/ / https://www.marktechpost.com/2026/11/05/baidu-ernie-5-5-flash-base-280b-moe/ / https://www.qbitai.com/2026/11/507787.html
-· Dropbox 3.5 亿美元收购 Tigris Data：用于支撑面向 AI 模型与 Agent 开发者的 DBX Agent Cloud 存储平台。
-  来源：https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/
-· Perplexity 推出常驻&quot;Teammates&quot;工作 Agent：可在同一工作区内承担多个角色，并复用已有项目、技能与记忆，与 Perplexity Computer 打通。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work
-· Together AI 发布 Together Compiler：Agent 驱动的持续编译循环随流量变化重优化推理前向，单模型 24 小时内比最佳 InferenceX 配置快至 2.6 倍 TPS。
-  来源：https://www.marktechpost.com/2026/11/05/together-ai-together-compiler-continual-compilation-ai-inference/
-
-💡 今日观察
-🎯 Google 把视频生成打到 7 美分/秒、还砍价 30%，叠加 OpenRouter 上 Gemini Omni Flash 双版本同时上架——视频 API 的价格战正式开打，靠&quot;接入即卖&quot;的平台必须重新算毛利。 今天最强的信号是视频 API 的定价权正在被原厂直接收走：Gemini Omni 1.2 Flash 用 7 美分/秒和 30% 降幅把价格锚定在聚合平台几乎无法加价的位置，而 OpenRouter 上小模型涨价、旧模型清退说明&quot;低价开源引流&quot;的结构也在变贵。另一边，GDPx 基准显示没有 Agent 超过 12% 的真实工作完成率，意味着 Agent 的竞争点短期不在能力而在编排——异步、排队、审批这些&quot;工程活&quot;才是差异化。叠加 AI 股暴跌与数据中心公投 40 连败，算力成本的下降空间会被政治和资本两头挤压。对做视频 API 分发的平台，接下来半年是&quot;要么往上做工作流，要么往下做价格&quot;的二选一。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
