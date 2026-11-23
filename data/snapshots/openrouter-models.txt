@@ -89,7 +89,7 @@ google/gemini-omni-1.2-flash | prompt 0.0000015 | completion 0.000009 | image No
 google/gemma-2-27b-it | prompt 0.00000065 | completion 0.00000065 | image None
 google/gemma-3-12b-it | prompt 0.00000005 | completion 0.00000015 | image None
 google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000045 | image None
-google/gemma-3-4b-it | prompt 0.00000005 | completion 0.0000001 | image None
+google/gemma-3-4b-it | prompt 0.00000004 | completion 0.00000005 | image None
 google/gemma-4-26b-a4b-it | prompt 0.0000000675 | completion 0.000000225 | image None
 google/gemma-4-26b-a4b-it:free | prompt 0 | completion 0 | image None
 google/gemma-4-31b-it | prompt 0.0000002 | completion 0.0000004 | image None
@@ -108,7 +108,7 @@ moonshotai/kimi-k2.5 | prompt 0.0000005 | completion 0.0000025 | image None
 moonshotai/kimi-k2.6 | prompt 0.00000065 | completion 0.00000341 | image None
 moonshotai/kimi-k2.7-code | prompt 0.0000006 | completion 0.000003 | image None
 moonshotai/kimi-k3 | prompt 0.000000192 | completion 0.000016 | image None
-moonshotai/kimi-k3.1-pro | prompt 0.000000253 | completion 0.0000088 | image None
+moonshotai/kimi-k3.1-pro | prompt 0.0000002403 | completion 0.0000084023 | image None
 moonshotai/kimi-k3.1-pro:batch | prompt 0.000000372 | completion 0.000005583 | image None
 moonshotai/kimi-k3:batch | prompt 0.00000228 | completion 0.0000114 | image None
 openai/gpt-3.5-turbo-0613 | prompt 0.000001 | completion 0.000002 | image None
@@ -209,7 +209,7 @@ openai/gpt-audio-mini | prompt 0.0000006 | completion 0.0000024 | image None
 openai/gpt-chat-latest | prompt 0.000005 | completion 0.00003 | image None
 openai/gpt-oss-120b | prompt 0.00000009 | completion 0.00000036 | image None
 openai/gpt-oss-120b:batch | prompt 0.0000000296 | completion 0.000000136 | image None
-openai/gpt-oss-20b | prompt 0.000000017 | completion 0.000000085 | image None
+openai/gpt-oss-20b | prompt 0.00000003 | completion 0.00000013 | image None
 openai/gpt-oss-20b:batch | prompt 0.000000024 | completion 0.000000112 | image None
 openai/gpt-oss-safeguard-20b | prompt 0.000000075 | completion 0.0000003 | image None
 openai/o3 | prompt 0.000002 | completion 0.000008 | image None
@@ -236,7 +236,7 @@ qwen/qwen3-vl-235b-a22b-instruct | prompt 0.00000021 | completion 0.0000019 | im
 qwen/qwen3-vl-30b-a3b-instruct | prompt 0.00000015 | completion 0.0000006 | image None
 qwen/qwen3-vl-8b-instruct | prompt 0.00000025 | completion 0.00000075 | image None
 qwen/qwen3.5-122b-a10b | prompt 0.00000026 | completion 0.00000208 | image None
-qwen/qwen3.5-27b | prompt 0.000000195 | completion 0.00000156 | image None
+qwen/qwen3.5-27b | prompt 0.00000026 | completion 0.0000026 | image None
 qwen/qwen3.5-35b-a3b | prompt 0.00000014 | completion 0.000001 | image None
 qwen/qwen3.5-397b-a17b | prompt 0.00000045 | completion 0.000003 | image None
 qwen/qwen3.5-9b | prompt 0.00000017 | completion 0.00000025 | image None
@@ -244,7 +244,7 @@ qwen/qwen3.5-flash-02-23 | prompt 0.000000065 | completion 0.00000026 | image No
 qwen/qwen3.5-plus-02-15 | prompt 0.00000026 | completion 0.00000156 | image None
 qwen/qwen3.5-plus-20260420 | prompt 0.0000003 | completion 0.0000018 | image None
 qwen/qwen3.6-27b | prompt 0.00000032 | completion 0.0000032 | image None
-qwen/qwen3.6-35b-a3b | prompt 0.0000001 | completion 0.0000009 | image None
+qwen/qwen3.6-35b-a3b | prompt 0.00000005 | completion 0.0000007 | image None
 qwen/qwen3.6-flash | prompt 0.0000001875 | completion 0.000001125 | image None
 qwen/qwen3.6-plus | prompt 0.000000325 | completion 0.00000195 | image None
 qwen/qwen3.7-flash | prompt 0.00000003 | completion 0.00000013 | image None
@@ -252,7 +252,7 @@ qwen/qwen3.7-max | prompt 0.000001475 | completion 0.000004425 | image None
 qwen/qwen3.7-plus | prompt 0.00000032 | completion 0.00000128 | image None
 qwen/qwen3.7-plus:batch | prompt 0.00000023 | completion 0.00000092 | image None
 qwen/qwen3.8-2.4t-a95b | prompt 0.000002 | completion 0.000006 | image None
-qwen/qwen3.8-27b | prompt 0.00000006 | completion 0.00000196 | image None
+qwen/qwen3.8-27b | prompt 0.000000035 | completion 0.0000015 | image None
 qwen/qwen3.8-27b:batch | prompt 0.00000016 | completion 0.000002 | image None
 qwen/qwen3.8-flash | prompt 0.00000015 | completion 0.00000047 | image None
 qwen/qwen3.8-max-0902 | prompt 0.000002 | completion 0.000006 | image None

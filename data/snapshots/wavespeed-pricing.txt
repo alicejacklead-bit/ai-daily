@@ -33,6 +33,12 @@ Qwen Image 3.0
 $0.03 / image
 33 images
 Video
+WAN 3.0
+$0.045 / second $0.05 - 10 %
+22.2 seconds
+WAN 3.0 Prime
+$0.0675 / second $0.075 - 10 %
+14.8 seconds
 Seedance 2.5
 $0.162 / second $0.18 - 10 %
 6.1 seconds
@@ -42,12 +48,6 @@ $0.108 / second $0.12 - 10 %
 MiniMax H3
 $0.02 / second $0.04 - 50 %
 50 seconds
-WAN 3.0
-$0.0475 / second $0.05 - 5 %
-21 seconds
-WAN 3.0 Prime
-$0.0713 / second $0.075 - 5 %
-14 seconds
 Kling 4.0
 $0.1335 / second $0.157 - 15 %
 7.4 seconds
