@@ -1,0 +1,42 @@
+{
+  "project": "ai-daily-global",
+  "product": "AI Daily Global — 综合版（中英双语 + 播客 + GitHub Pages）",
+  "timezone": "Asia/Shanghai",
+  "model": {
+    "provider": "deepseek",
+    "name": "deepseek-chat",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "note": "沿用原仓库既定模型配置；GitHub Actions 亦使用 vars.API_MODEL（默认 deepseek-chat）"
+  },
+  "network": {
+    "proxy": "http://127.0.0.1:7897",
+    "no_proxy": "127.0.0.1,localhost"
+  },
+  "repo": {
+    "remote": "https://github.com/alicejacklead-bit/ai-daily.git",
+    "branch": "main",
+    "pages_base": "https://alicejacklead-bit.github.io/ai-daily",
+    "rss": "https://alicejacklead-bit.github.io/ai-daily/podcast.xml"
+  },
+  "notify": {
+    "target_file": "~/.hermes/ai-daily-delivery/target",
+    "proxy": "http://127.0.0.1:7897"
+  },
+  "quality": {
+    "min_md_chars": 2500,
+    "min_html_bytes": 20000,
+    "dedupe_days": 5,
+    "max_title_overlap_ratio": 0.35,
+    "probe_sample": 12,
+    "min_probe_ok_ratio": 0.5
+  },
+  "retry": {
+    "max_attempts": 3,
+    "backoff_seconds": 300
+  },
+  "audio": {
+    "keep": 365,
+    "min_bytes": 200000
+  }
+}
