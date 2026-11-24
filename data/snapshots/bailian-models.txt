@@ -54,15 +54,19 @@ qwen-audio-3.1-asr-flash-filetrans 非实时语音识别
 适用于有声阅读、语音播报、虚拟人等场景
 qwen-audio-3.1-tts-plus 实时、非实时
 qwen-audio-3.1-tts-flash 实时、非实时
+音频打标
+为录音中的语音、音效和背景声添加时间标记，并描述整段录音的声学场景。
+qwen-audio-3.1-captioner 语音、音效和背景声标注
+音频生成
+生成人声、音效和环境音等音频内容
+qwen-audio-3.1-tts-next 完整场景声音生成
 语音转语音
 端到端语音对话，无需分别调用 ASR 和 TTS
+qwen-audio-3.1-live 实时双工语音对话，支持委派后台任务
 qwen-audio-3.1-realtime-plus 语音转语音
 qwen3.5-omni-plus 语音转语音
 qwen3.8-omni-flash-realtime 语音转语音
 qwen-audio-3.1-realtime-flash 语音转语音
-音频生成
-生成人声、音效和环境音等音频内容
-qwen-audio-3.1-tts-next 完整场景声音生成
 向量
 向量与重排序
 文本或图文向量化，配合重排序提升检索精度

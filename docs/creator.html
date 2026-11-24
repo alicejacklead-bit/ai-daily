@@ -36,6 +36,60 @@
 
 <div class="ep">
   <div class="ep-h">
+    <span class="ep-title" id="t-2026-11-24">Andy 的 AI 早报 · 2026-11-24 周二</span>
+    <button class="cbtn" data-copy="t-2026-11-24">📋 复制标题</button>
+  </div>
+  <audio controls preload="none" src="audio/2026-11-24.mp3"></audio>
+  <div class="acts">
+    <a class="cbtn" href="audio/2026-11-24.mp3" download="2026-11-24.mp3">⬇️ 下载音频</a>
+    <button class="cbtn" data-copy="n-2026-11-24">📋 复制 Show Notes</button>
+  </div>
+  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-24">Andy 的 AI 早报 · 2026-11-24 周二
+
+🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
+
+🌐 市场局势
+· Nvidia 董事会全票让黄仁勋回归，白宫公开承认 Trump 介入，国会与舆论反弹：距 11 月 12 日黄仁勋因与 Megaspeed 高管 Alice Huang 的绯闻辞去 CEO 仅约两周，Nvidia 董事会即全票恢复其总裁、CEO 与董事职务，即刻生效。Trump 对 CNBC 称&quot;I spoke to them… And I convinced them&quot;，白宫通讯主任 Steven Cheung 称&quot;总统完全参与其中&quot;。CNBC 报道国会方面抨击这一回归是&quot;性格的失败&quot;；黄仁勋已定于 12 月 1 日赴众议院作证，下周另有一场参议院听证。Megaspeed 本身正被推向美国黑名单。
+  来源：https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-congress-trump.html / https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/ / https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated / https://the-decoder.com/nvidia-tried-life-without-jensen-huang-and-it-lasted-about-two-weeks/
+· Amazon 以 75 亿美元收购 Decart 的 AI 优化技术与研究团队，为卖 Trainium 芯片铺路：TechCrunch 报道，Amazon 拿下 Decart 的 AI 优化技术和研究团队，交易规模 75 亿美元，背景是 Amazon 正准备对外销售自家 Trainium 芯片。这是&quot;买软件/优化能力来给自研芯片背书&quot;的典型动作。
+  来源：https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/
+· SpaceXSI 转向&quot;租算力而非自建&quot;：Anthropic 每月付约 31 亿美元、Google 付约 8 亿美元：据 NYT（经 The Decoder 转述），自 5 月起 SpaceXSI 一边向 Anthropic、Google 等竞争对手出租算力，一边收缩自家 AI 项目；6 月 IPO 后解散了 60 人的 Grok Imagine 团队。Anthropic 每月支付约 31 亿美元，Google 约 8 亿美元。
+  来源：https://the-decoder.com/anthropics-appetite-for-compute-is-pushing-xai-toward-a-rent-over-build-strategy/
+
+🎬 赛道深挖
+· MiniMax 视频 API 接入 fal、MachGen、Nunchux 三家第三方渠道，首单免费并给出每档单价：MiniMax 定价页新增按 Provider 划分的表格：MiniMax-H3-Max-Turbo（t2v / i2v / reference）在 fal 上 $0.12、前 2 次免费；MiniMax-H3-MG 在 MachGen 上 $0.10；MiniMax-H3-NC 在 Nunchux AI 上首 5 次免费。同时页面删除了原先&quot;MiniMax-H3-Max 每个任务前 2 张图免费、超出按张计费、输入视频按输出分辨率时长计费、音频……&quot;那段按资源计费的说明。
+  来源：https://platform.minimax.io/docs/guides/pricing
+· 阿里云百炼上线两款 qwen-audio-3.1 模型：音频打标与实时双工语音：百炼模型列表新增 qwen-audio-3.1-captioner，可为录音中的语音、音效和背景声添加时间标记并描述整段录音的声学场景；同时上线 qwen-audio-3.1-live，支持实时双工语音对话，并可委派后台任务。页面未显示价格变动。
+  来源：https://help.aliyun.com/zh/model-studio/models
+· OpenRouter 主力模型表大改：DeepSeek V4 系列集体涨价、Kimi K2 两版下架、Kimi K3 微涨：按每 token 美元计，deepseek-v4-flash-0731 输入从 0.0000000443 涨到 0.000000069、输出从 0.0000003 涨到 0.00000047；deepseek-v4-pro 输入从 0.0000009 涨到 0.00000128、输出从 0.0000015 涨到 0.00000256；deepseek-v4.1-flash-1017 输入从 0.00000015 降到 0.00000003、输出从 0.0000006 降到 0.0000002。moonshotai/kimi-k2 与 kimi-k2-thinking 下架，kimi-k3 输入从 0.000000192 微涨至 0.0000002、输出维持 0.000016。此外新增 google/gemma-4-26b-a4b-it、minimax/minimax-m3.1-flash 等条目，minimax-m3.1-flash 输入从 0.000000075 涨到 0.00000015。
+  来源：https://openrouter.ai/api/v1/models
+
+🤖 Agent 前沿
+· Anthropic 推出 Claude Ship：让 Agent 自己 review、修、批准 GitHub PR：Claude Ship 打包三个组件——Code Review（已 GA）、PR Steward 与 Claude Approvals（后两者在 Team 和 Enterprise 套餐公测）。Code Review 负责审 PR，PR Steward 负责跟进修复，Claude Approvals 负责走完例行审批。定位是解决&quot;AI 生成代码堆积后，人工审批成为新瓶颈&quot;的问题。
+  来源：https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/ / https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests / https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents/
+· Google DeepMind 用 Agent 团队 + 形式化验证改进聚变与化学领域的量子算法：DeepMind 发布博客，介绍用 agent teams 配合 formal verification，为聚变和化学场景找到更快的量子算法。核心是把&quot;提出候选算法&quot;和&quot;机器可验证的正确性&quot;接在一起。
+  来源：https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/
+
+⚡ 快讯
+· Z.ai 发布 GLM-5.4：750B 参数 Loop Transformer，28 层跑两遍：号称可对标 2–3 万亿参数模型，API 与开放权重待安全评估后放出，定位&quot;Generalized Coding&quot;（代码也生成视频、游戏、CAD）。
+  来源：https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer/ / https://simonwillison.net/2026/Nov/23/glm-54/ / https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model/
+· OpenAI 把 GPT-6.2 Sol 设为 ChatGPT 聊天页全球默认模型：内部测试中图像理解从 47.4% 提升到 71.7%，复杂指令正确率 78.1%。
+  来源：https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably/
+· Oregon 与 Virginia 分别起诉 SpaceX，指 Grok 的色情 deepfake 违反州消费者保护法：两州总检察长称其无视行业标准防护、虚假宣传平台安全性。
+  来源：https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit
+· Google 搜索 AI Mode 接入 Drive 与 Wallet，Gemini App 同步获得 Personal Intelligence：AI Mode 可调用用户自有数据给出个性化回答。
+  来源：https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/ / https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/
+· Supertake 融资 2000 万美元，让 AI Agent 把用户的市场判断直接转成股票组合：用户给观点，Agent 负责选股建仓。
+  来源：https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/
+
+💡 今日观察
+🎯 MiniMax 把视频生成 API 同时铺到 fal、MachGen、Nunchux 三家渠道并给出首单免费，视频模型的竞争正从&quot;谁的效果好&quot;转向&quot;谁的分发渠道多、谁先让开发者零成本试&quot;。 今天最值得记住的不是某个模型变强，而是&quot;分发&quot;和&quot;验证&quot;两条线同时收紧：MiniMax 把视频模型拆到 fal、MachGen、Nunchux 多个渠道并按渠道给出 $0.12 / $0.10 的不同单价，说明视频模型已经进入渠道战，聚合层的价值取决于能否拿到更好的档位而不是更全的列表。与此同时 OpenRouter 上 DeepSeek 主力档位集体涨价、旧版 Kimi 直接下架，开源权重模型的&quot;低价红利&quot;在退潮。Agent 侧，Claude Ship 和 DeepMind 的 formal verification 指向同一个方向——Agent 开始接管流程中的决策节点，而可靠性靠外部验证器而不是模型自觉。对做视频 API 的平台，这意味着两头受挤：上游多渠道直供、下游按验证过的效果付费。
+
+———
+完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
+</div>
+<div class="ep">
+  <div class="ep-h">
     <span class="ep-title" id="t-2026-11-23">Andy 的 AI 早报 · 2026-11-23 周一</span>
     <button class="cbtn" data-copy="t-2026-11-23">📋 复制标题</button>
   </div>
@@ -790,60 +844,6 @@
 
 💡 今日观察
 🎯 Anthropic 用 Fable 5.2 把&quot;最强模型&quot;和&quot;IPO 定价权&quot;绑在一起卖，而真正值得盯的是它同时把 batch 价格压到标准价一半——前沿模型的价格战已经从&quot;每代降一点&quot;变成&quot;发布即分层&quot;。 Anthropic 把最强模型、fast mode 加价和 batch 半价打包在同一天发布，紧接着就是 IPO 估值区间——前沿实验室的定价权正在被资本市场定价，而不再是纯粹的技术竞赛。另一头，Meta 用 10 美分的小模型切入 Agent 的&quot;无聊调用&quot;，OpenRouter 上开源权重模型却在涨价，说明便宜算力的红利正在从开源侧转移到&quot;专用小模型&quot;侧。视频与图像赛道的竞争焦点也同步位移：Seedream 5.5 卖的是 100 轮编辑的一致性，而不是首图跑分，这跟 API 平台按&quot;迭代稳定性&quot;重构货架是同一件事。Agent 基础设施开始分层——Aspen 这类为 Agent 节奏重造的 Git 服务器，比又一个 Agent 框架更值得留意。
-
-———
-完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>
-</div>
-<div class="ep">
-  <div class="ep-h">
-    <span class="ep-title" id="t-2026-11-09">Andy 的 AI 早报 · 2026-11-09 周一</span>
-    <button class="cbtn" data-copy="t-2026-11-09">📋 复制标题</button>
-  </div>
-  <audio controls preload="none" src="audio/2026-11-09.mp3"></audio>
-  <div class="acts">
-    <a class="cbtn" href="audio/2026-11-09.mp3" download="2026-11-09.mp3">⬇️ 下载音频</a>
-    <button class="cbtn" data-copy="n-2026-11-09">📋 复制 Show Notes</button>
-  </div>
-  <details><summary>预览 Show Notes</summary><pre class="notes" id="n-2026-11-09">Andy 的 AI 早报 · 2026-11-09 周一
-
-🎧 每天 5 分钟，用耳朵掌握 AI 领域最新动态。全自动采集 · DeepSeek 智能筛选。
-
-🌐 市场局势
-· OpenAI 以 1.25 万亿美元估值完成 110 亿美元融资，低于最初寻求的 1.4 万亿：本轮融资规模 110 亿美元，估值 1.25 万亿美元，较公司最初寻求的 1.4 万亿美元低约 10%。此前已报道过首轮交割消息，本次为融资细节的完整披露。
-  来源：https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/
-· Anthropic 签下 34 亿美元燃气发电协议，为数据中心供电：Anthropic 达成一笔 34 亿美元的交易，专门为数据中心生成燃气电力。这是在中期选举后多州数据中心公投集体受挫、电网接入趋紧背景下的直接反应。
-  来源：https://www.ft.com/content/41bf5c6a-9735-4f1a-a8e3-2bcccad58ba0
-· Nvidia 董事会就 CEO 黄仁勋与疑似中国间谍的关系启动独立调查：黄仁勋在致全员备忘录中承认存在婚外情，涉事方为 Megaspeed 高管 Alice Huang，据报被中国国家安全部招募用于刺探 Nvidia。董事会称已启动独立调查。
-  来源：https://www.bbc.co.uk/news/articles/c3dxw10rjn9no / https://www.bloomberg.com/news/articles/2026-11-08/nvidia-board-to-probe-spying-case-after-ceo-jensen-huang-admits-infidelity / https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/ / https://www.theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy
-
-🎬 赛道深挖
-· 关注赛道] OpenRouter 模型表再次重定价：DeepSeek V4.1 Flash 输入价降到约 1/25，Kimi K3 batch 输出价近乎腰斩：按 OpenRouter 模型接口快照对比，deepseek/deepseek-v4.1-flash-1017 的 prompt 价从 0.00000015 降到 0.000000006、completion 价从 0.0000006 降到 0.0000005；其 batch 版 prompt 从 0.000000112 降到 0.000000011、completion 从 0.000000336 降到 0.0000002。moonshotai/kimi-k3:batch 的 prompt 从 0.00000228 降到 0.000000917、completion 从 0.0000114 降到 0.000006。deepseek-v4-pro 的 prompt 从 0.000000515214 降到 0.0000002088、completion 从 0.000001030428 降到 0.0000004176。同时新增 qwen/qwen3.6-27b（prompt 0.00000032 / completion 0.0000032），openai/gpt-oss-120b 的 prompt 从 0.000000029 降到 0.000000017、completion 从 0.000000108 降到 0.000000063。
-  来源：https://openrouter.ai/api/v1/models
-· 阿里 Co-Design Bench：真实场景下最强编码 Agent 仅完整解决 26.4% 任务：阿里推出 Co-Design Bench，用真实用户请求测试编码 Agent，这些请求都是此前在实战中让 Agent 失败过的。表现最好的 GPT-6 Astra 也只完整解决 26.4%，而同一批模型在旧基准上得分超过 99%。
-  来源：https://the-decoder.com/ai-coding-agents-still-need-human-cleanup-on-nearly-three-out-of-four-tasks-in-a-real-world-test/
-· 资本正在撤离&quot;世界模型&quot;：量子位报道称资本正从&quot;世界模型&quot;方向撤出。这与 NVIDIA 刚发布 Cosmos 3 开放模型用于交互式世界模拟形成对照——大厂继续投入，财务资本却在退潮。
-  来源：https://www.qbitai.com/2026/11/508466.html
-
-🤖 Agent 前沿
-· 关注赛道] Vercel 开源 agent-browser，单日涨 812 star：vercel-labs 发布 agent-browser，一个面向 AI Agent 的浏览器自动化 CLI。同期 LangChain 的 Managed Deep Agents 也已内置浏览器运行能力并提供人工接管登录的 handoff。
-  来源：https://github.com/vercel-labs/agent-browser / https://www.langchain.com/blog/browser-use-in-managed-deep-agents
-· Google 发布 Elephant-Goldfish 插件：先写 spec，再跑 5 轮零上下文评审才允许写代码：该插件让编码 Agent 先起草规格说明，然后在任何代码生成之前执行 5 个零上下文评审阶段。同一天 Anthropic 的 Agent Skills 仓库单日涨 793 star。
-  来源：https://www.marktechpost.com/2026/11/08/google-elephant-goldfish-model-plugin-spec-review-coding-agents/ / https://github.com/anthropics/skills
-
-⚡ 快讯
-· Goldman Sachs 正在把 Claude Code 从银行家和交易员手中撤下：HN 热度 490 分、305 条评论，是今天讨论度最高的 AI 落地反转事件。
-  来源：https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers
-· Apple CEO 施压软件负责人加快 Siri 路线图，目标是能对标 OpenAI Dots 和 Meta Muse 的强 Agent：Bloomberg 的 Gurman 称 Ternus 正要求 Federighi 加速交付。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic / https://www.bloomberg.com/news/newsletters/2026-11-08/apple-explores-turning-siri-ai-into-chatgpt-dots-like-agent-ios-28-shake-up
-· 猫王与 Eminem 版权方起诉 Suno：指控其非法生成模仿这些艺人的音乐与歌词，其中猫王案援引田纳西州相关法律。
-  来源：https://www.theverge.com/ai-artificial-intelligence/1029533/elvis-eminem-suno-ai-music-clone-lawsuit
-· Karpathy 用一个周末做出策展视频平台：用 Claude Opus 5.5 从 4300 万条 Hacker News 评论中筛出 6,454 条视频，他称效果优于 YouTube 自身推荐。
-  来源：https://the-decoder.com/andrej-karpathy-built-a-curated-video-platform-in-a-weekend-using-claude-and-20-years-of-hacker-news/
-· Lovable 复盘 10 万次 PR：删掉了几乎全部 Agent 代码：官方博客称从 10 万 PR 中得出的教训之一是持续重建 Agent 层。
-  来源：https://lovable.dev/blog/how-we-built-lovable-and-why-we-keep-rebuilding-it
-
-💡 今日观察
-🎯 OpenRouter 上 DeepSeek V4.1 Flash 的输入价被砍到原来的 1/25，模型 API 的价格战正从&quot;降价&quot;变成&quot;重定价&quot;，聚合层的毛利结构会被重新洗牌。 今天最强的信号是&quot;价格与能力的双重去泡沫&quot;：OpenRouter 上 Flash 级模型被压到近乎电费定价，意味着模型能力本身正在快速商品化；与此同时，Co-Design Bench 用 26.4% 的真实通过率戳破了 99% 的旧基准，说明能力商品化的只是&quot;看起来能做&quot;，而不是&quot;真能交付&quot;。资本侧同向收敛——OpenAI 估值低于初始预期、Anthropic IPO 估值一路下修、世界模型被资本撤离——钱正在从&quot;模型叙事&quot;转向&quot;电力、分发、流程约束&quot;这些更硬的环节。Agent 侧的进展也印证了这一点：今天最热的不是新模型，而是浏览器运行时、spec-first 评审门禁、Skills 仓库这类工程脚手架。
 
 ———
 完整图文与往期：https://alicejacklead-bit.github.io/ai-daily/</pre></details>

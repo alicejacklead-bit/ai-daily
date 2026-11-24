@@ -80,13 +80,35 @@ Reference ref
 Supported
 Image, video, audio
 H3 Series Extended Models
+Task Type
 MiniMax-H3-Max
-Supports image, video, and audio references, for multi-asset video creation.
+Provider: fal
+All
 $0.143
 $0.074
+first 2 free
 $0.05
 $0.0553
-MiniMax-H3-Max : The first 2 images per task are free; additional images are billed per image. Input video is billed by duration at the output resolution. Audio input is free.
+MiniMax-H3-Max-Turbo
+t2v / i2v
+reference
+$0.12
+MiniMax-H3-MG
+Provider: MachGen
+$0.10
+Free
+MiniMax-H3-NC
+Provider: Nunchux AI
+first 5 free
+$0.022
+$0.011
+MiniMax-H3-RH
+Provider: RunningHub
+$0.038
+Image input : The free quota applies per task; additional images are billed per image.
+Video input : Applies to reference tasks only. Billed by input duration at the output resolution of the selected model.
+Audio input : Free for all extended models.
+MiniMax-H3-RH : Request with model=MiniMax-H3 and resolution=480P ; there is no separate model name.
 View extended model task types
 Video Regeneration
 Regenerate a 768P video produced by MiniMax-H3 into 2K. Model / API

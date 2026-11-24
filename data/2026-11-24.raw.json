@@ -1,0 +1,1704 @@
+{
+  "date": "2026-11-24",
+  "generated_at": "2026-11-24T12:08:50.916869+08:00",
+  "counts": {
+    "papers": 10,
+    "projects": 6,
+    "news": 89
+  },
+  "health": [
+    {
+      "source": "HuggingFace Papers",
+      "type": "api",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "GitHub Trending",
+      "type": "page",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "Hacker News",
+      "type": "api",
+      "status": "ok",
+      "note": "13 条"
+    },
+    {
+      "source": "36Kr AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "量子位",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "InfoQ 中文",
+      "type": "rss",
+      "status": "ok",
+      "note": "8 条"
+    },
+    {
+      "source": "SSPAI AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "VentureBeat",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "TechCrunch AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "The Verge AI",
+      "type": "rss",
+      "status": "ok",
+      "note": "10 条"
+    },
+    {
+      "source": "The Decoder",
+      "type": "rss",
+      "status": "ok",
+      "note": "9 条"
+    },
+    {
+      "source": "MarkTechPost",
+      "type": "rss",
+      "status": "ok",
+      "note": "5 条"
+    },
+    {
+      "source": "Simon Willison",
+      "type": "rss",
+      "status": "ok",
+      "note": "2 条"
+    },
+    {
+      "source": "Hugging Face Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "2 条"
+    },
+    {
+      "source": "Google DeepMind",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "Google AI Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "OpenAI",
+      "type": "rss",
+      "status": "ok",
+      "note": "4 条"
+    },
+    {
+      "source": "fal blog",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "smol.ai AINews",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "TLDR AI",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "r/LocalLLaMA",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "r/aivideo",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "Latent Space",
+      "type": "rss",
+      "status": "ok",
+      "note": "1 条"
+    },
+    {
+      "source": "LangChain Blog",
+      "type": "rss",
+      "status": "ok",
+      "note": "2 条"
+    },
+    {
+      "source": "One Useful Thing (Mollick)",
+      "type": "rss",
+      "status": "empty_or_fail",
+      "note": "0 条"
+    },
+    {
+      "source": "BytePlus ModelArk 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "火山方舟 模型价格",
+      "type": "page",
+      "status": "ok",
+      "note": "大面积改版（510 行），已重建基线，不报"
+    },
+    {
+      "source": "MiniMax 定价",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+24 / -2 行"
+    },
+    {
+      "source": "阿里云百炼 模型列表（Wan）",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+4 / -0 行"
+    },
+    {
+      "source": "Gemini API 价格",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "Gemini API changelog",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "Anthropic news",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+1 / -1 行"
+    },
+    {
+      "source": "Anthropic 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "fal 价格（含 Kling 等第三方模型价）",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+1 / -1 行"
+    },
+    {
+      "source": "Replicate 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "WaveSpeedAI 价格",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    },
+    {
+      "source": "Higgsfield 定价套餐",
+      "type": "page",
+      "status": "fail",
+      "note": "正文过短，疑似 JS 渲染，抓不到内容"
+    },
+    {
+      "source": "OpenRouter 主力模型价格",
+      "type": "page",
+      "status": "ok",
+      "note": "有变化：+9 / -11 行"
+    },
+    {
+      "source": "Artificial Analysis 视频模型榜",
+      "type": "page",
+      "status": "ok",
+      "note": "无变化"
+    }
+  ],
+  "items": {
+    "papers": [
+      {
+        "category": "papers",
+        "title": "GameAnything: From Any Inspirations to Playable Game Worlds",
+        "url": "https://huggingface.co/papers/2611.29238",
+        "normalized_url": "https://huggingface.co/papers/2611.29238",
+        "summary": "AI-driven game development holds the potential to transform diverse human inspirations into interactive experiences. However, existing systems and benchmarks primarily focus on explicit development specifications, with limited support for adapting multimodal references and evaluating actual gameplay experiences. We introduce GameAnything, an open-source agentic platform that transforms multimodal inspirations into playable extensions of existing games through iterative development. GameAnything ",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-22T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.29238"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "A Glimpse of Training VLMs as Foundation Models for Robotic Manipulation",
+        "url": "https://huggingface.co/papers/2611.29338",
+        "normalized_url": "https://huggingface.co/papers/2611.29338",
+        "summary": "Recently, GPT-6 Astra demonstrates strong generalization in robot control, yet limited disclosure of its training leaves open how such capabilities can be reproduced. We introduce nanoAstra, an approach to training vision-language models (VLMs) for generalizable manipulation that combines semantic action modeling with capability-preserving supervised fine-tuning (CP-SFT). nanoAstra represents robot behavior as semantic steps composed of reusable, parameterized action primitives, guided by explic",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-22T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.29338"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay",
+        "url": "https://huggingface.co/papers/2611.28202",
+        "normalized_url": "https://huggingface.co/papers/2611.28202",
+        "summary": "Multimodal foundation models can play video games well when the game waits for them, but often fail when it keeps running. We find that much of this gap lies in the harness, which decides what the model sees, what it remembers, and how its outputs become actions over time. Existing harnesses such as VISTA improve the first two, yet turn each model call into at most one action, so the agent acts only as often as its model thinks. We introduce AutoPILOT, which changes the third: in each model call",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-20T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.28202"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Self-WSP: Can Language Models Improve Themselves Through Weight-Space Programming?",
+        "url": "https://huggingface.co/papers/2611.28833",
+        "normalized_url": "https://huggingface.co/papers/2611.28833",
+        "summary": "Frontier language models can now read and edit the weights of a neural network much like code and thereby improve a small model, an approach known as Weight-Space Programming (WSP). We further explore applying WSP to a language model itself, which we call Self-WSP. Specifically, Qwen3.5-0.8B reads its own weights, proposes an edit, and then continues with the edited weights as both problem solver and editor. We find many cases of genuine self-improvement. Self-edits can raise GSM8K accuracy from",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-21T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.28833"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "WeightCode: Installing New Capabilities into Neural Networks via Weight-Space Programming",
+        "url": "https://huggingface.co/papers/2611.25476",
+        "normalized_url": "https://huggingface.co/papers/2611.25476",
+        "summary": "Neural networks encode learned capabilities in their weights, yet extending those capabilities with explicit task knowledge remains a fundamental challenge. Here we show that Weight-Space Programming (WSP), in which executable programs read, construct or modify a network's weights directly, can install new capabilities within trained neural networks. WeightCode, a WSP framework, uses a frozen language model to write executable weight programs that install new computations into trained neural net",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-19T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.25476"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Plan4D: Generative Plannable 4D Worlds",
+        "url": "https://huggingface.co/papers/2611.26516",
+        "normalized_url": "https://huggingface.co/papers/2611.26516",
+        "summary": "Most world models for future prediction prioritize aestetic quality of generated videos, but offer only weak physical grounding and limited geometric consistency over time, due to the lack of explicit 4D modeling. In this paper, we introduce plan4d, a possible next milestone towards building a generative plannable 4D world model that predicts future RGB videos together with dense 4D geometry, including depth, cameras, point clouds, and scene flow from an observed scene context and text-specified",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-19T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.26516"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Seeing the Invisible: How Vision-Language Models Read, Predict and Trace Radio Fields",
+        "url": "https://huggingface.co/papers/2611.28123",
+        "normalized_url": "https://huggingface.co/papers/2611.28123",
+        "summary": "Operating in the physical world requires reasoning beyond what cameras directly capture. In a city, radio signals are invisible to the lens, yet their strength is governed by the buildings and streets an image does show. Given only these visible structures, can vision-language models (VLMs) infer the invisible radio field they shape? Probing true physical reasoning requires exact fields in real cities, alongside controlled interventions where a single physical factor changes. We build a label-fr",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-18T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.28123"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "From Points to Trajectories: Rethinking Multimodal Alignment for Physical Events",
+        "url": "https://huggingface.co/papers/2611.24249",
+        "normalized_url": "https://huggingface.co/papers/2611.24249",
+        "summary": "Advancing physical artificial intelligence (Physical AI) requires moving beyond static object recognition to ground how real-world mechanics (e.g., impact, friction, and force transfer) unfold over time. While multimodal aligners seek to capture these interactions by matching multi-sensor streams, prevailing architectures compress each temporal sequence into a single pooled embedding. We show that this paradigm fails on twin events: distinct physical executions recorded under identical task cond",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-18T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.24249"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "How Feedback-Free Self-Evolution Reshapes Agent Skills: A Systematic Study",
+        "url": "https://huggingface.co/papers/2611.25534",
+        "normalized_url": "https://huggingface.co/papers/2611.25534",
+        "summary": "Agent skills are documents in which experts write down procedural knowledge, and models increasingly maintain them by rewriting them without feedback. Such rewriting could adapt a skill to the model that uses it or erode the expert knowledge that makes it useful, yet how skills evolve under this feedback-free self-evolution has not been studied. We let models rewrite expert skills round after round without any task, run or judgment and run agents built on the same models with the rewritten skill",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-19T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "paper_id": "2611.25534"
+        }
+      },
+      {
+        "category": "papers",
+        "title": "Which Dwarf Is This? Doppeldwarf-306 and Near-Identical Instance Retrieval",
+        "url": "https://huggingface.co/papers/2611.27490",
+        "normalized_url": "https://huggingface.co/papers/2611.27490",
+        "summary": "Most established instance-retrieval benchmarks emphasise landmarks; small sculptures from visually similar series offer a complementary challenge. We introduce Doppeldwarf-306: 1,691 openly licensed photographs of 306 bronze dwarf statues in Wrocław, Poland, many made in themed series that share one style, with the photographer of each image recorded. With no training, nearest-neighbour search over frozen DINOv2 features names the right statue first for 93.1% of leave-one-out queries, and the be",
+        "source": "HuggingFace Papers",
+        "published": "2026-11-20T00:00:00.000Z",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "paper_id": "2611.27490"
+        }
+      }
+    ],
+    "projects": [
+      {
+        "category": "projects",
+        "title": "elementalsouls/Claude-BugHunter ⭐+2,029/天",
+        "url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "normalized_url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "summary": "A Claude Code skill bundle for bug hunting and external red-team work - 84 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. （GitHub Trending · 今日 +2,029 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "stars_today": "2,029"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "jingyaogong/minimind ⭐+828/天",
+        "url": "https://github.com/jingyaogong/minimind",
+        "normalized_url": "https://github.com/jingyaogong/minimind",
+        "summary": "🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. （GitHub Trending · 今日 +828 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "828"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "firecrawl/firecrawl ⭐+924/天",
+        "url": "https://github.com/firecrawl/firecrawl",
+        "normalized_url": "https://github.com/firecrawl/firecrawl",
+        "summary": "Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. （GitHub Trending · 今日 +924 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "924"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "openvinotoolkit/openvino ⭐+184/天",
+        "url": "https://github.com/openvinotoolkit/openvino",
+        "normalized_url": "https://github.com/openvinotoolkit/openvino",
+        "summary": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference （GitHub Trending · 今日 +184 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "stars_today": "184"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "cathrynlavery/diagram-design ⭐+620/天",
+        "url": "https://github.com/cathrynlavery/diagram-design",
+        "normalized_url": "https://github.com/cathrynlavery/diagram-design",
+        "summary": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 52 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. （GitHub Trending · 今日 +620 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "stars_today": "620"
+        }
+      },
+      {
+        "category": "projects",
+        "title": "mvanhorn/last30days-skill ⭐+797/天",
+        "url": "https://github.com/mvanhorn/last30days-skill",
+        "normalized_url": "https://github.com/mvanhorn/last30days-skill",
+        "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary （GitHub Trending · 今日 +797 star）",
+        "source": "GitHub Trending",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "stars_today": "797"
+        }
+      }
+    ],
+    "news": [
+      {
+        "category": "news",
+        "title": "[页面变动] MiniMax 定价",
+        "url": "https://platform.minimax.io/docs/guides/pricing",
+        "normalized_url": "https://platform.minimax.io/docs/guides/pricing",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ Task Type\n+ Provider: fal\n+ All\n+ first 2 free\n+ MiniMax-H3-Max-Turbo\n+ t2v / i2v\n+ reference\n+ $0.12\n+ MiniMax-H3-MG\n+ Provider: MachGen\n+ $0.10\n+ Free\n+ MiniMax-H3-NC\n+ Provider: Nunchux AI\n+ first 5 free\n删除：\n- Supports image, video, and audio references, for multi-asset video creation.\n- MiniMax-H3-Max : The first 2 images per task are free; additional images are billed per image. Input video is billed by duration at the output resolution. Audio",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "minimax-pricing"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] 阿里云百炼 模型列表（Wan）",
+        "url": "https://help.aliyun.com/zh/model-studio/models",
+        "normalized_url": "https://help.aliyun.com/zh/model-studio/models",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ 音频打标\n+ 为录音中的语音、音效和背景声添加时间标记，并描述整段录音的声学场景。\n+ qwen-audio-3.1-captioner 语音、音效和背景声标注\n+ qwen-audio-3.1-live 实时双工语音对话，支持委派后台任务\n删除：\n",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "bailian-models"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] Anthropic news",
+        "url": "https://www.anthropic.com/news",
+        "normalized_url": "https://www.anthropic.com/news",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ November 24, 2026\n删除：\n- November 22, 2026",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "anthropic-news"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] fal 价格（含 Kling 等第三方模型价）",
+        "url": "https://fal.ai/pricing",
+        "normalized_url": "https://fal.ai/pricing",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ Pricing — fal, Creative infrastructure for Generative Media\n删除：\n- Pricing | fal, your full stack for generative media",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "fal-pricing"
+        }
+      },
+      {
+        "category": "news",
+        "title": "[页面变动] OpenRouter 主力模型价格",
+        "url": "https://openrouter.ai/api/v1/models",
+        "normalized_url": "https://openrouter.ai/api/v1/models",
+        "summary": "页面相对上次快照的变化。\n新增：\n+ deepseek/deepseek-v4-flash-0731 | prompt 0.000000069 | completion 0.00000047 | image None\n+ deepseek/deepseek-v4-pro | prompt 0.00000128 | completion 0.00000256 | image None\n+ deepseek/deepseek-v4-pro-0813 | prompt 0.000000111 | completion 0.00000444 | image None\n+ deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000003 | completion 0.0000002 | image None\n+ google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000016 | image None\n+ google/gemma-4-26b-a4b-it | prompt 0.0000000765 | completion 0.000000255 | image None\n+ minimax/minimax-m3.1-flash | prompt 0.00000015 | completion 0.0000006 | image None\n+ moonshotai/kimi-k3 | prompt 0.0000002 | completion 0.000016 | image None\n+ openai/gpt-oss-120b | prompt 0.00000005 | completion 0.00000025 | image None\n删除：\n- deepseek/deepseek-v4-flash-0731 | prompt 0.0000000443 | completion 0.0000003 | image None\n- deepseek/deepseek-v4-pro | prompt 0.0000009 | completion 0.0000015 | image None\n- deepseek/deepseek-v4-pro-0813 | prompt 0.00000132 | completion 0.00000396 | image None\n- deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000015 | completion 0.0000006 | image None\n- google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000045 | image None\n- google/gemma-4-26b-a4b-it | prompt 0.0000000675 | completion 0.000000225 | image None\n- minimax/minimax-m3.1-flash | prompt 0.000000075 | completion 0.0000003 | image None\n- moonshotai/kimi-k2 | prompt 0.00000057 | completion 0.0000023 | image None\n- moonshotai/kimi-k2-thinking | prompt 0.0000006 | completion 0.0000025 | image None\n- moonshotai/kimi-k3 | prompt 0.000000192 | completion 0.000016 | image None\n- openai/gpt-oss-120b | prompt 0.00000009 | completion 0.00000036 | image None",
+        "source": "页面监测",
+        "published": null,
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "watch": true,
+          "slug": "openrouter-models"
+        }
+      },
+      {
+        "category": "news",
+        "title": "US to blacklist Asian AI firm Megaspeed",
+        "url": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo",
+        "normalized_url": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo",
+        "summary": "HN points: 13, comments: 2",
+        "source": "Hacker News",
+        "published": "2026-11-23T22:48:25Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Latent Introspection: LLMs Can Detect Prior Concept Injections",
+        "url": "https://arxiv.org/abs/2602.20031",
+        "normalized_url": "https://arxiv.org/abs/2602.20031",
+        "summary": "HN points: 41, comments: 2",
+        "source": "Hacker News",
+        "published": "2026-11-23T22:29:48Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "16-Year-Old Founded an AI Missile Startup. He's Targeting 'Cost per Kill'",
+        "url": "https://www.wired.com/story/henrijs-dandzbergs-polemos-missiles-ai-warfare/",
+        "normalized_url": "https://www.wired.com/story/henrijs-dandzbergs-polemos-missiles-ai-warfare",
+        "summary": "HN points: 22, comments: 16",
+        "source": "Hacker News",
+        "published": "2026-11-23T21:56:44Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "The AI conversation we're not having",
+        "url": "https://www.gnanaguru.com/blog/things-two-years-in-ai-taught-me/",
+        "normalized_url": "https://www.gnanaguru.com/blog/things-two-years-in-ai-taught-me",
+        "summary": "HN points: 12, comments: 11",
+        "source": "Hacker News",
+        "published": "2026-11-23T21:46:33Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "OpenAI and Cisco introduce Shirudo",
+        "url": "https://openai.com/index/introducing-shirudo",
+        "normalized_url": "https://openai.com/index/introducing-shirudo",
+        "summary": "OpenAI and Cisco introduce Shirudo, an open-source runtime for Linux. It helps teams protect running systems while they roll out patches.",
+        "source": "Hacker News, OpenAI",
+        "published": "2026-11-23T21:20:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Jensen Huang's Apology May Be the Only Correct Use of AI",
+        "url": "https://www.theatlantic.com/newsletters/2026/11/jensen-huang-ai-apology-nvidia/689366/",
+        "normalized_url": "https://www.theatlantic.com/newsletters/2026/11/jensen-huang-ai-apology-nvidia/689366",
+        "summary": "HN points: 26, comments: 3",
+        "source": "Hacker News",
+        "published": "2026-11-23T20:33:07Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Claude Ship",
+        "url": "https://claude.com/resources/articles/introducing-claude-ship",
+        "normalized_url": "https://claude.com/resources/articles/introducing-claude-ship",
+        "summary": "HN points: 33, comments: 12",
+        "source": "Hacker News",
+        "published": "2026-11-23T20:14:18Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Congress shreds Nvidia's 'outrageous' return of Huang: 'Failure of character'",
+        "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-congress-trump.html",
+        "normalized_url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-congress-trump.html",
+        "summary": "HN points: 65, comments: 57",
+        "source": "Hacker News",
+        "published": "2026-11-23T20:13:18Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Trump Is Said to Have Directed Effort to Reinstate Nvidia Chief",
+        "url": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-huang.html",
+        "normalized_url": "https://www.nytimes.com/2026/11/23/us/politics/trump-nvidia-huang.html",
+        "summary": "HN points: 29, comments: 6",
+        "source": "Hacker News",
+        "published": "2026-11-23T18:03:59Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "How should an LLM see a computer?",
+        "url": "https://www.greptile.com/blog/trex-computer-use",
+        "normalized_url": "https://www.greptile.com/blog/trex-computer-use",
+        "summary": "HN points: 47, comments: 22",
+        "source": "Hacker News",
+        "published": "2026-11-23T17:19:25Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Kagi Mail (public beta)",
+        "url": "https://blog.kagi.com/kagi-mail-public-beta",
+        "normalized_url": "https://blog.kagi.com/kagi-mail-public-beta",
+        "summary": "HN points: 377, comments: 284",
+        "source": "Hacker News",
+        "published": "2026-11-23T17:17:01Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "\"Dario is hyping the dangers so OSS models are illegal and he stays in control\"",
+        "url": "https://twitter.com/ylecun/status/2124550037912920090",
+        "normalized_url": "https://twitter.com/ylecun/status/2124550037912920090",
+        "summary": "HN points: 1336, comments: 744",
+        "source": "Hacker News",
+        "published": "2026-11-23T17:07:26Z",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "Buckle Up the AI Bubble Is Popping",
+        "url": "https://mathbabe.org/2026/11/23/buckle-up-the-ai-bubble-is-popping/",
+        "normalized_url": "https://mathbabe.org/2026/11/23/buckle-up-the-ai-bubble-is-popping",
+        "summary": "HN points: 31, comments: 56",
+        "source": "Hacker News",
+        "published": "2026-11-23T16:01:20Z",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {}
+      },
+      {
+        "category": "news",
+        "title": "PCB订单增长56.1%，AI产业链为何还要等一块电路板？",
+        "url": "https://www.36kr.com/p/4083184675214982",
+        "normalized_url": "https://www.36kr.com/p/4083184675214982",
+        "summary": "AI服务器带火高端PCB产业链，供给约束下需做实供给能力",
+        "source": "36Kr AI",
+        "published": "2026-11-24T03:59:46+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "通用半导体金刚石芯片基板项目北京点火投产，AI算力散热关键材料迈入规模化阶段",
+        "url": "https://www.36kr.com/p/4083128931570569",
+        "normalized_url": "https://www.36kr.com/p/4083128931570569",
+        "summary": "通用半导体参投的金刚石芯片基板项目在京投产",
+        "source": "36Kr AI",
+        "published": "2026-11-24T03:59:32+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI还没顶上，游戏扛着网易跑，丁磊把锅甩给短剧？",
+        "url": "https://www.36kr.com/p/4083216326907525",
+        "normalized_url": "https://www.36kr.com/p/4083216326907525",
+        "summary": "短剧不替丁磊背锅。",
+        "source": "36Kr AI",
+        "published": "2026-11-24T03:53:17+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "全静压超精密AI智能数控磨床",
+        "url": "https://www.36kr.com/p/4082433392399490",
+        "normalized_url": "https://www.36kr.com/p/4082433392399490",
+        "summary": "挑战者团队攻坚超精密磨床打破海外垄断",
+        "source": "36Kr AI",
+        "published": "2026-11-24T03:27:44+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "企业AI最贵的账单，为什么不在模型采购单上？",
+        "url": "https://www.36kr.com/p/4083178737439872",
+        "normalized_url": "https://www.36kr.com/p/4083178737439872",
+        "summary": "从思迈特十五年间“AI for BI”到“BI for AI”的一次词序对调，看企业AI落地要补的那一课",
+        "source": "36Kr AI",
+        "published": "2026-11-24T03:11:31+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "黄仁勋回归，AI泡沫是否继续？",
+        "url": "https://www.36kr.com/p/4083037091402889",
+        "normalized_url": "https://www.36kr.com/p/4083037091402889",
+        "summary": "一场关于AI商业价值的真正考验才刚刚开始。",
+        "source": "36Kr AI",
+        "published": "2026-11-24T03:04:44+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "越来越快的AI，能不能让人老得慢一点？",
+        "url": "https://www.36kr.com/p/4083149787829378",
+        "normalized_url": "https://www.36kr.com/p/4083149787829378",
+        "summary": "帮助人类抵抗衰老、延长健康时间，也许是人类视角最值得投入的工作之一。",
+        "source": "36Kr AI",
+        "published": "2026-11-24T02:36:59+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "QuestMobile 2026购车场景下AI推荐机制研究报告",
+        "url": "https://www.36kr.com/p/4083110645863302",
+        "normalized_url": "https://www.36kr.com/p/4083110645863302",
+        "summary": "2026年10月AI原生App整体规模5.55亿，同比增长75.2%",
+        "source": "36Kr AI",
+        "published": "2026-11-24T02:23:43+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "客房AI图，正在毁掉大批酒店",
+        "url": "https://www.36kr.com/p/4083123126490243",
+        "normalized_url": "https://www.36kr.com/p/4083123126490243",
+        "summary": "劣币驱良币，商家和用户的矛盾也会增加？",
+        "source": "36Kr AI",
+        "published": "2026-11-24T02:12:14+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "伪人AI广告，已经成了一种新的城市病",
+        "url": "https://www.36kr.com/p/4083050561590152",
+        "normalized_url": "https://www.36kr.com/p/4083050561590152",
+        "summary": "劣质AI伪人广告成新型城市视觉污染亟待抵制",
+        "source": "36Kr AI",
+        "published": "2026-11-24T01:18:44+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://hub.slarker.me/36kr/search/articles/ai"
+        }
+      },
+      {
+        "category": "news",
+        "title": "报名从速｜来MEET2027！听AI前沿实践者交出“判断”",
+        "url": "https://www.qbitai.com/2026/11/512329.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512329.html",
+        "summary": "12.9 北京，来MEET2027现场",
+        "source": "量子位",
+        "published": "2026-11-24T03:33:48+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "蚂蚁OceanBase发布湖库一体AI数据平台OceanLake，核心引擎向全球开源",
+        "url": "https://www.qbitai.com/2026/11/512330.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512330.html",
+        "summary": "中国AI数据平台加速崛起",
+        "source": "量子位",
+        "published": "2026-11-24T03:30:46+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "释放AI与出海强预期，近1500人参与亿邦产业互联网年会暨首届产业智能体大会",
+        "url": "https://www.qbitai.com/2026/11/512305.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512305.html",
+        "summary": "2026年11月20日，第八届亿邦产业互联网年会与首届产业智能体大会在北京国贸大酒店首次合体举行。",
+        "source": "量子位",
+        "published": "2026-11-24T03:21:12+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "“得Agent开发者，得天下”，70+技术大咖共探AI技术演进与生态变革，2026奇点智能技术大会圆满收官！",
+        "url": "https://www.qbitai.com/2026/11/512297.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512297.html",
+        "summary": "「2026 奇点智能技术大会」与「2026 C++ 及系统软件技术大会」在北京万达文华酒店成功举办。",
+        "source": "量子位",
+        "published": "2026-11-24T02:36:08+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "具身行业，终于等来了自己的通用智能时刻",
+        "url": "https://www.qbitai.com/2026/11/512264.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512264.html",
+        "summary": "行业苦等多年的预训练通用智能，终于有了答案",
+        "source": "量子位",
+        "published": "2026-11-24T01:51:56+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "老黄回归现场盛况空前！员工人山人海夹道欢迎，“哪里领入职电脑”",
+        "url": "https://www.qbitai.com/2026/11/512252.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512252.html",
+        "summary": "离职员工：我可能走早了",
+        "source": "量子位",
+        "published": "2026-11-24T01:32:37+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
+        "url": "https://www.qbitai.com/2026/11/512195.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512195.html",
+        "summary": "零Token成本，断网也能自由Vibe Coding",
+        "source": "量子位",
+        "published": "2026-11-23T11:01:15+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "XROGO郑随兵：机器人不能只在视频里，终究要进入工厂“真干活”",
+        "url": "https://www.qbitai.com/2026/11/512179.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512179.html",
+        "summary": "企业核心需求不是交付设备，而是能持续上岗的劳动力",
+        "source": "量子位",
+        "published": "2026-11-23T09:10:08+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "蚂蚁医疗健康AI五连发！开源、本地部署、望闻问切全安排上了",
+        "url": "https://www.qbitai.com/2026/11/512017.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512017.html",
+        "summary": "阿福大升级：让模型像医生一样思考",
+        "source": "量子位",
+        "published": "2026-11-23T07:42:01+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "“Agent版arXiv”来了！936个智能体12个星期狂发近千篇论文，连同行评议都整上了",
+        "url": "https://www.qbitai.com/2026/11/512004.html",
+        "normalized_url": "https://www.qbitai.com/2026/11/512004.html",
+        "summary": "一个完全由AI组成的科学家社会，是什么样？",
+        "source": "量子位",
+        "published": "2026-11-23T06:59:38+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.qbitai.com/rss"
+        }
+      },
+      {
+        "category": "news",
+        "title": "把 Rust 表达式直接翻译成 JavaScript，Topcoat 走了一条反 WASM 路线",
+        "url": "https://www.infoq.cn/article/obHr7mdXqLU1GLskZYN2?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/obHr7mdXqLU1GLskZYN2",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-24T12:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Pinterest 让大模型取代多阶段聚类，但最大的提速来自“少推理”",
+        "url": "https://www.infoq.cn/article/vaEUVvWD9AIaFXZhzSMH?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/vaEUVvWD9AIaFXZhzSMH",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-24T11:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "基于紫光展锐UIS7885的首个5G开源派诞生！",
+        "url": "https://www.infoq.cn/article/eX1YFM98P3MvrYqBbo0x?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/eX1YFM98P3MvrYqBbo0x",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-24T10:46:46+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "从“抗议性分叉”到可信替代，OpenBao 开始挑战 Vault 企业版",
+        "url": "https://www.infoq.cn/article/6JtyOTOrD8TmBT3abP8V?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/6JtyOTOrD8TmBT3abP8V",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-24T10:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "从批量生成到业务可用：电商 AI 剪辑的工程取舍与实践复盘｜AICon北京",
+        "url": "https://www.infoq.cn/article/YMYl4DVNr1pRKD8ITfaW?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/YMYl4DVNr1pRKD8ITfaW",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-24T10:00:00+00:00",
+        "importance_hint": 4,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "黄仁勋杀回英伟达，董事会全票同意！老黄：迫不及待投入工作",
+        "url": "https://www.infoq.cn/article/4t3EvHtmI11QEgmV23Iz?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/article/4t3EvHtmI11QEgmV23Iz",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-24T08:00:00+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "企业 AI 发展新趋势：推动 AI Agent 迈向规模化应用的新阶段",
+        "url": "https://www.infoq.cn/video/its3v5OfmRuikL5SeWUu?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/video/its3v5OfmRuikL5SeWUu",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-23T19:52:07+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI 时代的数据工程：如何打造 AI 原生团队",
+        "url": "https://www.infoq.cn/video/qWRo8T0IdKoI7RBuQwNd?utm_source=rss&utm_medium=article",
+        "normalized_url": "https://www.infoq.cn/video/qWRo8T0IdKoI7RBuQwNd",
+        "summary": "点击查看原文>",
+        "source": "InfoQ 中文",
+        "published": "2026-11-23T19:40:31+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.infoq.cn/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+        "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes",
+        "summary": "As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T22:05:50+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+        "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios",
+        "summary": "Think you know where the market is headed? A startup called Supertake lets you put money behind your ideas without having to pick the stocks yourself.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T22:02:05+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal",
+        "url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal",
+        "summary": "\"The mistake has been corrected,\" Elon Musk chimed in.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T21:47:41+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Megaspeed, the company at the center of the Jensen Huang scandal, appears headed for a US blacklist",
+        "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist",
+        "summary": "Megaspeed, which was previously led by Alice Huang, would be barred from doing business with U.S. companies unless those companies attained a special license from the federal government.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T21:25:42+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nvidia employees greet Jensen Huang like a hero as he returns to company’s HQ",
+        "url": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/nvidia-employees-greet-jensen-huang-like-a-hero-as-he-returns-to-companys-hq",
+        "summary": "\"I'm going to be a better CEO the second time around,\" Huang told employees.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T20:38:53+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses",
+        "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses",
+        "summary": "By bringing Personal Intelligence in AI Mode to Drive, Wallet, and the Gemini app, Google is leveraging the wealth of user data that's already within its ecosystem",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T19:14:46+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO",
+        "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo",
+        "summary": "The public hearing follows bipartisan calls for Huang to testify about the affair with the suspected Chinese spy.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T18:12:22+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+        "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips",
+        "summary": "Amazon is acquiring Decart’s AI optimization technology and research team in a reported $7.5 billion deal.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T17:14:23+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Jensen Huang isn’t out of the woods yet",
+        "url": "https://techcrunch.com/2026/11/23/jensen-huang-isnt-out-of-the-woods-yet/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/jensen-huang-isnt-out-of-the-woods-yet",
+        "summary": "Tech leaders should be clear-eyed about all the problems likely to come with Huang's reinstatement.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T16:57:40+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Trump reportedly called into Nvidia board meeting to advocate for Huang’s return",
+        "url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/",
+        "normalized_url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return",
+        "summary": "\"I spoke to them, let me put it that way … And I convinced them,\" the president told CNBC.",
+        "source": "TechCrunch AI",
+        "published": "2026-11-23T16:39:10+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Trump engineered a risky comeback for Jensen Huang",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1040652/jensen-huang-nvidia-trump-reinstated",
+        "summary": "After Nvidia's board accepted Jensen Huang's resignation as CEO, following reports that Huang had an affair with an alleged Chinese spy, President Donald Trump, too, appeared to submit to the new reality. Appearing on Stephen A. Smith's radio show shortly after the news came out, Trump said that Huang would \"end up on his feet.\" […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T22:25:12+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nvidia CEO Jensen Huang is back. What happens next?",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang",
+        "summary": "After the leather-jacketed CEO, president, and co-founder of Nvidia, Jensen Huang, acknowledged an affair with Megaspeed exec Alice Huang, his company initially announced an investigation. However, after The New York Times reported there was evidence of another affair, this time with an Nvidia executive who reported directly to him, a board meeting that night ended […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T22:10:32+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Welcome to elite impunity, Jensen Huang",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1040819/welcome-to-elite-impunity-jensen-huang",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1040819/welcome-to-elite-impunity-jensen-huang",
+        "summary": "I suppose I must issue a hearty congratulations to Jensen Huang. Huang is CEO of Nvidia again, to the surprise of basically everyone except President Donald Trump and Vice President JD Vance, who made sure it happened. Now, those of us who had some kind of basic education on what a \"free market\" is might […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T22:09:26+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "AI data centers throw another wrench into chaotic UN climate talks",
+        "url": "https://www.theverge.com/science/1040497/ai-data-centers-electricity-un-climate-summit",
+        "normalized_url": "https://www.theverge.com/science/1040497/ai-data-centers-electricity-un-climate-summit",
+        "summary": "The clean energy revolution hinges on electrifying the entire global economy just as power-hungry data centers are surging. It's a challenge delegates from all over the world had to grapple with during the United Nations climate conference, called COP31, that came to a chaotic and unsatisfying close in Antalya, Turkey, on Sunday. Each year, attendees […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T21:09:37+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Claude AI can review pull requests and ship fixes on its own now",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
+        "summary": "Anthropic is launching some new Claude AI features to help software engineers ship code. As part of a new Claude Ship product being announced today, Claude now can review, fix, and approve pull requests. Engineers have already been able to take advantage of Claude's code review capabilities thanks to the Code Review feature, which was […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T20:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "How Jensen Huang ended up as Nvidia CEO again",
+        "url": "https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return",
+        "normalized_url": "https://www.theverge.com/tech/1040428/nvidia-jensen-huang-ceo-return",
+        "summary": "The Jensen Huang era of Nvidia nearly came to an end this month. Huang, who three decades ago cofounded what's come to be considered one of the most important companies in AI, resigned from his role on November 12th over mounting scrutiny around his alleged affairs. Huang admitted he had been \"unfaithful\" to his wife […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T19:57:18+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nothing’s upcoming Ear Note is a pair of earbuds with AI transcription",
+        "url": "https://www.theverge.com/gadgets/1040357/nothing-ear-note-earbuds-ai-recording",
+        "normalized_url": "https://www.theverge.com/gadgets/1040357/nothing-ear-note-earbuds-ai-recording",
+        "summary": "Nothing's new AI device is the Ear Note, a set of earbuds and their microphone-equipped charging case that can record and transcribe conversations, with a connected app to manage the recordings, transcriptions and AI-generated summaries, similar to Apple's new Watch feature and devices like Amazon's Bee wearable. Nothing CEO Carl Pei demonstrated the new device […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T19:04:52+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Oregon and Virginia sue SpaceX over Grok’s porn deepfakes",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit",
+        "normalized_url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit",
+        "summary": "In separate but similar lawsuits filed on Monday, Oregon Attorney General Dan Rayfield and Virginia Attorney General Jay Jones accused SpaceX of violating state consumer protection laws by ignoring industry-standard safeguards and falsely promoting the safety of its X social media platform and Grok AI features. The complaint filed in Virginia accuses Musk of willfully […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T18:26:47+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "White House brags that Trump was ‘totally involved’ in getting Jensen reinstated",
+        "url": "https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated",
+        "normalized_url": "https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated",
+        "summary": "It sure looked like President Donald Trump played a role in Jensen Huang's reinstatement as Nvidia CEO - and now the White House is making sure everyone knows he was. \"President Trump was totally involved and this is a great decision by the NVIDIA board,\" White House communications director Steven Cheung said in a statement, […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T16:30:11+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Tech leaders are celebrating Jensen Huang’s return",
+        "url": "https://www.theverge.com/tech/1040069/jensen-huang-return-elon-musk-sam-altman-yay",
+        "normalized_url": "https://www.theverge.com/tech/1040069/jensen-huang-return-elon-musk-sam-altman-yay",
+        "summary": "Let's say you're Jensen Huang. You (allegedly) cheated on your wife with an alleged Chinese spy, allegedly had an affair with not one, but two subordinates, and (allegedly!) \"terrorized\" your employees, a series of indiscretions that led to your ouster from what was once the world's most valuable company. (The stock price has recently taken […]",
+        "source": "The Verge AI",
+        "published": "2026-11-23T16:14:04+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably",
+        "url": "https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably/",
+        "normalized_url": "https://the-decoder.com/openai-updates-chatgpt-to-handle-complex-everyday-questions-web-searches-and-images-more-reliably",
+        "summary": "OpenAI is making GPT-6.2 Sol the new default model in ChatGPT's chat tab, rolling it out worldwide. In internal tests, image understanding jumped from 47.4 to 71.7 percent, and the model now handles difficult instructions correctly 78.1 percent of the time. It also sticks to safety policies more consistently. The article OpenAI updates ChatGPT to handle complex everyday questions, web searches, and images more reliably appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-23T20:39:18+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic's appetite for compute is pushing xAI toward a rent-over-build strategy",
+        "url": "https://the-decoder.com/anthropics-appetite-for-compute-is-pushing-xai-toward-a-rent-over-build-strategy/",
+        "normalized_url": "https://the-decoder.com/anthropics-appetite-for-compute-is-pushing-xai-toward-a-rent-over-build-strategy",
+        "summary": "Since May, SpaceXSI has been renting compute to competitors like Anthropic and Google while scaling back its own AI projects. Anthropic pays about $3.1 billion a month, Google $800 million, the New York Times reports. After its June IPO, SpaceXSI disbanded the 60-person Grok Imagine team, among other cuts. The article Anthropic's appetite for compute is pushing xAI toward a rent-over-build strategy appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-23T18:47:53+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals to agree on shared limits",
+        "url": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits/",
+        "normalized_url": "https://the-decoder.com/openai-warns-that-upcoming-ai-systems-could-outpace-safety-checks-and-urges-rivals-to-agree-on-shared-limits",
+        "summary": "OpenAI chief scientist Jakub Pachocki has released internal perplexity scores for the entire GPT series for the first time, up to an unreleased model beyond the current generation. The metric shows that core capabilities emerge at surprisingly precise thresholds. Pachocki is pushing to make perplexity an industry-wide progress metric and establish shared limits before control over AI behavior erodes. The article OpenAI warns that upcoming AI systems could outpace safety checks and urges rivals t",
+        "source": "The Decoder",
+        "published": "2026-11-23T18:42:38+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model",
+        "url": "https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model/",
+        "normalized_url": "https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model",
+        "summary": "Z.ai is moving its flagship GLM-5.4 model to a loop architecture in which 28 layers run twice, which the company says lets the 750-billion-parameter model match models with 2 to 3 trillion parameters. Benchmark scores are only available for a smaller 30B test model so far, and Z.ai is positioning GLM-5.4 as the start of \"Generalized Coding,\" where code also generates videos, games, and CAD models. The article Z.ai follows OpenAI into loop transformer territory with its new 750B flagship model ap",
+        "source": "The Decoder",
+        "published": "2026-11-23T15:13:03+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Chinese military fears AI could let the US find and destroy its nuclear missiles",
+        "url": "https://the-decoder.com/chinese-military-fears-ai-could-let-the-us-find-and-destroy-its-nuclear-missiles/",
+        "normalized_url": "https://the-decoder.com/chinese-military-fears-ai-could-let-the-us-find-and-destroy-its-nuclear-missiles",
+        "summary": "Chinese military researchers fear that AI advances could give the US an edge in the nuclear balance of power. The article Chinese military fears AI could let the US find and destroy its nuclear missiles appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-23T14:43:23+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Nvidia tried life without Jensen Huang and it lasted about two weeks",
+        "url": "https://the-decoder.com/nvidia-tried-life-without-jensen-huang-and-it-lasted-about-two-weeks/",
+        "normalized_url": "https://the-decoder.com/nvidia-tried-life-without-jensen-huang-and-it-lasted-about-two-weeks",
+        "summary": "Nvidia's board of directors has reinstated Jensen Huang as president, CEO, and board member, effective immediately. The article Nvidia tried life without Jensen Huang and it lasted about two weeks appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-23T14:24:47+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Meta's Alexandr Wang warns the AI industry isn't ready for what's coming after Riemann breakthrough",
+        "url": "https://the-decoder.com/metas-alexandr-wang-warns-the-ai-industry-isnt-ready-for-whats-coming-after-riemann-breakthrough/",
+        "normalized_url": "https://the-decoder.com/metas-alexandr-wang-warns-the-ai-industry-isnt-ready-for-whats-coming-after-riemann-breakthrough",
+        "summary": "Meta's Chief AI Officer Alexandr Wang sees the recent AI-assisted proof sketch of the Riemann Hypothesis as a clear sign that superintelligence is right around the corner. The article Meta's Alexandr Wang warns the AI industry isn't ready for what's coming after Riemann breakthrough appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-23T13:59:36+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "US spies tracked Nvidia scandal figure's ties to Chinese intelligence for over a year",
+        "url": "https://the-decoder.com/us-spies-tracked-nvidia-scandal-figures-ties-to-chinese-intelligence-for-over-a-year/",
+        "normalized_url": "https://the-decoder.com/us-spies-tracked-nvidia-scandal-figures-ties-to-chinese-intelligence-for-over-a-year",
+        "summary": "US intelligence agencies tracked contacts between Alice Huang and China's Ministry of State Security for over a year, the New York Times reports. The surveillance ran parallel to her secret affair with then-Nvidia CEO Jensen Huang. Federal investigators are now looking into whether a network of companies in Southeast Asia was used to smuggle AI chips into China in violation of US export controls. Jensen Huang is scheduled to testify before the US House of Representatives on December 1. The artic",
+        "source": "The Decoder",
+        "published": "2026-11-23T13:45:32+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "GPT-6.2 Astra solved a math theorem no other AI could crack, then invented its own proof strategy",
+        "url": "https://the-decoder.com/gpt-6-2-astra-solved-a-math-theorem-no-other-ai-could-crack-then-invented-its-own-proof-strategy/",
+        "normalized_url": "https://the-decoder.com/gpt-6-2-astra-solved-a-math-theorem-no-other-ai-could-crack-then-invented-its-own-proof-strategy",
+        "summary": "OpenAI's GPT-6.2 Astra independently produced a machine-verifiable Lean proof of Smoktunowicz's gap theorem, the first of its kind according to Vals AI. The model chose its own approach because key foundations were missing from Mathlib. On Autoform-Hard, Astra now leads the leaderboard with 49 of 56 tasks solved. The article GPT-6.2 Astra solved a math theorem no other AI could crack, then invented its own proof strategy appeared first on The Decoder .",
+        "source": "The Decoder",
+        "published": "2026-11-23T12:17:01+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://the-decoder.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Anthropic Launches Claude Ship for GitHub Pull Request Review and Fixes",
+        "url": "https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents",
+        "summary": "Anthropic's Claude Ship bundles Code Review, PR Steward and Claude Approvals to review, fix and approve GitHub pull requests. Code Review is GA; the other 2 agents are in public beta for Team and Enterprise. The post Anthropic Launches Claude Ship for GitHub Pull Request Review and Fixes appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-24T00:02:39+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice",
+        "url": "https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/23/zai-glm-5-4-loop-transformer",
+        "summary": "Z.ai released GLM-5.4, its first Loop Transformer flagship. The 750B-scale model runs 28 GLM-5 layers twice for deeper reasoning, with API access and open weights planned after safety work. The post Z AI Releases GLM-5.4: A 750B Loop Transformer That Runs 28 Layers Twice appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-23T19:11:40+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "27 Cybersecurity Terms to Prepare You for the Age of AI",
+        "url": "https://www.marktechpost.com/2026/11/23/27-ai-cybersecurity-terms/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/23/27-ai-cybersecurity-terms",
+        "summary": "AI now sits on both sides of the security fight, and the vocabulary has changed with it. IBM’s 2026 Cost of a Data Breach Report found that 1 in 4 malicious breaches were AI-enabled, up 56% year over year. Those breaches cost an average of $6 million, about $1 million above the $4.99 million global […] The post 27 Cybersecurity Terms to Prepare You for the Age of AI appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-23T10:40:16+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Architect Labs Unveils Frostbite, an Interaction Net CPU Designed by AI",
+        "url": "https://www.marktechpost.com/2026/11/23/architect-labs-frostbite-ai-designed-cpu-interaction-nets/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/23/architect-labs-frostbite-ai-designed-cpu-interaction-nets",
+        "summary": "Architect Labs introduced Frostbite, an AI-designed CPU that runs interaction nets in hardware. Agents took it from theory to 7 nm GDS, and pre-silicon tests show 4.59x performance per watt over an in-order core. The post Architect Labs Unveils Frostbite, an Interaction Net CPU Designed by AI appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-23T10:05:47+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Meta TLX Brings Warp-Group GPU Control to Triton on Hopper, Blackwell, AMD",
+        "url": "https://www.marktechpost.com/2026/11/23/meta-tlx-triton-low-level-extensions/",
+        "normalized_url": "https://www.marktechpost.com/2026/11/23/meta-tlx-triton-low-level-extensions",
+        "summary": "Meta has detailed TLX, its Triton Low-Level Extensions that add warp-group, barrier, TMA and cluster control to Python Triton kernels. It runs Meta's ads and LLM workloads on Hopper, Blackwell and AMD MI350 GPUs. The post Meta TLX Brings Warp-Group GPU Control to Triton on Hopper, Blackwell, AMD appeared first on MarkTechPost .",
+        "source": "MarkTechPost",
+        "published": "2026-11-23T08:24:57+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://www.marktechpost.com/feed/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+        "url": "https://simonwillison.net/2026/Nov/23/glm-54/",
+        "normalized_url": "https://simonwillison.net/2026/Nov/23/glm-54",
+        "summary": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer GLM 5.4 is now available from Chinese AI lab Z.ai. It's their first model to use a looped transformer architecture, which they describe like this: In a standard Transformer, each layer runs once per forward pass. In a Loop Transformer, a group of weight-shared layers runs for multiple iterations, refining the hidden states from the previous pass. This gives us a deeper network without increasing the parameter count. This is the s",
+        "source": "Simon Willison",
+        "published": "2026-11-23T23:40:49+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://simonwillison.net/atom/everything/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Ladybird's first alpha release",
+        "url": "https://simonwillison.net/2026/Nov/23/ladybird/",
+        "normalized_url": "https://simonwillison.net/2026/Nov/23/ladybird",
+        "summary": "Ladybird is an astonishingly ambitious project: a new browser, in 2026, with its own implementation of most of the key components - HTML parsing, CSS engine, layout, JavaScript, even WebAssembly. It still uses a few external components - things like HarfBuzz for text shaping, Skia for 2D graphics, ffmpeg for video, and SQLite for the things you do with SQLite. Everything else is part of Ladybird, or code brought in from Ladybird's even more ambitious predecessor project SerenityOS . This morning",
+        "source": "Simon Willison",
+        "published": "2026-11-23T21:46:35+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://simonwillison.net/atom/everything/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "RoboTrack: Point tracking for real-world robotic manipulation",
+        "url": "https://huggingface.co/blog/allenai/robotrack",
+        "normalized_url": "https://huggingface.co/blog/allenai/robotrack",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-23T17:20:37+00:00",
+        "importance_hint": 3,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "How to build and maintain an agentic evaluation",
+        "url": "https://huggingface.co/blog/agentic-evals",
+        "normalized_url": "https://huggingface.co/blog/agentic-evals",
+        "summary": "",
+        "source": "Hugging Face Blog",
+        "published": "2026-11-23T00:00:00+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://huggingface.co/blog/feed.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Finding faster quantum algorithms with agents and formal verification",
+        "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+        "normalized_url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification",
+        "summary": "Using agent teams and formal verification to improve quantum algorithms for fusion and chemistry.",
+        "source": "Google DeepMind",
+        "published": "2026-11-23T16:59:40+00:00",
+        "importance_hint": 5,
+        "focus": true,
+        "metadata": {
+          "feed_url": "https://deepmind.google/blog/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "A more tailored Google Search that’s uniquely yours",
+        "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+        "normalized_url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps",
+        "summary": "Google Search bar with the text \"Personal Intelligence\" surrounded by the Google Wallet, Google Drive, GMail, Google Photos, Google Calendar, and Google G logo icons",
+        "source": "Google AI Blog",
+        "published": "2026-11-23T17:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://blog.google/technology/ai/rss/"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Connected intelligence for in-house legal",
+        "url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+        "normalized_url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+        "summary": "Watch OpenAI’s Stacey Wang and Craig Bruney, Mary O’Carroll of LECG, and Cooley’s Richard Segal explore how AI can help in-house legal teams connect business context, build reusable workflows and get more from outside counsel.",
+        "source": "OpenAI",
+        "published": "2026-11-23T08:00:00+00:00",
+        "importance_hint": 4,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Richpanel helps companies automate 50% of support in 30 days",
+        "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+        "normalized_url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+        "summary": "Richpanel uses GPT-6 Astra and GPT-6.1 Sol to equip its AI support agents with tools and procedures, and GPT-6 Luna for their conversations.",
+        "source": "OpenAI",
+        "published": "2026-11-23T08:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      },
+      {
+        "category": "news",
+        "title": "Perplexity and Intelligence",
+        "url": "https://openai.com/index/perplexity-and-intelligence",
+        "normalized_url": "https://openai.com/index/perplexity-and-intelligence",
+        "summary": "How perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.",
+        "source": "OpenAI",
+        "published": "2026-11-22T00:00:00+00:00",
+        "importance_hint": 5,
+        "focus": false,
+        "metadata": {
+          "feed_url": "https://openai.com/news/rss.xml"
+        }
+      }
+    ]
+  }
+}
