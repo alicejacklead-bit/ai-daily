@@ -358,20 +358,37 @@ def final(log) -> dict:
     }
     page_status, _ = C.http_status(report["网页"], proxy=cfg["network"]["proxy"])
     mp3_status, _ = C.http_status(report["音频"], proxy=cfg["network"]["proxy"], method="HEAD")
+    # A 0 here is a network hiccup, not a missing page: retry before calling it red.
+    for _ in range(3):
+        if page_status and mp3_status:
+            break
+        time.sleep(20)
+        if not page_status:
+            page_status, _ = C.http_status(report["网页"], proxy=cfg["network"]["proxy"])
+        if not mp3_status:
+            mp3_status, _ = C.http_status(report["音频"], proxy=cfg["network"]["proxy"], method="HEAD")
     report["公共可访问"] = {"page": page_status, "mp3": mp3_status}
     log(json.dumps(report, ensure_ascii=False))
 
-    failed = [k for k, v in report["stages"].items() if v not in ("ok", "skipped")]
+    failed = [k for k, v in report["stages"].items()
+              if v not in ("ok", "skipped", "running") and k != "final"]
     ok = page_status == 200 and mp3_status == 200 and not failed
     if not ok:
+        alert = C.STATE_DIR / f"{date}.final-alert.json"
         body = [f"❌ 综合版 {date} 未全部完成"]
         body.append(f"阶段状态: {report['stages']}")
         if failed:
             errs = [f"{k}: {ledger.stage(k).get('error')}" for k in failed]
             body.append("错误: " + "; ".join(e for e in errs if e))
         body.append(f"网页 {page_status} · 音频 {mp3_status}")
-        C.notify(cfg, "AI Daily Global 异常", "\n".join(body))
-        raise RuntimeError("delivery incomplete: " + ", ".join(failed or ["public urls"]))
+        text = "\n".join(body)
+        # one alert per distinct failure signature: a retry must not spam
+        sig = json.dumps({"failed": sorted(failed), "page": bool(page_status == 200),
+                          "mp3": bool(mp3_status == 200)}, sort_keys=True)
+        if not alert.exists() or alert.read_text(encoding="utf-8") != sig:
+            C.notify(cfg, "AI Daily Global 异常", text)
+            alert.write_text(sig, encoding="utf-8")
+        raise C.Fatal("delivery incomplete: " + ", ".join(failed or ["public urls"]))
     C.notify(cfg, f"✅ AI Daily Global {date}", "\n".join([
         f"网页 {report['网页']}",
         f"音频 {report['音频']}",
