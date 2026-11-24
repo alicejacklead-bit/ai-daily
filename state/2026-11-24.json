@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-24",
+  "project": "ai-daily-global",
+  "stages": {
+    "generate": {
+      "status": "ok",
+      "attempts": 1,
+      "artifacts": {
+        "data/2026-11-24.raw.json": {
+          "size": 86153
+        },
+        "daily/2026-11-24.md": {
+          "size": 12736
+        },
+        "daily/2026-11-24.en.md": {
+          "size": 15268
+        },
+        "docs/daily/2026-11-24.html": {
+          "size": 68402
+        }
+      },
+      "error": null,
+      "started_at": "2026-11-24T22:45:00+08:00",
+      "finished_at": "2026-11-24T22:45:01+08:00",
+      "counts": {
+        "papers": 10,
+        "projects": 6,
+        "news": 89
+      },
+      "sources_total": 39,
+      "sources_failed": [
+        "SSPAI AI: 0 条",
+        "VentureBeat: 0 条",
+        "fal blog: 0 条",
+        "smol.ai AINews: 0 条",
+        "TLDR AI: 0 条",
+        "r/LocalLLaMA: 0 条",
+        "r/aivideo: 0 条",
+        "One Useful Thing (Mollick): 0 条",
+        "Gemini API 价格: 正文过短，疑似 JS 渲染，抓不到内容",
+        "Gemini API changelog: 正文过短，疑似 JS 渲染，抓不到内容",
+        "Higgsfield 定价套餐: 正文过短，疑似 JS 渲染，抓不到内容"
+      ],
+      "total_items": 105
+    },
+    "podcast": {
+      "status": "ok",
+      "attempts": 1,
+      "artifacts": {
+        "docs/audio/2026-11-24.mp3": {
+          "size": 5063472
+        },
+        "docs/podcast.xml": {
+          "size": 143798
+        }
+      },
+      "error": null,
+      "checked_at": "2026-11-24T22:45:32+08:00",
+      "started_at": "2026-11-24T22:45:50+08:00",
+      "finished_at": "2026-11-24T22:45:50+08:00",
+      "seconds": 843,
+      "bytes": 5063472,
+      "email": "ok"
+    },
+    "publish": {
+      "status": "failed",
+      "attempts": 6,
+      "artifacts": {},
+      "error": "Fatal: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。",
+      "checked_at": "2026-11-24T22:45:32+08:00",
+      "started_at": "2026-11-24T23:07:17+08:00",
+      "finished_at": "2026-11-24T23:07:17+08:00",
+      "fatal": true
+    },
+    "quality": {
+      "status": "ok",
+      "attempts": 2,
+      "artifacts": {
+        "state/2026-11-24.quality.json": {
+          "size": 1789
+        }
+      },
+      "error": null,
+      "started_at": "2026-11-24T23:02:09+08:00",
+      "finished_at": "2026-11-24T23:02:24+08:00",
+      "passed": true,
+      "problems": [],
+      "checked_at": "2026-11-24T23:02:24+08:00",
+      "titles": 15,
+      "repeat_ratio": 0.0,
+      "repeats": [],
+      "probe": [
+        {
+          "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-congress-trump.html",
+          "status": 200
+        },
+        {
+          "url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/",
+          "status": 200
+        },
+        {
+          "url": "https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated",
+          "status": 200
+        },
+        {
+          "url": "https://the-decoder.com/nvidia-tried-life-without-jensen-huang-and-it-lasted-about-two-weeks/",
+          "status": 200
+        },
+        {
+          "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+          "status": 200
+        },
+        {
+          "url": "https://the-decoder.com/anthropics-appetite-for-compute-is-pushing-xai-toward-a-rent-over-build-strategy/",
+          "status": 200
+        },
+        {
+          "url": "https://platform.minimax.io/docs/guides/pricing",
+          "status": 0
+        },
+        {
+          "url": "https://help.aliyun.com/zh/model-studio/models",
+          "status": 200
+        },
+        {
+          "url": "https://openrouter.ai/api/v1/models",
+          "status": 200
+        },
+        {
+          "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+          "status": 200
+        },
+        {
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
+          "status": 200
+        },
+        {
+          "url": "https://www.marktechpost.com/2026/11/23/anthropic-claude-ship-pull-request-agents/",
+          "status": 200
+        }
+      ],
+      "html_bytes": 68402
+    },
+    "health": {
+      "status": "ok",
+      "attempts": 1,
+      "artifacts": {},
+      "error": null,
+      "started_at": "2026-11-24T22:54:31+08:00",
+      "finished_at": "2026-11-24T22:54:35+08:00",
+      "gateway": "running",
+      "disk_free_gb": 126,
+      "disk_ok": true,
+      "network": 200,
+      "git_remote_reachable": true,
+      "stages": {
+        "generate": "ok",
+        "podcast": "ok",
+        "publish": "failed",
+        "quality": "ok",
+        "health": "running"
+      }
+    },
+    "final": {
+      "status": "failed",
+      "attempts": 1,
+      "artifacts": {},
+      "error": "RuntimeError: delivery incomplete: publish, final",
+      "started_at": "2026-11-24T23:08:14+08:00",
+      "finished_at": "2026-11-24T23:08:18+08:00",
+      "fatal": false
+    }
+  }
+}

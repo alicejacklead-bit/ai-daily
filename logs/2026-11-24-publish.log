@@ -1,0 +1,55 @@
+2026-11-24T22:45:32+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T22:45:32+08:00 BLOCKED upstream not ready: podcast=blocked
+2026-11-24T22:45:50+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T22:45:50+08:00 $ git add daily data docs scripts ops config
+2026-11-24T22:45:51+08:00 $ git -c 'user.name=AI Daily Bot' -c user.email=bot@local commit -m '📰 Daily digest for 2026-11-24'
+2026-11-24T22:45:51+08:00   [main d7dc84d] 📰 Daily digest for 2026-11-24
+2026-11-24T22:45:51+08:00    7 files changed, 1054 insertions(+), 76 deletions(-)
+2026-11-24T22:45:51+08:00    create mode 100644 config/pipeline.json
+2026-11-24T22:45:51+08:00    create mode 100644 ops/__init__.py
+2026-11-24T22:45:51+08:00    create mode 100644 ops/cli.py
+2026-11-24T22:45:51+08:00    create mode 100644 ops/common.py
+2026-11-24T22:45:51+08:00    create mode 100644 ops/stages.py
+2026-11-24T22:45:51+08:00 $ git push origin HEAD:main
+2026-11-24T22:45:51+08:00   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+2026-11-24T22:45:51+08:00 FAIL publish: RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T22:45:51+08:00 RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T22:50:51+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T22:50:51+08:00 $ git add daily data docs scripts ops config
+2026-11-24T22:50:51+08:00 nothing to commit
+2026-11-24T22:50:52+08:00 $ git push origin HEAD:main
+2026-11-24T22:50:52+08:00   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+2026-11-24T22:50:52+08:00 FAIL publish: RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T22:50:52+08:00 RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T22:55:11+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T22:55:11+08:00 $ git add daily data docs scripts ops config
+2026-11-24T22:55:11+08:00 nothing to commit
+2026-11-24T22:55:12+08:00 $ git push origin HEAD:main
+2026-11-24T22:55:12+08:00   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+2026-11-24T22:55:12+08:00 FAIL publish: RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T22:55:12+08:00 RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T23:00:12+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T23:00:12+08:00 $ git add daily data docs scripts ops config
+2026-11-24T23:00:12+08:00 nothing to commit
+2026-11-24T23:00:13+08:00 $ git push origin HEAD:main
+2026-11-24T23:00:13+08:00   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+2026-11-24T23:00:13+08:00 FAIL publish: RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T23:00:13+08:00 RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T23:02:24+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T23:02:24+08:00 $ git add daily data docs scripts ops config
+2026-11-24T23:02:24+08:00 $ git -c 'user.name=AI Daily Bot' -c user.email=bot@local commit -m '📰 Daily digest for 2026-11-24'
+2026-11-24T23:02:24+08:00   [main 5e5af8e] 📰 Daily digest for 2026-11-24
+2026-11-24T23:02:24+08:00    1 file changed, 1 insertion(+), 1 deletion(-)
+2026-11-24T23:02:25+08:00 $ git push origin HEAD:main
+2026-11-24T23:02:25+08:00   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+2026-11-24T23:02:25+08:00 FAIL publish: RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T23:02:25+08:00 RuntimeError: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T23:07:17+08:00 == ai-daily-global/publish 2026-11-24 ==
+2026-11-24T23:07:17+08:00 $ git add daily data docs scripts ops config
+2026-11-24T23:07:17+08:00 $ git -c 'user.name=AI Daily Bot' -c user.email=bot@local commit -m '📰 Daily digest for 2026-11-24'
+2026-11-24T23:07:17+08:00   [main 3781a78] 📰 Daily digest for 2026-11-24
+2026-11-24T23:07:17+08:00    3 files changed, 10 insertions(+), 2 deletions(-)
+2026-11-24T23:07:17+08:00 $ git push origin HEAD:main
+2026-11-24T23:07:17+08:00   fatal: could not read Username for 'https://github.com': terminal prompts disabled
+2026-11-24T23:07:17+08:00 FAIL publish: Fatal: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
+2026-11-24T23:07:17+08:00 ops.common.Fatal: GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。内容已在本地生成并提交，重新运行该阶段即可继续。
