@@ -32,8 +32,8 @@ Doubao Seedance 便利创作含肖像视频
 图片生成
 Doubao Seedream 5.5 教程
 Seedream 5.5 OCR 支持字体
-Doubao Seedream 5.0 pro / flash 教程
-Doubao Seedream 5.0 pro / flash 实现交互编辑指南
+Doubao Seedream 5.0 系列教程
+Doubao Seedream 实现交互编辑指南
 图片生成教程
 决策评估（beta）
 领域模型
@@ -240,7 +240,6 @@ doubao-seed-2.0-mini ​
 12.0 ​
 2.4 ​
 8.0 ​
-doubao-seed-2.0-code ​
 doubao-seed-character ​
 2.00 ​
 doubao-seed-translation ​
@@ -273,7 +272,6 @@ deepseek-v4-pro 正式版 ​
 27.00 ​
 deepseek-v4-flash 正式版 ​
 0.10 ​
-deepseek-v4-pro 预览版 ​
 按 token 后付费，计算公式： ​
 在线推理费用 = 输入(非音频)单价 × 输入(非音频)token + 输入(音频)单价 × 输入(音频)token + 缓存命中(非音频)单价 × 缓存命中(非音频)token + 缓存命中(音频)单价 × 缓存命中(音频)token + 缓存存储单价 × 缓存存储token × 时长 + 输出单价 × 输出token ​
 分段计费：部分模型适用，不同输入长度（和输出长度），token 单价不同： ​
@@ -341,7 +339,6 @@ doubao-seed-2.0-pro 系列支持分段计费，即根据每次请求的输入及
 每条视频的价格可使用 Seedance 2.0 系列价格计算器 、 Seedance 2.5 系列价格计算器 估算，也可参考下方 价格示例 了解典型场景的视频价格。 ​
 按 token 单价 ​
 ​ Seedance 2.x
-Seedance 1.x
 ​ ​ 模型 ​
 输出视频分辨率 ​
 在线推理单价（元/M token） ​
@@ -377,13 +374,6 @@ Step 1：生成 Draft 视频，按 480p 视频计费。 ​
 Step 2：基于 Draft 生成正式视频，按目标分辨率计费： ​
 token 单价 根据 Step 1 是否包含输入视频确定 。 ​
 计算 token 用量时， 输入视频时长按 Step 1 的输入视频计算，Draft 视频不计入 。 ​
-​ 模型 ​
-在线推理（元/M token） ​
-离线推理（元/M token） ​
-Seedance 1.0 pro ​
-Seedance 1.0 pro fast ​
-4.20 ​
-2.10 ​
 价格示例 ​
 基于 token 用量公式估算的视频单价，方便您直观了解不同规格的视频成本。更多价格示例请参见 火山方舟视频生成模型价格快查表 。 ​
 最低 token 用量限制说明 ​
@@ -394,6 +384,7 @@ Seedance 2.5 系列 ​
 ​ 输入不含视频
 输入包含视频
 ​ 以下价格均按 16:9、输出视频时长 5 秒估算。 ​
+​ 模型 ​
 价格口径 ​
 480p ​
 720p ​
@@ -460,15 +451,11 @@ P ≤ 2.61M：0.15 ​
 P > 2.61M：0.30 ​
 doubao-seedream-5-0-flash ​
 免费 ​
-doubao-seedream-5-0-lite ​
-0.22 ​
-doubao-seedream-4-5 ​
-0.25 ​
 doubao-seedream-4-0 ​
 计费公式： 单次请求费用 = Σ（每张输入图片 × 输入图单价）+ Σ（每张输出图片 × 对应档位的输出图单价） ​
 因审核等原因未成功输出的图片不计费。 ​
 Seedream 5.5 / 5.0 pro 图层拆分场景，单次请求中的每个图层可能归属不同分辨率档位，按实际生成情况计费。 ​
-Seedream 5.0 lite / 4.5 / 4.0 组图场景，按实际生成的图片数量计费。 ​
+Seedream 4.0 组图场景，按实际生成的图片数量计费。 ​
 3D 生成模型 ​
 产物（3D 文件） ​
 输出单价 ​

@@ -15,7 +15,7 @@ Previous releases
 Model releases - 2025
 Product updates - 2025
 Model deprecations - 2025
-[Announcement] Temporary sign-in requirement for certain pages
+[Announcement] Temporary Sign-in Requirement For Certain Pages
 API schema upgrade notice
 Popular activities
 Resource packs for Dreamina Seedance 2.0 and 2.5 models
@@ -65,7 +65,7 @@ Console - inference endpoint security monitoring overview
 Project authorization
 Network configuration
 Model Generations Quality Diagnostics Service Acknowledgement
-Activation Management
+Model Activation Management
 Monitoring
 Security & trust
 ModelArk Trusted Collaborative Computing Framework
