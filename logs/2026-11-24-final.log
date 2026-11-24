@@ -1,4 +1,0 @@
-2026-11-24T23:08:14+08:00 == ai-daily-global/final 2026-11-24 ==
-2026-11-24T23:08:16+08:00 {"date": "2026-11-24", "中文版": true, "英文版": true, "网页": "https://alicejacklead-bit.github.io/ai-daily/daily/2026-11-24.html", "音频": "https://alicejacklead-bit.github.io/ai-daily/audio/2026-11-24.mp3", "RSS": "https://alicejacklead-bit.github.io/ai-daily/podcast.xml", "stages": {"generate": "ok", "podcast": "ok", "publish": "failed", "quality": "ok", "health": "ok", "final": "running"}, "公共可访问": {"page": 200, "mp3": 200}}
-2026-11-24T23:08:18+08:00 FAIL final: RuntimeError: delivery incomplete: publish, final
-2026-11-24T23:08:18+08:00 RuntimeError: delivery incomplete: publish, final

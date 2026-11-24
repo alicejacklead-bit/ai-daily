@@ -1,3 +1,5 @@
+logs/
+state/
 __pycache__/
 *.pyc
 .env
