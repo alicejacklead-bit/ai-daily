@@ -70,6 +70,9 @@ def cmd_run(stage: str, force: bool) -> int:
                                force=force)
         if code == C.EXIT_OK or code == C.EXIT_UPSTREAM_NOT_READY:
             return code
+        if C.Ledger(date).stage(stage).get("fatal"):
+            print(f"FATAL {stage}: 需要用户处理，停止重试", flush=True)
+            return code
         if attempt < attempts:
             print(f"RETRY {stage} in {backoff}s (attempt {attempt + 1}/{attempts})", flush=True)
             time.sleep(backoff)

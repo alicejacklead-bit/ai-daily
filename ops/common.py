@@ -43,6 +43,10 @@ EXIT_UPSTREAM_NOT_READY = 3
 EXIT_ALREADY_DONE = 0
 
 
+class Fatal(RuntimeError):
+    """A failure retrying cannot fix (missing credentials, missing config)."""
+
+
 def today() -> str:
     return datetime.now(BEIJING).strftime("%Y-%m-%d")
 
@@ -211,7 +215,8 @@ def run_stage(name: str, deps: list[str], fn, artifacts: list[str], force: bool 
         import traceback
 
         tb = traceback.format_exc()
-        st.update(status="failed", finished_at=now_iso(), error=f"{type(exc).__name__}: {exc}")
+        st.update(status="failed", finished_at=now_iso(), error=f"{type(exc).__name__}: {exc}",
+                  fatal=isinstance(exc, Fatal))
         ledger.save()
         log(f"FAIL {name}: {type(exc).__name__}: {exc}")
         log(tb.strip().splitlines()[-1])

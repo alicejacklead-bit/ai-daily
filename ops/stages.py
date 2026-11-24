@@ -252,7 +252,7 @@ def publish(log) -> dict:
         log("  " + line)
     if push.returncode != 0:
         if "Authentication" in push.stderr or "could not read Username" in push.stderr:
-            raise RuntimeError(
+            raise C.Fatal(
                 "GitHub 推送需要授权：在本机执行一次 `gh auth login`（或配置 PAT）。"
                 "内容已在本地生成并提交，重新运行该阶段即可继续。"
             )
