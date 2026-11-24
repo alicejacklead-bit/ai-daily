@@ -79,7 +79,7 @@ def cmd_run(stage: str, force: bool) -> int:
 def cmd_retry() -> int:
     date = C.today()
     ledger = C.Ledger(date)
-    failed = [s for s in ("generate", "quality", "podcast", "publish") if ledger.status(s) != "ok"]
+    failed = [s for s in ("generate", "quality", "podcast", "publish") if not ledger.is_done(s)]
     if not failed:
         print("nothing to retry")
         return 0
