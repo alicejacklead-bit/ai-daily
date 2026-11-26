@@ -41,10 +41,10 @@ deepseek/deepseek-v4-flash | prompt 0.00000009 | completion 0.00000018 | image N
 deepseek/deepseek-v4-flash-0731 | prompt 0.0000000456 | completion 0.0000003 | image None
 deepseek/deepseek-v4-flash-0731:batch | prompt 0.000000048 | completion 0.000000144 | image None
 deepseek/deepseek-v4-flash-vision-exp | prompt 0.00000044 | completion 0.00000132 | image None
-deepseek/deepseek-v4-pro | prompt 0.00000128 | completion 0.00000256 | image None
+deepseek/deepseek-v4-pro | prompt 0.000000713318 | completion 0.0000015216 | image None
 deepseek/deepseek-v4-pro-0813 | prompt 0.000000111 | completion 0.00000444 | image None
 deepseek/deepseek-v4.1-flash | prompt 0.0000000507 | completion 0.0000002028 | image None
-deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000003 | completion 0.0000002 | image None
+deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000015 | completion 0.0000006 | image None
 deepseek/deepseek-v4.1-flash-1017:batch | prompt 0.000000035 | completion 0.000000149 | image None
 deepseek/deepseek-v4.1-flash:batch | prompt 0.00000005 | completion 0.00000015 | image None
 google/gemini-2.5-flash | prompt 0.0000003 | completion 0.0000025 | image 0.0000003
@@ -88,7 +88,7 @@ google/gemini-omni-1.1-flash | prompt 0.0000015 | completion 0.000009 | image No
 google/gemini-omni-1.2-flash | prompt 0.0000015 | completion 0.000009 | image None
 google/gemma-2-27b-it | prompt 0.00000065 | completion 0.00000065 | image None
 google/gemma-3-12b-it | prompt 0.00000005 | completion 0.00000015 | image None
-google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000016 | image None
+google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000045 | image None
 google/gemma-3-4b-it | prompt 0.00000004 | completion 0.00000005 | image None
 google/gemma-4-26b-a4b-it | prompt 0.0000000765 | completion 0.000000255 | image None
 google/gemma-4-26b-a4b-it:free | prompt 0 | completion 0 | image None
@@ -101,6 +101,8 @@ minimax/minimax-m2.7 | prompt 0.0000006 | completion 0.0000018 | image None
 minimax/minimax-m3 | prompt 0.0000003 | completion 0.0000012 | image None
 minimax/minimax-m3.1-flash | prompt 0.000000075 | completion 0.0000003 | image None
 minimax/minimax-m3:batch | prompt 0.000000224 | completion 0.00000088 | image None
+moonshotai/kimi-k2 | prompt 0.00000057 | completion 0.0000023 | image None
+moonshotai/kimi-k2-0905 | prompt 0.0000006 | completion 0.0000025 | image None
 moonshotai/kimi-k2.5 | prompt 0.0000005 | completion 0.0000025 | image None
 moonshotai/kimi-k2.6 | prompt 0.00000065 | completion 0.00000341 | image None
 moonshotai/kimi-k2.7-code | prompt 0.0000006 | completion 0.000003 | image None
@@ -235,13 +237,13 @@ qwen/qwen3-vl-8b-instruct | prompt 0.00000025 | completion 0.00000075 | image No
 qwen/qwen3.5-122b-a10b | prompt 0.00000026 | completion 0.00000208 | image None
 qwen/qwen3.5-27b | prompt 0.00000026 | completion 0.0000026 | image None
 qwen/qwen3.5-35b-a3b | prompt 0.00000014 | completion 0.000001 | image None
-qwen/qwen3.5-397b-a17b | prompt 0.00000045 | completion 0.000003 | image None
-qwen/qwen3.5-9b | prompt 0.00000017 | completion 0.00000025 | image None
+qwen/qwen3.5-397b-a17b | prompt 0.0000005 | completion 0.0000036 | image None
+qwen/qwen3.5-9b | prompt 0.0000001 | completion 0.00000025 | image None
 qwen/qwen3.5-flash-02-23 | prompt 0.000000065 | completion 0.00000026 | image None
 qwen/qwen3.5-plus-02-15 | prompt 0.00000026 | completion 0.00000156 | image None
 qwen/qwen3.5-plus-20260420 | prompt 0.0000003 | completion 0.0000018 | image None
 qwen/qwen3.6-27b | prompt 0.00000032 | completion 0.0000032 | image None
-qwen/qwen3.6-35b-a3b | prompt 0.00000005 | completion 0.0000007 | image None
+qwen/qwen3.6-35b-a3b | prompt 0.0000001 | completion 0.00000089 | image None
 qwen/qwen3.6-flash | prompt 0.0000001875 | completion 0.000001125 | image None
 qwen/qwen3.6-plus | prompt 0.000000325 | completion 0.00000195 | image None
 qwen/qwen3.7-flash | prompt 0.00000003 | completion 0.00000013 | image None

@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andy 的 AI 早报 · 2026-11-27</title>
+  <meta name="description" content="AI领域2026-11-27每日简报，涵盖行业新闻、重要论文与开源项目。">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) {}
+      try {
+        var lng = localStorage.getItem('lang');
+        if (!lng) lng = (navigator.language || 'zh').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', lng);
+        if (lng === 'en') document.documentElement.setAttribute('lang', 'en');
+      } catch (e) { document.documentElement.setAttribute('data-lang', 'zh'); }
+    })();
+  </script>
+  <style>
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --text-soft: #c9d1d9;
+  --card: #161b22;
+  --border: #21262d;
+  --border-strong: #30363d;
+  --header-bg: rgba(13,17,23,0.95);
+  --hover: #1c2230;
+}
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --text-soft: #3d444d;
+  --card: #f6f8fa;
+  --border: #d8dee4;
+  --border-strong: #d0d7de;
+  --header-bg: rgba(255,255,255,0.92);
+  --hover: #eaeef2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+  transition: background .2s, color .2s;
+}
+
+a { color: #58a6ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Reading progress bar ── */
+#progressBar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #58a6ff, #bc8cff);
+  z-index: 200;
+  transition: width .1s linear;
+}
+
+/* ── Header ── */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+.site-header .logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.site-header .logo a { color: inherit; }
+.site-header .logo a:hover { text-decoration: none; }
+.site-header .logo span { color: #58a6ff; }
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Search ── */
+.search-box { position: relative; }
+.search-box input {
+  width: 220px;
+  max-width: 50vw;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 7px 12px;
+  outline: none;
+  transition: border-color .15s, width .15s;
+}
+.search-box input:focus { border-color: #58a6ff; width: 280px; }
+.search-results {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 360px;
+  max-width: 80vw;
+  max-height: 420px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  z-index: 150;
+}
+.search-results.active { display: block; }
+.sr-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-item:hover { background: var(--hover); text-decoration: none; }
+.sr-date { font-size: 11px; color: var(--text-muted); }
+.sr-title { font-size: 13px; color: var(--text); line-height: 1.4; }
+.sr-cat { font-size: 11px; color: #58a6ff; }
+.sr-empty, .sr-hint { padding: 14px; font-size: 13px; color: var(--text-muted); text-align: center; }
+
+/* ── Date picker ── */
+.date-picker {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 6px 10px;
+  outline: none;
+  cursor: pointer;
+}
+.date-picker:focus { border-color: #58a6ff; }
+
+.site-header nav { display: flex; gap: 8px; }
+.site-header nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.site-header nav a:hover { background: var(--border); color: var(--text); text-decoration: none; }
+
+/* ── Theme / language toggle ── */
+.theme-toggle, .lang-toggle {
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 15px;
+  height: 34px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.theme-toggle { width: 34px; }
+.lang-toggle { padding: 0 12px; font-size: 13px; font-weight: 600; min-width: 42px; }
+.theme-toggle:hover, .lang-toggle:hover { border-color: #58a6ff; }
+
+/* ── Language content toggle ── */
+html[data-lang="en"] [data-lang-content="zh"] { display: none; }
+html[data-lang="zh"] [data-lang-content="en"] { display: none; }
+
+/* ── Hot words / trends ── */
+.trends {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin: 8px 0 8px;
+}
+.trends .trends-head {
+  display: flex; align-items: baseline; gap: 10px;
+  margin-bottom: 16px;
+}
+.trends .trends-head h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+.trends .trends-head .sub { font-size: 12px; color: var(--text-muted); }
+.trend-tags { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.trend-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 14px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .15s, transform .15s, color .15s;
+  user-select: none;
+}
+.trend-tag:hover { border-color: #58a6ff; color: #58a6ff; transform: translateY(-1px); }
+.trend-tag .cnt {
+  font-size: 11px; color: #fff;
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-radius: 999px; padding: 1px 7px;
+}
+.trend-tag.s1 { font-size: 13px; }
+.trend-tag.s2 { font-size: 14px; }
+.trend-tag.s3 { font-size: 16px; font-weight: 600; }
+
+/* ── Audio player (voice broadcast) ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.25);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 0 28px;
+}
+.audio-player .ap-label {
+  font-size: 14px; font-weight: 600; color: #58a6ff;
+  display: flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.audio-player .ap-sub { font-size: 12px; color: var(--text-muted); }
+.audio-player audio { flex: 1; min-width: 220px; height: 38px; }
+.audio-player .ap-text { display: flex; flex-direction: column; gap: 2px; }
+
+/* Subscribe-to-podcast button */
+.podcast-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.podcast-cta:hover { border-color: #58a6ff; transform: translateY(-1px); text-decoration: none; }
+.podcast-cta.primary {
+  background: linear-gradient(135deg, #1f6feb, #bc8cff);
+  border-color: transparent; color: #fff; font-weight: 600;
+  font-size: 14px; padding: 11px 24px;
+}
+.podcast-cta.primary:hover { border-color: transparent; filter: brightness(1.08); }
+.podcast-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.podcast-hint {
+  margin-top: 14px; font-size: 12px; color: var(--text-muted);
+  word-break: break-all;
+}
+.podcast-hint code {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; padding: 2px 6px; color: var(--text-soft);
+}
+.audio-badge { font-size: 13px; margin-left: 6px; }
+
+/* ── Speak (TTS) button ── */
+.speak-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 16px;
+  background: var(--bg);
+  border: 1px solid rgba(88,166,255,.35);
+  border-radius: 999px;
+  color: #58a6ff;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.speak-btn:hover { background: rgba(88,166,255,.1); }
+.speak-btn.playing { border-color: #f85149; color: #f85149; }
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 56px 0 32px;
+}
+.hero h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.hero p { color: var(--text-muted); font-size: 16px; }
+.hero .stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 24px;
+}
+.hero .stat .num { font-size: 24px; font-weight: 700; color: var(--text); }
+.hero .stat .lbl { font-size: 12px; color: var(--text-muted); }
+
+/* ── Section heading ── */
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 48px 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Date grid (archive) ── */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.date-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: border-color .2s, transform .2s;
+  display: block;
+  color: inherit;
+}
+.date-card:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.date-card .date-label { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.date-card .weekday { font-size: 12px; color: var(--text-muted); }
+.date-card .latest-badge {
+  display: inline-block;
+  font-size: 11px;
+  background: #1f6feb;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
+/* ── Day hero ── */
+.day-hero { margin-bottom: 24px; }
+.day-hero .date-str {
+  font-size: 13px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px;
+}
+.day-hero h1 { font-size: 28px; font-weight: 700; }
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-bar .tab {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .tab:hover { color: var(--text); border-color: #58a6ff; }
+.filter-bar .tab.active { background: #1f6feb; color: #fff; border-color: #1f6feb; }
+.filter-bar .star-toggle {
+  margin-left: auto;
+  font-size: 13px;
+  color: #e3b341;
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.filter-bar .star-toggle:hover { border-color: #e3b341; }
+.filter-bar .star-toggle.active { background: rgba(227,179,65,.15); border-color: #e3b341; }
+
+/* ── Category section ── */
+.category { margin-bottom: 40px; }
+.category-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.category-header h2 { font-size: 18px; font-weight: 700; }
+.cat-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── Item card ── */
+.item-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color .2s;
+}
+.item-card:hover { border-color: var(--border-strong); }
+.item-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+.item-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; }
+.item-meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.stars { font-size: 13px; color: #e3b341; letter-spacing: 1px; }
+.item-value {
+  font-size: 13px; color: #7ee787;
+  background: rgba(46,160,67,.1); padding: 2px 10px; border-radius: 999px;
+}
+.item-sources { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+.item-sources a { color: #58a6ff; margin-left: 6px; }
+.item-sources a:first-child { margin-left: 0; }
+
+/* ── Observation box ── */
+.observation {
+  background: linear-gradient(135deg, rgba(31,111,235,.12), rgba(188,140,255,.08));
+  border: 1px solid rgba(88,166,255,.2);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+}
+.observation h2 { font-size: 16px; font-weight: 700; color: #58a6ff; margin-bottom: 12px; }
+.observation p { font-size: 14px; color: var(--text-soft); line-height: 1.8; }
+
+.item-app {
+  font-size: 13px; color: var(--text-soft); line-height: 1.6;
+  border-left: 3px solid #d29922; padding: 4px 10px; margin-bottom: 12px;
+  background: rgba(210,153,34,.08); border-radius: 0 6px 6px 0;
+}
+.insight {
+  border: 1px solid var(--border-strong); border-radius: 12px;
+  padding: 20px 24px; margin-top: 16px; background: var(--card);
+}
+.insight h2 { font-size: 16px; font-weight: 700; color: #d29922; margin-bottom: 10px; }
+.insight ul { padding-left: 20px; }
+.insight li { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 6px; }
+
+.empty-filter { display: none; color: var(--text-muted); font-size: 14px; text-align: center; padding: 32px; }
+
+/* ── Day nav ── */
+.day-nav {
+  display: flex; justify-content: space-between;
+  margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+.nav-btn {
+  font-size: 14px; color: #58a6ff;
+  padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.nav-btn:hover { background: var(--card); text-decoration: none; }
+
+/* ── Back to top ── */
+#backToTop {
+  position: fixed;
+  right: 24px; bottom: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  box-shadow: 0 6px 20px rgba(0,0,0,.4);
+  z-index: 120;
+}
+#backToTop.visible { opacity: 1; pointer-events: auto; }
+#backToTop:hover { transform: translateY(-2px); }
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center; padding: 24px;
+  color: #484f58; font-size: 13px; border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 28px; }
+  .item-meta { flex-direction: column; align-items: flex-start; }
+  .item-sources { margin-left: 0; }
+  .site-header .logo { font-size: 15px; }
+  .search-box input { width: 150px; }
+  .search-box input:focus { width: 180px; }
+  .filter-bar .star-toggle { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+  
+<div id="progressBar"></div>
+<header class="site-header">
+  <div class="logo"><a href="../index.html">⚡ AI <span>Daily</span> Digest</a></div>
+  <div class="header-tools">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="搜索全部日报…" autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+    <input id="datePicker" type="date" class="date-picker" aria-label="选择日期">
+    <button id="langToggle" class="lang-toggle" aria-label="切换语言 / Switch language">EN</button>
+    <button id="themeToggle" class="theme-toggle" aria-label="切换主题" title="切换浅色/深色">🌙</button>
+    <nav>
+      <a href="../index.html"><span data-lang-content="zh">归档</span><span data-lang-content="en">Archive</span></a>
+      <a href="https://github.com/alicejacklead-bit/ai-daily" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+  
+    <div class="container">
+      <div class="day-hero">
+        <div class="date-str"><span data-lang-content="zh">周五 · 2026-11-27</span><span data-lang-content="en">Friday · 2026-11-27</span></div>
+        <h1><span data-lang-content="zh">Andy 的 AI 早报</span><span data-lang-content="en">Andy's AI Daily</span></h1>
+      </div>
+      
+    <div class="audio-player">
+      <div class="ap-text">
+        <span class="ap-label">🎧 <span data-lang-content="zh">语音播报</span><span data-lang-content="en">Listen</span></span>
+        <span class="ap-sub"><span data-lang-content="zh">通勤路上用耳朵看简报</span><span data-lang-content="en">Catch the digest on your commute</span></span>
+      </div>
+      <audio controls preload="none" src="../audio/2026-11-27.mp3" data-date="2026-11-27"></audio>
+    </div>
+      <div data-lang-content="zh">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">全部</span><span class="tab" data-cat="news">新闻</span>
+      <span class="star-toggle">★ 只看重点 (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 市场局势</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic 正式登陆公开市场，同日 GTA VI 成为史上最成功娱乐产品之一</div>
+      <div class='item-desc'>Anthropic 于 11 月 26 日进入公开市场；同一天，耗时多年手工打磨的《GTA VI》成为史上最成功的娱乐产品发布之一。TechCrunch 的评论直接把两件事并置：一边是"效率至上"的 AI 叙事，一边是人力密集型产品创下的商业纪录。</div>
+      <div class="item-app">💼 问对方——如果 AI 让内容生产成本趋近于零，你的产品靠什么证明自己不是"可无限复制的商品"？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">这是对"AI 压缩一切生产成本"叙事的第一次公开市场压力测试。对模型 API 平台的含义是：客户不会只为便宜买单，会为"别处拿不到的质量"付溢价，定价权正在从"每 token 更便宜"转向"输出是否不可替代"。</span>
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/" target="_blank">TechCrunch AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">美国收紧出口管制，Nvidia 停止向马来西亚、新加坡、泰国、印尼发货服务器</div>
+      <div class='item-desc'>Nvidia 已通知 Dell、Supermicro 等合作伙伴停止向这四个东南亚国家出货服务器，背景是新一轮针对中国云访问的出口管制。经销商正在为数千颗 B300 芯片寻找买家，一位云高管形容局面"混乱"，东南亚数据中心的相关贷款和大额交易均受影响。</div>
+      <div class="item-app">💼 东南亚"算力中转站"角色被打断后，客户会问你的推理跑在哪个司法辖区——这个问题以后会出现在每一份合同里。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">算力供给的地理版图正在被行政手段切分。对做海外 GTM 的 API 平台，这意味着"模型部署在哪个区域、由谁托管"会变成客户采购的硬性合规问题，而不只是成本问题。</span>
+        <div class="item-sources"><a href="https://the-decoder.com/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-after-tighter-us-export-controls/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">芯片管制与反蒸馏措施已开始拖慢中国实验室，DeepSeek 内部估计落后美国模型最多 9 个月</div>
+      <div class='item-desc'>据 The Decoder 报道，芯片限制、反蒸馏措施和海外 Nvidia 硬件获取收缩正在给 DeepSeek、Moonshot AI、阿里施压；DeepSeek 研究人员内部估计已落后美国模型最多九个月，且差距在扩大。同期另一条报道称 Z.AI 与 Moonshot 被迫推迟下一代旗舰模型，并转向 Google 和 Meta 的数据源。</div>
+      <div class="item-app">💼 中国开源模型的价格优势还能撑几个版本？这是海外 CTO 现在最愿意聊也最没底的问题。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">这直接关系到 API 聚合平台"低价中国模型"这条供给线的可持续性。若旗舰模型迭代节奏被拉长，价格优势可能以能力代差为代价，聚合平台需要重新评估模型组合的性价比结构。</span>
+        <div class="item-sources"><a href="https://the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs/" target="_blank">The Decoder</a> · <a href="https://the-decoder.com/after-openai-and-anthropic-shut-the-door-on-their-data-a-chinese-ai-developer-is-turning-to-google-and-meta-instead/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 赛道深挖</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">关注赛道] 中国开源视频模型打出"顶尖商用级每秒 5 毛"，30 秒一镜到底并可自动编排镜头</div>
+      <div class='item-desc'>量子位报道，一款中国开源新势力视频模型拿下某榜单全球第一，主打商用级质量、每秒约 0.5 元人民币的定价，支持 30 秒一镜到底和自动镜头编排。</div>
+      <div class="item-app">💼 当开源模型把"商用级"打到这个价位，视频 API 平台卖的到底是模型，还是镜头调度和一致性保障？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">每秒 5 毛人民币约合不到 $0.07/秒，显著低于当前主流视频 API 的公开单价区间。若该价格可稳定复现，视频 API 的"质量—价格"前沿会被整体下压，聚合平台靠转售差价的空间被压缩，必须转向工作流、镜头控制、批量一致性等增值层。</span>
+        <div class="item-sources"><a href="https://www.qbitai.com/2026/11/512916.html" target="_blank">量子位</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] WaveSpeedAI 价格页再调：单价上调、降幅收窄至 10%，但单次耗时从 7.4 秒缩短到 7 秒</div>
+      <div class='item-desc'>快照对比显示，该档位从 $0.1335/秒（相对 $0.157 降 15%）变为 $0.1413/秒（降 10%），同时对应生成耗时由 7.4 秒降至 7 秒。</div>
+      <div class="item-app">💼 客户比价时看的是每秒钟单价，还是每出一条可用视频的成本？后者才是真实 TCO。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">这是本周第二次看到"降价幅度收窄 + 速度提升"的组合。说明聚合平台正在把竞争维度从纯单价转向"每秒有效产出"，也暗示上游推理成本并未随规模下降。对定价策略的启示：按秒计价之外，"每秒可交付成品时长"可能成为更诚实的报价单位。</span>
+        <div class="item-sources"><a href="https://wavespeed.ai/pricing" target="_blank">WaveSpeedAI 价格</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] OpenRouter 主力模型表新增 DeepSeek V4 Pro、Kimi K2 两版与 Qwen3.8-27B，同时多款价格上移</div>
+      <div class='item-desc'>快照显示新增 deepseek/deepseek-v4-pro（prompt $0.713/百万 token，completion $1.522/百万）、moonshotai/kimi-k2 与 kimi-k2-0905、qwen/qwen3.8-27b（prompt $0.06/百万，completion $1.96/百万）；同时 deepseek-v4-pro、gemma-3-27b-it、qwen3.8-27b 的旧价格行被替换，其中 gemma-3-27b-it 的 completion 价从 $0.16 涨到 $0.45/百万。</div>
+      <div class="item-app">💼 文本模型涨价会悄悄吃掉视频工作流的毛利——大多数团队还没把 prompt 编排成本算进单条视频成本里。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">聚合平台正在把"中国模型 + 小参数高性价比模型"作为货架主力，但同款模型 completion 价上调说明低价窗口在收窄。对以视频为主业的平台，这意味着"用低价文本模型做 prompt 增强、脚本生成"的成本结构正在变化，需要重新核算工作流里的文本侧开销。</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter 模型表</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent 前沿</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">关注赛道] Anthropic 让 MCP 服务器可以直接分发 Agent Skills，进入公测</div>
+      <div class='item-desc'>在推出 MCP 两年后，Anthropic 为 Claude 和 Claude Code 加入"Skills over MCP"支持，处于公开测试阶段。这意味着企业连接一个 MCP 服务器时，拿到的不仅是一组工具，还可能是一整套预置技能。</div>
+      <div class="item-app">💼 当 MCP 服务器能塞进技能包，企业采购时会问"这个技能包里到底有什么"——这会不会催生一个技能审计层？</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">它把"Agent 能力"变成可通过 MCP 分发的商品化单元，企业安全审批的对象从"工具权限"扩展到"技能包内容"。对任何做 Agent 产品的团队，这是新的分发渠道，也是新的信任边界问题。</span>
+        <div class="item-sources"><a href="https://venturebeat.com/technology/mcp-servers-can-now-deliver-ai-agent-skills-changing-what-companies-approve-when-they-connect-one" target="_blank">VentureBeat</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">关注赛道] Notion 官方 MCP 被指在 Agent 上下文中注入隐藏的追加销售指令</div>
+      <div class='item-desc'>有开发者在 r/ClaudeCode 发帖称，接入 Notion 官方 MCP 后，其返回内容中夹带了隐藏的追加销售（upsell）指令，进入 Agent 的上下文。</div>
+      <div class="item-app">💼 你的 Agent 读到的"事实"，有多少是工具方希望你读到的？这个问题会变成 Agent 产品的基本安全问答题。</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">这是"工具提供方通过 MCP 影响 Agent 决策"的第一个高曝光案例。它揭示了一个结构性问题：当 MCP 服务器同时是内容源和商业主体，Agent 的中立性无法靠协议保证，只能靠审计和隔离。对做 Agent 产品的团队，这是必须提前设计的防线。</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/ClaudeCode/comments/1y4qm5o/heads_up_if_you_wire_notions_official_mcp_into/" target="_blank">Hacker News / Reddit</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ 快讯</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">OpenAI 修复计费 bug，GPT-6.2 Astra 用户触达限额速度加快 40%</div>
+      <div class='item-desc'>OpenAI 称此前计费 bug 给了错误折扣，修复后 Astra 与 Sol 用户分别比上周快 40% 和 25% 触达用量上限；补偿是额外一次重置，企业用户年底前免费用 Fast Mode，同时测试 Chat 与 Work 模式合并。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/gpt-6-2-astra-users-now-hit-limits-40-faster-after-openai-patched-a-pricing-error/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Google 将要求 AI Agent 使用其 MCP 服务器，但 Gmail 那个不能发邮件</div>
+      <div class='item-desc'>报道称 Google 推动 Agent 走自家 MCP 服务器，而 Gmail 的 MCP 服务器不具备发信能力，HN 讨论热度很高（116 分、126 评论）。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank">TechStackUps</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">S&P 考虑因治理与"关键人"风险下调 Nvidia 信用评级至 AA-</div>
+      <div class='item-desc'>这是第四高评级，理由是治理结构与对黄仁勋个人的依赖。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/" target="_blank">TechCrunch AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">42 州总检察长联合阻止 Character.AI 在破产程序中出售用户聊天记录</div>
+      <div class='item-desc'>涉及超过 2100 万个美国账户的私密对话历史。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats" target="_blank">The Verge AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">FCC 批准 SpaceX 部署最多 100 万颗 Starmind 卫星做轨道 AI 数据中心</div>
+      <div class='item-desc'>首批发射目标 2027 年，完整星座 2040 年投入运营；BCG 估算短期内成本仍远高于地面数据中心。</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">该筛选条件下没有内容。</div>
+      
+        <div class="observation">
+          <h2>💡 今日观察</h2>
+          <p>🎯 Anthropic 上市当天，市场用 GTA VI 的销量给它上了一课——"效率"不是护城河，"不可替代的体验"才是；视频生成赛道则在中国开源模型把商用级价格打到每秒 5 毛的同一周，继续被上游算力和出口管制重新定价。 今天最值得记下的不是某条新闻，而是一组对照：Anthropic 上市与 GTA VI 破纪录同日发生，市场在用真金白银重新给"效率"和"不可替代性"定价；与此同时，中国开源视频模型把商用级价格压到每秒 5 毛，WaveSpeedAI 却在收窄降幅、用速度换价差。两条线指向同一个结论——视频 API 的竞争正在从"每秒钟单价"转向"每出一条可用成品的成本"，而这条成本曲线同时被上游算力管制（Nvidia 停发东南亚）和文本侧模型涨价（OpenRouter 表）从两端挤压。Agent 侧，MCP 从"工具协议"变成"技能分发渠道"，Notion 的隐藏 upsell 事件说明中立性风险已经从理论变成案例。对准备进入 Agent 方向的团队，分发渠道的机会和信任边界的坑是同时打开的。</p>
+          <button class="speak-btn" data-label="🔊 朗读今日观察" data-stop="⏹ 停止" data-speak-lang="zh-CN" data-text="🎯 Anthropic 上市当天，市场用 GTA VI 的销量给它上了一课——&quot;效率&quot;不是护城河，&quot;不可替代的体验&quot;才是；视频生成赛道则在中国开源模型把商用级价格打到每秒 5 毛的同一周，继续被上游算力和出口管制重新定价。 今天最值得记下的不是某条新闻，而是一组对照：Anthropic 上市与 GTA VI 破纪录同日发生，市场在用真金白银重新给&quot;效率&quot;和&quot;不可替代性&quot;定价；与此同时，中国开源视频模型把商用级价格压到每秒 5 毛，WaveSpeedAI 却在收窄降幅、用速度换价差。两条线指向同一个结论——视频 API 的竞争正在从&quot;每秒钟单价&quot;转向&quot;每出一条可用成品的成本&quot;，而这条成本曲线同时被上游算力管制（Nvidia 停发东南亚）和文本侧模型涨价（OpenRouter 表）从两端挤压。Agent 侧，MCP 从&quot;工具协议&quot;变成&quot;技能分发渠道&quot;，Notion 的隐藏 upsell 事件说明中立性风险已经从理论变成案例。对准备进入 Agent 方向的团队，分发渠道的机会和信任边界的坑是同时打开的。">🔊 朗读今日观察</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 商业机会</h2>
+          <ul><li>面向视频 API 客户的"合规部署地"透明化能力：依据 Nvidia 停发东南亚服务器与出口管制收紧，海外客户（尤其东南亚、中东的云与媒体公司）将需要明确知道推理跑在哪个司法辖区、芯片来源是否可追溯。谁能在 API 文档和合同里把这一点做成标准项，谁就更容易过企业采购的合规关。</li><li>Agent 技能包审计与隔离层：依据 Anthropic 的 Skills over MCP 公测与 Notion MCP 隐藏 upsell 事件，企业接入第三方 MCP 服务器时缺少"技能包里到底有什么、是否夹带商业指令"的检查手段。做一个对 MCP 服务器返回内容做静态扫描 + 运行时隔离的中间层，是当前时间点上需求明确、供给几乎空白的位置。</li></ul>
+        </div>
+    </div></div><div data-lang-content="en">
+    <div class="digest-scope">
+      
+    <div class="filter-bar">
+      <span class="tab active" data-cat="all">All</span><span class="tab" data-cat="news">News</span>
+      <span class="star-toggle">★ Top picks (4+)</span>
+    </div>
+      
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🌐 Market Landscape</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Anthropic officially enters the public market, and on the same day GTA VI becomes one of the most successful entertainment products ever</div>
+      <div class='item-desc'>Anthropic entered the public market on November 26; on the same day, GTA VI, polished by hand over many years, became one of the most successful entertainment product launches ever. TechCrunch's commentary directly juxtaposes the two events: on one side, the "efficiency above all" AI narrative; on the other, a commercial record set by a labor-intensive product.</div>
+      <div class="item-app">💼 Ask your counterpart—if AI drives the cost of content production toward zero, what does your product rely on to prove it isn't an "infinitely replicable commodity"?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">This is the first public-market stress test of the narrative that "AI compresses all production costs." The implication for model API platforms is: customers won't pay just for cheapness—they'll pay a premium for "quality you can't get elsewhere," and pricing power is shifting from "cheaper per token" to "is the output irreplaceable."</span>
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/" target="_blank">TechCrunch AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="5">
+      <div class="item-title">The US tightens export controls, and Nvidia stops shipping servers to Malaysia, Singapore, Thailand, and Indonesia</div>
+      <div class='item-desc'>Nvidia has notified partners including Dell and Supermicro to stop shipping servers to these four Southeast Asian countries, against the backdrop of a new round of export controls targeting Chinese cloud access. Distributors are looking for buyers for thousands of B300 chips; one cloud executive described the situation as "chaotic," and related loans and large transactions for Southeast Asian data centers are affected.</div>
+      <div class="item-app">💼 Now that Southeast Asia's role as a "compute transit hub" has been disrupted, customers will ask which jurisdiction your inference runs in—this question will appear in every contract going forward.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">The geographic map of compute supply is being carved up by administrative means. For API platforms doing overseas GTM, this means "which region the model is deployed in and who hosts it" will become a hard compliance question in customer procurement, not just a cost question.</span>
+        <div class="item-sources"><a href="https://the-decoder.com/nvidia-halts-server-shipments-to-malaysia-singapore-thailand-and-indonesia-after-tighter-us-export-controls/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Chip controls and anti-distillation measures have begun to slow Chinese labs, and DeepSeek internally estimates it lags US models by up to 9 months</div>
+      <div class='item-desc'>According to The Decoder, chip restrictions, anti-distillation measures, and shrinking access to overseas Nvidia hardware are putting pressure on DeepSeek, Moonshot AI, and Alibaba; DeepSeek researchers internally estimate they lag US models by up to nine months, and the gap is widening. A separate report from the same period says Z.AI and Moonshot were forced to delay their next-generation flagship models and turn to data sources from Google and Meta.</div>
+      <div class="item-app">💼 How many more versions can Chinese open-source models' price advantage last? This is the question overseas CTOs are most willing to discuss right now—and the one they're least sure about.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">This directly bears on the sustainability of the API aggregation platform's "low-cost Chinese models" supply line. If the flagship model iteration cadence is stretched out, the price advantage may come at the cost of a capability gap, and aggregation platforms need to re-evaluate the cost-performance structure of their model portfolios.</span>
+        <div class="item-sources"><a href="https://the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs/" target="_blank">The Decoder</a> · <a href="https://the-decoder.com/after-openai-and-anthropic-shut-the-door-on-their-data-a-chinese-ai-developer-is-turning-to-google-and-meta-instead/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🎬 Track Deep Dive</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Track in Focus] Chinese open-source video model touts "top commercial-grade at 0.5 RMB per second," 30-second single-shot continuous takes with automatic shot orchestration</div>
+      <div class='item-desc'>QbitAI reports that a new Chinese open-source video model has taken the global No. 1 spot on a certain leaderboard, touting commercial-grade quality, pricing at about 0.5 RMB per second, and support for 30-second single-shot continuous takes with automatic shot orchestration.</div>
+      <div class="item-app">💼 When an open-source model pushes "commercial-grade" down to this price point, what are video API platforms really selling—the model, or shot scheduling and consistency guarantees?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">0.5 RMB per second works out to less than $0.07/second, significantly below the publicly listed unit price range of current mainstream video APIs. If this price can be reliably reproduced, the "quality–price" frontier of video APIs will be pushed down across the board, and the margin room for aggregator platforms to resell at a markup will be squeezed, forcing them to pivot to value-added layers such as workflows, shot control, and batch consistency.</span>
+        <div class="item-sources"><a href="https://www.qbitai.com/2026/11/512916.html" target="_blank">QbitAI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track in Focus] WaveSpeedAI pricing page adjusted again: unit price raised, discount narrowed to 10%, but per-generation time cut from 7.4 seconds to 7 seconds</div>
+      <div class='item-desc'>A snapshot comparison shows this tier moved from $0.1335/second (a 15% discount off $0.157) to $0.1413/second (a 10% discount), while the corresponding generation time dropped from 7.4 seconds to 7 seconds.</div>
+      <div class="item-app">💼 When customers compare prices, do they look at the per-second unit price, or the cost per usable video produced? The latter is the real TCO.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">This is the second time this week we've seen the combination of "narrower discount + faster speed." It shows that aggregator platforms are shifting the competitive dimension from pure unit price to "effective output per second," and also hints that upstream inference costs have not fallen with scale. The implication for pricing strategy: beyond per-second billing, "deliverable finished duration per second" may become a more honest quoting unit.</span>
+        <div class="item-sources"><a href="https://wavespeed.ai/pricing" target="_blank">WaveSpeedAI Pricing</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track in Focus] OpenRouter's main model table adds DeepSeek V4 Pro, two Kimi K2 versions, and Qwen3.8-27B, while several prices move up</div>
+      <div class='item-desc'>The snapshot shows newly added deepseek/deepseek-v4-pro (prompt $0.713/million tokens, completion $1.522/million), moonshotai/kimi-k2 and kimi-k2-0905, and qwen/qwen3.8-27b (prompt $0.06/million, completion $1.96/million); at the same time, the old price rows for deepseek-v4-pro, gemma-3-27b-it, and qwen3.8-27b were replaced, with gemma-3-27b-it's completion price rising from $0.16 to $0.45/million.</div>
+      <div class="item-app">💼 Text model price hikes will quietly eat into the gross margin of video workflows—most teams still haven't factored prompt orchestration costs into the per-video cost.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">Aggregator platforms are making "Chinese models + small-parameter, high-cost-effectiveness models" their shelf mainstays, but completion price increases for the same models show that the low-price window is narrowing. For platforms whose main business is video, this means the cost structure of "using low-cost text models for prompt enhancement and script generation" is changing, and the text-side overhead in workflows needs to be recalculated.</span>
+        <div class="item-sources"><a href="https://openrouter.ai/api/v1/models" target="_blank">OpenRouter Model Table</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>🤖 Agent Frontier</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="5">
+      <div class="item-title">Track to Watch] Anthropic lets MCP servers distribute Agent Skills directly, entering public beta</div>
+      <div class='item-desc'>Two years after launching MCP, Anthropic has added "Skills over MCP" support for Claude and Claude Code, now in public beta. This means that when an enterprise connects to an MCP server, it gets not just a set of tools but potentially an entire bundle of prebuilt skills.</div>
+      <div class="item-app">💼 When MCP servers can stuff skill packages inside, enterprises will ask during procurement, "What exactly is in this skill package?" Will this spawn a skill audit layer?</div>
+      <div class="item-meta">
+        <span class="stars">★★★★★</span>
+        <span class="item-value">It turns "Agent capabilities" into a commoditized unit that can be distributed via MCP, and the object of enterprise security review expands from "tool permissions" to "skill package contents." For any team building Agent products, this is a new distribution channel and also a new trust-boundary problem.</span>
+        <div class="item-sources"><a href="https://venturebeat.com/technology/mcp-servers-can-now-deliver-ai-agent-skills-changing-what-companies-approve-when-they-connect-one" target="_blank">VentureBeat</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="4">
+      <div class="item-title">Track to Watch] Notion's official MCP accused of injecting hidden upsell instructions into Agent context</div>
+      <div class='item-desc'>A developer posted on r/ClaudeCode claiming that after connecting Notion's official MCP, its returned content carried hidden upsell instructions that entered the Agent's context.</div>
+      <div class="item-app">💼 How much of the "facts" your Agent reads are what the tool provider wants it to read? This question will become a basic security Q&A for Agent products.</div>
+      <div class="item-meta">
+        <span class="stars">★★★★☆</span>
+        <span class="item-value">This is the first high-profile case of "a tool provider influencing Agent decisions through MCP." It reveals a structural problem: when an MCP server is both a content source and a commercial entity, the Agent's neutrality cannot be guaranteed by protocol alone—only by auditing and isolation. For any team building Agent products, this is a defense line that must be designed in advance.</span>
+        <div class="item-sources"><a href="https://www.reddit.com/r/ClaudeCode/comments/1y4qm5o/heads_up_if_you_wire_notions_official_mcp_into/" target="_blank">Hacker News / Reddit</a></div>
+      </div>
+    </div>
+        </div>
+        <div class="category" data-cat="news">
+          <div class="category-header">
+            <h2>⚡ Quick Hits</h2>
+            <div class="cat-line"></div>
+          </div>
+          
+    <div class="item-card" data-stars="0">
+      <div class="item-title">OpenAI fixes billing bug, GPT-6.2 Astra users hit usage limits 40% faster</div>
+      <div class='item-desc'>OpenAI says a previous billing bug gave incorrect discounts; after the fix, Astra and Sol users now hit usage caps 40% and 25% faster than last week, respectively; compensation is one extra reset, enterprise users get Fast Mode free until year-end, and the company is testing merging Chat and Work modes.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/gpt-6-2-astra-users-now-hit-limits-40-faster-after-openai-patched-a-pricing-error/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">Google will require AI Agents to use its MCP servers, but the Gmail one can't send email</div>
+      <div class='item-desc'>Reports say Google is pushing Agents toward its own MCP servers, while Gmail's MCP server lacks email-sending capability; the HN discussion is very active (116 points, 126 comments).</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank">TechStackUps</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">S&P considers downgrading Nvidia's credit rating to AA- over governance and "key man" risk</div>
+      <div class='item-desc'>This would be the fourth-highest rating, with the rationale being governance structure and dependence on Jensen Huang personally.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/" target="_blank">TechCrunch AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">42 state attorneys general jointly block Character.AI from selling user chat logs in bankruptcy proceedings</div>
+      <div class='item-desc'>The case involves private conversation histories of more than 21 million US accounts.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats" target="_blank">The Verge AI</a></div>
+      </div>
+    </div>
+    <div class="item-card" data-stars="0">
+      <div class="item-title">FCC approves SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers</div>
+      <div class='item-desc'>First launches target 2027, with the full constellation operational by 2040; BCG estimates that near-term costs will remain far higher than ground-based data centers.</div>
+      
+      <div class="item-meta">
+        
+        
+        <div class="item-sources"><a href="https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040/" target="_blank">The Decoder</a></div>
+      </div>
+    </div>
+        </div>
+      <div class="empty-filter">No items match this filter.</div>
+      
+        <div class="observation">
+          <h2>💡 Today's Take</h2>
+          <p>🎯 On Anthropic's IPO day, the market taught it a lesson using GTA VI's sales figures—"efficiency" is not a moat, "irreplaceable experience" is; meanwhile, in the video generation track, in the same week that Chinese open-source models pushed commercial-grade pricing down to 5 mao per second, it continues to be repriced by upstream compute and export controls. What's most worth noting today isn't any single news item but a set of contrasts: Anthropic's IPO and GTA VI's record-breaking launch happened on the same day, and the market is using real money to reprice "efficiency" and "irreplaceability"; at the same time, Chinese open-source video models have pushed commercial-grade pricing down to 0.5 yuan per second, while WaveSpeedAI is narrowing its price cuts and trading speed for price spread. Both lines point to the same conclusion—competition in video APIs is shifting from "unit price per second" to "cost per usable finished output," and this cost curve is being squeezed from both ends by upstream compute controls (Nvidia halting shipments to Southeast Asia) and text-side model price increases (the OpenRouter table). On the Agent side, MCP is turning from a "tool protocol" into a "skill distribution channel," and Notion's hidden upsell incident shows that neutrality risk has moved from theory to case study. For teams preparing to enter the Agent space, the opportunity in distribution channels and the pitfalls of trust boundaries are opening up at the same time.</p>
+          <button class="speak-btn" data-label="🔊 Read aloud" data-stop="⏹ Stop" data-speak-lang="en-US" data-text="🎯 On Anthropic's IPO day, the market taught it a lesson using GTA VI's sales figures—&quot;efficiency&quot; is not a moat, &quot;irreplaceable experience&quot; is; meanwhile, in the video generation track, in the same week that Chinese open-source models pushed commercial-grade pricing down to 5 mao per second, it continues to be repriced by upstream compute and export controls. What's most worth noting today isn't any single news item but a set of contrasts: Anthropic's IPO and GTA VI's record-breaking launch happened on the same day, and the market is using real money to reprice &quot;efficiency&quot; and &quot;irreplaceability&quot;; at the same time, Chinese open-source video models have pushed commercial-grade pricing down to 0.5 yuan per second, while WaveSpeedAI is narrowing its price cuts and trading speed for price spread. Both lines point to the same conclusion—competition in video APIs is shifting from &quot;unit price per second&quot; to &quot;cost per usable finished output,&quot; and this cost curve is being squeezed from both ends by upstream compute controls (Nvidia halting shipments to Southeast Asia) and text-side model price increases (the OpenRouter table). On the Agent side, MCP is turning from a &quot;tool protocol&quot; into a &quot;skill distribution channel,&quot; and Notion's hidden upsell incident shows that neutrality risk has moved from theory to case study. For teams preparing to enter the Agent space, the opportunity in distribution channels and the pitfalls of trust boundaries are opening up at the same time.">🔊 Read aloud</button>
+        </div>
+      
+        <div class="insight">
+          <h2>💰 Opportunities</h2>
+          <ul><li>"Compliant deployment location" transparency capability for video API customers: Given Nvidia's halt of server shipments to Southeast Asia and tightening export controls, overseas customers (especially cloud and media companies in Southeast Asia and the Middle East) will need to know clearly which jurisdiction inference runs in and whether chip provenance is traceable. Whoever can make this a standard item in API documentation and contracts will more easily pass enterprise procurement compliance checks.</li><li>Agent skill package auditing and isolation layer: Given Anthropic's Skills over MCP public beta and the Notion MCP hidden upsell incident, enterprises lack inspection tools to determine "what's actually inside a skill package and whether it smuggles in commercial instructions" when connecting to third-party MCP servers. Building a middleware layer that performs static scanning of content returned by MCP servers plus runtime isolation is a position with clear demand and almost no supply at the current moment.</li></ul>
+        </div>
+    </div></div>
+      <div class="day-nav">
+        <a class="nav-btn" href="2026-11-26.html">← 2026-11-26</a>
+        <span></span>
+      </div>
+    </div>
+  
+<button id="backToTop" aria-label="回到顶部">↑</button>
+<footer class="site-footer">
+  <span data-lang-content="zh">© Andy 的 AI 早报 · 全自动采集 · DeepSeek 智能筛选 · 每日更新</span>
+  <span data-lang-content="en">© Andy's AI Daily · Auto-collected · Curated by DeepSeek · Updated daily</span>
+</footer>
+
+  <script>window.SITE_BASE="../";window.AVAILABLE_DATES=["2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27", "2026-10-28", "2026-10-29", "2026-10-30", "2026-10-31", "2026-11-01", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06", "2026-11-07", "2026-11-08", "2026-11-09", "2026-11-10", "2026-11-11", "2026-11-12", "2026-11-13", "2026-11-14", "2026-11-15", "2026-11-16", "2026-11-17", "2026-11-18", "2026-11-19", "2026-11-20", "2026-11-21", "2026-11-22", "2026-11-23", "2026-11-24", "2026-11-25", "2026-11-26", "2026-11-27"];window.CURRENT_DATE="2026-11-27";window.PREV_DATE="2026-11-26";</script>
+  <script>
+(function () {
+  var BASE = window.SITE_BASE || "";
+  var DATES = window.AVAILABLE_DATES || [];
+
+  function esc(s) {
+    return (s || "").replace(/[&<>"]/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  // ── Date picker ──
+  var dp = document.getElementById('datePicker');
+  if (dp && DATES.length) {
+    dp.min = DATES[0];
+    dp.max = DATES[DATES.length - 1];
+    dp.value = window.CURRENT_DATE || DATES[DATES.length - 1];
+    dp.addEventListener('change', function () {
+      var v = dp.value;
+      if (DATES.indexOf(v) === -1) {
+        var earlier = DATES.filter(function (d) { return d <= v; });
+        v = earlier.length ? earlier[earlier.length - 1] : DATES[0];
+      }
+      window.location.href = BASE + 'daily/' + v + '.html';
+    });
+  }
+
+  // ── Search ──
+  var si = document.getElementById('searchInput');
+  var sr = document.getElementById('searchResults');
+  var INDEX = null;
+  function loadIndex() {
+    if (INDEX) return Promise.resolve(INDEX);
+    return fetch(BASE + 'search-index.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { INDEX = data; return data; });
+  }
+  if (si && sr) {
+    si.addEventListener('input', function () {
+      var q = si.value.trim().toLowerCase();
+      if (q.length < 2) { sr.classList.remove('active'); sr.innerHTML = ''; return; }
+      loadIndex().then(function (idx) {
+        var en = window.CUR_LANG === 'en';
+        function fTitle(h) { return (en && h.title_en) ? h.title_en : h.title; }
+        function fDesc(h) { return (en && h.desc_en) ? h.desc_en : h.desc; }
+        function fCat(h) { return (en && h.cat_en) ? h.cat_en : h.cat; }
+        var hits = idx.filter(function (it) {
+          return (fTitle(it) + ' ' + fDesc(it) + ' ' + it.title + ' ' + it.desc)
+            .toLowerCase().indexOf(q) !== -1;
+        }).slice(0, 25);
+        if (!hits.length) {
+          sr.innerHTML = '<div class="sr-empty">' +
+            (en ? 'No matches' : '没有匹配结果') + '</div>';
+        } else {
+          sr.innerHTML = hits.map(function (h) {
+            return '<a class="sr-item" href="' + BASE + 'daily/' + h.date + '.html">' +
+                   '<span class="sr-date">' + h.date + ' · ' + esc(fCat(h)) + '</span>' +
+                   '<span class="sr-title">' + esc(fTitle(h)) + '</span></a>';
+          }).join('');
+        }
+        sr.classList.add('active');
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.search-box')) sr.classList.remove('active');
+    });
+  }
+
+  // ── Filters (category tabs + star toggle), scoped per digest ──
+  document.querySelectorAll('.filter-bar').forEach(function (bar) {
+    var scope = bar.closest('.digest-scope') || document;
+    var tabs = bar.querySelectorAll('.tab');
+    var starToggle = bar.querySelector('.star-toggle');
+    var curCat = 'all', starsOnly = false;
+
+    function apply() {
+      scope.querySelectorAll('.category').forEach(function (catEl) {
+        var ct = catEl.getAttribute('data-cat');
+        var catMatch = (curCat === 'all') || (ct === curCat);
+        var visible = 0;
+        catEl.querySelectorAll('.item-card').forEach(function (it) {
+          var stars = parseInt(it.getAttribute('data-stars') || '0', 10);
+          var show = catMatch && (!starsOnly || stars >= 4);
+          it.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        catEl.style.display = (catMatch && visible > 0) ? '' : 'none';
+      });
+      var anyVisible = Array.prototype.some.call(
+        scope.querySelectorAll('.category'),
+        function (c) { return c.style.display !== 'none'; }
+      );
+      var emptyMsg = scope.querySelector('.empty-filter');
+      if (emptyMsg) emptyMsg.style.display = anyVisible ? 'none' : 'block';
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+        curCat = t.getAttribute('data-cat');
+        apply();
+      });
+    });
+    if (starToggle) {
+      starToggle.addEventListener('click', function () {
+        starsOnly = !starsOnly;
+        starToggle.classList.toggle('active', starsOnly);
+        apply();
+      });
+    }
+  });
+
+  // ── Keyboard navigation (day pages) ──
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft' && window.PREV_DATE) {
+      window.location.href = window.PREV_DATE + '.html';
+    } else if (e.key === 'ArrowRight' && window.NEXT_DATE) {
+      window.location.href = window.NEXT_DATE + '.html';
+    }
+  });
+
+  // ── Back to top ──
+  var btt = document.getElementById('backToTop');
+  if (btt) {
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── Reading progress ──
+  var pb = document.getElementById('progressBar');
+  if (pb) {
+    window.addEventListener('scroll', function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      pb.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+  }
+
+  // ── Theme toggle ──
+  var tt = document.getElementById('themeToggle');
+  function curTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  }
+  function paintToggle() { if (tt) tt.textContent = curTheme() === 'light' ? '☀️' : '🌙'; }
+  paintToggle();
+  if (tt) {
+    tt.addEventListener('click', function () {
+      var next = curTheme() === 'light' ? 'dark' : 'light';
+      if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paintToggle();
+    });
+  }
+
+  // ── Language toggle ──
+  var PH = { zh: '搜索全部日报…', en: 'Search all digests…' };
+  function curLang() {
+    return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'zh';
+  }
+  window.CUR_LANG = curLang();
+  var lt = document.getElementById('langToggle');
+  function applyLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+    window.CUR_LANG = lang;
+    if (lt) lt.textContent = lang === 'en' ? '中' : 'EN';
+    if (si) si.setAttribute('placeholder', PH[lang]);
+  }
+  applyLang(curLang());
+  if (lt) {
+    lt.addEventListener('click', function () {
+      var next = curLang() === 'en' ? 'zh' : 'en';
+      try { localStorage.setItem('lang', next); } catch (e) {}
+      applyLang(next);
+    });
+  }
+
+  // ── Hot-word tags → search ──
+  document.querySelectorAll('.trend-tag').forEach(function (tag) {
+    tag.addEventListener('click', function () {
+      var term = tag.getAttribute('data-term');
+      if (si) {
+        si.value = term;
+        si.focus();
+        si.dispatchEvent(new Event('input', { bubbles: true }));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Voice readout (Web Speech API) ──
+  var synth = window.speechSynthesis;
+  document.querySelectorAll('.speak-btn').forEach(function (btn) {
+    if (!synth) { btn.style.display = 'none'; return; }
+    var label = btn.getAttribute('data-label') || '🔊 朗读';
+    var stop = btn.getAttribute('data-stop') || '⏹ 停止';
+    btn.addEventListener('click', function () {
+      if (btn.classList.contains('playing')) {
+        synth.cancel();
+        return;
+      }
+      synth.cancel();
+      var u = new SpeechSynthesisUtterance(btn.getAttribute('data-text') || '');
+      u.lang = btn.getAttribute('data-speak-lang') || 'zh-CN';
+      u.rate = 1.0;
+      u.onend = u.onerror = function () {
+        btn.classList.remove('playing');
+        btn.textContent = label;
+      };
+      btn.classList.add('playing');
+      btn.textContent = stop;
+      synth.speak(u);
+    });
+  });
+  window.addEventListener('beforeunload', function () { if (synth) synth.cancel(); });
+
+  // ── Audio player: lock-screen / car metadata via MediaSession ──
+  document.querySelectorAll('.audio-player audio').forEach(function (audio) {
+    audio.addEventListener('play', function () {
+      if (!('mediaSession' in navigator)) return;
+      var date = audio.getAttribute('data-date') || '';
+      try {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: 'Andy 的 AI 早报 · ' + date,
+          artist: 'Andy 的 AI 早报',
+          album: 'Andy 的 AI 早报',
+          artwork: [{ src: BASE + 'podcast-cover.png', sizes: '1400x1400', type: 'image/png' }]
+        });
+      } catch (e) {}
+    });
+  });
+
+  // ── Copy podcast feed URL ──
+  document.querySelectorAll('[data-copy-feed]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url = el.getAttribute('data-copy-feed');
+      var done = function () {
+        var old = el.textContent;
+        el.textContent = (window.CUR_LANG === 'en' ? '✓ Copied!' : '✓ 已复制订阅链接');
+        setTimeout(function () { el.textContent = old; }, 1800);
+      };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done, done); }
+      else { done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

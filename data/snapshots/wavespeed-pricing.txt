@@ -49,8 +49,8 @@ MiniMax H3
 $0.02 / second $0.04 - 50 %
 50 seconds
 Kling 4.0
-$0.1335 / second $0.157 - 15 %
-7.4 seconds
+$0.1413 / second $0.157 - 10 %
+7 seconds
 Kling 4.0 Flash
 $0.094 / second
 10.6 seconds

@@ -3,12 +3,13 @@
   "product": "AI Daily Global — 综合版（中英双语 + 播客 + GitHub Pages）",
   "timezone": "Asia/Shanghai",
   "model": {
-    "provider": "deepseek",
-    "name": "deepseek-chat",
-    "base_url": "https://api.deepseek.com",
-    "api_key_env": "DEEPSEEK_API_KEY",
-    "note": "沿用原仓库既定模型配置；GitHub Actions 亦使用 vars.API_MODEL（默认 deepseek-chat）"
+    "provider": "anyfast",
+    "name": "deepseek-v4.1-flash-1017",
+    "base_url": "https://admin.anyfast.ai/v1",
+    "api_key_env": "ANYFAST_API_KEY",
+    "note": "Mac mini 本地定时任务；生成脚本拼接 /chat/completions"
   },
+  "env": {"API_DISABLE_THINKING": "1"},
   "network": {
     "proxy": "http://127.0.0.1:7897",
     "no_proxy": "127.0.0.1,localhost"

@@ -106,6 +106,7 @@ def _chat(system, user, max_tokens=8192, temperature=0.7):
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
             "temperature": temperature,
             "max_tokens": max_tokens,
+            **({"thinking": {"type": "disabled"}} if os.environ.get("API_DISABLE_THINKING") == "1" else {}),
         },
         timeout=180,
     )
