@@ -40,10 +40,10 @@ deepseek/deepseek-v3.2-exp | prompt 0.00000027 | completion 0.00000041 | image N
 deepseek/deepseek-v4-flash | prompt 0.00000009 | completion 0.00000018 | image None
 deepseek/deepseek-v4-flash-0731 | prompt 0.0000000456 | completion 0.0000003 | image None
 deepseek/deepseek-v4-flash-0731:batch | prompt 0.000000048 | completion 0.000000144 | image None
-deepseek/deepseek-v4-flash-vision-exp | prompt 0.00000044 | completion 0.00000132 | image None
-deepseek/deepseek-v4-pro | prompt 0.000000713318 | completion 0.0000015216 | image None
-deepseek/deepseek-v4-pro-0813 | prompt 0.000000111 | completion 0.00000444 | image None
-deepseek/deepseek-v4.1-flash | prompt 0.0000000507 | completion 0.0000002028 | image None
+deepseek/deepseek-v4-flash-vision-exp | prompt 0.0000002156 | completion 0.0000006468 | image None
+deepseek/deepseek-v4-pro | prompt 0.00000065417 | completion 0.0000015651 | image None
+deepseek/deepseek-v4-pro-0813 | prompt 0.0000000999 | completion 0.000005 | image None
+deepseek/deepseek-v4.1-flash | prompt 0.000000051 | completion 0.000000567 | image None
 deepseek/deepseek-v4.1-flash-1017 | prompt 0.00000015 | completion 0.0000006 | image None
 deepseek/deepseek-v4.1-flash-1017:batch | prompt 0.000000035 | completion 0.000000149 | image None
 deepseek/deepseek-v4.1-flash:batch | prompt 0.00000005 | completion 0.00000015 | image None
@@ -88,9 +88,9 @@ google/gemini-omni-1.1-flash | prompt 0.0000015 | completion 0.000009 | image No
 google/gemini-omni-1.2-flash | prompt 0.0000015 | completion 0.000009 | image None
 google/gemma-2-27b-it | prompt 0.00000065 | completion 0.00000065 | image None
 google/gemma-3-12b-it | prompt 0.00000005 | completion 0.00000015 | image None
-google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000045 | image None
-google/gemma-3-4b-it | prompt 0.00000004 | completion 0.00000005 | image None
-google/gemma-4-26b-a4b-it | prompt 0.0000000765 | completion 0.000000255 | image None
+google/gemma-3-27b-it | prompt 0.00000008 | completion 0.00000016 | image None
+google/gemma-3-4b-it | prompt 0.00000005 | completion 0.0000001 | image None
+google/gemma-4-26b-a4b-it | prompt 0.0000000675 | completion 0.000000225 | image None
 google/gemma-4-26b-a4b-it:free | prompt 0 | completion 0 | image None
 google/gemma-4-31b-it | prompt 0.0000002 | completion 0.0000004 | image None
 google/gemma-4-31b-it:free | prompt 0 | completion 0 | image None
@@ -103,7 +103,7 @@ minimax/minimax-m3.1-flash | prompt 0.000000075 | completion 0.0000003 | image N
 minimax/minimax-m3:batch | prompt 0.000000224 | completion 0.00000088 | image None
 moonshotai/kimi-k2 | prompt 0.00000057 | completion 0.0000023 | image None
 moonshotai/kimi-k2-0905 | prompt 0.0000006 | completion 0.0000025 | image None
-moonshotai/kimi-k2.5 | prompt 0.0000005 | completion 0.0000025 | image None
+moonshotai/kimi-k2.5 | prompt 0.0000006 | completion 0.000003 | image None
 moonshotai/kimi-k2.6 | prompt 0.00000065 | completion 0.00000341 | image None
 moonshotai/kimi-k2.7-code | prompt 0.0000006 | completion 0.000003 | image None
 moonshotai/kimi-k3 | prompt 0.000000192 | completion 0.000016 | image None
